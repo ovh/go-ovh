@@ -3,6 +3,11 @@ govh
 
 Simple Go wrapper for the OVH API.
 
+[![GoDoc](https://godoc.org/github.com/gregdel/govh?status.svg)](http://godoc.org/github.com/gregdel/govh)
+[![Build Status](https://travis-ci.org/gregdel/govh.svg?branch=master)](https://travis-ci.org/gregdel/govh)
+[![Coverage Status](https://coveralls.io/repos/gregdel/govh/badge.svg?branch=master&service=github)](https://coveralls.io/github/gregdel/govh?branch=master)
+[![Go Report Card](http://goreportcard.com/badge/gregdel/govh)](http://goreportcard.com/report/gregdel/govh)
+
 ## Register your app
 
 Visit [https://eu.api.ovh.com/createApp](https://eu.api.ovh.com/createApp) and create your app. You'll get an application key and an application secret. To use the API you'll need a consumer key.
