@@ -108,12 +108,27 @@ func TestInvalidCkReqest(t *testing.T) {
 		t.Fatal("expected an error, got none")
 	}
 
-	expected := &APIOvhError{
+	expected := &APIError{
 		Code:    http.StatusUnauthorized,
 		Message: "Invalid application key",
 	}
 
 	if !reflect.DeepEqual(err, expected) {
 		t.Fatalf("unexpected error from get ck request")
+	}
+}
+
+func TestCkReqestString(t *testing.T) {
+	ckValidationState := &CkValidationState{
+		ConsumerKey:   "ck",
+		State:         "pending",
+		ValidationURL: "fakeURL",
+	}
+
+	expected := fmt.Sprintf("CK: \"ck\"\nStatus: \"pending\"\nValidation URL: \"fakeURL\"\n")
+	got := fmt.Sprintf("%s", ckValidationState)
+
+	if got != expected {
+		t.Errorf("expected %q, got %q", expected, got)
 	}
 }

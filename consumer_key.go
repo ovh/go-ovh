@@ -91,7 +91,7 @@ func (ck *CkRequest) Do() (*CkValidationState, error) {
 	}
 
 	if result.StatusCode != http.StatusOK {
-		apiError := &APIOvhError{Code: result.StatusCode}
+		apiError := &APIError{Code: result.StatusCode}
 		if err = json.Unmarshal(body, apiError); err != nil {
 			return nil, err
 		}

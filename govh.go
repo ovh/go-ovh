@@ -6,7 +6,7 @@ import (
 	"crypto/sha1"
 	"encoding/hex"
 	"encoding/json"
-	"fmt"
+	"errors"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -24,6 +24,11 @@ const (
 	OvhEU    Endpoint = "https://api.ovh.com/1.0"
 	OvhCA             = "https://ca.api.ovh.com/1.0"
 	Runabove          = "https://api.runabove.com/1.0"
+)
+
+// Errors
+var (
+	ErrAPIDown = errors.New("govh: the OVH API is down, it does't respond to /time anymore")
 )
 
 // Client represents a client to call the OVH API
@@ -56,7 +61,7 @@ func NewClient(endpoint Endpoint, appKey, appSecret, consumerKey string) *Client
 // Ping performs a ping to OVH API.
 // In fact, ping is just a /auth/time call, in order to check if API is up.
 func (c *Client) Ping() error {
-	_, err := c.Time()
+	_, err := getTime(c.endpoint)
 	return err
 }
 
@@ -175,7 +180,7 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 
 	// < 200 && >= 300 : API error
 	if response.StatusCode < http.StatusOK || response.StatusCode >= http.StatusMultipleChoices {
-		apiError := &APIOvhError{Code: response.StatusCode}
+		apiError := &APIError{Code: response.StatusCode}
 		if err = json.Unmarshal(body, apiError); err != nil {
 			return err
 		}
@@ -241,7 +246,7 @@ var getTime = func(endpoint Endpoint) (*time.Time, error) {
 	}
 
 	if result.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("API seems down, HTTP response: %d", result.StatusCode)
+		return nil, ErrAPIDown
 	}
 
 	defer result.Body.Close()

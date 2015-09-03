@@ -86,6 +86,23 @@ func TestTime(t *testing.T) {
 	}
 }
 
+func TestAPIError(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "", http.StatusInternalServerError)
+	}))
+	defer ts.Close()
+
+	// Check that the time is correct
+	_, err := getTime(Endpoint(ts.URL))
+	if err == nil {
+		t.Error("expected an error, got none")
+	}
+
+	if err != ErrAPIDown {
+		t.Errorf("expected %q, got %q", ErrAPIDown, err)
+	}
+}
+
 func TestGetResponse(t *testing.T) {
 	ak := "fakeKey"
 	as := "fakeAppSecret"
@@ -175,5 +192,63 @@ func TestGetResponse(t *testing.T) {
 		if h == "" {
 			t.Errorf("expected header %q received nothing", h)
 		}
+	}
+}
+
+func TestGetInvalidResponse(t *testing.T) {
+	code := http.StatusUnauthorized
+	msg := "what the fuck are you doing here"
+	expectedError := &APIError{Code: code, Message: msg}
+
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		ret := fmt.Sprintf("{%q:%q}", "message", msg)
+		http.Error(w, ret, code)
+	}))
+	defer ts.Close()
+
+	// Create a new client
+	endpoint := Endpoint(ts.URL)
+	client := NewClient(endpoint, "", "", "")
+
+	err := client.Get("/fakeURL", nil)
+	if err == nil {
+		t.Fatal("expected an error, got none")
+	}
+
+	if !reflect.DeepEqual(err, expectedError) {
+		t.Fatalf("invalid response, got %q, expected %q", err, expectedError)
+	}
+}
+
+func TestPing(t *testing.T) {
+	getTime = func(endpoint Endpoint) (*time.Time, error) {
+		return nil, ErrAPIDown
+	}
+
+	client := NewClient(Endpoint("/fake"), "", "", "")
+	err := client.Ping()
+	if err == nil {
+		t.Fatal("expected an error, got none")
+	}
+
+	if err != ErrAPIDown {
+		t.Fatalf("expected %q, got %q", ErrAPIDown, err)
+	}
+}
+
+func TestDelay(t *testing.T) {
+	expectedDelay := 5 * time.Second
+	delay = func(e Endpoint, o *sync.Once) (time.Duration, error) {
+		return expectedDelay, nil
+	}
+
+	client := NewClient(Endpoint("/fake"), "", "", "")
+	d, err := client.Delay()
+	if err != nil {
+		t.Fatalf("expected no error, got %q", err)
+	}
+
+	if expectedDelay.Seconds() != d.Seconds() {
+		t.Fatalf("expected %s, got %s", expectedDelay, d)
 	}
 }
