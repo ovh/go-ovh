@@ -60,57 +60,35 @@ func (c *Client) Ping() error {
 	return err
 }
 
-// delay represents the delay between the machine that runs the code and the
+// Delay represents the delay between the machine that runs the code and the
 // OVH API. The delay shouldn't change, let's do it only once.
-func (c *Client) delay() (time.Duration, error) {
-	var d time.Duration
-	var err error
-
-	c.once.Do(func() {
-		ovhTime, err := c.Time()
-		if err != nil {
-			return
-		}
-
-		d = time.Since(*ovhTime)
-	})
-
-	return d, err
+func (c *Client) Delay() (time.Duration, error) {
+	return delay(c.endpoint, &c.once)
 }
 
 // Time returns time from the OVH API, by asking GET /auth/time.
 func (c *Client) Time() (*time.Time, error) {
-	url := string(c.endpoint) + "/auth/time"
+	return getTime(c.endpoint)
+}
 
-	request, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	request.Header.Add("Content-Type", "application/json")
+// Get is a wrapper for the GET method
+func (c *Client) Get(url string, resType interface{}) error {
+	return c.callAPI(url, "GET", nil, resType)
+}
 
-	result, err := http.DefaultClient.Do(request)
-	if err != nil {
-		return nil, err
-	}
+// Post is a wrapper for the POST method
+func (c *Client) Post(url string, reqBody, resType interface{}) error {
+	return c.callAPI(url, "POST", reqBody, resType)
+}
 
-	if result.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("API seems down, HTTP response: %d", result.StatusCode)
-	}
+// Put is a wrapper for the PUT method
+func (c *Client) Put(url string, reqBody, resType interface{}) error {
+	return c.callAPI(url, "PUT", reqBody, resType)
+}
 
-	defer result.Body.Close()
-	body, err := ioutil.ReadAll(result.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	ts, err := strconv.Atoi(string(body))
-	if err != nil {
-		return nil, err
-	}
-
-	t := time.Unix(int64(ts), 0)
-
-	return &t, nil
+// Delete is a wrapper for the DELETE method
+func (c *Client) Delete(url string, resType interface{}) error {
+	return c.callAPI(url, "DELETE", nil, resType)
 }
 
 // CallAPI makes a new call to the OVH API
@@ -150,26 +128,6 @@ func (c *Client) callAPI(url, method string, reqBody, resType interface{}) error
 	return nil
 }
 
-// Get is a wrapper for the GET method
-func (c *Client) Get(url string, resType interface{}) error {
-	return c.callAPI(url, "GET", nil, resType)
-}
-
-// Post is a wrapper for the POST method
-func (c *Client) Post(url string, reqBody, resType interface{}) error {
-	return c.callAPI(url, "POST", reqBody, resType)
-}
-
-// Put is a wrapper for the PUT method
-func (c *Client) Put(url string, reqBody, resType interface{}) error {
-	return c.callAPI(url, "PUT", reqBody, resType)
-}
-
-// Delete is a wrapper for the DELETE method
-func (c *Client) Delete(url string, resType interface{}) error {
-	return c.callAPI(url, "DELETE", nil, resType)
-}
-
 // encodeParams encode the body params as json
 func (c *Client) encodeParams(reqBody interface{}) (params []byte, err error) {
 	if reqBody == nil {
@@ -184,7 +142,7 @@ func (c *Client) encodeParams(reqBody interface{}) (params []byte, err error) {
 // setHeaders set the request with the proper headers
 func (c *Client) setHeaders(r *http.Request, method, url, params string) error {
 	// Get the timestamp with the delay
-	delay, err := c.delay()
+	delay, err := delay(c.endpoint, &c.once)
 	if err != nil {
 		return err
 	}
@@ -246,4 +204,58 @@ func sig(as, ck, method, query, body string, timestamp int64) string {
 	}, "+")
 	io.WriteString(h, sig)
 	return "$1$" + hex.EncodeToString(h.Sum(nil))
+}
+
+// delay is a function to be overwritten during the tests, it return duration
+// delay between the current machine and the given API
+var delay = func(e Endpoint, o *sync.Once) (time.Duration, error) {
+	var d time.Duration
+	var err error
+
+	o.Do(func() {
+		ovhTime, err := getTime(e)
+		if err != nil {
+			return
+		}
+
+		d = time.Since(*ovhTime)
+	})
+
+	return d, err
+}
+
+// getTime is a function to be overwritten during the tests, it returns time
+// from for a given endpoint
+var getTime = func(endpoint Endpoint) (*time.Time, error) {
+	url := string(endpoint) + "/auth/time"
+
+	request, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+	request.Header.Add("Content-Type", "application/json")
+
+	result, err := http.DefaultClient.Do(request)
+	if err != nil {
+		return nil, err
+	}
+
+	if result.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("API seems down, HTTP response: %d", result.StatusCode)
+	}
+
+	defer result.Body.Close()
+	body, err := ioutil.ReadAll(result.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	ts, err := strconv.Atoi(string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	t := time.Unix(int64(ts), 0)
+
+	return &t, nil
 }
