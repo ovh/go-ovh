@@ -22,10 +22,25 @@ type Endpoint string
 
 // Endpoints
 const (
-	OvhEU    Endpoint = "https://api.ovh.com/1.0"
-	OvhCA             = "https://ca.api.ovh.com/1.0"
-	Runabove          = "https://api.runabove.com/1.0"
+	OvhEU        Endpoint = "https://eu.api.ovh.com/1.0"
+	OvhCA                 = "https://ca.api.ovh.com/1.0"
+	KimsufiEU             = "https://eu.api.kimsufi.com/1.0"
+	KimsufiCA             = "https://ca.api.kimsufi.com/1.0"
+	SoyoustartEU          = "https://eu.api.soyoustart.com/1.0"
+	SoyoustartCA          = "https://ca.api.soyoustart.com/1.0"
+	RunaboveCA            = "https://api.runabove.com/1.0"
 )
+
+// Endpoints conveniently maps endpoints names to their URI for external configuration
+var Endpoints = map[string]Endpoint{
+	"ovh-eu":        OvhEU,
+	"ovh-ca":        OvhCA,
+	"kimsufi-eu":    KimsufiEU,
+	"kimsufi-ca":    KimsufiCA,
+	"soyoustart-eu": SoyoustartEU,
+	"soyoustart-ca": SoyoustartCA,
+	"runabove-ca":   RunaboveCA,
+}
 
 // Errors
 var (
