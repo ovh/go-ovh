@@ -14,6 +14,9 @@ import (
 	"time"
 )
 
+// DefaultTimeout api requests after 180s
+const DefaultTimeout = 180
+
 // Endpoint reprensents an API endpoint
 type Endpoint string
 
@@ -55,21 +58,23 @@ type Client struct {
 }
 
 // NewClient represents a new client to call the API
-func NewClient(endpoint, appKey, appSecret, consumerKey string) *Client {
+func NewClient(endpoint Endpoint, appKey, appSecret, consumerKey string) *Client {
 	return &Client{
 		appKey:         appKey,
 		appSecret:      appSecret,
 		consumerKey:    consumerKey,
+		endpoint:       endpoint,
 		client:         &http.Client{},
 		timeDeltaMutex: &sync.Mutex{},
 		timeDeltaDone:  false,
+		Timeout:        time.Duration(DefaultTimeout * time.Second),
 	}
 }
 
 // NewEndpointClient will create an API client for specified
 // endpoint and load all credentials from environment or
 // configuration files
-func NewEndpointClient(endpoint string) *Client {
+func NewEndpointClient(endpoint Endpoint) *Client {
 	return NewClient(endpoint, "", "", "")
 }
 
@@ -282,7 +287,8 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 		req.Header.Add("X-Ovh-Signature", fmt.Sprintf("$1$%x", h.Sum(nil)))
 	}
 
-	// Send the request
+	// Send the request with requested timeout
+	c.client.Timeout = c.Timeout
 	response, err := c.client.Do(req)
 
 	if err != nil {
