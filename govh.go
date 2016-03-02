@@ -4,14 +4,12 @@ package govh
 import (
 	"bytes"
 	"crypto/sha1"
-	"encoding/hex"
 	"encoding/json"
 	"errors"
-	"io"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
-	"strings"
 	"sync"
 	"time"
 )
@@ -44,132 +42,115 @@ type Client struct {
 	// API endpoint
 	endpoint Endpoint
 
-	// Ensures that the delay function is only called once
-	once sync.Once
+	// Request client
+	client *http.Client
+
+	// Ensures that the timeDelta function is only ran once
+	// sync.Once would consider init done, even in case of error
+	// hence a good old flag
+	timeDeltaMutex *sync.Mutex
+	timeDeltaDone  bool
+	timeDelta      time.Duration
+	Timeout        time.Duration
 }
 
 // NewClient represents a new client to call the API
-func NewClient(endpoint Endpoint, appKey, appSecret, consumerKey string) *Client {
+func NewClient(endpoint, appKey, appSecret, consumerKey string) *Client {
 	return &Client{
-		appKey:      appKey,
-		appSecret:   appSecret,
-		consumerKey: consumerKey,
-		endpoint:    endpoint,
+		appKey:         appKey,
+		appSecret:      appSecret,
+		consumerKey:    consumerKey,
+		client:         &http.Client{},
+		timeDeltaMutex: &sync.Mutex{},
+		timeDeltaDone:  false,
 	}
 }
+
+// NewEndpointClient will create an API client for specified
+// endpoint and load all credentials from environment or
+// configuration files
+func NewEndpointClient(endpoint string) *Client {
+	return NewClient(endpoint, "", "", "")
+}
+
+// NewDefaultClient will load all it's parameter from environment
+// or configuration files
+func NewDefaultClient() *Client {
+	return NewClient("", "", "", "")
+}
+
+//
+// High level helpers
+//
 
 // Ping performs a ping to OVH API.
 // In fact, ping is just a /auth/time call, in order to check if API is up.
 func (c *Client) Ping() error {
-	_, err := getTime(c.endpoint)
+	_, err := c.getTime()
 	return err
 }
 
-// Delay represents the delay between the machine that runs the code and the
+// TimeDelta represents the delay between the machine that runs the code and the
 // OVH API. The delay shouldn't change, let's do it only once.
-func (c *Client) Delay() (time.Duration, error) {
-	return delay(c.endpoint, &c.once)
+func (c *Client) TimeDelta() (time.Duration, error) {
+	return c.getTimeDelta()
 }
 
 // Time returns time from the OVH API, by asking GET /auth/time.
 func (c *Client) Time() (*time.Time, error) {
-	return getTime(c.endpoint)
+	return c.getTime()
 }
+
+//
+// Common request wrappers
+//
 
 // Get is a wrapper for the GET method
 func (c *Client) Get(url string, resType interface{}) error {
-	return c.callAPI(url, "GET", nil, resType)
+	return c.CallAPI(url, "GET", nil, resType, true)
+}
+
+// GetUnAuth is a wrapper for the unauthenticated GET method
+func (c *Client) GetUnAuth(url string, resType interface{}) error {
+	return c.CallAPI(url, "GET", nil, resType, false)
 }
 
 // Post is a wrapper for the POST method
 func (c *Client) Post(url string, reqBody, resType interface{}) error {
-	return c.callAPI(url, "POST", reqBody, resType)
+	return c.CallAPI(url, "POST", reqBody, resType, true)
+}
+
+// PostUnAuth is a wrapper for the unauthenticated POST method
+func (c *Client) PostUnAuth(url string, reqBody, resType interface{}) error {
+	return c.CallAPI(url, "POST", reqBody, resType, false)
 }
 
 // Put is a wrapper for the PUT method
 func (c *Client) Put(url string, reqBody, resType interface{}) error {
-	return c.callAPI(url, "PUT", reqBody, resType)
+	return c.CallAPI(url, "PUT", reqBody, resType, true)
+}
+
+// PutUnAuth is a wrapper for the unauthenticated PUT method
+func (c *Client) PutUnAuth(url string, reqBody, resType interface{}) error {
+	return c.CallAPI(url, "PUT", reqBody, resType, false)
 }
 
 // Delete is a wrapper for the DELETE method
 func (c *Client) Delete(url string, resType interface{}) error {
-	return c.callAPI(url, "DELETE", nil, resType)
+	return c.CallAPI(url, "DELETE", nil, resType, true)
 }
 
-// CallAPI makes a new call to the OVH API
-// ApplicationKey, ApplicationSecret and ConsumerKey must be set on Client
-// Returns the unmarshal json object or error if any occured
-func (c *Client) callAPI(url, method string, reqBody, resType interface{}) error {
-	url = string(c.endpoint) + url
-
-	// Encode the request params
-	params, err := c.encodeParams(reqBody)
-	if err != nil {
-		return err
-	}
-
-	// Create a new request
-	request, err := http.NewRequest(method, url, bytes.NewReader(params))
-	if err != nil {
-		return err
-	}
-
-	// Set the headers and sign the request
-	if err := c.setHeaders(request, method, url, string(params)); err != nil {
-		return err
-	}
-
-	// Run the request
-	response, err := http.DefaultClient.Do(request)
-	if err != nil {
-		return err
-	}
-
-	// Unmarshal the result into the resType if possible
-	if err := c.getResponse(response, resType); err != nil {
-		return err
-	}
-
-	return nil
+// DeleteUnAuth is a wrapper for the unauthenticated DELETE method
+func (c *Client) DeleteUnAuth(url string, resType interface{}) error {
+	return c.CallAPI(url, "DELETE", nil, resType, false)
 }
 
-// encodeParams encode the body params as json
-func (c *Client) encodeParams(reqBody interface{}) (params []byte, err error) {
-	if reqBody == nil {
-		return
-	}
+//
+// Low level API access
+//
 
-	params, err = json.Marshal(reqBody)
-
-	return
-}
-
-// setHeaders set the request with the proper headers
-func (c *Client) setHeaders(r *http.Request, method, url, params string) error {
-	// Get the timestamp with the delay
-	delay, err := delay(c.endpoint, &c.once)
-	if err != nil {
-		return err
-	}
-
-	timestamp := time.Now().Add(delay).Unix()
-
-	// Sig the header
-	sig := sig(c.appSecret, c.consumerKey, method, url, params, timestamp)
-	for h, v := range map[string]string{
-		"Content-Type":      "application/json",
-		"X-Ovh-Timestamp":   strconv.FormatInt(timestamp, 10),
-		"X-Ovh-Application": c.appKey,
-		"X-Ovh-Consumer":    c.consumerKey,
-		"X-Ovh-Signature":   sig,
-	} {
-		r.Header.Add(h, v)
-	}
-
-	return nil
-}
-
-// getResult check the response and unmarshals it into the response type if needed
+// getResult check the response and unmarshals it into the response type if needed.
+// Helper function, called from CallAPI.
 func (c *Client) getResponse(response *http.Response, resType interface{}) error {
 	// Read all the response body
 	defer response.Body.Close()
@@ -196,71 +177,118 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 	return json.Unmarshal(body, &resType)
 }
 
-// sig is used to compute the signature of a request
-func sig(as, ck, method, query, body string, timestamp int64) string {
-	h := sha1.New()
-	sig := strings.Join([]string{
-		as,
-		ck,
-		method,
-		query,
-		body,
-		strconv.FormatInt(timestamp, 10),
-	}, "+")
-	io.WriteString(h, sig)
-	return "$1$" + hex.EncodeToString(h.Sum(nil))
-}
+// timeDelta is a function to be overwritten during the tests, it return the time
+// delta between the host and the remote API
+func (c *Client) getTimeDelta() (time.Duration, error) {
 
-// delay is a function to be overwritten during the tests, it return duration
-// delay between the current machine and the given API
-var delay = func(e Endpoint, o *sync.Once) (time.Duration, error) {
-	var d time.Duration
-	var err error
+	if c.timeDeltaDone != true {
+		// Ensure only one thread is updating
+		c.timeDeltaMutex.Lock()
 
-	o.Do(func() {
-		ovhTime, err := getTime(e)
-		if err != nil {
-			return
+		// Did we wait ? Maybe no more needed
+		if c.timeDeltaDone != true {
+			ovhTime, err := c.getTime()
+			if err != nil {
+				return 0, err
+			}
+
+			c.timeDelta = time.Since(*ovhTime)
+			c.timeDeltaDone = true
 		}
+		c.timeDeltaMutex.Unlock()
+	}
 
-		d = time.Since(*ovhTime)
-	})
-
-	return d, err
+	return c.timeDelta, nil
 }
 
 // getTime is a function to be overwritten during the tests, it returns time
-// from for a given endpoint
-var getTime = func(endpoint Endpoint) (*time.Time, error) {
-	url := string(endpoint) + "/auth/time"
+// from for a given api client endpoint
+func (c *Client) getTime() (*time.Time, error) {
+	var timestamp int64
 
-	request, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	request.Header.Add("Content-Type", "application/json")
-
-	result, err := http.DefaultClient.Do(request)
+	err := c.GetUnAuth("/auth/time", &timestamp)
 	if err != nil {
 		return nil, err
 	}
 
-	if result.StatusCode != http.StatusOK {
-		return nil, ErrAPIDown
+	serverTime := time.Unix(timestamp, 0)
+	return &serverTime, nil
+}
+
+// CallAPI is the lowest level call helper. If needAuth is true,
+// inject authentication headers and sign the request.
+//
+// Request signature is a sha1 hash on following fields, joined by '+':
+// - applicationSecret (from Client instance)
+// - consumerKey (from Client instance)
+// - capitalized method (from arguments)
+// - full request url, including any query string argument
+// - full serialized request body
+// - server current time (takes time delta into account)
+//
+// Call will automatically assemble the target url from the endpoint
+// configured in the client instance and the path argument. If the reqBody
+// argument is not nil, it will also serialize it as json and inject
+// the required Content-Type header.
+//
+// If everyrthing went fine, unmarshall response into resType and return nil
+// otherwise, return the error
+func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, needAuth bool) error {
+	var body []byte
+	var err error
+
+	if reqBody != nil {
+		body, err = json.Marshal(reqBody)
+		if err != nil {
+			return err
+		}
 	}
 
-	defer result.Body.Close()
-	body, err := ioutil.ReadAll(result.Body)
+	target := fmt.Sprintf("%s%s", c.endpoint, path)
+	req, err := http.NewRequest(method, target, bytes.NewReader(body))
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	ts, err := strconv.Atoi(string(body))
+	// Inject headers
+	if body != nil {
+		req.Header.Add("Content-Type", "application/json;charset=utf-8")
+	}
+	req.Header.Add("X-Ovh-Application", c.appKey)
+
+	// Inject signature. Some methods do not need authentication, especially /time,
+	// /auth and some /order methods are actually broken if authenticated.
+	if needAuth {
+		timeDelta, err := c.TimeDelta()
+		if err != nil {
+			return err
+		}
+
+		timestamp := time.Now().Add(timeDelta).Unix()
+
+		req.Header.Add("X-Ovh-Timestamp", strconv.FormatInt(timestamp, 10))
+		req.Header.Add("X-Ovh-Consumer", c.consumerKey)
+		req.Header.Add("Accept", "application/json")
+
+		h := sha1.New()
+		h.Write([]byte(fmt.Sprintf("%s+%s+%s+%s+%s+%d",
+			c.appSecret,
+			c.consumerKey,
+			method,
+			target,
+			body,
+			timestamp,
+		)))
+		req.Header.Add("X-Ovh-Signature", fmt.Sprintf("$1$%x", h.Sum(nil)))
+	}
+
+	// Send the request
+	response, err := c.client.Do(req)
+
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	t := time.Unix(int64(ts), 0)
-
-	return &t, nil
+	// Unmarshal the result into the resType if possible
+	return c.getResponse(response, resType)
 }
