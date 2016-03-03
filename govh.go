@@ -127,42 +127,42 @@ func (c *Client) Time() (*time.Time, error) {
 
 // Get is a wrapper for the GET method
 func (c *Client) Get(url string, resType interface{}) error {
-	return c.CallAPI(url, "GET", nil, resType, true)
+	return c.CallAPI("GET", url, nil, resType, true)
 }
 
 // GetUnAuth is a wrapper for the unauthenticated GET method
 func (c *Client) GetUnAuth(url string, resType interface{}) error {
-	return c.CallAPI(url, "GET", nil, resType, false)
+	return c.CallAPI("GET", url, nil, resType, false)
 }
 
 // Post is a wrapper for the POST method
 func (c *Client) Post(url string, reqBody, resType interface{}) error {
-	return c.CallAPI(url, "POST", reqBody, resType, true)
+	return c.CallAPI("POST", url, reqBody, resType, true)
 }
 
 // PostUnAuth is a wrapper for the unauthenticated POST method
 func (c *Client) PostUnAuth(url string, reqBody, resType interface{}) error {
-	return c.CallAPI(url, "POST", reqBody, resType, false)
+	return c.CallAPI("POST", url, reqBody, resType, false)
 }
 
 // Put is a wrapper for the PUT method
 func (c *Client) Put(url string, reqBody, resType interface{}) error {
-	return c.CallAPI(url, "PUT", reqBody, resType, true)
+	return c.CallAPI("PUT", url, reqBody, resType, true)
 }
 
 // PutUnAuth is a wrapper for the unauthenticated PUT method
 func (c *Client) PutUnAuth(url string, reqBody, resType interface{}) error {
-	return c.CallAPI(url, "PUT", reqBody, resType, false)
+	return c.CallAPI("PUT", url, reqBody, resType, false)
 }
 
 // Delete is a wrapper for the DELETE method
 func (c *Client) Delete(url string, resType interface{}) error {
-	return c.CallAPI(url, "DELETE", nil, resType, true)
+	return c.CallAPI("DELETE", url, nil, resType, true)
 }
 
 // DeleteUnAuth is a wrapper for the unauthenticated DELETE method
 func (c *Client) DeleteUnAuth(url string, resType interface{}) error {
-	return c.CallAPI(url, "DELETE", nil, resType, false)
+	return c.CallAPI("DELETE", url, nil, resType, false)
 }
 
 //
@@ -197,8 +197,7 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 	return json.Unmarshal(body, &resType)
 }
 
-// timeDelta is a function to be overwritten during the tests, it return the time
-// delta between the host and the remote API
+// timeDelta returns the time  delta between the host and the remote API
 func (c *Client) getTimeDelta() (time.Duration, error) {
 
 	if c.timeDeltaDone != true {
@@ -221,8 +220,7 @@ func (c *Client) getTimeDelta() (time.Duration, error) {
 	return c.timeDelta, nil
 }
 
-// getTime is a function to be overwritten during the tests, it returns time
-// from for a given api client endpoint
+// getTime t returns time from for a given api client endpoint
 func (c *Client) getTime() (*time.Time, error) {
 	var timestamp int64
 
@@ -233,6 +231,18 @@ func (c *Client) getTime() (*time.Time, error) {
 
 	serverTime := time.Unix(timestamp, 0)
 	return &serverTime, nil
+}
+
+// getLocalTime is a function to be overwritten during the tests, it return the time
+// on the the local machine
+var getLocalTime = func() time.Time {
+	return time.Now()
+}
+
+// getEndpointForSignature is a function to be overwritten during the tests, it returns a
+// the endpoint
+var getEndpointForSignature = func(c *Client) Endpoint {
+	return c.endpoint
 }
 
 // CallAPI is the lowest level call helper. If needAuth is true,
@@ -275,6 +285,7 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 		req.Header.Add("Content-Type", "application/json;charset=utf-8")
 	}
 	req.Header.Add("X-Ovh-Application", c.appKey)
+	req.Header.Add("Accept", "application/json")
 
 	// Inject signature. Some methods do not need authentication, especially /time,
 	// /auth and some /order methods are actually broken if authenticated.
@@ -284,18 +295,18 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 			return err
 		}
 
-		timestamp := time.Now().Add(timeDelta).Unix()
+		timestamp := getLocalTime().Add(timeDelta).Unix()
 
 		req.Header.Add("X-Ovh-Timestamp", strconv.FormatInt(timestamp, 10))
 		req.Header.Add("X-Ovh-Consumer", c.consumerKey)
-		req.Header.Add("Accept", "application/json")
 
 		h := sha1.New()
-		h.Write([]byte(fmt.Sprintf("%s+%s+%s+%s+%s+%d",
+		h.Write([]byte(fmt.Sprintf("%s+%s+%s+%s%s+%s+%d",
 			c.appSecret,
 			c.consumerKey,
 			method,
-			target,
+			getEndpointForSignature(c),
+			path,
 			body,
 			timestamp,
 		)))
