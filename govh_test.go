@@ -32,7 +32,7 @@ type SomeData struct {
 // Utils
 //
 
-func initMockServer(InputRequest **http.Request, responseBody string, requestBody *string) (*httptest.Server, *Client) {
+func initMockServer(InputRequest **http.Request, status int, responseBody string, requestBody *string) (*httptest.Server, *Client) {
 	// Mock time
 	getLocalTime = func() time.Time {
 		return time.Unix(MockTime, 0)
@@ -58,6 +58,7 @@ func initMockServer(InputRequest **http.Request, responseBody string, requestBod
 
 		// Respond
 		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(status)
 		fmt.Fprintln(w, responseBody)
 	}))
 
@@ -96,7 +97,7 @@ func Capitalize(s string) string {
 func TestTime(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, fmt.Sprintf("%d", MockTime), nil)
+	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", MockTime), nil)
 	defer ts.Close()
 
 	// Test
@@ -117,7 +118,7 @@ func TestTime(t *testing.T) {
 func TestPing(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, `0`, nil)
+	ts, client := initMockServer(&InputRequest, 200, `0`, nil)
 	defer ts.Close()
 
 	// Test
@@ -132,7 +133,7 @@ func TestPing(t *testing.T) {
 func TestPingUnreachable(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, `0`, nil)
+	ts, client := initMockServer(&InputRequest, 200, `0`, nil)
 	defer ts.Close()
 
 	// Test
@@ -151,7 +152,7 @@ func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expected
 	// Init test
 	var InputRequest *http.Request
 	var InputRequestBody string
-	ts, client := initMockServer(&InputRequest, `"success"`, &InputRequestBody)
+	ts, client := initMockServer(&InputRequest, 200, `"success"`, &InputRequestBody)
 	defer ts.Close()
 
 	// Prepare method name

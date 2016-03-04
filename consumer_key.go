@@ -1,11 +1,7 @@
 package govh
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 )
 
 // AccessRule represents a method allowed for a path
@@ -34,8 +30,7 @@ type CkValidationState struct {
 // CkRequest represents the parameters to fill in order to ask a new
 // consumerKey.
 type CkRequest struct {
-	endpoint    Endpoint
-	appKey      string
+	client      *Client
 	AccessRules []*AccessRule `json:"accessRules"`
 }
 
@@ -48,10 +43,9 @@ func (ck *CkValidationState) String() string {
 }
 
 // NewCkRequest helps create a new ck request
-func NewCkRequest(endpoint Endpoint, appKey string) *CkRequest {
+func (c *Client) NewCkRequest() *CkRequest {
 	return &CkRequest{
-		endpoint:    endpoint,
-		appKey:      appKey,
+		client:      c,
 		AccessRules: []*AccessRule{},
 	}
 }
@@ -64,45 +58,15 @@ func (ck *CkRequest) AddRule(method, path string) {
 	})
 }
 
-// Do runs executes the request
+// Do executes the request. On success, set the consumer key in the client
+// and return the URL the user needs to visit to validate the key
 func (ck *CkRequest) Do() (*CkValidationState, error) {
-	params, err := json.Marshal(ck)
-	if err != nil {
-		return nil, err
+	state := CkValidationState{}
+	err := ck.client.PostUnAuth("/auth/credential", ck, &state)
+
+	if err == nil {
+		ck.client.consumerKey = state.ConsumerKey
 	}
 
-	url := fmt.Sprintf("%s/auth/credential", ck.endpoint)
-	request, err := http.NewRequest("POST", url, bytes.NewReader(params))
-	if err != nil {
-		return nil, err
-	}
-	request.Header.Add("Content-Type", "application/json")
-	request.Header.Add("X-OVH-Application", ck.appKey)
-
-	result, err := http.DefaultClient.Do(request)
-	if err != nil {
-		return nil, err
-	}
-	defer result.Body.Close()
-
-	body, err := ioutil.ReadAll(result.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	if result.StatusCode != http.StatusOK {
-		apiError := &APIError{Code: result.StatusCode}
-		if err = json.Unmarshal(body, apiError); err != nil {
-			return nil, err
-		}
-
-		return nil, apiError
-	}
-
-	state := &CkValidationState{}
-	if err := json.Unmarshal(body, state); err != nil {
-		return nil, err
-	}
-
-	return state, nil
+	return &state, err
 }
