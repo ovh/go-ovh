@@ -63,8 +63,7 @@ func initMockServer(InputRequest **http.Request, status int, responseBody string
 	}))
 
 	// Create client
-	endpoint := Endpoint(ts.URL)
-	client := NewClient(endpoint, MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	client, _ := NewClient(ts.URL, MockApplicationKey, MockApplicationSecret, MockConsumerKey)
 	client.timeDeltaDone = true
 
 	return ts, client

@@ -73,29 +73,35 @@ type Client struct {
 }
 
 // NewClient represents a new client to call the API
-func NewClient(endpoint Endpoint, appKey, appSecret, consumerKey string) *Client {
-	return &Client{
+func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error) {
+	client := Client{
 		appKey:         appKey,
 		appSecret:      appSecret,
 		consumerKey:    consumerKey,
-		endpoint:       endpoint,
 		client:         &http.Client{},
 		timeDeltaMutex: &sync.Mutex{},
 		timeDeltaDone:  false,
 		Timeout:        time.Duration(DefaultTimeout * time.Second),
 	}
+
+	// Get and check the configuration
+	err := client.loadConfig(endpoint)
+	if err != nil {
+		return nil, err
+	}
+	return &client, nil
 }
 
 // NewEndpointClient will create an API client for specified
 // endpoint and load all credentials from environment or
 // configuration files
-func NewEndpointClient(endpoint Endpoint) *Client {
+func NewEndpointClient(endpoint string) (*Client, error) {
 	return NewClient(endpoint, "", "", "")
 }
 
 // NewDefaultClient will load all it's parameter from environment
 // or configuration files
-func NewDefaultClient() *Client {
+func NewDefaultClient() (*Client, error) {
 	return NewClient("", "", "", "")
 }
 
