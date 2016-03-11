@@ -1,10 +1,13 @@
 language: go
 go:
-- 1.4
 - 1.5
+- 1.6
 before_install:
 - go get github.com/axw/gocov/gocov
 - go get github.com/mattn/goveralls
+- go get github.com/golang/lint/golint
 - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
 script:
+- go vet ./...
+- $HOME/gopath/bin/golint ./...
 - $HOME/gopath/bin/goveralls -service=travis-ci
