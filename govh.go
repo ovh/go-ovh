@@ -85,8 +85,7 @@ func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error)
 	}
 
 	// Get and check the configuration
-	err := client.loadConfig(endpoint)
-	if err != nil {
+	if err := client.loadConfig(endpoint); err != nil {
 		return nil, err
 	}
 	return &client, nil
@@ -206,12 +205,12 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 // timeDelta returns the time  delta between the host and the remote API
 func (c *Client) getTimeDelta() (time.Duration, error) {
 
-	if c.timeDeltaDone != true {
+	if !c.timeDeltaDone {
 		// Ensure only one thread is updating
 		c.timeDeltaMutex.Lock()
 
 		// Did we wait ? Maybe no more needed
-		if c.timeDeltaDone != true {
+		if !c.timeDeltaDone {
 			ovhTime, err := c.getTime()
 			if err != nil {
 				return 0, err
