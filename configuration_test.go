@@ -65,14 +65,14 @@ consumer_key=local
 	if err != nil {
 		t.Fatalf("loadConfig failed with: '%v'", err)
 	}
-	if client.appKey != "system" {
-		t.Fatalf("client.appKey should be 'system'. Got '%s'", client.appKey)
+	if client.AppKey != "system" {
+		t.Fatalf("client.AppKey should be 'system'. Got '%s'", client.AppKey)
 	}
-	if client.appSecret != "user" {
-		t.Fatalf("client.appSecret should be 'user'. Got '%s'", client.appSecret)
+	if client.AppSecret != "user" {
+		t.Fatalf("client.AppSecret should be 'user'. Got '%s'", client.AppSecret)
 	}
-	if client.consumerKey != "local" {
-		t.Fatalf("client.consumerKey should be 'local'. Got '%s'", client.consumerKey)
+	if client.ConsumerKey != "local" {
+		t.Fatalf("client.ConsumerKey should be 'local'. Got '%s'", client.ConsumerKey)
 	}
 }
 
@@ -100,14 +100,14 @@ consumer_key=user
 	if err != nil {
 		t.Fatalf("loadConfig failed with: '%v'", err)
 	}
-	if client.appKey != "user" {
-		t.Fatalf("client.appKey should be 'user'. Got '%s'", client.appKey)
+	if client.AppKey != "user" {
+		t.Fatalf("client.AppKey should be 'user'. Got '%s'", client.AppKey)
 	}
-	if client.appSecret != "user" {
-		t.Fatalf("client.appSecret should be 'user'. Got '%s'", client.appSecret)
+	if client.AppSecret != "user" {
+		t.Fatalf("client.AppSecret should be 'user'. Got '%s'", client.AppSecret)
 	}
-	if client.consumerKey != "user" {
-		t.Fatalf("client.consumerKey should be 'user'. Got '%s'", client.consumerKey)
+	if client.ConsumerKey != "user" {
+		t.Fatalf("client.ConsumerKey should be 'user'. Got '%s'", client.ConsumerKey)
 	}
 }
 
@@ -141,25 +141,25 @@ consumer_key=fail
 		t.Fatalf("loadConfig failed with: '%v'", err)
 	}
 	if client.endpoint != OvhEU {
-		t.Fatalf("client.appKey should be 'env'. Got '%s'", client.appKey)
+		t.Fatalf("client.AppKey should be 'env'. Got '%s'", client.AppKey)
 	}
-	if client.appKey != "env" {
-		t.Fatalf("client.appKey should be 'env'. Got '%s'", client.appKey)
+	if client.AppKey != "env" {
+		t.Fatalf("client.AppKey should be 'env'. Got '%s'", client.AppKey)
 	}
-	if client.appSecret != "env" {
-		t.Fatalf("client.appSecret should be 'env'. Got '%s'", client.appSecret)
+	if client.AppSecret != "env" {
+		t.Fatalf("client.AppSecret should be 'env'. Got '%s'", client.AppSecret)
 	}
-	if client.consumerKey != "env" {
-		t.Fatalf("client.consumerKey should be 'env'. Got '%s'", client.consumerKey)
+	if client.ConsumerKey != "env" {
+		t.Fatalf("client.ConsumerKey should be 'env'. Got '%s'", client.ConsumerKey)
 	}
 }
 
 func TestConfigFromArgs(t *testing.T) {
 	// Test
 	client := Client{
-		appKey:      "param",
-		appSecret:   "param",
-		consumerKey: "param",
+		AppKey:      "param",
+		AppSecret:   "param",
+		ConsumerKey: "param",
 	}
 	err := client.loadConfig("ovh-eu")
 
@@ -168,16 +168,16 @@ func TestConfigFromArgs(t *testing.T) {
 		t.Fatalf("loadConfig failed with: '%v'", err)
 	}
 	if client.endpoint != OvhEU {
-		t.Fatalf("client.appKey should be 'param'. Got '%s'", client.appKey)
+		t.Fatalf("client.AppKey should be 'param'. Got '%s'", client.AppKey)
 	}
-	if client.appKey != "param" {
-		t.Fatalf("client.appKey should be 'param'. Got '%s'", client.appKey)
+	if client.AppKey != "param" {
+		t.Fatalf("client.AppKey should be 'param'. Got '%s'", client.AppKey)
 	}
-	if client.appSecret != "param" {
-		t.Fatalf("client.appSecret should be 'param'. Got '%s'", client.appSecret)
+	if client.AppSecret != "param" {
+		t.Fatalf("client.AppSecret should be 'param'. Got '%s'", client.AppSecret)
 	}
-	if client.consumerKey != "param" {
-		t.Fatalf("client.consumerKey should be 'param'. Got '%s'", client.consumerKey)
+	if client.ConsumerKey != "param" {
+		t.Fatalf("client.ConsumerKey should be 'param'. Got '%s'", client.ConsumerKey)
 	}
 }
 
@@ -204,8 +204,8 @@ consumer_key=example.com
 	if err != nil {
 		t.Fatalf("loadConfig should not fail for endpoint 'ovh-eu'. Got '%v'", err)
 	}
-	if client.appKey != "ovh" {
-		t.Fatalf("configured value should be 'ovh' for endpoint 'ovh-eu'. Got '%s'", client.appKey)
+	if client.AppKey != "ovh" {
+		t.Fatalf("configured value should be 'ovh' for endpoint 'ovh-eu'. Got '%s'", client.AppKey)
 	}
 
 	// Test: by URL
@@ -214,8 +214,8 @@ consumer_key=example.com
 	if err != nil {
 		t.Fatalf("loadConfig should not fail for endpoint 'https://api.example.com:4242'. Got '%v'", err)
 	}
-	if client.appKey != "example.com" {
-		t.Fatalf("configured value should be 'example.com' for endpoint 'https://api.example.com:4242'. Got '%s'", client.appKey)
+	if client.AppKey != "example.com" {
+		t.Fatalf("configured value should be 'example.com' for endpoint 'https://api.example.com:4242'. Got '%s'", client.AppKey)
 	}
 
 }
@@ -224,9 +224,9 @@ func TestMissingParam(t *testing.T) {
 	// Setup
 	var err error
 	client := Client{
-		appKey:      "param",
-		appSecret:   "param",
-		consumerKey: "param",
+		AppKey:      "param",
+		AppSecret:   "param",
+		ConsumerKey: "param",
 	}
 
 	// Test
@@ -235,17 +235,17 @@ func TestMissingParam(t *testing.T) {
 		t.Fatalf("loadConfig should fail when client.endpoint is missing. Got '%s'", client.endpoint)
 	}
 
-	client.appKey = ""
+	client.AppKey = ""
 	if err = client.loadConfig("ovh-eu"); err == nil {
-		t.Fatalf("loadConfig should fail when client.appKey is missing. Got '%s'", client.appKey)
+		t.Fatalf("loadConfig should fail when client.AppKey is missing. Got '%s'", client.AppKey)
 	}
-	client.appKey = "param"
+	client.AppKey = "param"
 
-	client.appSecret = ""
+	client.AppSecret = ""
 	if err = client.loadConfig("ovh-eu"); err == nil {
-		t.Fatalf("loadConfig should fail when client.appSecret is missing. Got '%s'", client.appSecret)
+		t.Fatalf("loadConfig should fail when client.AppSecret is missing. Got '%s'", client.AppSecret)
 	}
-	client.appSecret = "param"
+	client.AppSecret = "param"
 }
 
 //

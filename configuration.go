@@ -67,16 +67,16 @@ func (c *Client) loadConfig(endpointName string) error {
 		endpointName = getConfigValue(cfg, "default", "endpoint", "ovh-eu")
 	}
 
-	if c.appKey == "" {
-		c.appKey = getConfigValue(cfg, endpointName, "application_key", "")
+	if c.AppKey == "" {
+		c.AppKey = getConfigValue(cfg, endpointName, "application_key", "")
 	}
 
-	if c.appSecret == "" {
-		c.appSecret = getConfigValue(cfg, endpointName, "application_secret", "")
+	if c.AppSecret == "" {
+		c.AppSecret = getConfigValue(cfg, endpointName, "application_secret", "")
 	}
 
-	if c.consumerKey == "" {
-		c.consumerKey = getConfigValue(cfg, endpointName, "consumer_key", "")
+	if c.ConsumerKey == "" {
+		c.ConsumerKey = getConfigValue(cfg, endpointName, "consumer_key", "")
 	}
 
 	// Load real endpoint URL by name. If endpoint contains a '/', consider it as a URL
@@ -86,14 +86,14 @@ func (c *Client) loadConfig(endpointName string) error {
 		c.endpoint = Endpoints[endpointName]
 	}
 
-	// If we still have no valid endpoint, appKey or appSecret, return an error
+	// If we still have no valid endpoint, AppKey or AppSecret, return an error
 	if c.endpoint == Endpoint("") {
 		return fmt.Errorf("Unknown endpoint '%s'. Consider checking 'Endpoints' list of using an URL.", endpointName)
 	}
-	if c.appKey == "" {
+	if c.AppKey == "" {
 		return fmt.Errorf("Missing application key. Please check your configuration or consult the documentation to create one.")
 	}
-	if c.appSecret == "" {
+	if c.AppSecret == "" {
 		return fmt.Errorf("Missing application secret. Please check your configuration or consult the documentation to create one.")
 	}
 

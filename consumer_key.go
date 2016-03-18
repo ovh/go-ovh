@@ -65,7 +65,7 @@ func (ck *CkRequest) Do() (*CkValidationState, error) {
 	err := ck.client.PostUnAuth("/auth/credential", ck, &state)
 
 	if err == nil {
-		ck.client.consumerKey = state.ConsumerKey
+		ck.client.ConsumerKey = state.ConsumerKey
 	}
 
 	return &state, err

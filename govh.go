@@ -51,17 +51,20 @@ var (
 type Client struct {
 	// Self generated tokens. Create one by visiting
 	// https://eu.api.ovh.com/createApp/
-	appKey    string
-	appSecret string
+	// AppKey holds the Application key
+	AppKey string
 
-	// Token that must me validated
-	consumerKey string
+	// AppSecret holds the Application secret key
+	AppSecret string
+
+	// ConsumerKey holds the user/app specific token. It must have been validated before use.
+	ConsumerKey string
 
 	// API endpoint
 	endpoint Endpoint
 
-	// Request client
-	client *http.Client
+	// Client is the underlying HTTP client used to run the requests. It may be overloaded but a default one is instanciated in ``NewClient`` by default.
+	Client *http.Client
 
 	// Ensures that the timeDelta function is only ran once
 	// sync.Once would consider init done, even in case of error
@@ -75,10 +78,10 @@ type Client struct {
 // NewClient represents a new client to call the API
 func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error) {
 	client := Client{
-		appKey:         appKey,
-		appSecret:      appSecret,
-		consumerKey:    consumerKey,
-		client:         &http.Client{},
+		AppKey:         appKey,
+		AppSecret:      appSecret,
+		ConsumerKey:    consumerKey,
+		Client:         &http.Client{},
 		timeDeltaMutex: &sync.Mutex{},
 		timeDeltaDone:  false,
 		Timeout:        time.Duration(DefaultTimeout),
@@ -289,7 +292,7 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 	if body != nil {
 		req.Header.Add("Content-Type", "application/json;charset=utf-8")
 	}
-	req.Header.Add("X-Ovh-Application", c.appKey)
+	req.Header.Add("X-Ovh-Application", c.AppKey)
 	req.Header.Add("Accept", "application/json")
 
 	// Inject signature. Some methods do not need authentication, especially /time,
@@ -303,12 +306,12 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 		timestamp := getLocalTime().Add(timeDelta).Unix()
 
 		req.Header.Add("X-Ovh-Timestamp", strconv.FormatInt(timestamp, 10))
-		req.Header.Add("X-Ovh-Consumer", c.consumerKey)
+		req.Header.Add("X-Ovh-Consumer", c.ConsumerKey)
 
 		h := sha1.New()
 		h.Write([]byte(fmt.Sprintf("%s+%s+%s+%s%s+%s+%d",
-			c.appSecret,
-			c.consumerKey,
+			c.AppSecret,
+			c.ConsumerKey,
 			method,
 			getEndpointForSignature(c),
 			path,
@@ -319,8 +322,8 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 	}
 
 	// Send the request with requested timeout
-	c.client.Timeout = c.Timeout
-	response, err := c.client.Do(req)
+	c.Client.Timeout = c.Timeout
+	response, err := c.Client.Do(req)
 
 	if err != nil {
 		return err
