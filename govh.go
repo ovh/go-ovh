@@ -15,7 +15,7 @@ import (
 )
 
 // DefaultTimeout api requests after 180s
-const DefaultTimeout = 180
+const DefaultTimeout = 180 * time.Second
 
 // Endpoint reprensents an API endpoint
 type Endpoint string
@@ -81,7 +81,7 @@ func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error)
 		client:         &http.Client{},
 		timeDeltaMutex: &sync.Mutex{},
 		timeDeltaDone:  false,
-		Timeout:        time.Duration(DefaultTimeout * time.Second),
+		Timeout:        time.Duration(DefaultTimeout),
 	}
 
 	// Get and check the configuration

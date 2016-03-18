@@ -78,6 +78,17 @@ application_secret=my_application_secret
 consumer_key=my_consumer_key
 ```
 
+Depending on the API you want to use, you may set the ``endpoint`` to:
+
+* ``ovh-eu`` for OVH Europe API
+* ``ovh-ca`` for OVH North-America API
+* ``soyoustart-eu`` for So you Start Europe API
+* ``soyoustart-ca`` for So you Start North America API
+* ``kimsufi-eu`` for Kimsufi Europe API
+* ``kimsufi-ca`` for Kimsufi North America API
+* ``runabove-ca`` for RunAbove API
+* Or any arbitrary URL to use in a test for example
+
 The client will successively attempt to locate this configuration file in
 
 1. Current working directory: ``./ovh.conf``
@@ -108,7 +119,7 @@ credentials at once. See below.
 ### Use the API on behalf of a user
 
 Visit [https://eu.api.ovh.com/createApp](https://eu.api.ovh.com/createApp) and create your app
- You'll get an application key and an application secret. To use the API you'll need a consumer key.
+You'll get an application key and an application secret. To use the API you'll need a consumer key.
 
 The consumer key has two types of restriction:
 
@@ -116,7 +127,20 @@ The consumer key has two types of restriction:
 * time: eg. expire in 1 day
 
 
-Then, get a consumer key. Here's an example on how to generate one:
+Then, get a consumer key. Here's an example on how to generate one.
+
+First, create a 'ovh.conf' file in the current directory with the application key and
+application secret. You can add the consumer key once generated. For alternate
+configuration method, please see the [configuration section](#configuration).
+
+```ini
+[ovh-eu]
+application_key=my_app_key
+application_secret=my_application_secret
+; consumer_key=my_consumer_key
+```
+
+Then, you may use a program like this example to create a consumer key for the application:
 
 ```go
 package main
@@ -162,8 +186,20 @@ typically want to do this when writing automation scripts for a single projects.
 
 If this case, you may want to directly go to https://eu.api.ovh.com/createToken/ to generate
 the 3 tokens at once. Make sure to save them in one of the 'ovh.conf' configuration file.
+Please see the [configuration section](#configuration).
+
+``ovh.conf`` should look like:
+
+```ini
+[ovh-eu]
+application_key=my_app_key
+application_secret=my_application_secret
+consumer_key=my_consumer_key
+```
 
 ## Use the lib
+
+These examples assume valid credentials are available in the [configuration](#configuration).
 
 ### GET
 
@@ -177,11 +213,7 @@ import (
 )
 
 func main() {
-	ak := "your_app_key"
-	as := "your_app_secret"
-	ck := "your_consumer_key"
-
-	client, err := govh.NewClient("ovh-eu", ak, as, ck)
+	client, err := govh.NewEndpointClient("ovh-eu")
 	if err != nil {
 		fmt.Printf("Error: %q\n", err)
 		return
@@ -228,11 +260,7 @@ import (
 )
 
 func main() {
-	ak := "your_app_key"
-	as := "your_app_secret"
-	ck := "your_consumer_key"
-
-	client, err := govh.NewClient("ovh-eu", ak, as, ck)
+	client, err := govh.NewEndpointClient("ovh-eu")
 	if err != nil {
 		fmt.Printf("Error: %q\n", err)
 		return
