@@ -1,4 +1,4 @@
-package govh
+package ovh
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// Common helpers are in govh_test.go
+// Common helpers are in ovh_test.go
 
 func TestNewCkReqest(t *testing.T) {
 	const expectedRequest = `{"accessRules":[{"method":"GET","path":"/me"},{"method":"GET","path":"/xdsl/*"}]}`

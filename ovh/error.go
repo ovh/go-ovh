@@ -1,4 +1,4 @@
-package govh
+package ovh
 
 import "fmt"
 

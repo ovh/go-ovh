@@ -1,19 +1,19 @@
-govh
+go-ovh
 ======
 
 Lightweight Go wrapper around OVH's APIs. Handles all the hard work including credential creation and requests signing.
 
-[![GoDoc](https://godoc.org/github.com/gregdel/govh?status.svg)](http://godoc.org/github.com/gregdel/govh)
-[![Build Status](https://travis-ci.org/gregdel/govh.svg?branch=master)](https://travis-ci.org/gregdel/govh)
-[![Coverage Status](https://coveralls.io/repos/gregdel/govh/badge.svg?branch=master&service=github)](https://coveralls.io/github/gregdel/govh?branch=master)
-[![Go Report Card](http://goreportcard.com/badge/gregdel/govh)](http://goreportcard.com/report/gregdel/govh)
+[![GoDoc](https://godoc.org/github.com/ovh/go-ovh/ovh?status.svg)](http://godoc.org/github.com/ovh/go-ovh/ovh)
+[![Build Status](https://travis-ci.org/ovh/go-ovh.svg?branch=master)](https://travis-ci.org/gregdel/ovh)
+[![Coverage Status](https://coveralls.io/repos/ovh/go-ovh/badge.svg?branch=master&service=github)](https://coveralls.io/github/gregdel/ovh?branch=master)
+[![Go Report Card](http://goreportcard.com/badge/ovh/go-ovh)](http://goreportcard.com/report/gregdel/ovh)
 
 ```go
 package main
 
 import (
 	"fmt"
-	"github.com/gregdel/govh"
+	"github.com/ovh/go-ovh/ovh"
 )
 
 // PartialMe holds the first name of the currently logged-in user.
@@ -27,7 +27,7 @@ type PartialMe struct {
 func main() {
 	var me PartialMe
 
-	client, _ := govh.NewClient(
+	client, _ := ovh.NewClient(
 		"ovh-eu",
 		YOUR_APPLICATION_KEY,
 		YOUR_APPLICATION_SECRET,
@@ -47,7 +47,7 @@ To use it, just include it to your ``import`` and run ``go get``:
 ```go
 import (
 	...
-	"github.com/gregdel/govh"
+	"github.com/ovh/go-ovh/ovh"
 )
 ```
 
@@ -148,12 +148,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/gregdel/govh"
+	"github.com/ovh/go-ovh/ovh"
 )
 
 func main() {
 	// Create a client using credentials from config files or environment variables
-	client, err := govh.NewEndpointClient("ovh-eu")
+	client, err := ovh.NewEndpointClient("ovh-eu")
 	if err != nil {
 		fmt.Printf("Error: %q\n", err)
 		return
@@ -209,11 +209,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/gregdel/govh"
+	"github.com/ovh/go-ovh/ovh"
 )
 
 func main() {
-	client, err := govh.NewEndpointClient("ovh-eu")
+	client, err := ovh.NewEndpointClient("ovh-eu")
 	if err != nil {
 		fmt.Printf("Error: %q\n", err)
 		return
@@ -256,11 +256,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/gregdel/govh"
+	"github.com/ovh/go-ovh/ovh"
 )
 
 func main() {
-	client, err := govh.NewEndpointClient("ovh-eu")
+	client, err := ovh.NewEndpointClient("ovh-eu")
 	if err != nil {
 		fmt.Printf("Error: %q\n", err)
 		return
@@ -286,9 +286,9 @@ func main() {
 
 ### Create a client
 
-- Use ``govh.NewClient()`` to have full controll over ther authentication
-- Use ``govh.NewEndpointClient()`` to create a client for a specific API and use credentials from config files or environment
-- Use ``govh.NewDefaultClient()`` to create a client unsing endpoint and credentials from config files or environment
+- Use ``ovh.NewClient()`` to have full controll over ther authentication
+- Use ``ovh.NewEndpointClient()`` to create a client for a specific API and use credentials from config files or environment
+- Use ``ovh.NewDefaultClient()`` to create a client unsing endpoint and credentials from config files or environment
 
 ### Query
 
@@ -368,13 +368,13 @@ Here is a quick outline of what it may look like.
 ### Get the sources
 
 ```
-go get github.com/gregdel/govh
-cd $GOPATH/src/github.com/gregdel/govh
+go get github.com/ovh/go-ovh/ovh
+cd $GOPATH/src/github.com/ovh/go-ovh/ovh
 go get
 ```
 
 You've developed a new cool feature ? Fixed an annoying bug ? We'd be happy
-to hear from you ! See [CONTRIBUTING.md](https://github.com/gregdel/govh/blob/master/CONTRIBUTING.md)
+to hear from you ! See [CONTRIBUTING.md](https://github.com/ovh/go-ovh/ovh/blob/master/CONTRIBUTING.md)
 for more informations
 
 ### Run the tests

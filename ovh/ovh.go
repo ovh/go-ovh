@@ -1,5 +1,5 @@
-// Package govh provides a HTTP wrapper for the OVH API.
-package govh
+// Package ovh provides a HTTP wrapper for the OVH API.
+package ovh
 
 import (
 	"bytes"
@@ -41,7 +41,7 @@ var Endpoints = map[string]string{
 
 // Errors
 var (
-	ErrAPIDown = errors.New("govh: the OVH API is down, it does't respond to /time anymore")
+	ErrAPIDown = errors.New("go-vh: the OVH API is down, it does't respond to /time anymore")
 )
 
 // Client represents a client to call the OVH API
