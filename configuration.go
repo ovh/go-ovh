@@ -81,13 +81,13 @@ func (c *Client) loadConfig(endpointName string) error {
 
 	// Load real endpoint URL by name. If endpoint contains a '/', consider it as a URL
 	if strings.Contains(endpointName, "/") {
-		c.endpoint = Endpoint(endpointName)
+		c.endpoint = endpointName
 	} else {
 		c.endpoint = Endpoints[endpointName]
 	}
 
 	// If we still have no valid endpoint, AppKey or AppSecret, return an error
-	if c.endpoint == Endpoint("") {
+	if c.endpoint == "" {
 		return fmt.Errorf("Unknown endpoint '%s'. Consider checking 'Endpoints' list of using an URL.", endpointName)
 	}
 	if c.AppKey == "" {

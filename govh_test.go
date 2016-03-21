@@ -39,8 +39,8 @@ func initMockServer(InputRequest **http.Request, status int, responseBody string
 	}
 
 	// Mock hostname, in signature only
-	getEndpointForSignature = func(c *Client) Endpoint {
-		return Endpoint("http://localhost")
+	getEndpointForSignature = func(c *Client) string {
+		return "http://localhost"
 	}
 
 	// Create a fake API server
@@ -136,7 +136,7 @@ func TestPingUnreachable(t *testing.T) {
 	defer ts.Close()
 
 	// Test
-	client.endpoint = Endpoint("https://localhost:1/does not exist")
+	client.endpoint = "https://localhost:1/does not exist"
 	err := client.Ping()
 
 	// Validate

@@ -230,7 +230,7 @@ func TestMissingParam(t *testing.T) {
 	}
 
 	// Test
-	client.endpoint = Endpoint("")
+	client.endpoint = ""
 	if err = client.loadConfig(""); err == nil {
 		t.Fatalf("loadConfig should fail when client.endpoint is missing. Got '%s'", client.endpoint)
 	}

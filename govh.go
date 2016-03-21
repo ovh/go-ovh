@@ -17,22 +17,19 @@ import (
 // DefaultTimeout api requests after 180s
 const DefaultTimeout = 180 * time.Second
 
-// Endpoint reprensents an API endpoint
-type Endpoint string
-
 // Endpoints
 const (
-	OvhEU        Endpoint = "https://eu.api.ovh.com/1.0"
-	OvhCA                 = "https://ca.api.ovh.com/1.0"
-	KimsufiEU             = "https://eu.api.kimsufi.com/1.0"
-	KimsufiCA             = "https://ca.api.kimsufi.com/1.0"
-	SoyoustartEU          = "https://eu.api.soyoustart.com/1.0"
-	SoyoustartCA          = "https://ca.api.soyoustart.com/1.0"
-	RunaboveCA            = "https://api.runabove.com/1.0"
+	OvhEU        = "https://eu.api.ovh.com/1.0"
+	OvhCA        = "https://ca.api.ovh.com/1.0"
+	KimsufiEU    = "https://eu.api.kimsufi.com/1.0"
+	KimsufiCA    = "https://ca.api.kimsufi.com/1.0"
+	SoyoustartEU = "https://eu.api.soyoustart.com/1.0"
+	SoyoustartCA = "https://ca.api.soyoustart.com/1.0"
+	RunaboveCA   = "https://api.runabove.com/1.0"
 )
 
 // Endpoints conveniently maps endpoints names to their URI for external configuration
-var Endpoints = map[string]Endpoint{
+var Endpoints = map[string]string{
 	"ovh-eu":        OvhEU,
 	"ovh-ca":        OvhCA,
 	"kimsufi-eu":    KimsufiEU,
@@ -61,7 +58,7 @@ type Client struct {
 	ConsumerKey string
 
 	// API endpoint
-	endpoint Endpoint
+	endpoint string
 
 	// Client is the underlying HTTP client used to run the requests. It may be overloaded but a default one is instanciated in ``NewClient`` by default.
 	Client *http.Client
@@ -249,7 +246,7 @@ var getLocalTime = func() time.Time {
 
 // getEndpointForSignature is a function to be overwritten during the tests, it returns a
 // the endpoint
-var getEndpointForSignature = func(c *Client) Endpoint {
+var getEndpointForSignature = func(c *Client) string {
 	return c.endpoint
 }
 
