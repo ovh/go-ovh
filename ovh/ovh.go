@@ -1,5 +1,5 @@
-// Package govh provides a HTTP wrapper for the OVH API.
-package govh
+// Package ovh provides a HTTP wrapper for the OVH API.
+package ovh
 
 import (
 	"bytes"
@@ -15,24 +15,21 @@ import (
 )
 
 // DefaultTimeout api requests after 180s
-const DefaultTimeout = 180
-
-// Endpoint reprensents an API endpoint
-type Endpoint string
+const DefaultTimeout = 180 * time.Second
 
 // Endpoints
 const (
-	OvhEU        Endpoint = "https://eu.api.ovh.com/1.0"
-	OvhCA                 = "https://ca.api.ovh.com/1.0"
-	KimsufiEU             = "https://eu.api.kimsufi.com/1.0"
-	KimsufiCA             = "https://ca.api.kimsufi.com/1.0"
-	SoyoustartEU          = "https://eu.api.soyoustart.com/1.0"
-	SoyoustartCA          = "https://ca.api.soyoustart.com/1.0"
-	RunaboveCA            = "https://api.runabove.com/1.0"
+	OvhEU        = "https://eu.api.ovh.com/1.0"
+	OvhCA        = "https://ca.api.ovh.com/1.0"
+	KimsufiEU    = "https://eu.api.kimsufi.com/1.0"
+	KimsufiCA    = "https://ca.api.kimsufi.com/1.0"
+	SoyoustartEU = "https://eu.api.soyoustart.com/1.0"
+	SoyoustartCA = "https://ca.api.soyoustart.com/1.0"
+	RunaboveCA   = "https://api.runabove.com/1.0"
 )
 
 // Endpoints conveniently maps endpoints names to their URI for external configuration
-var Endpoints = map[string]Endpoint{
+var Endpoints = map[string]string{
 	"ovh-eu":        OvhEU,
 	"ovh-ca":        OvhCA,
 	"kimsufi-eu":    KimsufiEU,
@@ -44,24 +41,27 @@ var Endpoints = map[string]Endpoint{
 
 // Errors
 var (
-	ErrAPIDown = errors.New("govh: the OVH API is down, it does't respond to /time anymore")
+	ErrAPIDown = errors.New("go-vh: the OVH API is down, it does't respond to /time anymore")
 )
 
 // Client represents a client to call the OVH API
 type Client struct {
 	// Self generated tokens. Create one by visiting
 	// https://eu.api.ovh.com/createApp/
-	appKey    string
-	appSecret string
+	// AppKey holds the Application key
+	AppKey string
 
-	// Token that must me validated
-	consumerKey string
+	// AppSecret holds the Application secret key
+	AppSecret string
+
+	// ConsumerKey holds the user/app specific token. It must have been validated before use.
+	ConsumerKey string
 
 	// API endpoint
-	endpoint Endpoint
+	endpoint string
 
-	// Request client
-	client *http.Client
+	// Client is the underlying HTTP client used to run the requests. It may be overloaded but a default one is instanciated in ``NewClient`` by default.
+	Client *http.Client
 
 	// Ensures that the timeDelta function is only ran once
 	// sync.Once would consider init done, even in case of error
@@ -75,18 +75,17 @@ type Client struct {
 // NewClient represents a new client to call the API
 func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error) {
 	client := Client{
-		appKey:         appKey,
-		appSecret:      appSecret,
-		consumerKey:    consumerKey,
-		client:         &http.Client{},
+		AppKey:         appKey,
+		AppSecret:      appSecret,
+		ConsumerKey:    consumerKey,
+		Client:         &http.Client{},
 		timeDeltaMutex: &sync.Mutex{},
 		timeDeltaDone:  false,
-		Timeout:        time.Duration(DefaultTimeout * time.Second),
+		Timeout:        time.Duration(DefaultTimeout),
 	}
 
 	// Get and check the configuration
-	err := client.loadConfig(endpoint)
-	if err != nil {
+	if err := client.loadConfig(endpoint); err != nil {
 		return nil, err
 	}
 	return &client, nil
@@ -206,12 +205,12 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 // timeDelta returns the time  delta between the host and the remote API
 func (c *Client) getTimeDelta() (time.Duration, error) {
 
-	if c.timeDeltaDone != true {
+	if !c.timeDeltaDone {
 		// Ensure only one thread is updating
 		c.timeDeltaMutex.Lock()
 
 		// Did we wait ? Maybe no more needed
-		if c.timeDeltaDone != true {
+		if !c.timeDeltaDone {
 			ovhTime, err := c.getTime()
 			if err != nil {
 				return 0, err
@@ -247,7 +246,7 @@ var getLocalTime = func() time.Time {
 
 // getEndpointForSignature is a function to be overwritten during the tests, it returns a
 // the endpoint
-var getEndpointForSignature = func(c *Client) Endpoint {
+var getEndpointForSignature = func(c *Client) string {
 	return c.endpoint
 }
 
@@ -290,7 +289,7 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 	if body != nil {
 		req.Header.Add("Content-Type", "application/json;charset=utf-8")
 	}
-	req.Header.Add("X-Ovh-Application", c.appKey)
+	req.Header.Add("X-Ovh-Application", c.AppKey)
 	req.Header.Add("Accept", "application/json")
 
 	// Inject signature. Some methods do not need authentication, especially /time,
@@ -304,12 +303,12 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 		timestamp := getLocalTime().Add(timeDelta).Unix()
 
 		req.Header.Add("X-Ovh-Timestamp", strconv.FormatInt(timestamp, 10))
-		req.Header.Add("X-Ovh-Consumer", c.consumerKey)
+		req.Header.Add("X-Ovh-Consumer", c.ConsumerKey)
 
 		h := sha1.New()
 		h.Write([]byte(fmt.Sprintf("%s+%s+%s+%s%s+%s+%d",
-			c.appSecret,
-			c.consumerKey,
+			c.AppSecret,
+			c.ConsumerKey,
 			method,
 			getEndpointForSignature(c),
 			path,
@@ -320,8 +319,8 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 	}
 
 	// Send the request with requested timeout
-	c.client.Timeout = c.Timeout
-	response, err := c.client.Do(req)
+	c.Client.Timeout = c.Timeout
+	response, err := c.Client.Do(req)
 
 	if err != nil {
 		return err

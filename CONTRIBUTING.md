@@ -1,4 +1,4 @@
-# Contributing to govh
+# Contributing to go-ovh
 
 ## Submitting Modifications:
 
@@ -49,8 +49,8 @@ git rebase upstream/master
 
 ## Licensing for new files:
 
-govh is licensed under a (modified) BSD license. Anything contributed to
-govh must be released under this license.
+go-ovh is licensed under a (modified) BSD license. Anything contributed to
+go-ovh must be released under this license.
 
 When introducing a new file into the project, please make sure it has a
 copyright header making clear under which license it''s being released.

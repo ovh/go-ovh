@@ -1,4 +1,4 @@
-package govh
+package ovh
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// Common helpers are in govh_test.go
+// Common helpers are in ovh_test.go
 
 func TestNewCkReqest(t *testing.T) {
 	const expectedRequest = `{"accessRules":[{"method":"GET","path":"/me"},{"method":"GET","path":"/xdsl/*"}]}`
@@ -16,10 +16,10 @@ func TestNewCkReqest(t *testing.T) {
 	var InputRequestBody string
 	ts, client := initMockServer(&InputRequest, 200, `{
 		"validationUrl":"https://validation.url",
-		"consumerKey":"`+MockConsumerKey+`",
+		"ConsumerKey":"`+MockConsumerKey+`",
 		"state":"pendingValidation"
 	}`, &InputRequestBody)
-	client.consumerKey = ""
+	client.ConsumerKey = ""
 	defer ts.Close()
 
 	// Test
@@ -33,8 +33,8 @@ func TestNewCkReqest(t *testing.T) {
 	if err != nil {
 		t.Fatalf("CkRequest.Do() should not return an error. Got: %q", err)
 	}
-	if client.consumerKey != MockConsumerKey {
-		t.Fatalf("CkRequest.Do() should set client.consumerKey to %s. Got %s", MockConsumerKey, client.consumerKey)
+	if client.ConsumerKey != MockConsumerKey {
+		t.Fatalf("CkRequest.Do() should set client.ConsumerKey to %s. Got %s", MockConsumerKey, client.ConsumerKey)
 	}
 	if got.ConsumerKey != MockConsumerKey {
 		t.Fatalf("CkRequest.Do() should set CkValidationState.ConsumerKey to %s. Got %s", MockConsumerKey, got.ConsumerKey)
@@ -54,7 +54,7 @@ func TestInvalidCkReqest(t *testing.T) {
 	var InputRequest *http.Request
 	var InputRequestBody string
 	ts, client := initMockServer(&InputRequest, http.StatusForbidden, `{"message":"Invalid application key"}`, &InputRequestBody)
-	client.consumerKey = ""
+	client.ConsumerKey = ""
 	defer ts.Close()
 
 	// Test
