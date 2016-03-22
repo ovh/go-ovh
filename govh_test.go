@@ -3,8 +3,10 @@ package govh
 import (
 	"fmt"
 	"io/ioutil"
+	"math"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"reflect"
 	"strconv"
 	"strings"
@@ -229,6 +231,16 @@ func TestAllAPIMethods(t *testing.T) {
 	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "")
 }
 
+// Mock ReadCloser, always failing
+type ErrorCloseReader struct{}
+
+func (ErrorCloseReader) Read(p []byte) (int, error) {
+	return 0, fmt.Errorf("ErrorReader")
+}
+func (ErrorCloseReader) Close() error {
+	return nil
+}
+
 func TestGetResponse(t *testing.T) {
 	var err error
 	var apiInt int
@@ -243,6 +255,15 @@ func TestGetResponse(t *testing.T) {
 		t.Fatalf("Client.getResponse should be able to decode int when status is 200. Got %v", err)
 	}
 
+	// Nominal: empty body
+	err = mockClient.getResponse(&http.Response{
+		StatusCode: 200,
+		Body:       ioutil.NopCloser(strings.NewReader(``)),
+	}, nil)
+	if err != nil {
+		t.Fatalf("getResponse should not return an error when reponse is empty or target type is nil. Got %v", err)
+	}
+
 	// Error
 	err = mockClient.getResponse(&http.Response{
 		StatusCode: 400,
@@ -255,4 +276,120 @@ func TestGetResponse(t *testing.T) {
 		t.Fatalf("Client.getResponse error should be an APIError when status is 400. Got '%s' of type %s", err, reflect.TypeOf(err))
 	}
 
+	// Error: body read error
+	err = mockClient.getResponse(&http.Response{
+		Body: ErrorCloseReader{},
+	}, nil)
+	if err == nil {
+		t.Fatalf("getResponse should return an error when failing to read HTTP Response body. %v", err)
+	}
+
+	// Error: HTTP Error + broken json
+	err = mockClient.getResponse(&http.Response{
+		StatusCode: 400,
+		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "mes`)),
+	}, nil)
+	if err == nil {
+		t.Fatalf("getResponse should return an error when failing to decode HTTP Response body. %v", err)
+	}
+
+}
+
+func TestConstructors(t *testing.T) {
+	// Nominal: full constructor
+	client, err := NewClient("ovh-eu", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	if err != nil {
+		t.Fatalf("NewClient should not return an error in the nominal case. Got: %v", err)
+	}
+	if client.Client == nil {
+		t.Fatalf("client.Client should be a valid HTTP client")
+	}
+	if client.AppKey != MockApplicationKey {
+		t.Fatalf("client.AppKey should be '%s'. Got '%s'", MockApplicationKey, client.AppKey)
+	}
+	if client.AppSecret != MockApplicationSecret {
+		t.Fatalf("client.AppSecret should be '%s'. Got '%s'", MockApplicationSecret, client.AppSecret)
+	}
+	if client.ConsumerKey != MockConsumerKey {
+		t.Fatalf("client.ConsumerKey should be '%s'. Got '%s'", MockConsumerKey, client.ConsumerKey)
+	}
+
+	// Nominal: Endpoint constructor
+	os.Setenv("OVH_APPLICATION_KEY", MockApplicationKey)
+	os.Setenv("OVH_APPLICATION_SECRET", MockApplicationSecret)
+	os.Setenv("OVH_CONSUMER_KEY", MockConsumerKey)
+
+	client, err = NewEndpointClient("ovh-eu")
+	if err != nil {
+		t.Fatalf("NewEndpointClient should not return an error in the nominal case. Got: %v", err)
+	}
+	if client.Client == nil {
+		t.Fatalf("client.Client should be a valid HTTP client")
+	}
+	if client.AppKey != MockApplicationKey {
+		t.Fatalf("client.AppKey should be '%s'. Got '%s'", MockApplicationKey, client.AppKey)
+	}
+	if client.AppSecret != MockApplicationSecret {
+		t.Fatalf("client.AppSecret should be '%s'. Got '%s'", MockApplicationSecret, client.AppSecret)
+	}
+	if client.ConsumerKey != MockConsumerKey {
+		t.Fatalf("client.ConsumerKey should be '%s'. Got '%s'", MockConsumerKey, client.ConsumerKey)
+	}
+
+	// Nominal: Default constructor
+	os.Setenv("OVH_ENDPOINT", "ovh-eu")
+
+	client, err = NewDefaultClient()
+	if err != nil {
+		t.Fatalf("NewEndpointClient should not return an error in the nominal case. Got: %v", err)
+	}
+	if client.Client == nil {
+		t.Fatalf("client.Client should be a valid HTTP client")
+	}
+	if client.endpoint != "https://eu.api.ovh.com/1.0" {
+		t.Fatalf("client.Endpoint should be 'https://eu.api.ovh.com/1.0'. Got '%s'", client.endpoint)
+	}
+
+	// Clear
+	os.Unsetenv("OVH_ENDPOINT")
+	os.Unsetenv("OVH_APPLICATION_KEY")
+	os.Unsetenv("OVH_APPLICATION_SECRET")
+	os.Unsetenv("OVH_CONSUMER_KEY")
+
+	// Error: missing Endpoint
+	_, err = NewClient("", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	if err == nil {
+		t.Fatalf("NewClient should return an error when missing Endpoint")
+	}
+	// Error: missing ApplicationKey
+	_, err = NewClient("ovh-eu", "", MockApplicationSecret, MockConsumerKey)
+	if err == nil {
+		t.Fatalf("NewClient should return an error when missing ApplicationKey")
+	}
+	// Error: missing ApplicationSecret
+	_, err = NewClient("ovh-eu", MockConsumerKey, "", MockConsumerKey)
+	if err == nil {
+		t.Fatalf("NewClient should return an error when missing ApplicationSecret")
+	}
+}
+
+func TestGetTimeDelta(t *testing.T) {
+	MockDelta := 747
+
+	// Init test
+	var InputRequest *http.Request
+	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", int(time.Now().Unix())-MockDelta), nil)
+	defer ts.Close()
+
+	// Test
+	client.timeDeltaDone = false
+	delta, err := client.getTimeDelta()
+
+	if err != nil {
+		t.Fatalf("getTimeDelta should not return an error. Got %v", err)
+	}
+	// Hack: take races into account, avoid mocking whole earth
+	if math.Abs(float64(delta/time.Second-time.Duration(MockDelta))) > 2 {
+		t.Fatalf("getTimeDelta should return a delta of %d. Got %d", time.Duration(MockDelta)*time.Second, delta)
+	}
 }
