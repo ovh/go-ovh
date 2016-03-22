@@ -3,10 +3,10 @@ go-ovh
 
 Lightweight Go wrapper around OVH's APIs. Handles all the hard work including credential creation and requests signing.
 
-[![GoDoc](https://godoc.org/github.com/ovh/go-ovh/ovh?status.svg)](http://godoc.org/github.com/ovh/go-ovh/ovh)
-[![Build Status](https://travis-ci.org/ovh/go-ovh.svg?branch=master)](https://travis-ci.org/gregdel/ovh)
-[![Coverage Status](https://coveralls.io/repos/ovh/go-ovh/badge.svg?branch=master&service=github)](https://coveralls.io/github/gregdel/ovh?branch=master)
-[![Go Report Card](http://goreportcard.com/badge/ovh/go-ovh)](http://goreportcard.com/report/gregdel/ovh)
+[![GoDoc](https://godoc.org/github.com/ovh/go-ovh/go-ovh?status.svg)](http://godoc.org/github.com/ovh/go-ovh/ovh)
+[![Build Status](https://travis-ci.org/ovh/go-ovh.svg?branch=master)](https://travis-ci.org/ovh/go-ovh)
+[![Coverage Status](https://coveralls.io/repos/ovh/go-ovh/badge.svg?branch=master&service=github)](https://coveralls.io/github/ovh/go-ovh?branch=master)
+[![Go Report Card](http://goreportcard.com/badge/ovh/go-ovh)](http://goreportcard.com/report/ovh/go-ovh)
 
 ```go
 package main
@@ -374,7 +374,7 @@ go get
 ```
 
 You've developed a new cool feature ? Fixed an annoying bug ? We'd be happy
-to hear from you ! See [CONTRIBUTING.md](https://github.com/ovh/go-ovh/ovh/blob/master/CONTRIBUTING.md)
+to hear from you ! See [CONTRIBUTING.md](https://github.com/ovh/go-ovh/blob/master/CONTRIBUTING.md)
 for more informations
 
 ### Run the tests
