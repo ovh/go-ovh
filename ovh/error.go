@@ -2,7 +2,7 @@ package ovh
 
 import "fmt"
 
-// APIError represents an error that can occured while calling the API.
+// APIError represents an error that can occurred while calling the API.
 type APIError struct {
 	// Error message.
 	Message string
