@@ -2,6 +2,14 @@ package ovh
 
 import (
 	"fmt"
+	"strings"
+)
+
+// Map user friendly access level names to corresponding HTTP verbs
+var (
+	ReadOnly      = []string{"GET"}
+	ReadWrite     = []string{"GET", "POST", "PUT", "DELETE"}
+	ReadWriteSafe = []string{"GET", "POST", "PUT"}
 )
 
 // AccessRule represents a method allowed for a path
@@ -31,7 +39,7 @@ type CkValidationState struct {
 // consumerKey.
 type CkRequest struct {
 	client      *Client
-	AccessRules []*AccessRule `json:"accessRules"`
+	AccessRules []AccessRule `json:"accessRules"`
 }
 
 func (ck *CkValidationState) String() string {
@@ -46,16 +54,39 @@ func (ck *CkValidationState) String() string {
 func (c *Client) NewCkRequest() *CkRequest {
 	return &CkRequest{
 		client:      c,
-		AccessRules: []*AccessRule{},
+		AccessRules: []AccessRule{},
 	}
 }
 
 // AddRule adds a new rule to the ckRequest
 func (ck *CkRequest) AddRule(method, path string) {
-	ck.AccessRules = append(ck.AccessRules, &AccessRule{
+	ck.AccessRules = append(ck.AccessRules, AccessRule{
 		Method: method,
 		Path:   path,
 	})
+}
+
+// AddRules adds grant requests on "path" for all methods. "ReadOnly",
+// "ReadWrite" and "ReadWriteSafe" should be used for "methods" unless
+// specific access are required.
+func (ck *CkRequest) AddRules(methods []string, path string) {
+	for _, method := range methods {
+		ck.AddRule(method, path)
+	}
+
+}
+
+// AddRecursiveRules adds grant requests on "path" and "path/*", for all
+// methods "ReadOnly", "ReadWrite" and "ReadWriteSafe" should be used for
+// "methods" unless specific access are required.
+func (ck *CkRequest) AddRecursiveRules(methods []string, path string) {
+	path = strings.TrimRight(path, "/")
+
+	// Add rules. Skip base rule when requesting access to "/"
+	if path != "" {
+		ck.AddRules(methods, path)
+	}
+	ck.AddRules(methods, path+"/*")
 }
 
 // Do executes the request. On success, set the consumer key in the client

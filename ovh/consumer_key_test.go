@@ -3,6 +3,7 @@ package ovh
 import (
 	"fmt"
 	"net/http"
+	"reflect"
 	"testing"
 )
 
@@ -77,6 +78,54 @@ func TestInvalidCkReqest(t *testing.T) {
 	}
 	if apiError.Message != "Invalid application key" {
 		t.Fatalf("Expected API error message 'Invalid application key'. Got '%s'", apiError.Message)
+	}
+}
+
+func TestAddRules(t *testing.T) {
+	// Init test
+	var InputRequest *http.Request
+	var InputRequestBody string
+	ts, client := initMockServer(&InputRequest, http.StatusForbidden, `{"message":"Invalid application key"}`, &InputRequestBody)
+	client.ConsumerKey = ""
+	defer ts.Close()
+
+	// Test: allow all
+	ckRequest := client.NewCkRequest()
+	ckRequest.AddRecursiveRules(ReadWrite, "/")
+	ExpectedRules := []AccessRule{
+		AccessRule{Method: "GET", Path: "/*"},
+		AccessRule{Method: "POST", Path: "/*"},
+		AccessRule{Method: "PUT", Path: "/*"},
+		AccessRule{Method: "DELETE", Path: "/*"},
+	}
+	if !reflect.DeepEqual(ckRequest.AccessRules, ExpectedRules) {
+		t.Fatalf("Inserting recursive RW rules for / should generate %v. Got %v", ExpectedRules, ckRequest.AccessRules)
+	}
+
+	// Test: allow exactly /sms, RO
+	ckRequest = client.NewCkRequest()
+	ckRequest.AddRules(ReadOnly, "/sms")
+	ExpectedRules = []AccessRule{
+		AccessRule{Method: "GET", Path: "/sms"},
+	}
+	if !reflect.DeepEqual(ckRequest.AccessRules, ExpectedRules) {
+		t.Fatalf("Inserting RO rule for /sms should generate %v. Got %v", ExpectedRules, ckRequest.AccessRules)
+	}
+
+	// Test: allow /sms/*, RW, no delete
+	ckRequest = client.NewCkRequest()
+	ckRequest.AddRecursiveRules(ReadWriteSafe, "/sms")
+	ExpectedRules = []AccessRule{
+		AccessRule{Method: "GET", Path: "/sms"},
+		AccessRule{Method: "POST", Path: "/sms"},
+		AccessRule{Method: "PUT", Path: "/sms"},
+
+		AccessRule{Method: "GET", Path: "/sms/*"},
+		AccessRule{Method: "POST", Path: "/sms/*"},
+		AccessRule{Method: "PUT", Path: "/sms/*"},
+	}
+	if !reflect.DeepEqual(ckRequest.AccessRules, ExpectedRules) {
+		t.Fatalf("Inserting recursive safe RW rule for /sms should generate %v. Got %v", ExpectedRules, ckRequest.AccessRules)
 	}
 }
 
