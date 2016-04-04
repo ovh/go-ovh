@@ -161,10 +161,10 @@ func main() {
 	ckReq := client.NewCkRequest()
 
 	// Allow GET method on /me
-	ckReq.AddRule("GET", "/me")
+	ckReq.AddRules(ovh.ReadOnly, "/me")
 
 	// Allow GET method on /xdsl and all its sub routes
-	ckReq.AddRule("GET", "/xdsl/*")
+	ckReq.AddRecursiveRulesRules(ovh.ReadOnly, "/xdsl")
 
 	// Run the request
 	response, err := ckReq.Do()
@@ -330,16 +330,67 @@ While this is simple and may be managed directly with the API as-is, this can be
 and we recommend using the ``CkRequest`` helper. It basically manages the list of authorizations
 for you and the actual request.
 
+*example*: Grant on all /sms and identity
+```go
+client, err := ovh.NewEndpointClient("ovh-eu")
+if err == nil {
+    // Do something
+}
+req := client.NewCkRequest()
+req.AddRules(ovh.ReadOnly, "/me")
+req.AddRecursiveRulesRules(ovh.ReadWrite, "/sms")
+pendingCk, err := req.Do()
+```
+
+This example will generate a request for:
+
+- GET /me
+- GET /sms
+- GET /sms/*
+- POST /sms
+- POST /sms/*
+- PUT /sms
+- PUT /sms/*
+- DELETE /sms
+- DELETE /sms/*
+
+Which would be tedious to do by hand...
+
 *Create a ``CkRequest``*:
 
 ```go
 req := client.NewCkRequest()
 ```
 
-*Add a rule*:
-
+*Request access on a specific path and method* (advanced):
 ```go
+// Use this method for fine-grain access control. In most case, you'll
+// want to use the methods below.
 req.AddRule("VERB", "PATTERN")
+```
+
+*Request access on specific path*:
+```go
+// This will generate all patterns for GET PATH
+req.AddRules(ovh.ReadOnly, "/PATH")
+
+// This will generate all patterns for PATH for all HTTP verbs
+req.AddRules(ovh.ReadWrite, "/PATH")
+
+// This will generate all patterns for PATH for all HTTP verbs, except DELETE
+req.AddRules(ovh.ReadWriteSafe, "/PATH")
+```
+
+*Request access on path and all sub-path*:
+```go
+// This will generate all patterns for GET PATH
+req.AddRecursiveRules(ovh.ReadOnly, "/PATH")
+
+// This will generate all patterns for PATH for all HTTP verbs
+req.AddRecursiveRules(ovh.ReadWrite, "/PATH")
+
+// This will generate all patterns for PATH for all HTTP verbs, except DELETE
+req.AddRecusriveRules(ovh.ReadWriteSafe, "/PATH")
 ```
 
 *Create key*:
