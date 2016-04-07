@@ -300,7 +300,7 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 			return err
 		}
 
-		timestamp := getLocalTime().Add(timeDelta).Unix()
+		timestamp := getLocalTime().Add(-timeDelta).Unix()
 
 		req.Header.Add("X-Ovh-Timestamp", strconv.FormatInt(timestamp, 10))
 		req.Header.Add("X-Ovh-Consumer", c.ConsumerKey)
