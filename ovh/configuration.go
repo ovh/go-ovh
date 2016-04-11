@@ -7,7 +7,6 @@ import (
 	"path/filepath"
 	"strings"
 
-	"golang.org/x/sys/unix"
 	"gopkg.in/ini.v1"
 )
 
@@ -31,7 +30,8 @@ func currentUserHome() (string, error) {
 // ini package will fail to load configuration at all if a configuration
 // file is missing. This is racy, but better than always failing.
 func appendConfigurationFile(cfg *ini.File, path string) {
-	if unix.Access(path, unix.R_OK) == nil {
+	if file, err := os.Open(path); err == nil {
+		file.Close()
 		cfg.Append(path)
 	}
 }
