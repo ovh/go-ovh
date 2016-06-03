@@ -164,7 +164,7 @@ func main() {
 	ckReq.AddRules(ovh.ReadOnly, "/me")
 
 	// Allow GET method on /xdsl and all its sub routes
-	ckReq.AddRecursiveRulesRules(ovh.ReadOnly, "/xdsl")
+	ckReq.AddRecursiveRules(ovh.ReadOnly, "/xdsl")
 
 	// Run the request
 	response, err := ckReq.Do()
