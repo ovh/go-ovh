@@ -40,6 +40,7 @@ type CkValidationState struct {
 type CkRequest struct {
 	client      *Client
 	AccessRules []AccessRule `json:"accessRules"`
+	Redirection string       `json:"redirection,omitempty"`
 }
 
 func (ck *CkValidationState) String() string {
@@ -55,6 +56,15 @@ func (c *Client) NewCkRequest() *CkRequest {
 	return &CkRequest{
 		client:      c,
 		AccessRules: []AccessRule{},
+	}
+}
+
+// NewCkRequestWithRedirection helps create a new ck request with a redirect URL
+func (c *Client) NewCkRequestWithRedirection(redirection string) *CkRequest {
+	return &CkRequest{
+		client:      c,
+		AccessRules: []AccessRule{},
+		Redirection: redirection,
 	}
 }
 

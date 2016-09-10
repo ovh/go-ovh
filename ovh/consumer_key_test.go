@@ -9,7 +9,7 @@ import (
 
 // Common helpers are in ovh_test.go
 
-func TestNewCkReqest(t *testing.T) {
+func TestNewCkRequest(t *testing.T) {
 	const expectedRequest = `{"accessRules":[{"method":"GET","path":"/me"},{"method":"GET","path":"/xdsl/*"}]}`
 
 	// Init test
@@ -50,7 +50,7 @@ func TestNewCkReqest(t *testing.T) {
 	ensureHeaderPresent(t, InputRequest, "X-Ovh-Application", MockApplicationKey)
 }
 
-func TestInvalidCkReqest(t *testing.T) {
+func TestInvalidCkRequest(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
 	var InputRequestBody string
@@ -129,7 +129,7 @@ func TestAddRules(t *testing.T) {
 	}
 }
 
-func TestCkReqestString(t *testing.T) {
+func TestCkRequestString(t *testing.T) {
 	ckValidationState := &CkValidationState{
 		ConsumerKey:   "ck",
 		State:         "pending",
@@ -141,5 +141,17 @@ func TestCkReqestString(t *testing.T) {
 
 	if got != expected {
 		t.Errorf("expected %q, got %q", expected, got)
+	}
+}
+
+func TestCkRequestRedirection(t *testing.T) {
+	client, _ := NewClient("endpoint", "appKey", "appSecret", "consumerKey")
+
+	redirection := "http://localhost/api/auth/callback?token=123456"
+
+	ckRequest := client.NewCkRequestWithRedirection(redirection)
+
+	if ckRequest.Redirection != redirection {
+		t.Fatalf("NewCkRequestWithRedirection should set ckRequest.Redirection")
 	}
 }
