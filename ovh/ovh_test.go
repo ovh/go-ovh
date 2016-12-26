@@ -293,6 +293,21 @@ func TestGetResponse(t *testing.T) {
 		t.Fatalf("getResponse should return an error when failing to decode HTTP Response body. %v", err)
 	}
 
+	// Error with QueryID
+	responseHeaders := http.Header{}
+	responseHeaders.Add("X-Ovh-QueryID", "FR.ws-8.5860f657.4632.0180")
+	err = mockClient.getResponse(&http.Response{
+		StatusCode: 400,
+		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "message": "Ooops..."}`)),
+		Header:     responseHeaders,
+	}, &apiInt)
+	apiErr, ok := err.(*APIError)
+	if !ok {
+		t.Fatalf("Client.getResponse error should be an APIError when status is 400 and header QueryID is found. Got '%s' of type %s", err, reflect.TypeOf(err))
+	}
+	if apiErr.QueryID != "FR.ws-8.5860f657.4632.0180" {
+		t.Fatalf("APIError should be filled with a correct QueryID. Got '%s' instead of '%s'", apiErr.QueryID, "FR.ws-8.5860f657.4632.0180")
+	}
 }
 
 func TestConstructors(t *testing.T) {
