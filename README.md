@@ -1,4 +1,4 @@
-go-ovh
+go-sdk
 ======
 
 This repository is a fork from https://github.com/ovh/go-ovh merged with https://github.com/admdwrf/ovhcli.
@@ -7,17 +7,17 @@ This repository is a fork from https://github.com/ovh/go-ovh merged with https:/
 
 Lightweight Go wrapper around OVH's APIs. Handles all the hard work including credential creation and requests signing.
 
-[![GoDoc](https://godoc.org/github.com/ovh/go-ovh/go-ovh?status.svg)](http://godoc.org/github.com/ovh/go-ovh/ovh)
-[![Build Status](https://travis-ci.org/ovh/go-ovh.svg?branch=master)](https://travis-ci.org/ovh/go-ovh)
-[![Coverage Status](https://coveralls.io/repos/github/ovh/go-ovh/badge.svg?branch=master)](https://coveralls.io/github/ovh/go-ovh?branch=master)
-[![Go Report Card](http://goreportcard.com/badge/ovh/go-ovh)](http://goreportcard.com/report/ovh/go-ovh)
+[![GoDoc](https://godoc.org/github.com/runabove/go-sdk/ovh?status.svg)](http://godoc.org/github.com/runabove/go-sdk/ovh)
+[![Build Status](https://travis-ci.org/runabove/go-sdk.svg?branch=master)](https://travis-ci.org/runabove/go-sdk)
+[![Coverage Status](https://coveralls.io/repos/github/runabove/go-sdk/badge.svg?branch=master)](https://coveralls.io/github/runabove/go-sdk?branch=master)
+[![Go Report Card](http://goreportcard.com/badge/ovh/go-sdk)](http://goreportcard.com/report/ovh/go-sdk)
 
 ```go
 package main
 
 import (
 	"fmt"
-	"github.com/ovh/go-ovh/ovh"
+	"github.com/runabove/go-sdk/ovh"
 )
 
 // PartialMe holds the first name of the currently logged-in user.
@@ -51,7 +51,7 @@ To use it, just include it to your ``import`` and run ``go get``:
 ```go
 import (
 	...
-	"github.com/ovh/go-ovh/ovh"
+	"github.com/runabove/go-sdk/ovh"
 )
 ```
 
@@ -152,7 +152,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ovh/go-ovh/ovh"
+	"github.com/runabove/go-sdk/ovh"
 )
 
 func main() {
@@ -213,7 +213,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ovh/go-ovh/ovh"
+	"github.com/runabove/go-sdk/ovh"
 )
 
 func main() {
@@ -260,7 +260,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ovh/go-ovh/ovh"
+	"github.com/runabove/go-sdk/ovh"
 )
 
 func main() {
@@ -453,13 +453,13 @@ Here is a quick outline of what it may look like.
 ### Get the sources
 
 ```
-go get github.com/ovh/go-ovh/ovh
-cd $GOPATH/src/github.com/ovh/go-ovh/ovh
+go get github.com/runabove/go-sdk/ovh
+cd $GOPATH/src/github.com/runabove/go-sdk/ovh
 go get
 ```
 
 You've developed a new cool feature ? Fixed an annoying bug ? We'd be happy
-to hear from you ! See [CONTRIBUTING.md](https://github.com/ovh/go-ovh/blob/master/CONTRIBUTING.md)
+to hear from you ! See [CONTRIBUTING.md](https://github.com/runabove/go-sdk/blob/master/CONTRIBUTING.md)
 for more informations
 
 ### Run the tests
