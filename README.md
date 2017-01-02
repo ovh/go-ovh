@@ -1,6 +1,10 @@
 go-ovh
 ======
 
+This repository is a fork from https://github.com/ovh/go-ovh merged with https://github.com/admdwrf/ovhcli.
+
+**/!\ This project is under active development and contains a subset of OVH API GO Structures.**
+
 Lightweight Go wrapper around OVH's APIs. Handles all the hard work including credential creation and requests signing.
 
 [![GoDoc](https://godoc.org/github.com/ovh/go-ovh/go-ovh?status.svg)](http://godoc.org/github.com/ovh/go-ovh/ovh)
@@ -411,6 +415,36 @@ validation URL.
 - ``State`` the consumer key state. Always "pendingValidation" at this stage
 
 
+
+## Use SDK
+
+Example for listing domains
+
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/runabove/go-sdk/ovh"
+)
+
+func main() {
+	client, err := ovh.NewDefaultClient()
+	if err != nil {
+		fmt.Printf("Error:%s", err)
+	}
+
+	domains, err := client.DomainList()
+	if err != nil {
+		fmt.Printf("Error:%s", err)
+	}
+
+	for _, domain := range domains {
+		fmt.Printf("Domain:%s", domain.Domain)
+	}
+}
+```
+
 ## Hacking
 
 This wrapper uses standard Go tools, so you should feel at home with it.
@@ -502,4 +536,3 @@ go vet ./...
 ## License
 
 3-Clause BSD
-

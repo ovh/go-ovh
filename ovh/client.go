@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strconv"
 	"sync"
 	"time"
@@ -72,8 +73,14 @@ type Client struct {
 	Timeout        time.Duration
 }
 
+var instance *Client
+
 // NewClient represents a new client to call the API
 func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error) {
+	if instance != nil {
+		return instance, nil
+	}
+
 	client := Client{
 		AppKey:         appKey,
 		AppSecret:      appSecret,
@@ -88,6 +95,9 @@ func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error)
 	if err := client.loadConfig(endpoint); err != nil {
 		return nil, err
 	}
+
+	instance = &client
+
 	return &client, nil
 }
 
@@ -295,9 +305,9 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 	// Inject signature. Some methods do not need authentication, especially /time,
 	// /auth and some /order methods are actually broken if authenticated.
 	if needAuth {
-		timeDelta, err := c.TimeDelta()
-		if err != nil {
-			return err
+		timeDelta, errTime := c.TimeDelta()
+		if errTime != nil {
+			return errTime
 		}
 
 		timestamp := getLocalTime().Add(-timeDelta).Unix()
@@ -328,4 +338,12 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 
 	// Unmarshal the result into the resType if possible
 	return c.getResponse(response, resType)
+}
+
+func queryEscape(path string, params ...string) string {
+	escaped := make([]interface{}, len(params))
+	for i, param := range params {
+		escaped[i] = url.QueryEscape(param)
+	}
+	return fmt.Sprintf(path, escaped...)
 }
