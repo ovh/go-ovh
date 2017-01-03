@@ -92,7 +92,7 @@ var (
 			sshkeys, err := client.CloudProjectSSHKeyList(projectID)
 			common.Check(err)
 
-			var k *ovh.Sshkey
+			var k *ovh.SSHKey
 			for i := range sshkeys {
 				if sshkeys[i].Name == instanceSSHKey {
 					k = &sshkeys[i]

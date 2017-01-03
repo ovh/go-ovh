@@ -50,15 +50,15 @@ type Flavor struct {
 	OutboundBandwidth int    `json:"outboundBandwidth,omitempty"`
 }
 
-// SshkeyReq defines the fields for an SSH Key upload
-type SshkeyReq struct {
+// SSHKeyReq defines the fields for an SSH Key upload
+type SSHKeyReq struct {
 	Name      string `json:"name,omitempty"`
 	PublicKey string `json:"publicKey,omitempty"`
 	Region    string `json:"region,omitempty"`
 }
 
-// Sshkey is a go representation of Cloud SSH Key
-type Sshkey struct {
+// SSHKey is a go representation of Cloud SSH Key
+type SSHKey struct {
 	Name        string   `json:"name,omitempty"`
 	ID          string   `json:"id,omitempty"`
 	PublicKey   string   `json:"publicKey,omitempty"`
@@ -106,7 +106,7 @@ type InstanceReq struct {
 	FlavorID string `json:"flavorID,omitempty"`
 	ImageID  string `json:"imageID,omitempty"`
 	Region   string `json:"region,omitempty"`
-	SshkeyID string `json:"sshKeyID,omitempty"`
+	SSHKeyID string `json:"sshKeyID,omitempty"`
 }
 
 // Instance is a go representation of Cloud instance
@@ -118,7 +118,7 @@ type Instance struct {
 	Region         string  `json:"region,omitemptyn"`
 	Image          *Image  `json:"image,omitempty"`
 	Flavor         *Flavor `json:"flavor,omitempty"`
-	Sshkey         *Sshkey `json:"sshKey,omitempty"`
+	SSHKey         *SSHKey `json:"sshKey,omitempty"`
 	IPAddresses    []IP    `json:"ipAddresses,omitempty"`
 	MonthlyBilling *string `json:"monthlyBilling,omitempty"`
 }
@@ -142,22 +142,20 @@ type RebootReq struct {
 func (c *Client) CloudProjectsList() ([]Project, error) {
 	projects := []Project{}
 	ids := []string{}
-	e := c.Get("/cloud/project", &ids)
-	if e != nil {
-		return nil, e
+	if err := c.Get("/cloud/project", &ids); err != nil {
+		return nil, err
 	}
 	for _, id := range ids {
 		projects = append(projects, Project{ID: id})
 	}
-	return projects, e
+	return projects, nil
 }
 
 // CloudProjectInfoByID return the details of a project given a project id
 func (c *Client) CloudProjectInfoByID(projectID string) (*Project, error) {
 	project := &Project{}
-	e := c.Get(queryEscape("/cloud/project/%s", projectID), &project)
-
-	return project, e
+	err := c.Get(queryEscape("/cloud/project/%s", projectID), &project)
+	return project, err
 }
 
 // CloudProjectInfoByName returns the details of a project given its name.
@@ -194,12 +192,14 @@ func (c *Client) CloudProjectInfoByName(projectName string) (project *Project, e
 // CloudListRegions return a list of network regions
 func (c *Client) CloudListRegions(projectID string) ([]Region, error) {
 	var resultsreq []string
-	e := c.Get(queryEscape("/cloud/project/%s/region", projectID), &resultsreq)
+	if err := c.Get(queryEscape("/cloud/project/%s/region", projectID), &resultsreq); err != nil {
+		return nil, err
+	}
 	regions := []Region{}
 	for _, resultreq := range resultsreq {
 		regions = append(regions, Region{Region: resultreq})
 	}
-	return regions, e
+	return regions, nil
 }
 
 // CloudInfoRegion return services status on a region
@@ -216,18 +216,10 @@ func (c *Client) CloudGetInstance(projectID, instanceID string) (instance *Insta
 }
 
 // CloudCreateInstance start a new public cloud instance and returns resulting object
-// func (c *Client) CloudCreateInstance(instanceReq InstanceReq, projectID string) (instance *Instance, err error) {
-// instanceReq := InstanceReq{
-// 	Name:     name,
-// 	SshkeyID: pubkeyID,
-// 	FlavorID: flavorID,
-// 	ImageID:  imageID,
-// 	Region:   region,
-// }
 func (c *Client) CloudCreateInstance(projectID, name, pubkeyID, flavorID, imageID, region string) (instance *Instance, err error) {
 	instanceReq := InstanceReq{
 		Name:     name,
-		SshkeyID: pubkeyID,
+		SSHKeyID: pubkeyID,
 		FlavorID: flavorID,
 		ImageID:  imageID,
 		Region:   region,
@@ -248,29 +240,29 @@ func (c *Client) CloudDeleteInstance(projectID, instanceID string) error {
 // CloudListInstance show cloud instance(s)
 func (c *Client) CloudListInstance(projectID string) ([]Instance, error) {
 	instances := []Instance{}
-	e := c.Get(queryEscape("/cloud/project/%s/instance", projectID), &instances)
-	return instances, e
+	err := c.Get(queryEscape("/cloud/project/%s/instance", projectID), &instances)
+	return instances, err
 }
 
 // CloudInfoInstance give info about cloud instance
 func (c *Client) CloudInfoInstance(projectID, instanceID string) (*Instance, error) {
 	instances := &Instance{}
-	e := c.Get(queryEscape("/cloud/project/%s/instance/%s", projectID, instanceID), &instances)
-	return instances, e
+	err := c.Get(queryEscape("/cloud/project/%s/instance/%s", projectID, instanceID), &instances)
+	return instances, err
 }
 
 // CloudInfoNetworkPublic return the list of a public network by given a project id
 func (c *Client) CloudInfoNetworkPublic(projectID string) ([]Network, error) {
 	network := []Network{}
-	e := c.Get(queryEscape("/cloud/project/%s/network/public", projectID), &network)
-	return network, e
+	err := c.Get(queryEscape("/cloud/project/%s/network/public", projectID), &network)
+	return network, err
 }
 
 // CloudInfoNetworkPrivate return the list of a private network by given a project id
 func (c *Client) CloudInfoNetworkPrivate(projectID string) ([]Network, error) {
 	network := []Network{}
-	e := c.Get(queryEscape("/cloud/project/%s/network/private", projectID), &network)
-	return network, e
+	err := c.Get(queryEscape("/cloud/project/%s/network/private", projectID), &network)
+	return network, err
 }
 
 // CloudCreateNetworkPrivate create a private network in a vrack
@@ -309,14 +301,14 @@ func (c *Client) CloudProjectRegionList(projectID string) ([]string, error) {
 }
 
 // CloudProjectSSHKeyList return the list of ssh keys by given a project id
-func (c *Client) CloudProjectSSHKeyList(projectID string) ([]Sshkey, error) {
-	sshkeys := []Sshkey{}
+func (c *Client) CloudProjectSSHKeyList(projectID string) ([]SSHKey, error) {
+	sshkeys := []SSHKey{}
 	return sshkeys, c.Get(queryEscape("/cloud/project/%s/sshkey", projectID), &sshkeys)
 }
 
 // CloudProjectSSHKeyInfo return info about a ssh keys
-func (c *Client) CloudProjectSSHKeyInfo(projectID, sshkeyID string) (*Sshkey, error) {
-	sshkeys := &Sshkey{}
+func (c *Client) CloudProjectSSHKeyInfo(projectID, sshkeyID string) (*SSHKey, error) {
+	sshkeys := &SSHKey{}
 	return sshkeys, c.Get(queryEscape("/cloud/project/%s/sshkey/%s", projectID, sshkeyID), &sshkeys)
 }
 
@@ -330,12 +322,12 @@ func (c *Client) CloudProjectSSHKeyDelete(projectID, sshkeyID string) error {
 }
 
 // CloudProjectSSHKeyCreate return the list of users by given a project id
-func (c *Client) CloudProjectSSHKeyCreate(projectID, publicKey, name string) (Sshkey, error) {
+func (c *Client) CloudProjectSSHKeyCreate(projectID, publicKey, name string) (SSHKey, error) {
 	data := map[string]string{
 		"publicKey": publicKey,
 		"name":      name,
 	}
-	sshkey := Sshkey{}
+	sshkey := SSHKey{}
 	return sshkey, c.Post(queryEscape("/cloud/project/%s/sshkey", projectID), data, &sshkey)
 }
 

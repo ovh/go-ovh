@@ -20,18 +20,8 @@ var cmdContainersServicesList = &cobra.Command{
 		client, err := ovh.NewDefaultClient()
 		common.Check(err)
 
-		containersservices, err := client.ContainersServicesList()
+		containersservices, err := client.ContainersServicesList(withDetails)
 		common.Check(err)
-
-		if withDetails {
-			contComplete := []ovh.ContainersService{}
-			for _, cont := range containersservices {
-				c, err := client.ContainersServiceInfo(cont.Name)
-				common.Check(err)
-				contComplete = append(contComplete, *c)
-			}
-			containersservices = contComplete
-		}
 
 		common.FormatOutputDef(containersservices)
 	},
