@@ -20,7 +20,7 @@ var cmdCloudSSHKeyList = &cobra.Command{
 		sshkeys, err := client.CloudProjectSSHKeyList(projectID)
 		common.Check(err)
 
-		sshkeysComplete := []ovh.Sshkey{}
+		sshkeysComplete := []ovh.SSHKey{}
 		for _, sshkey := range sshkeys {
 			s, err := client.CloudProjectSSHKeyInfo(projectID, sshkey.ID)
 			common.Check(err)

@@ -22,21 +22,51 @@ type ContainersService struct {
 	UpdatedAt string   `json:"updatedAt,omitempty"`
 }
 
-// ContainersServicesList ...
-func (c *Client) ContainersServicesList() ([]ContainersService, error) {
-	var contlist []string
-	e := c.Get("/caas/containers", &contlist)
-	containersservices := []ContainersService{}
-	for _, cont := range contlist {
-		containersservices = append(containersservices, ContainersService{Name: cont})
+// ContainersServicesList list all your containers
+func (c *Client) ContainersServicesList(withDetails bool) ([]ContainersService, error) {
+	var names []string
+	if err := c.Get("/caas/containers", &names); err != nil {
+		return nil, err
 	}
-	return containersservices, e
+
+	containers := []ContainersService{}
+	for _, name := range names {
+		containers = append(containers, ContainersService{Name: name})
+	}
+
+	if !withDetails {
+		return containers, nil
+	}
+
+	containersChan, errChan := make(chan ContainersService), make(chan error)
+	for _, container := range containers {
+		go func(container ContainersService) {
+			d, err := c.ContainersServiceInfo(container.Name)
+			if err != nil {
+				errChan <- err
+				return
+			}
+			containersChan <- *d
+		}(container)
+	}
+
+	containersComplete := []ContainersService{}
+
+	for i := 0; i < len(containers); i++ {
+		select {
+		case containers := <-containersChan:
+			containersComplete = append(containersComplete, containers)
+		case err := <-errChan:
+			return nil, err
+		}
+	}
+
+	return containersComplete, nil
 }
 
-// ContainersServiceInfo ...
-func (c *Client) ContainersServiceInfo(containerservid string) (*ContainersService, error) {
-	containersservice := &ContainersService{}
-	e := c.Get(queryEscape("/caas/containers/%s", containerservid), &containersservice)
-
-	return containersservice, e
+// ContainersServiceInfo retrieve all infos of one of your containers
+func (c *Client) ContainersServiceInfo(containersName string) (*ContainersService, error) {
+	containers := &ContainersService{}
+	err := c.Get(queryEscape("/caas/containers/%s", containersName), containers)
+	return containers, err
 }

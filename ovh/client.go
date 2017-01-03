@@ -73,14 +73,8 @@ type Client struct {
 	Timeout        time.Duration
 }
 
-var instance *Client
-
 // NewClient represents a new client to call the API
 func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error) {
-	if instance != nil {
-		return instance, nil
-	}
-
 	client := Client{
 		AppKey:         appKey,
 		AppSecret:      appSecret,
@@ -95,8 +89,6 @@ func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error)
 	if err := client.loadConfig(endpoint); err != nil {
 		return nil, err
 	}
-
-	instance = &client
 
 	return &client, nil
 }
