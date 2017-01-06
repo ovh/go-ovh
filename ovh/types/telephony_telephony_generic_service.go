@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Telephony service
-type TelephonyTelephonyGenericService struct {
-
+// TelephonyGenericService Telephony service
+type TelephonyGenericService struct {
 	ServiceName string `json:"serviceName,omitempty"`
 }

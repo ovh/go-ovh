@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,39 +14,39 @@ import (
 	"time"
 )
 
-// Your Plesk license
-type LicensePleskPlesk struct {
+// LicensePlesk Your Plesk license
+type LicensePlesk struct {
 
-	// This license creation date
-	Creation time.Time `json:"creation,omitempty"`
+	// Creation This license creation date
+	Creation *time.Time `json:"creation,omitempty"`
 
-	// Shall we delete this on expiration ?
+	// DeleteAtExpiration Shall we delete this on expiration ?
 	DeleteAtExpiration bool `json:"deleteAtExpiration,omitempty"`
 
-	// The internal name of your license
+	// Domain The internal name of your license
 	Domain string `json:"domain,omitempty"`
 
-	// The amount of domain this license can manage
+	// DomainNumber The amount of domain this license can manage
 	DomainNumber string `json:"domainNumber,omitempty"`
 
-	// This license Information key
+	// InformationKey This license Information key
 	InformationKey string `json:"informationKey,omitempty"`
 
-	// The ip on which this license is attached
-	Ip string `json:"ip,omitempty"`
+	// IP The ip on which this license is attached
+	IP string `json:"ip,omitempty"`
 
-	// This license key
+	// Key This license key
 	Key string `json:"key,omitempty"`
 
-	// The license id on license provider side
-	LicenseId string `json:"licenseId,omitempty"`
+	// LicenseID The license id on license provider side
+	LicenseID string `json:"licenseId,omitempty"`
 
-	// This license product key
+	// ProductKey This license product key
 	ProductKey string `json:"productKey,omitempty"`
 
-	// This license state
+	// Status This license state
 	Status string `json:"status,omitempty"`
 
-	// This license version
+	// Version This license version
 	Version string `json:"version,omitempty"`
 }

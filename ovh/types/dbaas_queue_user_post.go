@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DbaasQueueUserPost ...
 type DbaasQueueUserPost struct {
-
 	Name string `json:"name,omitempty"`
 
 	Roles []string `json:"roles,omitempty"`

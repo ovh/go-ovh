@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Static CDN
-type CdnWebstorageAccount struct {
-
+// CDNWebstorageAccount Static CDN
+type CDNWebstorageAccount struct {
 	Domain string `json:"domain,omitempty"`
 
 	Server string `json:"server,omitempty"`
 
-	// value in Bytes
+	// StorageLimit value in Bytes
 	StorageLimit int64 `json:"storageLimit,omitempty"`
 
-	// value in Bytes
+	// StorageUsage value in Bytes
 	StorageUsage int64 `json:"storageUsage,omitempty"`
 }

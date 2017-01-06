@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DomainZoneResetPost ...
 type DomainZoneResetPost struct {
-
-	DnsRecords []ZoneResetRecord `json:"DnsRecords,omitempty"`
+	DNSRecords []*ZoneResetRecord `json:"DnsRecords,omitempty"`
 
 	Minimized bool `json:"minimized,omitempty"`
 }

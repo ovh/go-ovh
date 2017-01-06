@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// vrack dedicated connect interface
+// VrackDedicatedConnect vrack dedicated connect interface
 type VrackDedicatedConnect struct {
 
-	// A name for your dedicatedConnect link
+	// Name A name for your dedicatedConnect link
 	Name string `json:"name,omitempty"`
 }

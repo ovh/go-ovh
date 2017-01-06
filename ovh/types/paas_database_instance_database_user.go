@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// User granted to a database
+// PaasDatabaseInstanceDatabaseUser User granted to a database
 type PaasDatabaseInstanceDatabaseUser struct {
 
-	// The grantId associated for this databaseName and this userName
-	GrantId string `json:"grantId,omitempty"`
+	// GrantID The grantId associated for this databaseName and this userName
+	GrantID string `json:"grantId,omitempty"`
 
-	// User's rights on this database
+	// GrantType User's rights on this database
 	GrantType string `json:"grantType,omitempty"`
 
-	// User's name granted on this database
+	// UserName User's name granted on this database
 	UserName string `json:"userName,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Reporting of the current diagnostic
+// TelephonyCallDiagnosticReporting Reporting of the current diagnostic
 type TelephonyCallDiagnosticReporting struct {
 
-	// The relevant informations in anormal behaviors
+	// Message The relevant informations in anormal behaviors
 	Message string `json:"message,omitempty"`
 }

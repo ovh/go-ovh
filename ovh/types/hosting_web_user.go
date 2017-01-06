@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Hosting users
+// HostingWebUser Hosting users
 type HostingWebUser struct {
 
-	// Home directory
+	// Home Home directory
 	Home string `json:"home,omitempty"`
 
-	// User IIS rights
+	// IisRemoteRights User IIS rights
 	IisRemoteRights string `json:"iisRemoteRights,omitempty"`
 
-	// Is this user primary
+	// IsPrimaryAccount Is this user primary
 	IsPrimaryAccount bool `json:"isPrimaryAccount,omitempty"`
 
-	// Login used to connect on FTP and SSH
+	// Login Login used to connect on FTP and SSH
 	Login string `json:"login,omitempty"`
 
-	// User ssh status
-	SshState string `json:"sshState,omitempty"`
+	// SSHState User ssh status
+	SSHState string `json:"sshState,omitempty"`
 
-	// User status
+	// State User status
 	State string `json:"state,omitempty"`
 
-	// User WebDav rights
+	// WebDavRights User WebDav rights
 	WebDavRights string `json:"webDavRights,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailExchangeServiceResourceAccountPost ...
 type EmailExchangeServiceResourceAccountPost struct {
-
 	AllowConflict bool `json:"allowConflict,omitempty"`
 
 	Capacity int64 `json:"capacity,omitempty"`
@@ -20,5 +20,5 @@ type EmailExchangeServiceResourceAccountPost struct {
 
 	ResourceEmailAddress string `json:"resourceEmailAddress,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

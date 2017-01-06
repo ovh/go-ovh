@@ -34,13 +34,13 @@ var (
 		Use:   "list",
 		Short: "List users",
 		Run: func(cmd *cobra.Command, args []string) {
-			client, err := ovh.NewDefaultClient()
-			common.Check(err)
+			client, errC := ovh.NewDefaultClient()
+			common.Check(errC)
 
 			if projectName != "" {
 				p, err := client.CloudProjectInfoByName(projectName)
 				common.Check(err)
-				projectID = p.ID
+				projectID = p.ProjectID
 			}
 
 			if projectID == "" {
@@ -58,13 +58,13 @@ var (
 		Use:   "create",
 		Short: "Create user",
 		Run: func(cmd *cobra.Command, args []string) {
-			client, err := ovh.NewDefaultClient()
-			common.Check(err)
+			client, errC := ovh.NewDefaultClient()
+			common.Check(errC)
 
 			if projectName != "" {
 				p, err := client.CloudProjectInfoByName(projectName)
 				common.Check(err)
-				projectID = p.ID
+				projectID = p.ProjectID
 			}
 
 			if projectID == "" {
@@ -82,7 +82,7 @@ var (
 				fmt.Printf("export OS_REGION_NAME=%s\n", regions[0])
 				fmt.Printf("export OS_TENANT_ID=%s\n", projectID)
 				fmt.Printf("export OS_USERNAME=%s\n", u.Username)
-				fmt.Printf("export OS_PASSWORD=%s\n", u.Password)
+				//TODO fmt.Printf("export OS_PASSWORD=%s\n", u.Password)
 				fmt.Printf("# Available regions : %s\n", strings.Join(regions, ", "))
 				return
 			}

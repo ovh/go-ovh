@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Responder
+// EmailDomainResponder Responder
 type EmailDomainResponder struct {
 
-	// Name of account
+	// Account Name of account
 	Account string `json:"account,omitempty"`
 
-	// Content of responder
+	// Content Content of responder
 	Content string `json:"content,omitempty"`
 
-	// If true, emails will be copy to emailToCopy address
+	// Copy If true, emails will be copy to emailToCopy address
 	Copy bool `json:"copy,omitempty"`
 
-	// Account where copy emails
+	// CopyTo Account where copy emails
 	CopyTo string `json:"copyTo,omitempty"`
 
-	// Date of start responder
-	From time.Time `json:"from,omitempty"`
+	// From Date of start responder
+	From *time.Time `json:"from,omitempty"`
 
-	// Date of end responder
-	To time.Time `json:"to,omitempty"`
+	// To Date of end responder
+	To *time.Time `json:"to,omitempty"`
 }

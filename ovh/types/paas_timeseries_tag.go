@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Tag
+// PaasTimeseriesTag Tag
 type PaasTimeseriesTag struct {
 
-	// Key
+	// Key Key
 	Key string `json:"key,omitempty"`
 
-	// Value
+	// Value Value
 	Value string `json:"value,omitempty"`
 }

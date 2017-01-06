@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Time conditions options
+// TelephonyTimeConditionOptions Time conditions options
 type TelephonyTimeConditionOptions struct {
-
 	Slot1Number string `json:"slot1Number,omitempty"`
 
 	Slot1Type string `json:"slot1Type,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// Operation on a SMS service
+// SmsTask Operation on a SMS service
 type SmsTask struct {
-
 	Function string `json:"function,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
 	Step string `json:"step,omitempty"`
 
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 }

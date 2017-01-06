@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailExchangeServiceActivateSharepointPost ...
 type EmailExchangeServiceActivateSharepointPost struct {
-
 	PrimaryEmailAddress string `json:"primaryEmailAddress,omitempty"`
 
 	SubDomain string `json:"subDomain,omitempty"`

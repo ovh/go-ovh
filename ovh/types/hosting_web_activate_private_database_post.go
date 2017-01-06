@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// HostingWebActivatePrivateDatabasePost ...
 type HostingWebActivatePrivateDatabasePost struct {
-
-	Ram string `json:"ram,omitempty"`
+	RAM string `json:"ram,omitempty"`
 
 	Version string `json:"version,omitempty"`
 }

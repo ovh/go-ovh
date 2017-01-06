@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// MiniPabx Hunting
+// TelephonyMiniPabxHunting MiniPabx Hunting
 type TelephonyMiniPabxHunting struct {
 
-	// Reject anonymous calls
+	// AnonymousCallRejection Reject anonymous calls
 	AnonymousCallRejection bool `json:"anonymousCallRejection,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	// Number of simultaneous calls
+	// NumberOfCalls Number of simultaneous calls
 	NumberOfCalls int64 `json:"numberOfCalls,omitempty"`
 
-	// The maximum waiting time in the calls queue
+	// OnHoldTimer The maximum waiting time in the calls queue
 	OnHoldTimer int64 `json:"onHoldTimer,omitempty"`
 
 	Pattern string `json:"pattern,omitempty"`
 
 	Strategy string `json:"strategy,omitempty"`
 
-	// True if the tone on closure is enabled
+	// ToneOnClosure True if the tone on closure is enabled
 	ToneOnClosure bool `json:"toneOnClosure,omitempty"`
 
-	// True if the tone on hold is enabled
+	// ToneOnHold True if the tone on hold is enabled
 	ToneOnHold bool `json:"toneOnHold,omitempty"`
 
-	// True if the ring back tone is enabled
+	// ToneRingback True if the ring back tone is enabled
 	ToneRingback bool `json:"toneRingback,omitempty"`
 }

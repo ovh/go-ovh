@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Customer public SSH key, can be used for rescue netboot or server access after reinstallation
-type NichandleSshKey struct {
+// NichandleSSHKey Customer public SSH key, can be used for rescue netboot or server access after reinstallation
+type NichandleSSHKey struct {
 
-	// True when this public SSH key is used for rescue mode and reinstallations
-	Default_ bool `json:"default,omitempty"`
+	// TDefault True when this public SSH key is used for rescue mode and reinstallations
+	TDefault bool `json:"default,omitempty"`
 
-	// ASCII encoded public SSH key
+	// Key ASCII encoded public SSH key
 	Key string `json:"key,omitempty"`
 
-	// Name of this public SSH key
+	// KeyName Name of this public SSH key
 	KeyName string `json:"keyName,omitempty"`
 }

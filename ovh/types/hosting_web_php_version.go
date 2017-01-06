@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// State of available php versions for this account
+// HostingWebPhpVersion State of available php versions for this account
 type HostingWebPhpVersion struct {
 
-	// Current support of this php version
+	// Support Current support of this php version
 	Support string `json:"support,omitempty"`
 
-	// PHP version
+	// Version PHP version
 	Version string `json:"version,omitempty"`
 }

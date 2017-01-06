@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderDedicatedNashaNewPost ...
 type OrderDedicatedNashaNewPost struct {
-
 	Datacenter string `json:"datacenter,omitempty"`
 
 	Model string `json:"model,omitempty"`

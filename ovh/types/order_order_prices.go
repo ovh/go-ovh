@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// Prices of an order
-type OrderOrderPrices struct {
+// OrderPrices Prices of an order
+type OrderPrices struct {
+	Tax *OrderPrice `json:"tax,omitempty"`
 
-	Tax OrderPrice `json:"tax,omitempty"`
+	WithTax *OrderPrice `json:"withTax,omitempty"`
 
-	WithTax OrderPrice `json:"withTax,omitempty"`
-
-	WithoutTax OrderPrice `json:"withoutTax,omitempty"`
+	WithoutTax *OrderPrice `json:"withoutTax,omitempty"`
 }

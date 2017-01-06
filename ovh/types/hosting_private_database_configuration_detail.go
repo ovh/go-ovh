@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// Configuration detail property
+// HostingPrivateDatabaseConfigurationDetail Configuration detail property
 type HostingPrivateDatabaseConfigurationDetail struct {
 
-	// Configuration available values
+	// AvailableValues Configuration available values
 	AvailableValues []string `json:"availableValues,omitempty"`
 
-	// Configuration default value
+	// DefaultValue Configuration default value
 	DefaultValue string `json:"defaultValue,omitempty"`
 
-	// Configuration description
+	// Description Configuration description
 	Description string `json:"description,omitempty"`
 
-	// Configuration key name
+	// Key Configuration key name
 	Key string `json:"key,omitempty"`
 
-	// Configuration last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Configuration last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Configuration value type
-	Type_ string `json:"type,omitempty"`
+	// TType Configuration value type
+	TType string `json:"type,omitempty"`
 
-	// Configuration unit type
+	// Unit Configuration unit type
 	Unit string `json:"unit,omitempty"`
 
-	// Configuration current value
+	// Value Configuration current value
 	Value string `json:"value,omitempty"`
 }

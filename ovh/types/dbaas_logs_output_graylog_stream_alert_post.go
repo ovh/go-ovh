@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DbaasLogsOutputGraylogStreamAlertPost ...
 type DbaasLogsOutputGraylogStreamAlertPost struct {
-
 	Backlog int64 `json:"backlog,omitempty"`
 
 	ConditionType string `json:"conditionType,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// OrderLicenseVirtuozzoNewPost ...
 type OrderLicenseVirtuozzoNewPost struct {
-
 	ContainerNumber string `json:"containerNumber,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 

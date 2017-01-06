@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,23 +14,23 @@ import (
 	"time"
 )
 
-// Task on a SSL
-type SslOperation struct {
+// SSLOperation Task on a SSL
+type SSLOperation struct {
 
-	// Completion date
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate Completion date
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	// Task function name
+	// Function Task function name
 	Function string `json:"function,omitempty"`
 
-	// Task last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Task last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Task Creation date
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate Task Creation date
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// Task status
+	// Status Task status
 	Status string `json:"status,omitempty"`
 
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 }

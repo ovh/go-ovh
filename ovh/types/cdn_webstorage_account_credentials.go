@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A structure with credentials for using openstack account
-type CdnWebstorageAccountCredentials struct {
-
+// CDNWebstorageAccountCredentials A structure with credentials for using openstack account
+type CDNWebstorageAccountCredentials struct {
 	Endpoint string `json:"endpoint,omitempty"`
 
 	Login string `json:"login,omitempty"`

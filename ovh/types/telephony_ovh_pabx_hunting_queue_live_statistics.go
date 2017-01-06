@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Live statistics of the queue
+// TelephonyOvhPabxHuntingQueueLiveStatistics Live statistics of the queue
 type TelephonyOvhPabxHuntingQueueLiveStatistics struct {
 
-	// Total of calls answered
+	// CallsAnswered Total of calls answered
 	CallsAnswered int64 `json:"callsAnswered,omitempty"`
 
-	// Total of calls lost
+	// CallsLost Total of calls lost
 	CallsLost int64 `json:"callsLost,omitempty"`
 
-	// Total of calls
+	// CallsTotal Total of calls
 	CallsTotal int64 `json:"callsTotal,omitempty"`
 
-	// Last reset datetime of queue's statistics
-	LastReset time.Time `json:"lastReset,omitempty"`
+	// LastReset Last reset datetime of queue's statistics
+	LastReset *time.Time `json:"lastReset,omitempty"`
 
-	// Total call duration in seconds
+	// TotalCallDuration Total call duration in seconds
 	TotalCallDuration int64 `json:"totalCallDuration,omitempty"`
 
-	// Total waiting duration in seconds
+	// TotalWaitingDuration Total waiting duration in seconds
 	TotalWaitingDuration int64 `json:"totalWaitingDuration,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// NetworkRegion
-type CloudNetworkNetworkRegion struct {
+// CloudNetworkRegion NetworkRegion
+type CloudNetworkRegion struct {
 
-	// Network region
+	// Region Network region
 	Region string `json:"region,omitempty"`
 
-	// Network region status
+	// Status Network region status
 	Status string `json:"status,omitempty"`
 }

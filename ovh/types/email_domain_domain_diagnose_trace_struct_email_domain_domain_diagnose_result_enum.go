@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Test and result, with proper test strings
-type EmailDomainDomainDiagnoseTraceStructEmailDomainDomainDiagnoseResultEnum struct {
-
+// EmailDomainDiagnoseTraceStructEmailDomainDomainDiagnoseResultEnum Test and result, with proper test strings
+type EmailDomainDiagnoseTraceStructEmailDomainDomainDiagnoseResultEnum struct {
 	Result string `json:"result,omitempty"`
 
 	Test string `json:"test,omitempty"`

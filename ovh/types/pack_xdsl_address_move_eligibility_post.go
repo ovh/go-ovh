@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// PackXdslAddressMoveEligibilityPost ...
 type PackXdslAddressMoveEligibilityPost struct {
-
-	Address XdslEligibilityAddress `json:"address,omitempty"`
+	Address *XdslEligibilityAddress `json:"address,omitempty"`
 
 	LineNumber string `json:"lineNumber,omitempty"`
 }

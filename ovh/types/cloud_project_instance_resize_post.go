@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// CloudProjectInstanceResizePost ...
 type CloudProjectInstanceResizePost struct {
-
-	FlavorId string `json:"flavorId,omitempty"`
+	FlavorID string `json:"flavorId,omitempty"`
 }

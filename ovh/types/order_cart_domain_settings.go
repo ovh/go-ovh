@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Representation of domain name order properties
+// OrderCartDomainSettings Representation of domain name order properties
 type OrderCartDomainSettings struct {
 
-	// Domain name requested
+	// Domain Domain name requested
 	Domain string `json:"domain,omitempty"`
 }

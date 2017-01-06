@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// AuthCredentialPost ...
 type AuthCredentialPost struct {
-
-	AccessRules []AuthAccessRule `json:"accessRules,omitempty"`
+	AccessRules []*AuthAccessRule `json:"accessRules,omitempty"`
 
 	Redirection string `json:"redirection,omitempty"`
 }

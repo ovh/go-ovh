@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Question to customer
+// XdslLineDiagnosticQuestion Question to customer
 type XdslLineDiagnosticQuestion struct {
 
-	// question description
+	// DefaultValue question description
 	DefaultValue string `json:"defaultValue,omitempty"`
 
-	// question description
+	// Description question description
 	Description string `json:"description,omitempty"`
 
-	// question name
+	// Name question name
 	Name string `json:"name,omitempty"`
 
-	// list of possible values
-	PossibleValues []XdslLineDiagnosticPossibleValue `json:"possibleValues,omitempty"`
+	// PossibleValues list of possible values
+	PossibleValues []*XdslLineDiagnosticPossibleValue `json:"possibleValues,omitempty"`
 
-	// is a required question
+	// Required is a required question
 	Required bool `json:"required,omitempty"`
 
-	// answer type
-	Type_ string `json:"type,omitempty"`
+	// TType answer type
+	TType string `json:"type,omitempty"`
 }

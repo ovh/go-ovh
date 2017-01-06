@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Configuration of the timezone
+// MonitoringTimezoneConfig Configuration of the timezone
 type MonitoringTimezoneConfig struct {
 
-	// timezone label (e.g. Europe/Paris)
+	// Timezone timezone label (e.g. Europe/Paris)
 	Timezone string `json:"timezone,omitempty"`
 }

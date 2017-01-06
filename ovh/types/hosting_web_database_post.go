@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
+// HostingWebDatabasePost ...
 type HostingWebDatabasePost struct {
-
 	Capabilitie string `json:"capabilitie,omitempty"`
 
 	Password string `json:"password,omitempty"`
 
 	Quota int64 `json:"quota,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
 	User string `json:"user,omitempty"`
 

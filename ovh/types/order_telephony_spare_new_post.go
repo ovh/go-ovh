@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// OrderTelephonySpareNewPost ...
 type OrderTelephonySpareNewPost struct {
-
 	Brand string `json:"brand,omitempty"`
 
-	MondialRelayId string `json:"mondialRelayId,omitempty"`
+	MondialRelayID string `json:"mondialRelayId,omitempty"`
 
 	Quantity int64 `json:"quantity,omitempty"`
 
-	ShippingContactId int64 `json:"shippingContactId,omitempty"`
+	ShippingContactID int64 `json:"shippingContactId,omitempty"`
 }

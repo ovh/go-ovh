@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Sms template for moderation (Needed to send in US country)
+// SmsTemplateControl Sms template for moderation (Needed to send in US country)
 type SmsTemplateControl struct {
 
-	// Specify the kind of template
+	// Activity Specify the kind of template
 	Activity string `json:"activity,omitempty"`
 
-	// Message sent by the moderator
+	// Comment Message sent by the moderator
 	Comment string `json:"comment,omitempty"`
 
-	// Template creation datetime
-	Datetime time.Time `json:"datetime,omitempty"`
+	// Datetime Template creation datetime
+	Datetime *time.Time `json:"datetime,omitempty"`
 
-	// Template description
+	// Description Template description
 	Description string `json:"description,omitempty"`
 
-	// Message pattern to be moderated. Use \"#VALUE#\" format for dynamic text area.
+	// Message Message pattern to be moderated. Use \"#VALUE#\" format for dynamic text area.
 	Message string `json:"message,omitempty"`
 
-	// Name of the template
+	// Name Name of the template
 	Name string `json:"name,omitempty"`
 
-	// Template status
+	// Status Template status
 	Status string `json:"status,omitempty"`
 }

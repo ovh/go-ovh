@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Dump
+// HostingPrivateDatabaseDump Dump
 type HostingPrivateDatabaseDump struct {
 
-	// Creation date of the dump
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the dump
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Dump of this database name
+	// DatabaseName Dump of this database name
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	// Automatic deletion date of the dump
-	DeletionDate time.Time `json:"deletionDate,omitempty"`
+	// DeletionDate Automatic deletion date of the dump
+	DeletionDate *time.Time `json:"deletionDate,omitempty"`
 
-	// Dump id
-	DumpId int64 `json:"dumpId,omitempty"`
+	// DumpID Dump id
+	DumpID int64 `json:"dumpId,omitempty"`
 
-	// Dump url access
-	Url string `json:"url,omitempty"`
+	// URL Dump url access
+	URL string `json:"url,omitempty"`
 }

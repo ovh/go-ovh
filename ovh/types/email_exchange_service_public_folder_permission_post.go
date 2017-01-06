@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// EmailExchangeServicePublicFolderPermissionPost ...
 type EmailExchangeServicePublicFolderPermissionPost struct {
-
 	AccessRights string `json:"accessRights,omitempty"`
 
-	AllowedAccountId int64 `json:"allowedAccountId,omitempty"`
+	AllowedAccountID int64 `json:"allowedAccountId,omitempty"`
 }

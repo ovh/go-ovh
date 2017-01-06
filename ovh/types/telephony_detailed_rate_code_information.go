@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,25 +14,25 @@ import (
 	"time"
 )
 
-// Detailed informations related to this number
+// TelephonyDetailedRateCodeInformation Detailed informations related to this number
 type TelephonyDetailedRateCodeInformation struct {
 
-	// Cancelable datetime deadline for the new scheduled rateCode
-	CancelLimitDatetime time.Time `json:"cancelLimitDatetime,omitempty"`
+	// CancelLimitDatetime Cancelable datetime deadline for the new scheduled rateCode
+	CancelLimitDatetime *time.Time `json:"cancelLimitDatetime,omitempty"`
 
-	// Effective datetime
-	EffectiveDatetime time.Time `json:"effectiveDatetime,omitempty"`
+	// EffectiveDatetime Effective datetime
+	EffectiveDatetime *time.Time `json:"effectiveDatetime,omitempty"`
 
-	PricePerCallWithoutTax OrderPrice `json:"pricePerCallWithoutTax,omitempty"`
+	PricePerCallWithoutTax *OrderPrice `json:"pricePerCallWithoutTax,omitempty"`
 
-	PricePerMinuteWithoutTax OrderPrice `json:"pricePerMinuteWithoutTax,omitempty"`
+	PricePerMinuteWithoutTax *OrderPrice `json:"pricePerMinuteWithoutTax,omitempty"`
 
-	// Scheduled rate code
+	// RateCode Scheduled rate code
 	RateCode string `json:"rateCode,omitempty"`
 
-	RepaymentPricePerCallWithoutTax OrderPrice `json:"repaymentPricePerCallWithoutTax,omitempty"`
+	RepaymentPricePerCallWithoutTax *OrderPrice `json:"repaymentPricePerCallWithoutTax,omitempty"`
 
-	RepaymentPricePerMinuteWithoutTax OrderPrice `json:"repaymentPricePerMinuteWithoutTax,omitempty"`
+	RepaymentPricePerMinuteWithoutTax *OrderPrice `json:"repaymentPricePerMinuteWithoutTax,omitempty"`
 
-	UpdateRateCodePriceWithoutTax OrderPrice `json:"updateRateCodePriceWithoutTax,omitempty"`
+	UpdateRateCodePriceWithoutTax *OrderPrice `json:"updateRateCodePriceWithoutTax,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// SaasCsp2ChangeAdministratorPasswordPost ...
 type SaasCsp2ChangeAdministratorPasswordPost struct {
-
 	NewPassword string `json:"newPassword,omitempty"`
 }

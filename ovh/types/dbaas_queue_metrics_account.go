@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// MetricsAccount
+// DbaasQueueMetricsAccount MetricsAccount
 type DbaasQueueMetricsAccount struct {
 
-	// OpenTSDB host url
+	// Host OpenTSDB host url
 	Host string `json:"host,omitempty"`
 
-	// Token for OpenTSDB metrics access
+	// Token Token for OpenTSDB metrics access
 	Token string `json:"token,omitempty"`
 }

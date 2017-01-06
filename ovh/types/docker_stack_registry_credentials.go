@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Credentials providing authentication to an external registry
+// DockerStackRegistryCredentials Credentials providing authentication to an external registry
 type DockerStackRegistryCredentials struct {
 
-	// Date of the resource creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the resource creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// The URL of the registry
-	RegistryUrl string `json:"registryUrl,omitempty"`
+	// RegistryURL The URL of the registry
+	RegistryURL string `json:"registryUrl,omitempty"`
 
-	// Date of the resource last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the resource last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 
-	// The registry account username
+	// Username The registry account username
 	Username string `json:"username,omitempty"`
 }

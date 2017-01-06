@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Tasks
+// PaasDatabaseTask Tasks
 type PaasDatabaseTask struct {
 
-	// Task completion date
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate Task completion date
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	// Task function name
+	// Function Task function name
 	Function string `json:"function,omitempty"`
 
-	// Task last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Task last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Task percentage progression ( 0 = begin / 100 = done )
+	// Percentage Task percentage progression ( 0 = begin / 100 = done )
 	Percentage int64 `json:"percentage,omitempty"`
 
-	// Task start date
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate Task start date
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// Task status
+	// Status Task status
 	Status string `json:"status,omitempty"`
 
-	// Task id
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID Task id
+	TaskID string `json:"taskId,omitempty"`
 }

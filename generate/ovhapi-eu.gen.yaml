@@ -55831,7 +55831,7 @@ paths:
           required:
           - ""
           properties:
-            "":
+            config:
               type: array
               items:
                 $ref: '#/definitions/monitoring.Config'

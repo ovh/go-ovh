@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DedicatedServerInstallStartPost ...
 type DedicatedServerInstallStartPost struct {
-
-	Details DedicatedServerInstallCustom `json:"details,omitempty"`
+	Details *DedicatedServerInstallCustom `json:"details,omitempty"`
 
 	PartitionSchemeName string `json:"partitionSchemeName,omitempty"`
 

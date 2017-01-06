@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// IP block in vrack
-type VrackIp struct {
+// VrackIP IP block in vrack
+type VrackIP struct {
 
-	// Your gateway
+	// Gateway Your gateway
 	Gateway string `json:"gateway,omitempty"`
 
-	// Your IP block
-	Ip string `json:"ip,omitempty"`
+	// IP Your IP block
+	IP string `json:"ip,omitempty"`
 
-	// Where you want your block announced on the network
+	// Zone Where you want your block announced on the network
 	Zone string `json:"zone,omitempty"`
 }

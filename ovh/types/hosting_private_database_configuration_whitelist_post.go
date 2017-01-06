@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// HostingPrivateDatabaseConfigurationWhitelistPost ...
 type HostingPrivateDatabaseConfigurationWhitelistPost struct {
-
 	Comment string `json:"comment,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
 	Service bool `json:"service,omitempty"`
 

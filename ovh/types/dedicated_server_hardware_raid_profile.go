@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// A structure describing the server's hardware RAID configuration
+// DedicatedServerHardwareRaidProfile A structure describing the server's hardware RAID configuration
 type DedicatedServerHardwareRaidProfile struct {
 
-	// Hardware RAID controller list
-	Controllers []DedicatedServerHardwareRaidController `json:"controllers,omitempty"`
+	// Controllers Hardware RAID controller list
+	Controllers []*DedicatedServerHardwareRaidController `json:"controllers,omitempty"`
 }

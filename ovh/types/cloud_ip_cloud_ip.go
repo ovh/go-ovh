@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// CloudIp
-type CloudIpCloudIp struct {
+// CloudIPCloudIP CloudIp
+type CloudIPCloudIP struct {
 
-	// Ip id
-	Id string `json:"id,omitempty"`
+	// ID Ip id
+	ID string `json:"id,omitempty"`
 
-	// Ip
-	Ip string `json:"ip,omitempty"`
+	// IP Ip
+	IP string `json:"ip,omitempty"`
 
-	// Ip status
+	// Status Ip status
 	Status string `json:"status,omitempty"`
 
-	// Ip type
-	Type_ string `json:"type,omitempty"`
+	// TType Ip type
+	TType string `json:"type,omitempty"`
 }

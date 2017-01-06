@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// List past conferences on your number
+// TelephonyConferenceHistory List past conferences on your number
 type TelephonyConferenceHistory struct {
 
-	// The count of connections to the conference
+	// CountConnections The count of connections to the conference
 	CountConnections int64 `json:"countConnections,omitempty"`
 
-	// The count of unique participants of the conference
+	// CountParticipants The count of unique participants of the conference
 	CountParticipants int64 `json:"countParticipants,omitempty"`
 
-	// The date the conference began
-	DateBegin time.Time `json:"dateBegin,omitempty"`
+	// DateBegin The date the conference began
+	DateBegin *time.Time `json:"dateBegin,omitempty"`
 
-	// The date the conference end
-	DateEnd time.Time `json:"dateEnd,omitempty"`
+	// DateEnd The date the conference end
+	DateEnd *time.Time `json:"dateEnd,omitempty"`
 
-	// The duration of the conference in seconds
+	// Duration The duration of the conference in seconds
 	Duration int64 `json:"duration,omitempty"`
 
-	// The events of the conference (participants joining/left)
-	Events []TelephonyConferenceHistoryEvent `json:"events,omitempty"`
+	// Events The events of the conference (participants joining/left)
+	Events []*TelephonyConferenceHistoryEvent `json:"events,omitempty"`
 
-	// The id of the conference history
-	Id int64 `json:"id,omitempty"`
+	// ID The id of the conference history
+	ID int64 `json:"id,omitempty"`
 
-	// The audio record url if you set recording
-	RecordUrl string `json:"recordUrl,omitempty"`
+	// RecordURL The audio record url if you set recording
+	RecordURL string `json:"recordUrl,omitempty"`
 }

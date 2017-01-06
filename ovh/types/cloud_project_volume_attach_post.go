@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// CloudProjectVolumeAttachPost ...
 type CloudProjectVolumeAttachPost struct {
-
-	InstanceId string `json:"instanceId,omitempty"`
+	InstanceID string `json:"instanceId,omitempty"`
 }

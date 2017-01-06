@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,19 @@ import (
 	"time"
 )
 
-// Fax delivery record
+// TelephonyFaxConsumption Fax delivery record
 type TelephonyFaxConsumption struct {
-
 	Called string `json:"called,omitempty"`
 
 	Calling string `json:"calling,omitempty"`
 
-	ConsumptionId int64 `json:"consumptionId,omitempty"`
+	ConsumptionID int64 `json:"consumptionId,omitempty"`
 
-	CreationDatetime time.Time `json:"creationDatetime,omitempty"`
+	CreationDatetime *time.Time `json:"creationDatetime,omitempty"`
 
 	Pages int64 `json:"pages,omitempty"`
 
-	PriceWithoutTax OrderPrice `json:"priceWithoutTax,omitempty"`
+	PriceWithoutTax *OrderPrice `json:"priceWithoutTax,omitempty"`
 
 	WayType string `json:"wayType,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// A Filer profile
+// DedicatedCloudFilerProfile A Filer profile
 type DedicatedCloudFilerProfile struct {
 
-	// Human-Readable name
+	// FullName Human-Readable name
 	FullName string `json:"fullName,omitempty"`
 
-	// Commercial name
+	// Name Commercial name
 	Name string `json:"name,omitempty"`
 
-	Size DedicatedCloudFilerProfileSize `json:"size,omitempty"`
+	Size *DedicatedCloudFilerProfileSize `json:"size,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Task special account List
+// EmailDomainTaskSpecialAccount Task special account List
 type EmailDomainTaskSpecialAccount struct {
 
-	// Account name of task
+	// Account Account name of task
 	Account string `json:"account,omitempty"`
 
-	// Action of task
+	// Action Action of task
 	Action string `json:"action,omitempty"`
 
-	// Creation date of task
-	Date time.Time `json:"date,omitempty"`
+	// Date Creation date of task
+	Date *time.Time `json:"date,omitempty"`
 
-	// Domain name of task
+	// Domain Domain name of task
 	Domain string `json:"domain,omitempty"`
 
-	// Id of task
-	Id int64 `json:"id,omitempty"`
+	// ID Id of task
+	ID int64 `json:"id,omitempty"`
 
-	// Type of action filter
-	Type_ string `json:"type,omitempty"`
+	// TType Type of action filter
+	TType string `json:"type,omitempty"`
 }

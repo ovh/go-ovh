@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,32 +14,32 @@ import (
 	"time"
 )
 
-// The PABX records
+// TelephonyOvhPabxRecord The PABX records
 type TelephonyOvhPabxRecord struct {
 
-	// The agent number of the recorded call
+	// Agent The agent number of the recorded call
 	Agent string `json:"agent,omitempty"`
 
-	// The end date of the recorded call
-	CallEnd time.Time `json:"callEnd,omitempty"`
+	// CallEnd The end date of the recorded call
+	CallEnd *time.Time `json:"callEnd,omitempty"`
 
-	// The begin date of the recorded call
-	CallStart time.Time `json:"callStart,omitempty"`
+	// CallStart The begin date of the recorded call
+	CallStart *time.Time `json:"callStart,omitempty"`
 
-	// The caller name of the recorded call
-	CallerIdName string `json:"callerIdName,omitempty"`
+	// CallerIDName The caller name of the recorded call
+	CallerIDName string `json:"callerIdName,omitempty"`
 
-	// The caller number of the recorded call
-	CallerIdNumber string `json:"callerIdNumber,omitempty"`
+	// CallerIDNumber The caller number of the recorded call
+	CallerIDNumber string `json:"callerIdNumber,omitempty"`
 
-	// The destination number of the recorded call
+	// DestinationNumber The destination number of the recorded call
 	DestinationNumber string `json:"destinationNumber,omitempty"`
 
-	// The duration in seconds of the recorded call
+	// Duration The duration in seconds of the recorded call
 	Duration int64 `json:"duration,omitempty"`
 
-	// The record sound url
-	FileUrl string `json:"fileUrl,omitempty"`
+	// FileURL The record sound url
+	FileURL string `json:"fileUrl,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 }

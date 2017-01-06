@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-type OrderCloudProjectIpPost struct {
-
+// OrderCloudProjectIPPost ...
+type OrderCloudProjectIPPost struct {
 	Country string `json:"country,omitempty"`
 
-	InstanceId string `json:"instanceId,omitempty"`
+	InstanceID string `json:"instanceId,omitempty"`
 
 	Quantity int64 `json:"quantity,omitempty"`
 }

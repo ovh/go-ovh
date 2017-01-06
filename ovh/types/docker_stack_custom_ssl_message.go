@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Action validation message
-type DockerStackCustomSslMessage struct {
+// DockerStackCustomSSLMessage Action validation message
+type DockerStackCustomSSLMessage struct {
 
-	// The action validation message
+	// Message The action validation message
 	Message string `json:"message,omitempty"`
 }

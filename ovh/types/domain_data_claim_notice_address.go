@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,33 +10,33 @@
 
 package types
 
-// Address for a claim notice holder
+// DomainDataClaimNoticeAddress Address for a claim notice holder
 type DomainDataClaimNoticeAddress struct {
 
-	// City
+	// City City
 	City string `json:"city,omitempty"`
 
-	// Country code
+	// CountryCode Country code
 	CountryCode string `json:"countryCode,omitempty"`
 
-	// Fax number
+	// Fax Fax number
 	Fax string `json:"fax,omitempty"`
 
-	// Fax number extension
+	// FaxExtension Fax number extension
 	FaxExtension string `json:"faxExtension,omitempty"`
 
-	// Postal zip code
+	// PostalCode Postal zip code
 	PostalCode string `json:"postalCode,omitempty"`
 
-	// State of province
+	// StateOrProvince State of province
 	StateOrProvince string `json:"stateOrProvince,omitempty"`
 
-	// Array of street name
+	// Streets Array of street name
 	Streets []string `json:"streets,omitempty"`
 
-	// Phone number
+	// Voice Phone number
 	Voice string `json:"voice,omitempty"`
 
-	// Phone number extension
+	// VoiceExtension Phone number extension
 	VoiceExtension string `json:"voiceExtension,omitempty"`
 }

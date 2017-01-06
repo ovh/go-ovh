@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,26 +10,26 @@
 
 package types
 
-// Reseller
+// HostingResellerProduct Reseller
 type HostingResellerProduct struct {
 
-	// Current action done on the instance
+	// Action Current action done on the instance
 	Action string `json:"action,omitempty"`
 
-	// Ip address of the Plesk instance
-	Ip string `json:"ip,omitempty"`
+	// IP Ip address of the Plesk instance
+	IP string `json:"ip,omitempty"`
 
-	// Progression of an action on the instance if any
+	// Progress Progression of an action on the instance if any
 	Progress float64 `json:"progress,omitempty"`
 
-	// Status of the instance
+	// Status Status of the instance
 	Status string `json:"status,omitempty"`
 
-	// Reseller flavor
-	Type_ string `json:"type,omitempty"`
+	// TType Reseller flavor
+	TType string `json:"type,omitempty"`
 
-	TypeDetail HostingResellerProductType `json:"typeDetail,omitempty"`
+	TypeDetail *HostingResellerProductType `json:"typeDetail,omitempty"`
 
-	// Plesk server address
-	Url string `json:"url,omitempty"`
+	// URL Plesk server address
+	URL string `json:"url,omitempty"`
 }

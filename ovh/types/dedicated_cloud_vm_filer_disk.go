@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// A structure describing filer disks of a the virtual machine
-type DedicatedCloudVmFilerDisk struct {
-
+// DedicatedCloudVMFilerDisk A structure describing filer disks of a the virtual machine
+type DedicatedCloudVMFilerDisk struct {
 	Capacity float64 `json:"capacity,omitempty"`
 
-	Id string `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 }

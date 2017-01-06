@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// ScreenList capable services
+// TelephonyScreen ScreenList capable services
 type TelephonyScreen struct {
-
 	IncomingScreenList string `json:"incomingScreenList,omitempty"`
 
 	OutgoingScreenList string `json:"outgoingScreenList,omitempty"`

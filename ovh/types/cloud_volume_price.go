@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Details about volume pricing
+// CloudVolumePrice Details about volume pricing
 type CloudVolumePrice struct {
+	MonthlyPrice *OrderPrice `json:"monthlyPrice,omitempty"`
 
-	MonthlyPrice OrderPrice `json:"monthlyPrice,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
-
-	// Volume region
+	// Region Volume region
 	Region string `json:"region,omitempty"`
 
-	// Volume name
+	// VolumeName Volume name
 	VolumeName string `json:"volumeName,omitempty"`
 }

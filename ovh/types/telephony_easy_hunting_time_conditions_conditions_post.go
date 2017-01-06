@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyEasyHuntingTimeConditionsConditionsPost ...
 type TelephonyEasyHuntingTimeConditionsConditionsPost struct {
-
 	Policy string `json:"policy,omitempty"`
 
 	TimeFrom string `json:"timeFrom,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Manage DynHost login
+// DomainZoneDynHostLogin Manage DynHost login
 type DomainZoneDynHostLogin struct {
 
-	// Login
+	// Login Login
 	Login string `json:"login,omitempty"`
 
-	// Subdomain that the login will be allowed to update (* to allow all)
+	// SubDomain Subdomain that the login will be allowed to update (* to allow all)
 	SubDomain string `json:"subDomain,omitempty"`
 
-	// Zone
+	// Zone Zone
 	Zone string `json:"zone,omitempty"`
 }

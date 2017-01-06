@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Informations about a service
+// PackXdslServiceInformation Informations about a service
 type PackXdslServiceInformation struct {
-
 	InCreation int64 `json:"inCreation,omitempty"`
 
 	Name string `json:"name,omitempty"`

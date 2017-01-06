@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyLineAutomaticCallPost ...
 type TelephonyLineAutomaticCallPost struct {
-
 	BridgeNumberDialplan string `json:"bridgeNumberDialplan,omitempty"`
 
 	CalledNumber string `json:"calledNumber,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// User allowed to access interfaces on your cluster
+// ClusterHadoopUser User allowed to access interfaces on your cluster
 type ClusterHadoopUser struct {
 
-	// Whether or not the User is allowed to access to the Cloudera Manager interface
+	// ClouderaManager Whether or not the User is allowed to access to the Cloudera Manager interface
 	ClouderaManager bool `json:"clouderaManager,omitempty"`
 
-	// Whether or not the User is allowed to access to the WebUI interfaces
-	HttpFrontend bool `json:"httpFrontend,omitempty"`
+	// HTTPFrontend Whether or not the User is allowed to access to the WebUI interfaces
+	HTTPFrontend bool `json:"httpFrontend,omitempty"`
 
-	// Whether or not the User is allowed to access to the Hue interface
+	// Hue Whether or not the User is allowed to access to the Hue interface
 	Hue bool `json:"hue,omitempty"`
 
-	// The username of the User
+	// Username The username of the User
 	Username string `json:"username,omitempty"`
 }

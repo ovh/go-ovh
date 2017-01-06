@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Logstash configuration
+// DBaaSLogsLogstashConfiguration Logstash configuration
 type DBaaSLogsLogstashConfiguration struct {
 
-	// The filter section of logstash.conf
+	// FilterSection The filter section of logstash.conf
 	FilterSection string `json:"filterSection,omitempty"`
 
-	// The filter section of logstash.conf
+	// InputSection The filter section of logstash.conf
 	InputSection string `json:"inputSection,omitempty"`
 
-	// The list of customs Grok patterns
+	// PatternSection The list of customs Grok patterns
 	PatternSection string `json:"patternSection,omitempty"`
 }

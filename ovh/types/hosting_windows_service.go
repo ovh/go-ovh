@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Windows web Hosting
+// HostingWindowsService Windows web Hosting
 type HostingWindowsService struct {
 
-	// Hosting offer
+	// Offer Hosting offer
 	Offer string `json:"offer,omitempty"`
 
-	// Hosting's OS
+	// OperatingSystem Hosting's OS
 	OperatingSystem string `json:"operatingSystem,omitempty"`
 
-	// Hosting resource type
+	// ResourceType Hosting resource type
 	ResourceType string `json:"resourceType,omitempty"`
 
-	// Service name
+	// ServiceName Service name
 	ServiceName string `json:"serviceName,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,44 +10,44 @@
 
 package types
 
-// Exchange domain
+// EmailExchangeDomain Exchange domain
 type EmailExchangeDomain struct {
 
-	// Cname that will be checked to prove the domain ownership
+	// CnameToCheck Cname that will be checked to prove the domain ownership
 	CnameToCheck string `json:"cnameToCheck,omitempty"`
 
-	// Domain validation status
+	// DomainValidated Domain validation status
 	DomainValidated bool `json:"domainValidated,omitempty"`
 
-	// If true this is an organization (Exchange 2010 only)
+	// Main If true this is an organization (Exchange 2010 only)
 	Main bool `json:"main,omitempty"`
 
 	MxIsValid bool `json:"mxIsValid,omitempty"`
 
-	// Domain MX record configured in DNS
+	// MxRecord Domain MX record configured in DNS
 	MxRecord []string `json:"mxRecord,omitempty"`
 
-	// If specified, emails to not existing address will be redirected to that domain
+	// MxRelay If specified, emails to not existing address will be redirected to that domain
 	MxRelay string `json:"mxRelay,omitempty"`
 
-	// Domain name
+	// Name Domain name
 	Name string `json:"name,omitempty"`
 
-	// If specified, indicates to which organization this domain belongs (Exchange 2010 only)
+	// Organization2010 If specified, indicates to which organization this domain belongs (Exchange 2010 only)
 	Organization2010 string `json:"organization2010,omitempty"`
 
-	// If true your dns srv record is valid
+	// SrvIsValid If true your dns srv record is valid
 	SrvIsValid bool `json:"srvIsValid,omitempty"`
 
-	// Domain SRV record configured in DNS
+	// SrvRecord Domain SRV record configured in DNS
 	SrvRecord []string `json:"srvRecord,omitempty"`
 
-	// Domain state
+	// State Domain state
 	State string `json:"state,omitempty"`
 
-	// Pending taks id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending taks id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 
-	// Domain type
-	Type_ string `json:"type,omitempty"`
+	// TType Domain type
+	TType string `json:"type,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SupportTicketsCreatePost ...
 type SupportTicketsCreatePost struct {
-
 	Body string `json:"body,omitempty"`
 
 	Category string `json:"category,omitempty"`
@@ -24,5 +24,5 @@ type SupportTicketsCreatePost struct {
 
 	Subject string `json:"subject,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

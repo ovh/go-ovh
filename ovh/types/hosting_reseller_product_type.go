@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,33 +10,33 @@
 
 package types
 
-// Plesk instance type details
+// HostingResellerProductType Plesk instance type details
 type HostingResellerProductType struct {
 
-	// Number of allowed customers
+	// Consumers Number of allowed customers
 	Consumers int64 `json:"consumers,omitempty"`
 
-	// Instance's cpu
-	Cpu string `json:"cpu,omitempty"`
+	// CPU Instance's cpu
+	CPU string `json:"cpu,omitempty"`
 
-	// Number of allowed databases
+	// Databases Number of allowed databases
 	Databases int64 `json:"databases,omitempty"`
 
-	// Disk size of the instance (in GB)
+	// DiskSize Disk size of the instance (in GB)
 	DiskSize int64 `json:"diskSize,omitempty"`
 
-	// Number of allowed email accounts
+	// EmailAccounts Number of allowed email accounts
 	EmailAccounts int64 `json:"emailAccounts,omitempty"`
 
-	// Instance's ram (in GB)
-	Ram int64 `json:"ram,omitempty"`
+	// RAM Instance's ram (in GB)
+	RAM int64 `json:"ram,omitempty"`
 
-	// Type name
-	Type_ string `json:"type,omitempty"`
+	// TType Type name
+	TType string `json:"type,omitempty"`
 
-	// Number of vCore
+	// VCores Number of vCore
 	VCores int64 `json:"vCores,omitempty"`
 
-	// Number of allowed websites
+	// Websites Number of allowed websites
 	Websites int64 `json:"websites,omitempty"`
 }

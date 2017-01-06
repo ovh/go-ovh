@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// UsageBill
-type CloudUsageUsageBill struct {
+// CloudUsageBill UsageBill
+type CloudUsageBill struct {
 
-	// ID of the bill
-	BillId string `json:"bill_id,omitempty"`
+	// BillID ID of the bill
+	BillID string `json:"bill_id,omitempty"`
 
-	// Amount of credits used in this bill (not necessarily on part)
+	// Credit Amount of credits used in this bill (not necessarily on part)
 	Credit float64 `json:"credit,omitempty"`
 
-	// Amount of the bill that accounts for services for the usage period, credits not taken into account
+	// Part Amount of the bill that accounts for services for the usage period, credits not taken into account
 	Part float64 `json:"part,omitempty"`
 
-	// Payment type
+	// PaymentType Payment type
 	PaymentType string `json:"payment_type,omitempty"`
 
-	// Total amount of the bill, credits not taken into account
+	// Total Total amount of the bill, credits not taken into account
 	Total float64 `json:"total,omitempty"`
 }

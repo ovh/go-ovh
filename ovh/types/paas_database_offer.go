@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Offers
+// PaasDatabaseOffer Offers
 type PaasDatabaseOffer struct {
+	DiskSize *PaasDatabaseOfferDiskSize `json:"diskSize,omitempty"`
 
-	DiskSize PaasDatabaseOfferDiskSize `json:"diskSize,omitempty"`
-
-	// Offer name
+	// OfferName Offer name
 	OfferName string `json:"offerName,omitempty"`
 
-	RamSize PaasDatabaseOfferRamSize `json:"ramSize,omitempty"`
+	RAMSize *PaasDatabaseOfferRAMSize `json:"ramSize,omitempty"`
 
-	// Offer status
+	// Status Offer status
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Partition Quota
+// DedicatedNashaQuota Partition Quota
 type DedicatedNashaQuota struct {
 
-	// the size to set in MB
+	// Size the size to set in MB
 	Size int64 `json:"size,omitempty"`
 
-	// the uid to set quota on
-	Uid int64 `json:"uid,omitempty"`
+	// UID the uid to set quota on
+	UID int64 `json:"uid,omitempty"`
 }

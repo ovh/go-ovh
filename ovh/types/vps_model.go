@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// A structure describing characteristics of a VPS model
+// VpsModel A structure describing characteristics of a VPS model
 type VpsModel struct {
-
 	AvailableOptions []string `json:"availableOptions,omitempty"`
 
 	Datacenter []string `json:"datacenter,omitempty"`
 
 	Disk int64 `json:"disk,omitempty"`
 
-	MaximumAdditionnalIp int64 `json:"maximumAdditionnalIp,omitempty"`
+	MaximumAdditionnalIP int64 `json:"maximumAdditionnalIp,omitempty"`
 
 	Memory int64 `json:"memory,omitempty"`
 

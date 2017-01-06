@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// List of all IP Restrictions
-type NichandleIpRestriction struct {
+// NichandleIPRestriction List of all IP Restrictions
+type NichandleIPRestriction struct {
 
-	// The Id of the restriction
-	Id int64 `json:"id,omitempty"`
+	// ID The Id of the restriction
+	ID int64 `json:"id,omitempty"`
 
-	// An IP range where we will apply the rule
-	Ip string `json:"ip,omitempty"`
+	// IP An IP range where we will apply the rule
+	IP string `json:"ip,omitempty"`
 
-	// Accept or deny IP access
+	// Rule Accept or deny IP access
 	Rule string `json:"rule,omitempty"`
 
-	// Send an email if someone try to access with this IP address
+	// Warning Send an email if someone try to access with this IP address
 	Warning bool `json:"warning,omitempty"`
 }

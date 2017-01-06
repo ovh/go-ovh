@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// The robots used in Dedicated Cloud
+// DedicatedCloudRobot The robots used in Dedicated Cloud
 type DedicatedCloudRobot struct {
 
-	// The criticity of this robot
+	// Criticity The criticity of this robot
 	Criticity string `json:"criticity,omitempty"`
 
-	// Description of this robot
+	// Description Description of this robot
 	Description string `json:"description,omitempty"`
 
-	// Is this robot enabled
+	// Enabled Is this robot enabled
 	Enabled bool `json:"enabled,omitempty"`
 
-	// The name of this robot
+	// Name The name of this robot
 	Name string `json:"name,omitempty"`
 
-	// The type of this robot
-	Type_ string `json:"type,omitempty"`
+	// TType The type of this robot
+	TType string `json:"type,omitempty"`
 }

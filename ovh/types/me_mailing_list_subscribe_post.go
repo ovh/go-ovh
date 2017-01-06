@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// MeMailingListSubscribePost ...
 type MeMailingListSubscribePost struct {
-
 	Email string `json:"email,omitempty"`
 
 	MailingList string `json:"mailingList,omitempty"`

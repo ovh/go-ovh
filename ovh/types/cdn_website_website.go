@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Website CDN
-type CdnWebsiteWebsite struct {
-
+// CDNWebsite Website CDN
+type CDNWebsite struct {
 	Anycast string `json:"anycast,omitempty"`
 
 	Offer string `json:"offer,omitempty"`

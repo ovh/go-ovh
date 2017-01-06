@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Sqlperso service
+// HostingWebExtrasqlperso Sqlperso service
 type HostingWebExtrasqlperso struct {
 
-	// Number of database allowed by this option
+	// Database Number of database allowed by this option
 	Database int64 `json:"database,omitempty"`
 
-	// The extraSqlPerso option name
+	// Name The extraSqlPerso option name
 	Name string `json:"name,omitempty"`
 
-	Size HostingWebExtrasqlpersoSize `json:"size,omitempty"`
+	Size *HostingWebExtrasqlpersoSize `json:"size,omitempty"`
 
-	// The extraSqlPerso option status
+	// Status The extraSqlPerso option status
 	Status string `json:"status,omitempty"`
 }

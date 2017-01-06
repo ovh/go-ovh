@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// MeInstallationTemplatePost ...
 type MeInstallationTemplatePost struct {
-
 	BaseTemplateName string `json:"baseTemplateName,omitempty"`
 
 	DefaultLanguage string `json:"defaultLanguage,omitempty"`

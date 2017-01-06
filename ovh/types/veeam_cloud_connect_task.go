@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,23 +14,23 @@ import (
 	"time"
 )
 
-// Operation with the Cloud Tenant Account
+// VeeamCloudConnectTask Operation with the Cloud Tenant Account
 type VeeamCloudConnectTask struct {
 
-	// When was this Task done
-	EndDate time.Time `json:"endDate,omitempty"`
+	// EndDate When was this Task done
+	EndDate *time.Time `json:"endDate,omitempty"`
 
-	// Task name
+	// Name Task name
 	Name string `json:"name,omitempty"`
 
-	// Current progress
+	// Progress Current progress
 	Progress int64 `json:"progress,omitempty"`
 
-	// When the task has been created
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate When the task has been created
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// Current Task state
+	// State Current Task state
 	State string `json:"state,omitempty"`
 
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 }

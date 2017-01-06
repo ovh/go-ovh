@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// Exchange resource account
+// EmailExchangeResourceAccount Exchange resource account
 type EmailExchangeResourceAccount struct {
 
-	// resource can be scheduled by more than one person during the same time period
+	// AllowConflict resource can be scheduled by more than one person during the same time period
 	AllowConflict bool `json:"allowConflict,omitempty"`
 
-	// number of the same equipment or capacity of a room
+	// Capacity number of the same equipment or capacity of a room
 	Capacity int64 `json:"capacity,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// name of resource
+	// DisplayName name of resource
 	DisplayName string `json:"displayName,omitempty"`
 
-	// resource as email
+	// ResourceEmailAddress resource as email
 	ResourceEmailAddress string `json:"resourceEmailAddress,omitempty"`
 
-	// account state
+	// State account state
 	State string `json:"state,omitempty"`
 
-	// task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 
-	// resource type
-	Type_ string `json:"type,omitempty"`
+	// TType resource type
+	TType string `json:"type,omitempty"`
 }

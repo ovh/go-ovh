@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// The PABX Text To Speech sounds
+// TelephonyOvhPabxTts The PABX Text To Speech sounds
 type TelephonyOvhPabxTts struct {
+	ID int64 `json:"id,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
-
-	// The text that will be played
+	// Text The text that will be played
 	Text string `json:"text,omitempty"`
 
-	// The voice used to say text
+	// Voice The voice used to say text
 	Voice string `json:"voice,omitempty"`
 }

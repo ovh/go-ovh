@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,17 @@ import (
 	"time"
 )
 
-// Details about a fidelity account
+// BillingFidelityMovement Details about a fidelity account
 type BillingFidelityMovement struct {
-
 	Amount int64 `json:"amount,omitempty"`
 
 	Balance int64 `json:"balance,omitempty"`
 
-	Date time.Time `json:"date,omitempty"`
+	Date *time.Time `json:"date,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
-	MovementId int64 `json:"movementId,omitempty"`
+	MovementID int64 `json:"movementId,omitempty"`
 
 	Operation string `json:"operation,omitempty"`
 

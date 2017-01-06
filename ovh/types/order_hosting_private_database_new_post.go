@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// OrderHostingPrivateDatabaseNewPost ...
 type OrderHostingPrivateDatabaseNewPost struct {
-
 	Datacenter string `json:"datacenter,omitempty"`
 
-	Ram string `json:"ram,omitempty"`
+	RAM string `json:"ram,omitempty"`
 
 	Version string `json:"version,omitempty"`
 }

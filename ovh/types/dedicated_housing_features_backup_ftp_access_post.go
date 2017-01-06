@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// DedicatedHousingFeaturesBackupFtpAccessPost ...
 type DedicatedHousingFeaturesBackupFtpAccessPost struct {
-
 	Cifs bool `json:"cifs,omitempty"`
 
 	Ftp bool `json:"ftp,omitempty"`
 
-	IpBlock string `json:"ipBlock,omitempty"`
+	IPBlock string `json:"ipBlock,omitempty"`
 
 	Nfs bool `json:"nfs,omitempty"`
 }

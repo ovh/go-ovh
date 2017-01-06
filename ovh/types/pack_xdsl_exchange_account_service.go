@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Exchange 2013 service
+// PackXdslExchangeAccountService Exchange 2013 service
 type PackXdslExchangeAccountService struct {
-
 	Domain string `json:"domain,omitempty"`
 
 	ExchangeService string `json:"exchangeService,omitempty"`

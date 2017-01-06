@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Domain service
-type EmailDomainDomainService struct {
+// EmailDomainService Domain service
+type EmailDomainService struct {
 
-	// List of allowed sizes for this domain in bytes
+	// AllowedAccountSize List of allowed sizes for this domain in bytes
 	AllowedAccountSize []int64 `json:"allowedAccountSize,omitempty"`
 
-	// Creation date of domain
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of domain
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Name of domain
+	// Domain Name of domain
 	Domain string `json:"domain,omitempty"`
 
-	// Filerz of domain
+	// Filerz Filerz of domain
 	Filerz int64 `json:"filerz,omitempty"`
 
-	// Name of servicelinked with this domain
+	// LinkTo Name of servicelinked with this domain
 	LinkTo string `json:"linkTo,omitempty"`
 
-	// Offer of email service
+	// Offer Offer of email service
 	Offer string `json:"offer,omitempty"`
 
-	// Domain Status
+	// Status Domain Status
 	Status string `json:"status,omitempty"`
 }

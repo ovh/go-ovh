@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Debt balance of the account
+// DebtBalance Debt balance of the account
 type DebtBalance struct {
-
 	Active bool `json:"active,omitempty"`
 
-	DueAmount OrderPrice `json:"dueAmount,omitempty"`
+	DueAmount *OrderPrice `json:"dueAmount,omitempty"`
 
-	PendingAmount OrderPrice `json:"pendingAmount,omitempty"`
+	PendingAmount *OrderPrice `json:"pendingAmount,omitempty"`
 
-	TodoAmount OrderPrice `json:"todoAmount,omitempty"`
+	TodoAmount *OrderPrice `json:"todoAmount,omitempty"`
 
-	UnmaturedAmount OrderPrice `json:"unmaturedAmount,omitempty"`
+	UnmaturedAmount *OrderPrice `json:"unmaturedAmount,omitempty"`
 }

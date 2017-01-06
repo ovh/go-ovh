@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Physical or Virtual Node
+// ClusterHadoopNode Physical or Virtual Node
 type ClusterHadoopNode struct {
 
-	// Name of the billing profile attached to the node
+	// BillingProfileName Name of the billing profile attached to the node
 	BillingProfileName string `json:"billingProfileName,omitempty"`
 
-	// Hostname of the node
+	// Hostname Hostname of the node
 	Hostname string `json:"hostname,omitempty"`
 
-	// IP of the Node
-	Ip string `json:"ip,omitempty"`
+	// IP IP of the Node
+	IP string `json:"ip,omitempty"`
 
-	// Wether or not the Node is removable
+	// IsRemovable Wether or not the Node is removable
 	IsRemovable bool `json:"isRemovable,omitempty"`
 
-	// Profile of the Node
+	// SoftwareProfile Profile of the Node
 	SoftwareProfile string `json:"softwareProfile,omitempty"`
 
-	// State of the Node
+	// State State of the Node
 	State string `json:"state,omitempty"`
 }

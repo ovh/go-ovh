@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,25 +14,25 @@ import (
 	"time"
 )
 
-// Call which are repayable
+// TelephonyRepaymentConsumption Call which are repayable
 type TelephonyRepaymentConsumption struct {
 
-	// Called number of the call
+	// Called Called number of the call
 	Called string `json:"called,omitempty"`
 
-	// Calling number of the call
+	// Calling Calling number of the call
 	Calling string `json:"calling,omitempty"`
 
-	ConsumptionId int64 `json:"consumptionId,omitempty"`
+	ConsumptionID int64 `json:"consumptionId,omitempty"`
 
-	// the Datetime of the start of the call
-	CreationDatetime time.Time `json:"creationDatetime,omitempty"`
+	// CreationDatetime the Datetime of the start of the call
+	CreationDatetime *time.Time `json:"creationDatetime,omitempty"`
 
 	Dialed string `json:"dialed,omitempty"`
 
-	// Duration of the call
+	// Duration Duration of the call
 	Duration int64 `json:"duration,omitempty"`
 
-	// Price repayed with the call
+	// Price Price repayed with the call
 	Price float64 `json:"price,omitempty"`
 }

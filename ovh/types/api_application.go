@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// API Application
-type ApiApplication struct {
-
-	ApplicationId int64 `json:"applicationId,omitempty"`
+// APIApplication API Application
+type APIApplication struct {
+	ApplicationID int64 `json:"applicationId,omitempty"`
 
 	ApplicationKey string `json:"applicationKey,omitempty"`
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// Struct which describes mail offer available and his quota
+// HostingWebCreationEmailCapabilities Struct which describes mail offer available and his quota
 type HostingWebCreationEmailCapabilities struct {
 
-	// Number of email available for creation
+	// Available Number of email available for creation
 	Available int64 `json:"available,omitempty"`
 
-	Quota HostingWebCreationEmailCapabilitiesQuota `json:"quota,omitempty"`
+	Quota *HostingWebCreationEmailCapabilitiesQuota `json:"quota,omitempty"`
 }

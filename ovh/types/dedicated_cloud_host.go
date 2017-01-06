@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,61 +10,61 @@
 
 package types
 
-// Dedicated Cloud Host
+// DedicatedCloudHost Dedicated Cloud Host
 type DedicatedCloudHost struct {
 
-	// Billing type of the host
+	// BillingType Billing type of the host
 	BillingType string `json:"billingType,omitempty"`
 
-	// Cluster of the host
+	// ClusterName Cluster of the host
 	ClusterName string `json:"clusterName,omitempty"`
 
-	// Connection state of the host
+	// ConnectionState Connection state of the host
 	ConnectionState string `json:"connectionState,omitempty"`
 
-	Cpu DedicatedCloudHostCpu `json:"cpu,omitempty"`
+	CPU *DedicatedCloudHostCPU `json:"cpu,omitempty"`
 
-	// The maximum speed of the cpu, in Mhz
-	CpuMax int64 `json:"cpuMax,omitempty"`
+	// CPUMax The maximum speed of the cpu, in Mhz
+	CPUMax int64 `json:"cpuMax,omitempty"`
 
-	// The speed of the CPU cores. This is an average value if there are multiple speeds. in Mhz
-	CpuMaxCore int64 `json:"cpuMaxCore,omitempty"`
+	// CPUMaxCore The speed of the CPU cores. This is an average value if there are multiple speeds. in Mhz
+	CPUMaxCore int64 `json:"cpuMaxCore,omitempty"`
 
-	// Number of physical CPU cores on the host.
-	CpuNum int64 `json:"cpuNum,omitempty"`
+	// CPUNum Number of physical CPU cores on the host.
+	CPUNum int64 `json:"cpuNum,omitempty"`
 
-	// Current cpu utilization, in Mhz
-	CpuUsed int64 `json:"cpuUsed,omitempty"`
+	// CPUUsed Current cpu utilization, in Mhz
+	CPUUsed int64 `json:"cpuUsed,omitempty"`
 
-	// Id of the host
-	HostId int64 `json:"hostId,omitempty"`
+	// HostID Id of the host
+	HostID int64 `json:"hostId,omitempty"`
 
-	// Host is in maintenance mode
+	// InMaintenance Host is in maintenance mode
 	InMaintenance bool `json:"inMaintenance,omitempty"`
 
-	// Amount of used memory. Sum of the memory used by all powered on virtual machines and vSphere services on the host. in MB
+	// MemoryUsed Amount of used memory. Sum of the memory used by all powered on virtual machines and vSphere services on the host. in MB
 	MemoryUsed float64 `json:"memoryUsed,omitempty"`
 
-	// Name of the host (IP address)
+	// Name Name of the host (IP address)
 	Name string `json:"name,omitempty"`
 
-	// Id of the parent host (if any)
-	ParentHostId int64 `json:"parentHostId,omitempty"`
+	// ParentHostID Id of the parent host (if any)
+	ParentHostID int64 `json:"parentHostId,omitempty"`
 
-	// Host profile in a commercial range
+	// Profile Host profile in a commercial range
 	Profile string `json:"profile,omitempty"`
 
-	// Rack of the host
+	// Rack Rack of the host
 	Rack string `json:"rack,omitempty"`
 
-	Ram DedicatedCloudHostRam `json:"ram,omitempty"`
+	RAM *DedicatedCloudHostRAM `json:"ram,omitempty"`
 
-	// State of the host
+	// State State of the host
 	State string `json:"state,omitempty"`
 
-	// Number of Virtual Machine on the host
-	VmTotal int64 `json:"vmTotal,omitempty"`
+	// VMTotal Number of Virtual Machine on the host
+	VMTotal int64 `json:"vmTotal,omitempty"`
 
-	// Number of Vcpu use by virtual machines on the host
-	VmVcpuTotal int64 `json:"vmVcpuTotal,omitempty"`
+	// VMVcpuTotal Number of Vcpu use by virtual machines on the host
+	VMVcpuTotal int64 `json:"vmVcpuTotal,omitempty"`
 }

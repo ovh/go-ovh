@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// All versions available for DirectAdmin products
+// LicenseOrderableDirectAdminCompatibilityInfos All versions available for DirectAdmin products
 type LicenseOrderableDirectAdminCompatibilityInfos struct {
-
 	Version string `json:"version,omitempty"`
 }

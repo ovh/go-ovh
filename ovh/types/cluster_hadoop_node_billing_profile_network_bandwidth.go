@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Network speed of the link used for the Hadoop process
+// ClusterHadoopNodeBillingProfileNetworkBandwidth Network speed of the link used for the Hadoop process
 type ClusterHadoopNodeBillingProfileNetworkBandwidth struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

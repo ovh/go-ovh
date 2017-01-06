@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailExchangeServiceSharedAccountPost ...
 type EmailExchangeServiceSharedAccountPost struct {
-
 	DisplayName string `json:"displayName,omitempty"`
 
 	FirstName string `json:"firstName,omitempty"`

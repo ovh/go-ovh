@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,22 @@
 
 package types
 
-// Contact definition of a claim notice holder
+// DomainDataClaimNoticeContact Contact definition of a claim notice holder
 type DomainDataClaimNoticeContact struct {
+	Address *DomainDataClaimNoticeAddress `json:"address,omitempty"`
 
-	Address DomainDataClaimNoticeAddress `json:"address,omitempty"`
-
-	// Email address
+	// Email Email address
 	Email string `json:"email,omitempty"`
 
-	// Legitimacy of holder
+	// Entitlement Legitimacy of holder
 	Entitlement string `json:"entitlement,omitempty"`
 
-	// Name of claim notice holder
+	// Name Name of claim notice holder
 	Name string `json:"name,omitempty"`
 
-	// Organisation name
+	// Organisation Organisation name
 	Organisation string `json:"organisation,omitempty"`
 
-	// Type of contact
-	Type_ string `json:"type,omitempty"`
+	// TType Type of contact
+	TType string `json:"type,omitempty"`
 }

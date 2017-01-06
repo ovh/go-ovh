@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// Exchange Account Diagnosis
-type EmailExchangeExchangeAccountDiagnosis struct {
+// EmailExchangeAccountDiagnosis Exchange Account Diagnosis
+type EmailExchangeAccountDiagnosis struct {
 
-	// Determines if ingoing message has been received
+	// CanReceiveEmail Determines if ingoing message has been received
 	CanReceiveEmail bool `json:"canReceiveEmail,omitempty"`
 
-	// Determines if outgoing message has been delivered
+	// CanSendEmail Determines if outgoing message has been delivered
 	CanSendEmail bool `json:"canSendEmail,omitempty"`
 
-	// Determines if possible to authenticate with credentials
+	// ConnectiveOWA Determines if possible to authenticate with credentials
 	ConnectiveOWA bool `json:"connectiveOWA,omitempty"`
 
-	// Determines if account is locked
+	// IsLocked Determines if account is locked
 	IsLocked bool `json:"isLocked,omitempty"`
 
-	// Determines if MX record for account's domain is properly set
+	// IsMxValid Determines if MX record for account's domain is properly set
 	IsMxValid bool `json:"isMxValid,omitempty"`
 
-	// Determines if account is flagged as spammer
+	// IsSpammer Determines if account is flagged as spammer
 	IsSpammer bool `json:"isSpammer,omitempty"`
 
-	// Determines if SRV (autodiscovery) record for account's domain is properly set
+	// IsSrvValid Determines if SRV (autodiscovery) record for account's domain is properly set
 	IsSrvValid bool `json:"isSrvValid,omitempty"`
 
-	// Determines if account is suspended
+	// IsSuspended Determines if account is suspended
 	IsSuspended bool `json:"isSuspended,omitempty"`
 
-	// Last performed diagnostics date
-	LastCheck time.Time `json:"lastCheck,omitempty"`
+	// LastCheck Last performed diagnostics date
+	LastCheck *time.Time `json:"lastCheck,omitempty"`
 }

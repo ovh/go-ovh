@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,20 @@ import (
 	"time"
 )
 
-// Databases
+// HostingPrivateDatabaseDatabase Databases
 type HostingPrivateDatabaseDatabase struct {
 
-	// Time of the next backup ( every day )
+	// BackupTime Time of the next backup ( every day )
 	BackupTime string `json:"backupTime,omitempty"`
 
-	// Creation date of the database
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the database
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Database name
+	// DatabaseName Database name
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	QuotaUsed HostingPrivateDatabaseDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
+	QuotaUsed *HostingPrivateDatabaseDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
 
-	// Users granted to this database
-	Users []HostingPrivateDatabaseDatabaseUser `json:"users,omitempty"`
+	// Users Users granted to this database
+	Users []*HostingPrivateDatabaseDatabaseUser `json:"users,omitempty"`
 }

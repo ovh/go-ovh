@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,42 +10,42 @@
 
 package types
 
-// Line informations
+// XdslLineDiagnosticLineDetails Line informations
 type XdslLineDiagnosticLineDetails struct {
 
-	// access name
+	// AccessName access name
 	AccessName string `json:"accessName,omitempty"`
 
-	// address of the access
+	// Address address of the access
 	Address string `json:"address,omitempty"`
 
-	// customer phone number for contact
+	// ContactPhone customer phone number for contact
 	ContactPhone string `json:"contactPhone,omitempty"`
 
-	// custom access description
+	// Description custom access description
 	Description string `json:"description,omitempty"`
 
-	// DSLAM is synchronized or not
+	// DslamIsSynchronized DSLAM is synchronized or not
 	DslamIsSynchronized bool `json:"dslamIsSynchronized,omitempty"`
 
-	// is GTR access or not
+	// Gtr is GTR access or not
 	Gtr bool `json:"gtr,omitempty"`
 
-	// Line length in meters
+	// Length Line length in meters
 	Length int64 `json:"length,omitempty"`
 
-	// dsl connexion type for the line
+	// LineType dsl connexion type for the line
 	LineType string `json:"lineType,omitempty"`
 
-	// NRA name
+	// Nra NRA name
 	Nra string `json:"nra,omitempty"`
 
-	// line number
+	// Number line number
 	Number string `json:"number,omitempty"`
 
-	// provider for internet connexion
+	// Operator provider for internet connexion
 	Operator string `json:"operator,omitempty"`
 
-	// cables sections details
-	Sections []XdslLineDiagnosticSection `json:"sections,omitempty"`
+	// Sections cables sections details
+	Sections []*XdslLineDiagnosticSection `json:"sections,omitempty"`
 }

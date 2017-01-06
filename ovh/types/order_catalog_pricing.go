@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,47 +10,47 @@
 
 package types
 
-// Describes a pricing
+// OrderCatalogPricing Describes a pricing
 type OrderCatalogPricing struct {
 
-	// Install, renew ... What the pricing can be used for
+	// Capacities Install, renew ... What the pricing can be used for
 	Capacities []string `json:"capacities,omitempty"`
 
-	// Engagement period
+	// Commitment Engagement period
 	Commitment int64 `json:"commitment,omitempty"`
 
-	// Description
+	// Description Description
 	Description string `json:"description,omitempty"`
 
-	// Number length of the interval
+	// Interval Number length of the interval
 	Interval int64 `json:"interval,omitempty"`
 
-	// Unit interval for duration
+	// IntervalUnit Unit interval for duration
 	IntervalUnit string `json:"intervalUnit,omitempty"`
 
-	// Maximum quantity buyable
+	// MaximumQuantity Maximum quantity buyable
 	MaximumQuantity int64 `json:"maximumQuantity,omitempty"`
 
-	// Maximum repeat duration
+	// MaximumRepeat Maximum repeat duration
 	MaximumRepeat int64 `json:"maximumRepeat,omitempty"`
 
-	// Minimum quantity
+	// MinimumQuantity Minimum quantity
 	MinimumQuantity int64 `json:"minimumQuantity,omitempty"`
 
-	// Minimum repeat duration
+	// MinimumRepeat Minimum repeat duration
 	MinimumRepeat int64 `json:"minimumRepeat,omitempty"`
 
-	// Whether the catalog must reach max repeat before subscription can use another one
+	// MustBeCompleted Whether the catalog must reach max repeat before subscription can use another one
 	MustBeCompleted bool `json:"mustBeCompleted,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// Max price customer will pay at the end of the period (cap)
+	// PriceCapInUcents Max price customer will pay at the end of the period (cap)
 	PriceCapInUcents int64 `json:"priceCapInUcents,omitempty"`
 
-	// Price in microcents
+	// PriceInUcents Price in microcents
 	PriceInUcents int64 `json:"priceInUcents,omitempty"`
 
-	// Strategy on which the pricing can change
+	// PricingStrategy Strategy on which the pricing can change
 	PricingStrategy string `json:"pricingStrategy,omitempty"`
 }

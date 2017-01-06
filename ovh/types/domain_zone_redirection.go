@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Redirection
+// DomainZoneRedirection Redirection
 type DomainZoneRedirection struct {
 
-	// Desciption for invisible redirection
+	// Description Desciption for invisible redirection
 	Description string `json:"description,omitempty"`
 
-	// Id of the redirection
-	Id int64 `json:"id,omitempty"`
+	// ID Id of the redirection
+	ID int64 `json:"id,omitempty"`
 
-	// Keywords for invisible redirection
+	// Keywords Keywords for invisible redirection
 	Keywords string `json:"keywords,omitempty"`
 
-	// subdomain to redirect
+	// SubDomain subdomain to redirect
 	SubDomain string `json:"subDomain,omitempty"`
 
-	// Target of the redirection
+	// Target Target of the redirection
 	Target string `json:"target,omitempty"`
 
-	// Title for invisible redirection
+	// Title Title for invisible redirection
 	Title string `json:"title,omitempty"`
 
-	// Redirection type
-	Type_ string `json:"type,omitempty"`
+	// TType Redirection type
+	TType string `json:"type,omitempty"`
 
-	// Redirection zone
+	// Zone Redirection zone
 	Zone string `json:"zone,omitempty"`
 }

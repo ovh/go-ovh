@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,62 +14,62 @@ import (
 	"time"
 )
 
-// Available installation templates
+// DedicatedInstallationTemplateTemplates Available installation templates
 type DedicatedInstallationTemplateTemplates struct {
 
-	// list of all language available for this template
+	// AvailableLanguages list of all language available for this template
 	AvailableLanguages []string `json:"availableLanguages,omitempty"`
 
-	// This distribution is new, and although tested and functional, may still display odd behaviour
+	// Beta This distribution is new, and although tested and functional, may still display odd behaviour
 	Beta bool `json:"beta,omitempty"`
 
-	// this template  bit format
+	// BitFormat this template  bit format
 	BitFormat int64 `json:"bitFormat,omitempty"`
 
-	// category of this template (informative only)
+	// Category category of this template (informative only)
 	Category string `json:"category,omitempty"`
 
-	Customization DedicatedTemplateOsProperties `json:"customization,omitempty"`
+	Customization *DedicatedTemplateOsProperties `json:"customization,omitempty"`
 
-	// the default language of this template
+	// DefaultLanguage the default language of this template
 	DefaultLanguage string `json:"defaultLanguage,omitempty"`
 
-	// is this distribution deprecated
+	// Deprecated is this distribution deprecated
 	Deprecated bool `json:"deprecated,omitempty"`
 
-	// information about this template
+	// Description information about this template
 	Description string `json:"description,omitempty"`
 
-	// the distribution this template is based on
+	// Distribution the distribution this template is based on
 	Distribution string `json:"distribution,omitempty"`
 
-	// this template family type
+	// Family this template family type
 	Family string `json:"family,omitempty"`
 
-	// list of all filesystems  available for this template
+	// Filesystems list of all filesystems  available for this template
 	Filesystems []string `json:"filesystems,omitempty"`
 
-	// This distribution supports hardware raid configuration through the OVH API
+	// HardRaidConfiguration This distribution supports hardware raid configuration through the OVH API
 	HardRaidConfiguration bool `json:"hardRaidConfiguration,omitempty"`
 
-	// Date of last modification of the base image
-	LastModification time.Time `json:"lastModification,omitempty"`
+	// LastModification Date of last modification of the base image
+	LastModification *time.Time `json:"lastModification,omitempty"`
 
-	// This distribution supports Logical Volumes (Linux LVM)
+	// LvmReady This distribution supports Logical Volumes (Linux LVM)
 	LvmReady bool `json:"lvmReady,omitempty"`
 
-	// This distribution supports installation using the distribution's native kernel instead of the recommended OVH kernel
+	// SupportsDistributionKernel This distribution supports installation using the distribution's native kernel instead of the recommended OVH kernel
 	SupportsDistributionKernel bool `json:"supportsDistributionKernel,omitempty"`
 
-	// This distribution supports the GUID Partition Table (GPT), providing up to 128 partitions that can have more than 2 TB
+	// SupportsGptLabel This distribution supports the GUID Partition Table (GPT), providing up to 128 partitions that can have more than 2 TB
 	SupportsGptLabel bool `json:"supportsGptLabel,omitempty"`
 
-	// This distribution supports the microsoft SQL server
-	SupportsSqlServer bool `json:"supportsSqlServer,omitempty"`
+	// SupportsSQLServer This distribution supports the microsoft SQL server
+	SupportsSQLServer bool `json:"supportsSqlServer,omitempty"`
 
-	// This distribution supports UEFI setup
+	// SupportsUEFI This distribution supports UEFI setup
 	SupportsUEFI string `json:"supportsUEFI,omitempty"`
 
-	// This template name
+	// TemplateName This template name
 	TemplateName string `json:"templateName,omitempty"`
 }

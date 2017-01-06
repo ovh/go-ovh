@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// Operation on a Public Cloud Storage element
+// PcsTask Operation on a Public Cloud Storage element
 type PcsTask struct {
-
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Progress int64 `json:"progress,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

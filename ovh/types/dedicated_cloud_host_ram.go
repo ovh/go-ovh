@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Total RAM quantity
-type DedicatedCloudHostRam struct {
-
+// DedicatedCloudHostRAM Total RAM quantity
+type DedicatedCloudHostRAM struct {
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

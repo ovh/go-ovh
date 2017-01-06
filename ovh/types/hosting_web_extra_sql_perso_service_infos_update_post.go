@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type HostingWebExtraSqlPersoServiceInfosUpdatePost struct {
-
-	Renew ServiceRenewType `json:"renew,omitempty"`
+// HostingWebExtraSQLPersoServiceInfosUpdatePost ...
+type HostingWebExtraSQLPersoServiceInfosUpdatePost struct {
+	Renew *ServiceRenewType `json:"renew,omitempty"`
 }

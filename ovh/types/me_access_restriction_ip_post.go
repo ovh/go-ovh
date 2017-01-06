@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type MeAccessRestrictionIpPost struct {
-
-	Ip string `json:"ip,omitempty"`
+// MeAccessRestrictionIPPost ...
+type MeAccessRestrictionIPPost struct {
+	IP string `json:"ip,omitempty"`
 
 	Rule string `json:"rule,omitempty"`
 

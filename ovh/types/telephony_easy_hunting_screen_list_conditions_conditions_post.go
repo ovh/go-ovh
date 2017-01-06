@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// TelephonyEasyHuntingScreenListConditionsConditionsPost ...
 type TelephonyEasyHuntingScreenListConditionsConditionsPost struct {
-
-	CallerIdNumber string `json:"callerIdNumber,omitempty"`
+	CallerIDNumber string `json:"callerIdNumber,omitempty"`
 
 	DestinationNumber string `json:"destinationNumber,omitempty"`
 

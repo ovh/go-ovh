@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// SOTP Two-Factor Authentication
+// NichandleAccessRestrictionSotpAccount SOTP Two-Factor Authentication
 type NichandleAccessRestrictionSotpAccount struct {
 
-	// Number of remaining codes
+	// Remaining Number of remaining codes
 	Remaining int64 `json:"remaining,omitempty"`
 
-	// Status of this account
+	// Status Status of this account
 	Status string `json:"status,omitempty"`
 }

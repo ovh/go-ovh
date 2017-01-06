@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// User of the click 2 call
+// TelephonyClick2CallUser User of the click 2 call
 type TelephonyClick2CallUser struct {
 
-	// Date when user was created
-	CreationDateTime time.Time `json:"creationDateTime,omitempty"`
+	// CreationDateTime Date when user was created
+	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
 
-	// Contact identifier
-	Id int64 `json:"id,omitempty"`
+	// ID Contact identifier
+	ID int64 `json:"id,omitempty"`
 
-	// login of the click 2 call user
+	// Login login of the click 2 call user
 	Login string `json:"login,omitempty"`
 }

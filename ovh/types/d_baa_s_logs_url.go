@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Web address
-type DBaaSLogsUrl struct {
+// DBaaSLogsURL Web address
+type DBaaSLogsURL struct {
 
-	// Web URI
+	// Address Web URI
 	Address string `json:"address,omitempty"`
 
-	// Service type
-	Type_ string `json:"type,omitempty"`
+	// TType Service type
+	TType string `json:"type,omitempty"`
 }

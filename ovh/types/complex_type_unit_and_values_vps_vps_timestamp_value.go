@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// A value set tagged with its unit
-type ComplexTypeUnitAndValuesVpsVpsTimestampValue struct {
-
+// ComplexTypeUnitAndValuesVpsTimestampValue A value set tagged with its unit
+type ComplexTypeUnitAndValuesVpsTimestampValue struct {
 	Unit string `json:"unit,omitempty"`
 
-	Values []VpsVpsTimestampValue `json:"values,omitempty"`
+	Values []*VpsTimestampValue `json:"values,omitempty"`
 }

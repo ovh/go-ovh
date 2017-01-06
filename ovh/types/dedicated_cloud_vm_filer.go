@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// A structure describing filers of a the virtual machine
-type DedicatedCloudVmFiler struct {
-
+// DedicatedCloudVMFiler A structure describing filers of a the virtual machine
+type DedicatedCloudVMFiler struct {
 	Committed float64 `json:"committed,omitempty"`
 
-	Disks []DedicatedCloudVmFilerDisk `json:"disks,omitempty"`
+	Disks []*DedicatedCloudVMFilerDisk `json:"disks,omitempty"`
 
 	Name string `json:"name,omitempty"`
 }

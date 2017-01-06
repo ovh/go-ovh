@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderLicensePleskUpgradePost ...
 type OrderLicensePleskUpgradePost struct {
-
 	Antispam string `json:"antispam,omitempty"`
 
 	Antivirus string `json:"antivirus,omitempty"`

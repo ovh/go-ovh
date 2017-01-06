@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// CloudProjectVolumePost ...
 type CloudProjectVolumePost struct {
-
 	Bootable bool `json:"bootable,omitempty"`
 
 	Description string `json:"description,omitempty"`
@@ -22,7 +22,7 @@ type CloudProjectVolumePost struct {
 
 	Size int64 `json:"size,omitempty"`
 
-	SnapshotId string `json:"snapshotId,omitempty"`
+	SnapshotID string `json:"snapshotId,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

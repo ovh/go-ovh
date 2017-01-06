@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// An image package description
+// DistributionImagePackage An image package description
 type DistributionImagePackage struct {
 
-	// Package alias
+	// Alias Package alias
 	Alias string `json:"alias,omitempty"`
 
-	// Package name
+	// Name Package name
 	Name string `json:"name,omitempty"`
 
-	// Package version
+	// Version Package version
 	Version string `json:"version,omitempty"`
 }

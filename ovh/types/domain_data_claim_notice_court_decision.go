@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Definition of a court decision
+// DomainDataClaimNoticeCourtDecision Definition of a court decision
 type DomainDataClaimNoticeCourtDecision struct {
 
-	// Country code
+	// CountryCode Country code
 	CountryCode string `json:"countryCode,omitempty"`
 
-	// Court name
+	// CourtName Court name
 	CourtName string `json:"courtName,omitempty"`
 
-	// Reference number of court decision
+	// ReferenceNumber Reference number of court decision
 	ReferenceNumber string `json:"referenceNumber,omitempty"`
 
-	// Regions where court decision apply
+	// Regions Regions where court decision apply
 	Regions []string `json:"regions,omitempty"`
 }

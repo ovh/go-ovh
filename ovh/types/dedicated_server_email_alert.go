@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Service monitoring Email alert
+// DedicatedServerEmailAlert Service monitoring Email alert
 type DedicatedServerEmailAlert struct {
 
-	// This monitoring id
-	AlertId int64 `json:"alertId,omitempty"`
+	// AlertID This monitoring id
+	AlertID int64 `json:"alertId,omitempty"`
 
-	// Alert destination
+	// Email Alert destination
 	Email string `json:"email,omitempty"`
 
-	// Is this monitor enabled
+	// Enabled Is this monitor enabled
 	Enabled bool `json:"enabled,omitempty"`
 
-	// Alert language
+	// Language Alert language
 	Language string `json:"language,omitempty"`
 }

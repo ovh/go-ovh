@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Database Available and Default version
+// HostingWebDatabaseAvailableVersionStruct Database Available and Default version
 type HostingWebDatabaseAvailableVersionStruct struct {
 
-	// Database default version
-	Default_ string `json:"default,omitempty"`
+	// TDefault Database default version
+	TDefault string `json:"default,omitempty"`
 
-	// Database available version
+	// List Database available version
 	List []string `json:"list,omitempty"`
 }

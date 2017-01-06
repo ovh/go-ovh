@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Glue record
+// DomainGlueRecord Glue record
 type DomainGlueRecord struct {
 
-	// Host of the glue record
+	// Host Host of the glue record
 	Host string `json:"host,omitempty"`
 
-	// Ips of the glue record
-	Ips []string `json:"ips,omitempty"`
+	// IPs Ips of the glue record
+	IPs []string `json:"ips,omitempty"`
 }

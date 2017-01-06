@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DomainGlueRecordPost ...
 type DomainGlueRecordPost struct {
-
 	Host string `json:"host,omitempty"`
 
-	Ips []string `json:"ips,omitempty"`
+	IPs []string `json:"ips,omitempty"`
 }

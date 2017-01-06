@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Represents a street
+// XdslEligibilityStreet Represents a street
 type XdslEligibilityStreet struct {
 
-	// The name of the street
+	// Name The name of the street
 	Name string `json:"name,omitempty"`
 
-	// The identifier of the street
+	// RivoliCode The identifier of the street
 	RivoliCode string `json:"rivoliCode,omitempty"`
 }

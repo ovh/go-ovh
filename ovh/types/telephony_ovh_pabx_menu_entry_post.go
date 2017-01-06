@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxMenuEntryPost ...
 type TelephonyOvhPabxMenuEntryPost struct {
-
 	Action string `json:"action,omitempty"`
 
 	ActionParam string `json:"actionParam,omitempty"`

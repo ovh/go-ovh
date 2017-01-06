@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Describe TOTP secret keys
+// NichandleAccessRestrictionTotpSecret Describe TOTP secret keys
 type NichandleAccessRestrictionTotpSecret struct {
-
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	QrcodeHelper string `json:"qrcodeHelper,omitempty"`
 

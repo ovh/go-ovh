@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// Backup configured on a given Datacenter
+// DedicatedCloudBackup Backup configured on a given Datacenter
 type DedicatedCloudBackup struct {
 
-	// Duration on email report
+	// BackupDurationInReport Duration on email report
 	BackupDurationInReport bool `json:"backupDurationInReport,omitempty"`
 
-	// Backup offer type
+	// BackupOffer Backup offer type
 	BackupOffer string `json:"backupOffer,omitempty"`
 
-	// Backup size on day on email report
+	// BackupSizeInReport Backup size on day on email report
 	BackupSizeInReport bool `json:"backupSizeInReport,omitempty"`
 
-	// Disk size on mail report
+	// DiskSizeInReport Disk size on mail report
 	DiskSizeInReport bool `json:"diskSizeInReport,omitempty"`
 
-	// Backup is encrypted
+	// Encryption Backup is encrypted
 	Encryption bool `json:"encryption,omitempty"`
 
-	// Full day on mail report
+	// FullDayInReport Full day on mail report
 	FullDayInReport bool `json:"fullDayInReport,omitempty"`
 
-	// Name of the backup server virtual machine.
+	// Hostname Name of the backup server virtual machine.
 	Hostname string `json:"hostname,omitempty"`
 
-	// RestorePoint number on mail report
+	// RestorePointInReport RestorePoint number on mail report
 	RestorePointInReport bool `json:"restorePointInReport,omitempty"`
 
-	// Schedule hour for start backup
+	// ScheduleHour Schedule hour for start backup
 	ScheduleHour string `json:"scheduleHour,omitempty"`
 
-	// This Backup current state
+	// State This Backup current state
 	State string `json:"state,omitempty"`
 
-	// The moref of the backup server virtual machine
-	VmwareVmId string `json:"vmwareVmId,omitempty"`
+	// VMwareVMID The moref of the backup server virtual machine
+	VMwareVMID string `json:"vmwareVmId,omitempty"`
 }

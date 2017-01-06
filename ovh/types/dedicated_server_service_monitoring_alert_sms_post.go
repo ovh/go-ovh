@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedServerServiceMonitoringAlertSmsPost ...
 type DedicatedServerServiceMonitoringAlertSmsPost struct {
-
 	FromHour int64 `json:"fromHour,omitempty"`
 
 	Language string `json:"language,omitempty"`

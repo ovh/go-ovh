@@ -10,21 +10,21 @@
 
 package types
 
-// Key
+// PaasTimeseriesKey Key
 type PaasTimeseriesKey struct {
 
-	// Description
+	// Description Description
 	Description string `json:"description,omitempty"`
 
-	// Id
-	Id string `json:"id,omitempty"`
+	// ID Id
+	ID string `json:"id,omitempty"`
 
-	// List of permissions
+	// Permissions List of permissions
 	Permissions []string `json:"permissions,omitempty"`
 
-	// Secret part
+	// Secret Secret part
 	Secret string `json:"secret,omitempty"`
 
-	// List of tags
-	Tags []PaasTimeseriesTag `json:"tags,omitempty"`
+	// Tags List of tags
+	Tags []*PaasTimeseriesTag `json:"tags,omitempty"`
 }

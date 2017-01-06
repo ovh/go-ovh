@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// A structure describing the current state of an IPLB instances
-type IplbInstancesState struct {
+// IPLBInstancesState A structure describing the current state of an IPLB instances
+type IPLBInstancesState struct {
 
-	// Internal ID of this IPLB instance
-	InternalId int64 `json:"internalId,omitempty"`
+	// InternalID Internal ID of this IPLB instance
+	InternalID int64 `json:"internalId,omitempty"`
 
-	// Last update date
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
+	// LastUpdateDate Last update date
+	LastUpdateDate *time.Time `json:"lastUpdateDate,omitempty"`
 
-	// Current state of this IPLB instance
+	// State Current state of this IPLB instance
 	State string `json:"state,omitempty"`
 
-	// zone of this IPLB instance
+	// Zone zone of this IPLB instance
 	Zone string `json:"zone,omitempty"`
 }

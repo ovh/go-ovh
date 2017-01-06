@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Sms reach list
+// SmsException Sms reach list
 type SmsException struct {
 
-	// The abreviated country code.
+	// CountrySuffixe The abreviated country code.
 	CountrySuffixe string `json:"countrySuffixe,omitempty"`
 
-	// The exception message
+	// Messages The exception message
 	Messages []string `json:"messages,omitempty"`
 
-	// The list of operators impacted.
+	// Operators The list of operators impacted.
 	Operators string `json:"operators,omitempty"`
 
-	// The type of routing restriction imposed by the operator
+	// RestrictionCode The type of routing restriction imposed by the operator
 	RestrictionCode string `json:"restrictionCode,omitempty"`
 
-	// The substitution sender used to bypass operator filter
+	// Substitution The substitution sender used to bypass operator filter
 	Substitution string `json:"substitution,omitempty"`
 }

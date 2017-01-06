@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Get shared account quota usage in total available space
+// EmailExchangeSharedAccountQuota Get shared account quota usage in total available space
 type EmailExchangeSharedAccountQuota struct {
 
-	// total amount of space in MB for shared accounts within organization
+	// QuotaLimit total amount of space in MB for shared accounts within organization
 	QuotaLimit int64 `json:"quotaLimit,omitempty"`
 
-	// space in MB already reserved from the quota limit
+	// QuotaReserved space in MB already reserved from the quota limit
 	QuotaReserved int64 `json:"quotaReserved,omitempty"`
 
-	// currently used space in KB within all shared accounts
+	// QuotaUsed currently used space in KB within all shared accounts
 	QuotaUsed int64 `json:"quotaUsed,omitempty"`
 }

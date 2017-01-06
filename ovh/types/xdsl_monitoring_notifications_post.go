@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// XdslMonitoringNotificationsPost ...
 type XdslMonitoringNotificationsPost struct {
-
 	AllowIncident bool `json:"allowIncident,omitempty"`
 
 	DownThreshold int64 `json:"downThreshold,omitempty"`
@@ -24,5 +24,5 @@ type XdslMonitoringNotificationsPost struct {
 
 	SmsAccount string `json:"smsAccount,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

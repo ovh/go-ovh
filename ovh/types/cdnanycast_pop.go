@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// CDN Pop
-type CdnanycastPop struct {
-
+// CDNanycastPop CDN Pop
+type CDNanycastPop struct {
 	City string `json:"city,omitempty"`
 
 	Comment string `json:"comment,omitempty"`
 
-	// Name of the pop
+	// Name Name of the pop
 	Name string `json:"name,omitempty"`
 
 	Status string `json:"status,omitempty"`

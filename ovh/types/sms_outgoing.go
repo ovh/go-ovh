@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// Sms history of sms outgoing sent
+// SmsOutgoing Sms history of sms outgoing sent
 type SmsOutgoing struct {
-
-	CreationDatetime time.Time `json:"creationDatetime,omitempty"`
+	CreationDatetime *time.Time `json:"creationDatetime,omitempty"`
 
 	Credits float64 `json:"credits,omitempty"`
 
@@ -25,7 +24,7 @@ type SmsOutgoing struct {
 
 	DifferedDelivery int64 `json:"differedDelivery,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Message string `json:"message,omitempty"`
 
@@ -41,6 +40,6 @@ type SmsOutgoing struct {
 
 	Tag string `json:"tag,omitempty"`
 
-	// Tariff code applied on the sms
+	// TariffCode Tariff code applied on the sms
 	TariffCode string `json:"tariffCode,omitempty"`
 }

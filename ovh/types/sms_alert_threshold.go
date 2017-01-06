@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A structure describing all information about alert threshold informations
+// SmsAlertThreshold A structure describing all information about alert threshold informations
 type SmsAlertThreshold struct {
-
 	AlertEmail string `json:"alertEmail,omitempty"`
 
 	AlertNumber string `json:"alertNumber,omitempty"`

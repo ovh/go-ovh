@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Voicemail greeting
+// TelephonyVoicemailGreetings Voicemail greeting
 type TelephonyVoicemailGreetings struct {
 
-	// Callee number in international format
+	// Callee Callee number in international format
 	Callee string `json:"callee,omitempty"`
 
-	// Customized greeting voicemail directory
+	// Dir Customized greeting voicemail directory
 	Dir string `json:"dir,omitempty"`
 
-	// Uniq customized greeting identifier
-	Id int64 `json:"id,omitempty"`
+	// ID Uniq customized greeting identifier
+	ID int64 `json:"id,omitempty"`
 }

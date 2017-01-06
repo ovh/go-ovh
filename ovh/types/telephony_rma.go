@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,38 +14,38 @@ import (
 	"time"
 )
 
-// Current Return Merchandise Authorisation
+// TelephonyRma Current Return Merchandise Authorisation
 type TelephonyRma struct {
 
-	// Creation datetime of the return merchandise authorisation ticket
-	CreationDatetime time.Time `json:"creationDatetime,omitempty"`
+	// CreationDatetime Creation datetime of the return merchandise authorisation ticket
+	CreationDatetime *time.Time `json:"creationDatetime,omitempty"`
 
-	// Merchandise reference
+	// EquipmentReference Merchandise reference
 	EquipmentReference string `json:"equipmentReference,omitempty"`
 
-	// Return merchandise authorisation identifier
-	Id string `json:"id,omitempty"`
+	// ID Return merchandise authorisation identifier
+	ID string `json:"id,omitempty"`
 
-	// New merchandise brand in case of exchange
+	// NewMerchandise New merchandise brand in case of exchange
 	NewMerchandise string `json:"newMerchandise,omitempty"`
 
-	// Offer type of the new merchandise in case of exchange
+	// OfferTypeNew Offer type of the new merchandise in case of exchange
 	OfferTypeNew string `json:"offerTypeNew,omitempty"`
 
-	// Offer type of the return merchandise
+	// OfferTypeOld Offer type of the return merchandise
 	OfferTypeOld string `json:"offerTypeOld,omitempty"`
 
-	// Reception datetime of the return merchandise authorisation ticket
-	ReceptionDatetime time.Time `json:"receptionDatetime,omitempty"`
+	// ReceptionDatetime Reception datetime of the return merchandise authorisation ticket
+	ReceptionDatetime *time.Time `json:"receptionDatetime,omitempty"`
 
-	ShippingContact TelephonyContact `json:"shippingContact,omitempty"`
+	ShippingContact *TelephonyContact `json:"shippingContact,omitempty"`
 
-	// Return merchandise authorisation step
+	// Status Return merchandise authorisation step
 	Status string `json:"status,omitempty"`
 
-	// Termination datetime of the return merchandise authorisation ticket
-	TerminationDatetime time.Time `json:"terminationDatetime,omitempty"`
+	// TerminationDatetime Termination datetime of the return merchandise authorisation ticket
+	TerminationDatetime *time.Time `json:"terminationDatetime,omitempty"`
 
-	// Typology process of merchandise return
-	Type_ string `json:"type,omitempty"`
+	// TType Typology process of merchandise return
+	TType string `json:"type,omitempty"`
 }

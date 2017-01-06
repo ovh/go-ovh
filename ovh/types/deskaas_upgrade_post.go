@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DeskaasUpgradePost ...
 type DeskaasUpgradePost struct {
-
 	NewReference string `json:"newReference,omitempty"`
 
 	PlanCode string `json:"planCode,omitempty"`

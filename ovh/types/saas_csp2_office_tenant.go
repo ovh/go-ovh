@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,36 +14,36 @@ import (
 	"time"
 )
 
-// Office tenant
+// SaasCsp2OfficeTenant Office tenant
 type SaasCsp2OfficeTenant struct {
 
-	// Contact's address line
+	// Address Contact's address line
 	Address string `json:"address,omitempty"`
 
-	// Contact's city
+	// City Contact's city
 	City string `json:"city,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Tenant's display name
+	// DisplayName Tenant's display name
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Contact's first name
+	// FirstName Contact's first name
 	FirstName string `json:"firstName,omitempty"`
 
-	// Contact's last name
+	// LastName Contact's last name
 	LastName string `json:"lastName,omitempty"`
 
-	// Primary phone number
+	// Phone Primary phone number
 	Phone string `json:"phone,omitempty"`
 
-	// Internal service name
+	// ServiceName Internal service name
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Tenant's status
+	// Status Tenant's status
 	Status string `json:"status,omitempty"`
 
-	// Contact's zip code
+	// ZipCode Contact's zip code
 	ZipCode string `json:"zipCode,omitempty"`
 }

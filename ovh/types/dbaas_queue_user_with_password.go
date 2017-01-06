@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// UserWithPassword
+// DbaasQueueUserWithPassword UserWithPassword
 type DbaasQueueUserWithPassword struct {
 
-	// User ID
-	Id string `json:"id,omitempty"`
+	// ID User ID
+	ID string `json:"id,omitempty"`
 
-	// User name
+	// Name User name
 	Name string `json:"name,omitempty"`
 
-	// User password
+	// Password User password
 	Password string `json:"password,omitempty"`
 
-	// List of roles this user belongs to
+	// Roles List of roles this user belongs to
 	Roles []string `json:"roles,omitempty"`
 }

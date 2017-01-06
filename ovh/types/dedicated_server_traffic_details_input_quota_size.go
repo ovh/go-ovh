@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Monthly input traffic quota allowed
+// DedicatedServerTrafficDetailsInputQuotaSize Monthly input traffic quota allowed
 type DedicatedServerTrafficDetailsInputQuotaSize struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

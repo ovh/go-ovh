@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// A structure giving operation price and asynchronous task ID
+// SmsReceiversAsynchronousCleanReport A structure giving operation price and asynchronous task ID
 type SmsReceiversAsynchronousCleanReport struct {
-
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 
 	TotalCreditsRemoved float64 `json:"totalCreditsRemoved,omitempty"`
 }

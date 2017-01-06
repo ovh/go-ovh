@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Detailed information on a Hadoop Cluster consumption
+// ClusterHadoopClusterConsumption Detailed information on a Hadoop Cluster consumption
 type ClusterHadoopClusterConsumption struct {
-
-	Quantity ClusterHadoopClusterConsumptionQuantity `json:"quantity,omitempty"`
+	Quantity *ClusterHadoopClusterConsumptionQuantity `json:"quantity,omitempty"`
 }

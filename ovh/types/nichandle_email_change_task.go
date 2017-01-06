@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,20 @@ import (
 	"time"
 )
 
-// Task running an email change on an account
+// NichandleEmailChangeTask Task running an email change on an account
 type NichandleEmailChangeTask struct {
 
-	// End date of that request
-	DateDone time.Time `json:"dateDone,omitempty"`
+	// DateDone End date of that request
+	DateDone *time.Time `json:"dateDone,omitempty"`
 
-	// Creation date of that request
-	DateRequest time.Time `json:"dateRequest,omitempty"`
+	// DateRequest Creation date of that request
+	DateRequest *time.Time `json:"dateRequest,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// The email address to change for
+	// NewEmail The email address to change for
 	NewEmail string `json:"newEmail,omitempty"`
 
-	// Current state of the request
+	// State Current state of the request
 	State string `json:"state,omitempty"`
 }

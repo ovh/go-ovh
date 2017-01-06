@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Disk insterface speed
+// DedicatedServerHardwareRaidDiskGroupSpeed Disk insterface speed
 type DedicatedServerHardwareRaidDiskGroupSpeed struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value string `json:"value,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// Your DirectAdmin license
-type LicenseDirectadminDirectAdmin struct {
+// LicenseDirectAdmin Your DirectAdmin license
+type LicenseDirectAdmin struct {
 
-	// The client id on license provider side
-	ClientId int64 `json:"clientId,omitempty"`
+	// ClientID The client id on license provider side
+	ClientID int64 `json:"clientId,omitempty"`
 
-	// This license creation date
-	Creation time.Time `json:"creation,omitempty"`
+	// Creation This license creation date
+	Creation *time.Time `json:"creation,omitempty"`
 
-	// Shall we delete this on expiration ?
+	// DeleteAtExpiration Shall we delete this on expiration ?
 	DeleteAtExpiration bool `json:"deleteAtExpiration,omitempty"`
 
-	// The internal name of your license
+	// Domain The internal name of your license
 	Domain string `json:"domain,omitempty"`
 
-	// The ip on which this license is attached
-	Ip string `json:"ip,omitempty"`
+	// IP The ip on which this license is attached
+	IP string `json:"ip,omitempty"`
 
-	// The license id on license provider side
-	LicenseId string `json:"licenseId,omitempty"`
+	// LicenseID The license id on license provider side
+	LicenseID string `json:"licenseId,omitempty"`
 
-	// This license operating system
+	// Os This license operating system
 	Os string `json:"os,omitempty"`
 
-	// This license state
+	// Status This license state
 	Status string `json:"status,omitempty"`
 
-	// This license version
+	// Version This license version
 	Version string `json:"version,omitempty"`
 }

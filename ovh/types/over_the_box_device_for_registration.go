@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,14 @@ import (
 	"time"
 )
 
-// A device for registration
+// OverTheBoxDeviceForRegistration A device for registration
 type OverTheBoxDeviceForRegistration struct {
 
-	// Whether or not this device is actived
+	// Activated Whether or not this device is actived
 	Activated bool `json:"activated,omitempty"`
 
-	DeviceId string `json:"deviceId,omitempty"`
+	DeviceID string `json:"deviceId,omitempty"`
 
-	// The last time this device was seen on the provisionning servers
-	LastSeen time.Time `json:"lastSeen,omitempty"`
+	// LastSeen The last time this device was seen on the provisionning servers
+	LastSeen *time.Time `json:"lastSeen,omitempty"`
 }

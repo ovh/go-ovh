@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Voicemail configuration
+// TelephonyServiceVoicemailNotifications Voicemail configuration
 type TelephonyServiceVoicemailNotifications struct {
-
 	Email string `json:"email,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

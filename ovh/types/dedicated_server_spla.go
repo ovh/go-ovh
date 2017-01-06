@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// SPLA licenses management
+// DedicatedServerSpla SPLA licenses management
 type DedicatedServerSpla struct {
 
-	// License id
-	Id int64 `json:"id,omitempty"`
+	// ID License id
+	ID int64 `json:"id,omitempty"`
 
-	// Last update timestamp
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update timestamp
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// License serial number
+	// SerialNumber License serial number
 	SerialNumber string `json:"serialNumber,omitempty"`
 
-	// Status of license
+	// Status Status of license
 	Status string `json:"status,omitempty"`
 
-	// License type
-	Type_ string `json:"type,omitempty"`
+	// TType License type
+	TType string `json:"type,omitempty"`
 }

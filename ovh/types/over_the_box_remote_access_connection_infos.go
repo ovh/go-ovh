@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// All the infos needed to connect yourself to your OTB
+// OverTheBoxRemoteAccessConnectionInfos All the infos needed to connect yourself to your OTB
 type OverTheBoxRemoteAccessConnectionInfos struct {
 
-	// IP to connect to when accessing the device remotely
-	Ip string `json:"ip,omitempty"`
+	// IP IP to connect to when accessing the device remotely
+	IP string `json:"ip,omitempty"`
 
-	// Port to connect to when accessing the device remotely
+	// Port Port to connect to when accessing the device remotely
 	Port int64 `json:"port,omitempty"`
 }

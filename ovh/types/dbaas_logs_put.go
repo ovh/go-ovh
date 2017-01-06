@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// DbaasLogsPut ...
 type DbaasLogsPut struct {
-
-	ContactId int64 `json:"contactId,omitempty"`
+	ContactID int64 `json:"contactId,omitempty"`
 }

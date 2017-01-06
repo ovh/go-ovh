@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,20 @@
 
 package types
 
-// Information about an IP address for a VPS Virtual Machine
-type VpsIp struct {
-
+// VpsIP Information about an IP address for a VPS Virtual Machine
+type VpsIP struct {
 	Gateway string `json:"gateway,omitempty"`
 
 	Geolocation string `json:"geolocation,omitempty"`
 
-	// The effective ip address of the Ip object
-	IpAddress string `json:"ipAddress,omitempty"`
+	// IPAddress The effective ip address of the Ip object
+	IPAddress string `json:"ipAddress,omitempty"`
 
 	MacAddress string `json:"macAddress,omitempty"`
 
 	Reverse string `json:"reverse,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
 	Version string `json:"version,omitempty"`
 }

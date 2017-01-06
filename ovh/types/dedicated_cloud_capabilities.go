@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// The features available in your Dedicated Cloud
+// DedicatedCloudCapabilities The features available in your Dedicated Cloud
 type DedicatedCloudCapabilities struct {
 
-	// canAddRessource right order status in this Dedicated Cloud
+	// AddRessourceRightStatus canAddRessource right order status in this Dedicated Cloud
 	AddRessourceRightStatus string `json:"addRessourceRightStatus,omitempty"`
 
-	// Backup feature order status for this Dedicated Cloud
+	// BackupStatus Backup feature order status for this Dedicated Cloud
 	BackupStatus string `json:"backupStatus,omitempty"`
 
-	// if true user can be added in this Dedicated Cloud (with POST /dedicatedCloud/{serviceName}/user
+	// CanAddUser if true user can be added in this Dedicated Cloud (with POST /dedicatedCloud/{serviceName}/user
 	CanAddUser bool `json:"canAddUser,omitempty"`
 
-	// fullAdminRO user right order status in this Dedicated Cloud
+	// FullAdminRoUserStatus fullAdminRO user right order status in this Dedicated Cloud
 	FullAdminRoUserStatus string `json:"fullAdminRoUserStatus,omitempty"`
 
-	// Nexus 1000v feature order status in this Dedicated Cloud ?
+	// Nexus1000vStatus Nexus 1000v feature order status in this Dedicated Cloud ?
 	Nexus1000vStatus string `json:"nexus1000vStatus,omitempty"`
 
-	// Hypervisor upgrade order status in this Dedicated Cloud (upgrade with POST /dedicatedCloud/{serviceName}/upgradeHypervisor)
+	// Upgradable Hypervisor upgrade order status in this Dedicated Cloud (upgrade with POST /dedicatedCloud/{serviceName}/upgradeHypervisor)
 	Upgradable bool `json:"upgradable,omitempty"`
 
-	// userAccessPolicy property edition status in PUT /dedicatedCloud/{serviceName}
+	// UserAccessPolicyStatus userAccessPolicy property edition status in PUT /dedicatedCloud/{serviceName}
 	UserAccessPolicyStatus string `json:"userAccessPolicyStatus,omitempty"`
 }

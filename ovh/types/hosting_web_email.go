@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Hosting automated emails
+// HostingWebEmail Hosting automated emails
 type HostingWebEmail struct {
 
-	// Bounce
+	// Bounce Bounce
 	Bounce int64 `json:"bounce,omitempty"`
 
-	// Email used to receive errors
+	// Email Email used to receive errors
 	Email string `json:"email,omitempty"`
 
-	// Max email to sent per day
+	// MaxPerDay Max email to sent per day
 	MaxPerDay int64 `json:"maxPerDay,omitempty"`
 
-	// Email sent since hosting creation
+	// Sent Email sent since hosting creation
 	Sent int64 `json:"sent,omitempty"`
 
-	// Email sent today
+	// SentToday Email sent today
 	SentToday int64 `json:"sentToday,omitempty"`
 
-	// Email state
+	// State Email state
 	State string `json:"state,omitempty"`
 }

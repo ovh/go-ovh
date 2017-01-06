@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing the Bay's network configuration
-type DedicatedHousingIpInfo struct {
+// DedicatedHousingIPInfo A structure describing the Bay's network configuration
+type DedicatedHousingIPInfo struct {
 
-	// Network gateway of the bay
+	// Gateway Network gateway of the bay
 	Gateway string `json:"gateway,omitempty"`
 
-	// Network address of the bay
+	// Network Network address of the bay
 	Network string `json:"network,omitempty"`
 
-	// Reserved addresses. You should not use them in your network
+	// ReservedAddresses Reserved addresses. You should not use them in your network
 	ReservedAddresses []string `json:"reservedAddresses,omitempty"`
 }

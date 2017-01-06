@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,29 @@
 
 package types
 
-// A structure describing informations about server load
+// DedicatedServerRtmLoad A structure describing informations about server load
 type DedicatedServerRtmLoad struct {
+	CPU *DedicatedServerRtmLoadCPU `json:"cpu,omitempty"`
 
-	Cpu DedicatedServerRtmLoadCpu `json:"cpu,omitempty"`
-
-	// Load average in the last 1 minute
+	// Loadavg1 Load average in the last 1 minute
 	Loadavg1 float64 `json:"loadavg1,omitempty"`
 
-	// Load average in the last 5 minutes
+	// Loadavg5 Load average in the last 5 minutes
 	Loadavg5 float64 `json:"loadavg5,omitempty"`
 
-	// Load average in the last 15 minutes
+	// Loadavg15 Load average in the last 15 minutes
 	Loadavg15 float64 `json:"loadavg15,omitempty"`
 
-	Memory DedicatedServerRtmLoadMemory `json:"memory,omitempty"`
+	Memory *DedicatedServerRtmLoadMemory `json:"memory,omitempty"`
 
-	// Number of processes using or waiting for CPU time
+	// ProcessCount Number of processes using or waiting for CPU time
 	ProcessCount int64 `json:"processCount,omitempty"`
 
-	// Number of process running
+	// ProcessRunning Number of process running
 	ProcessRunning int64 `json:"processRunning,omitempty"`
 
-	Swap DedicatedServerRtmLoadSwap `json:"swap,omitempty"`
+	Swap *DedicatedServerRtmLoadSwap `json:"swap,omitempty"`
 
-	// Server uptime
+	// Uptime Server uptime
 	Uptime int64 `json:"uptime,omitempty"`
 }

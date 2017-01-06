@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,38 +10,38 @@
 
 package types
 
-// Dedicated Cloud Filer
+// DedicatedCloudFiler Dedicated Cloud Filer
 type DedicatedCloudFiler struct {
 
-	// Billing type of this filer
+	// BillingType Billing type of this filer
 	BillingType string `json:"billingType,omitempty"`
 
-	// Filer Id
-	FilerId int64 `json:"filerId,omitempty"`
+	// FilerID Filer Id
+	FilerID int64 `json:"filerId,omitempty"`
 
-	// Human-Readable profile name
+	// FullProfile Human-Readable profile name
 	FullProfile string `json:"fullProfile,omitempty"`
 
-	// Filer name
+	// Name Filer name
 	Name string `json:"name,omitempty"`
 
-	// Commercial profile name
+	// Profile Commercial profile name
 	Profile string `json:"profile,omitempty"`
 
-	Size DedicatedCloudFilerSize `json:"size,omitempty"`
+	Size *DedicatedCloudFilerSize `json:"size,omitempty"`
 
-	// Available space of this datastore, in GB
+	// SpaceFree Available space of this datastore, in GB
 	SpaceFree float64 `json:"spaceFree,omitempty"`
 
-	// Provisionned space of this datastore, in GB
+	// SpaceProvisionned Provisionned space of this datastore, in GB
 	SpaceProvisionned float64 `json:"spaceProvisionned,omitempty"`
 
-	// Used Space of this filer, in GB
+	// SpaceUsed Used Space of this filer, in GB
 	SpaceUsed float64 `json:"spaceUsed,omitempty"`
 
-	// State of the filer
+	// State State of the filer
 	State string `json:"state,omitempty"`
 
-	// Number of virtual machine on the filer
-	VmTotal int64 `json:"vmTotal,omitempty"`
+	// VMTotal Number of virtual machine on the filer
+	VMTotal int64 `json:"vmTotal,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// The new framework password
+// DockerFrameworkPassword The new framework password
 type DockerFrameworkPassword struct {
 
-	// The new framework password
+	// Password The new framework password
 	Password string `json:"password,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type OrderCdnWebstorageStoragePost struct {
-
+// OrderCDNWebstorageStoragePost ...
+type OrderCDNWebstorageStoragePost struct {
 	Storage string `json:"storage,omitempty"`
 }

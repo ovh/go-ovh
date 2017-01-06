@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,19 @@
 
 package types
 
-// Service states for an Ip
-type VpsIpServiceStatus struct {
+// VpsIPServiceStatus Service states for an Ip
+type VpsIPServiceStatus struct {
+	DNS *VpsIPServiceStatusService `json:"dns,omitempty"`
 
-	Dns VpsIpServiceStatusService `json:"dns,omitempty"`
+	HTTP *VpsIPServiceStatusService `json:"http,omitempty"`
 
-	Http VpsIpServiceStatusService `json:"http,omitempty"`
-
-	Https VpsIpServiceStatusService `json:"https,omitempty"`
+	HTTPS *VpsIPServiceStatusService `json:"https,omitempty"`
 
 	Ping string `json:"ping,omitempty"`
 
-	Smtp VpsIpServiceStatusService `json:"smtp,omitempty"`
+	SMTP *VpsIPServiceStatusService `json:"smtp,omitempty"`
 
-	Ssh VpsIpServiceStatusService `json:"ssh,omitempty"`
+	SSH *VpsIPServiceStatusService `json:"ssh,omitempty"`
 
 	Tools string `json:"tools,omitempty"`
 }

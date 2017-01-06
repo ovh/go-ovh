@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedServerServiceMonitoringAlertEmailPost ...
 type DedicatedServerServiceMonitoringAlertEmailPost struct {
-
 	Email string `json:"email,omitempty"`
 
 	Language string `json:"language,omitempty"`

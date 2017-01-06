@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// CloudProjectInstanceGroupPost ...
 type CloudProjectInstanceGroupPost struct {
-
 	Name string `json:"name,omitempty"`
 
 	Region string `json:"region,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

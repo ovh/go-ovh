@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Service
+// OverTheBoxService Service
 type OverTheBoxService struct {
 
-	// Editable field for customer
+	// CustomerDescription Editable field for customer
 	CustomerDescription string `json:"customerDescription,omitempty"`
 
-	GraphEndpoint OverTheBoxGraphEndpoint `json:"graphEndpoint,omitempty"`
+	GraphEndpoint *OverTheBoxGraphEndpoint `json:"graphEndpoint,omitempty"`
 
-	// Release channel of the service
+	// ReleaseChannel Release channel of the service
 	ReleaseChannel string `json:"releaseChannel,omitempty"`
 
-	// The name of the service
+	// ServiceName The name of the service
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// The status of the service
+	// Status The status of the service
 	Status string `json:"status,omitempty"`
 }

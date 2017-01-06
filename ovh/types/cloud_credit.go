@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,29 +10,28 @@
 
 package types
 
-// Cloud credit
+// CloudCredit Cloud credit
 type CloudCredit struct {
+	AvailableCredit *OrderPrice `json:"available_credit,omitempty"`
 
-	AvailableCredit OrderPrice `json:"available_credit,omitempty"`
-
-	// Credit bill id
+	// Bill Credit bill id
 	Bill string `json:"bill,omitempty"`
 
-	// Credit description
+	// Description Credit description
 	Description string `json:"description,omitempty"`
 
-	// Credit id
-	Id int64 `json:"id,omitempty"`
+	// ID Credit id
+	ID int64 `json:"id,omitempty"`
 
-	// Use credits on following products
+	// Products Use credits on following products
 	Products []string `json:"products,omitempty"`
 
-	TotalCredit OrderPrice `json:"total_credit,omitempty"`
+	TotalCredit *OrderPrice `json:"total_credit,omitempty"`
 
-	UsedCredit OrderPrice `json:"used_credit,omitempty"`
+	UsedCredit *OrderPrice `json:"used_credit,omitempty"`
 
-	Validity CloudCommonVoucherValidity `json:"validity,omitempty"`
+	Validity *CloudCommonVoucherValidity `json:"validity,omitempty"`
 
-	// Voucher code
+	// Voucher Voucher code
 	Voucher string `json:"voucher,omitempty"`
 }

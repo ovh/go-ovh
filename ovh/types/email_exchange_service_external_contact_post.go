@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailExchangeServiceExternalContactPost ...
 type EmailExchangeServiceExternalContactPost struct {
-
 	DisplayName string `json:"displayName,omitempty"`
 
 	ExternalEmailAddress string `json:"externalEmailAddress,omitempty"`

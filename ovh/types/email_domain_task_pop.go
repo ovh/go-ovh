@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Task Pop List
+// EmailDomainTaskPop Task Pop List
 type EmailDomainTaskPop struct {
 
-	// Action of task
+	// Action Action of task
 	Action string `json:"action,omitempty"`
 
-	// Creation date of task
-	Date time.Time `json:"date,omitempty"`
+	// Date Creation date of task
+	Date *time.Time `json:"date,omitempty"`
 
-	// Domain name of task
+	// Domain Domain name of task
 	Domain string `json:"domain,omitempty"`
 
-	// Id of task
-	Id int64 `json:"id,omitempty"`
+	// ID Id of task
+	ID int64 `json:"id,omitempty"`
 
-	// Account name of task
+	// Name Account name of task
 	Name string `json:"name,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,11 @@ import (
 	"time"
 )
 
-// CDN Ssl
-type CdnanycastSsl struct {
+// CDNanycastSSL CDN Ssl
+type CDNanycastSSL struct {
+	CertificateValidFrom *time.Time `json:"certificateValidFrom,omitempty"`
 
-	CertificateValidFrom time.Time `json:"certificateValidFrom,omitempty"`
-
-	CertificateValidTo time.Time `json:"certificateValidTo,omitempty"`
+	CertificateValidTo *time.Time `json:"certificateValidTo,omitempty"`
 
 	Cn string `json:"cn,omitempty"`
 

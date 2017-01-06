@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,13 @@ import (
 	"time"
 )
 
-// Telephony API related file hosted
+// TelephonyPcsFile Telephony API related file hosted
 type TelephonyPcsFile struct {
-
 	Filename string `json:"filename,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 
-	UrlExpirationDatetime time.Time `json:"urlExpirationDatetime,omitempty"`
+	URLExpirationDatetime *time.Time `json:"urlExpirationDatetime,omitempty"`
 }

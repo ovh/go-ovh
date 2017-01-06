@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DbaasQueueRolePost ...
 type DbaasQueueRolePost struct {
-
 	AutoCreateAcl bool `json:"autoCreateAcl,omitempty"`
 
 	Name string `json:"name,omitempty"`

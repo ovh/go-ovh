@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SmsTemplatesControlRelaunchValidationPost ...
 type SmsTemplatesControlRelaunchValidationPost struct {
-
 	Description string `json:"description,omitempty"`
 
 	Message string `json:"message,omitempty"`

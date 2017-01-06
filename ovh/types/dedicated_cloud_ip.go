@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,22 +10,21 @@
 
 package types
 
-// IP Blocks associated with a Dedicated Cloud
-type DedicatedCloudIp struct {
-
+// DedicatedCloudIP IP Blocks associated with a Dedicated Cloud
+type DedicatedCloudIP struct {
 	Country string `json:"country,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
-	// IP ex: 213.186.33.34/24
+	// Network IP ex: 213.186.33.34/24
 	Network string `json:"network,omitempty"`
 
-	// Network name
+	// NetworkName Network name
 	NetworkName string `json:"networkName,omitempty"`
 
-	// The Regional Internet Registry of this Ip Block
+	// Register The Regional Internet Registry of this Ip Block
 	Register string `json:"register,omitempty"`
 
-	// Vlan where this network is routed
+	// VlanNumber Vlan where this network is routed
 	VlanNumber int64 `json:"vlanNumber,omitempty"`
 }

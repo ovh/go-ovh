@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// Instances usage for current month
+// CloudProjectInstancesUsage Instances usage for current month
 type CloudProjectInstancesUsage struct {
 
-	// Instance usage details
-	Detail []CloudProjectInstanceUsageDetail `json:"detail,omitempty"`
+	// Detail Instance usage details
+	Detail []*CloudProjectInstanceUsageDetail `json:"detail,omitempty"`
 
-	Total OrderPrice `json:"total,omitempty"`
+	Total *OrderPrice `json:"total,omitempty"`
 }

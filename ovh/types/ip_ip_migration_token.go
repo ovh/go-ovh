@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// IP migration to OVH
-type IpIpMigrationToken struct {
+// IPMigrationToken IP migration to OVH
+type IPMigrationToken struct {
 
-	// destination customer ID
-	CustomerId string `json:"customerId,omitempty"`
+	// CustomerID destination customer ID
+	CustomerID string `json:"customerId,omitempty"`
 
-	// migration token
+	// Token migration token
 	Token string `json:"token,omitempty"`
 }

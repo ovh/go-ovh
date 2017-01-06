@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Available clusterIp by country
-type HostingWebCountriesIp struct {
+// HostingWebCountriesIP Available clusterIp by country
+type HostingWebCountriesIP struct {
 
-	// The whois country of the ip
+	// Country The whois country of the ip
 	Country string `json:"country,omitempty"`
 
-	// The cluster ip
-	Ip string `json:"ip,omitempty"`
+	// IP The cluster ip
+	IP string `json:"ip,omitempty"`
 
-	// The cluster ipv6
-	Ipv6 string `json:"ipv6,omitempty"`
+	// IPv6 The cluster ipv6
+	IPv6 string `json:"ipv6,omitempty"`
 }

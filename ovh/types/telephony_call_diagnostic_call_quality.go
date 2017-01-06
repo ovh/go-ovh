@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,45 +14,45 @@ import (
 	"time"
 )
 
-// Call diagnostic analyze structure on metric performance values
+// TelephonyCallDiagnosticCallQuality Call diagnostic analyze structure on metric performance values
 type TelephonyCallDiagnosticCallQuality struct {
 
-	// Call identifier of the sip signal leg
-	CallId string `json:"callId,omitempty"`
+	// CallID Call identifier of the sip signal leg
+	CallID string `json:"callId,omitempty"`
 
-	// Codec used in this direction flow
+	// Codec Codec used in this direction flow
 	Codec string `json:"codec,omitempty"`
 
-	// Identifier of the metric performance value
-	FlowId int64 `json:"flowId,omitempty"`
+	// FlowID Identifier of the metric performance value
+	FlowID int64 `json:"flowId,omitempty"`
 
-	// The ip address destination
-	IpDst string `json:"ipDst,omitempty"`
+	// IPDst The ip address destination
+	IPDst string `json:"ipDst,omitempty"`
 
-	// The ip address source
-	IpSrc string `json:"ipSrc,omitempty"`
+	// IPSrc The ip address source
+	IPSrc string `json:"ipSrc,omitempty"`
 
-	// The max delay between two packet in the given direction flow
+	// MaxDelay The max delay between two packet in the given direction flow
 	MaxDelay float64 `json:"maxDelay,omitempty"`
 
-	// Variation in the delay of received packets. Smaller is better and less is more
+	// MaxJitter Variation in the delay of received packets. Smaller is better and less is more
 	MaxJitter float64 `json:"maxJitter,omitempty"`
 
-	// Mean Opinion Score expressed in one number, from 1 to 5, 1 being the worst and 5 the best.
+	// Mos Mean Opinion Score expressed in one number, from 1 to 5, 1 being the worst and 5 the best.
 	Mos int64 `json:"mos,omitempty"`
 
-	// The number of packet sent in the given direction flow
+	// Packets The number of packet sent in the given direction flow
 	Packets int64 `json:"packets,omitempty"`
 
-	// Destination port
+	// PortDst Destination port
 	PortDst int64 `json:"portDst,omitempty"`
 
-	// The port source
+	// PortSrc The port source
 	PortSrc int64 `json:"portSrc,omitempty"`
 
-	// Number of packet RTP lost in the direction flow
+	// RtpLost Number of packet RTP lost in the direction flow
 	RtpLost int64 `json:"rtpLost,omitempty"`
 
-	// The creation timestamp of the given direction flow
-	Timestamp time.Time `json:"timestamp,omitempty"`
+	// Timestamp The creation timestamp of the given direction flow
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 }

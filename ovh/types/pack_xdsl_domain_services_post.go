@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// PackXdslDomainServicesPost ...
 type PackXdslDomainServicesPost struct {
-
 	Action string `json:"action,omitempty"`
 
 	AuthInfo string `json:"authInfo,omitempty"`

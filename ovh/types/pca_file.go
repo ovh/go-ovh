@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// cloud archives files
+// PcaFile cloud archives files
 type PcaFile struct {
 
-	// File MD5 hash
+	// MD5 File MD5 hash
 	MD5 string `json:"MD5,omitempty"`
 
-	// File SHA1 hash
+	// SHA1 File SHA1 hash
 	SHA1 string `json:"SHA1,omitempty"`
 
-	// File SHA256 hash
+	// SHA256 File SHA256 hash
 	SHA256 string `json:"SHA256,omitempty"`
 
-	// File id
-	Id string `json:"id,omitempty"`
+	// ID File id
+	ID string `json:"id,omitempty"`
 
-	// File name
+	// Name File name
 	Name string `json:"name,omitempty"`
 
-	// File size, in bytes
+	// Size File size, in bytes
 	Size int64 `json:"size,omitempty"`
 
-	// File state
+	// State File state
 	State string `json:"state,omitempty"`
 
-	// File type
-	Type_ string `json:"type,omitempty"`
+	// TType File type
+	TType string `json:"type,omitempty"`
 }

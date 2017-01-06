@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,13 +14,13 @@ import (
 	"time"
 )
 
+// DomainDataAfnicAssociationInformationPost ...
 type DomainDataAfnicAssociationInformationPost struct {
+	ContactID int64 `json:"contactId,omitempty"`
 
-	ContactId int64 `json:"contactId,omitempty"`
+	DeclarationDate *time.Time `json:"declarationDate,omitempty"`
 
-	DeclarationDate time.Time `json:"declarationDate,omitempty"`
-
-	PublicationDate time.Time `json:"publicationDate,omitempty"`
+	PublicationDate *time.Time `json:"publicationDate,omitempty"`
 
 	PublicationNumber string `json:"publicationNumber,omitempty"`
 

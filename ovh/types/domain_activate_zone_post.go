@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// DomainActivateZonePost ...
 type DomainActivateZonePost struct {
-
 	Minimized bool `json:"minimized,omitempty"`
 }

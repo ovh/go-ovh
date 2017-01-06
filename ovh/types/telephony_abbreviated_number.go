@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// Abbreviated number
+// TelephonyAbbreviatedNumber Abbreviated number
 type TelephonyAbbreviatedNumber struct {
 
-	// The abbreviated number which must start with \"2\" and must have a length of 3 or 4 digits
+	// AbbreviatedNumber The abbreviated number which must start with \"2\" and must have a length of 3 or 4 digits
 	AbbreviatedNumber int64 `json:"abbreviatedNumber,omitempty"`
 
-	// The destination of the abbreviated number
+	// DestinationNumber The destination of the abbreviated number
 	DestinationNumber string `json:"destinationNumber,omitempty"`
 
 	Name string `json:"name,omitempty"`

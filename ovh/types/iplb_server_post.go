@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type IplbServerPost struct {
-
+// IPLBServerPost ...
+type IPLBServerPost struct {
 	Address string `json:"address,omitempty"`
 
 	Status string `json:"status,omitempty"`

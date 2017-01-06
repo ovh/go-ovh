@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderCartItemConfigurationPost ...
 type OrderCartItemConfigurationPost struct {
-
 	Label string `json:"label,omitempty"`
 
 	Value string `json:"value,omitempty"`

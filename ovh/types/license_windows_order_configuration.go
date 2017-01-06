@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Allowed windows versions and their compliant options per matching serviceTypes
+// LicenseWindowsOrderConfiguration Allowed windows versions and their compliant options per matching serviceTypes
 type LicenseWindowsOrderConfiguration struct {
-
-	OrderableVersions []LicenseOrderableWindowsCompatibilityInfos `json:"orderableVersions,omitempty"`
+	OrderableVersions []*LicenseOrderableWindowsCompatibilityInfos `json:"orderableVersions,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 }

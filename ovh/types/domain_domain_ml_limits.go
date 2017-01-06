@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Structure of mailinglist limits
-type DomainDomainMlLimits struct {
+// DomainMlLimits Structure of mailinglist limits
+type DomainMlLimits struct {
 
-	// Maximum number of subscribers
+	// Subscribers Maximum number of subscribers
 	Subscribers int64 `json:"subscribers,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// CloudProjectInstanceReinstallPost ...
 type CloudProjectInstanceReinstallPost struct {
-
-	ImageId string `json:"imageId,omitempty"`
+	ImageID string `json:"imageId,omitempty"`
 }

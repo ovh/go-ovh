@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Directory way type
+// TelephonyDirectoryWayType Directory way type
 type TelephonyDirectoryWayType struct {
-
 	AbbreviatedName string `json:"abbreviatedName,omitempty"`
 
 	WayName string `json:"wayName,omitempty"`

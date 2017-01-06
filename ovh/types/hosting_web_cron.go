@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Hosting crons
+// HostingWebCron Hosting crons
 type HostingWebCron struct {
 
-	// Command to execute
+	// Command Command to execute
 	Command string `json:"command,omitempty"`
 
-	// Description field for you
+	// Description Description field for you
 	Description string `json:"description,omitempty"`
 
-	// Email used to receive error log ( stderr )
+	// Email Email used to receive error log ( stderr )
 	Email string `json:"email,omitempty"`
 
-	// Frequency ( crontab format ) defined for the script ( minutes are ignored )
+	// Frequency Frequency ( crontab format ) defined for the script ( minutes are ignored )
 	Frequency string `json:"frequency,omitempty"`
 
-	// Cron's id
-	Id int64 `json:"id,omitempty"`
+	// ID Cron's id
+	ID int64 `json:"id,omitempty"`
 
-	// Cron language
+	// Language Cron language
 	Language string `json:"language,omitempty"`
 
-	// Cron status
+	// Status Cron status
 	Status string `json:"status,omitempty"`
 }

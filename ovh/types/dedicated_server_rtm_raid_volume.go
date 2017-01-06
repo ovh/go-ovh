@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,35 +10,34 @@
 
 package types
 
-// Server raid volume information
+// DedicatedServerRtmRaidVolume Server raid volume information
 type DedicatedServerRtmRaidVolume struct {
+	Capacity *DedicatedServerRtmRaidVolumeCapacity `json:"capacity,omitempty"`
 
-	Capacity DedicatedServerRtmRaidVolumeCapacity `json:"capacity,omitempty"`
-
-	// Raid volume chunks
+	// Chunks Raid volume chunks
 	Chunks string `json:"chunks,omitempty"`
 
-	// Raid volume label
+	// Label Raid volume label
 	Label string `json:"label,omitempty"`
 
-	// Raid volume letter
+	// Letter Raid volume letter
 	Letter string `json:"letter,omitempty"`
 
-	// Raid volume phys
+	// Phys Raid volume phys
 	Phys string `json:"phys,omitempty"`
 
-	// Raid volume status
+	// Status Raid volume status
 	Status string `json:"status,omitempty"`
 
-	// Raid volume stripe
+	// Stripe Raid volume stripe
 	Stripe string `json:"stripe,omitempty"`
 
-	// Raid volume synchronization progress
+	// Syncprogress Raid volume synchronization progress
 	Syncprogress string `json:"syncprogress,omitempty"`
 
-	// Raid volume type
-	Type_ string `json:"type,omitempty"`
+	// TType Raid volume type
+	TType string `json:"type,omitempty"`
 
-	// Raid volume name
+	// Volume Raid volume name
 	Volume string `json:"volume,omitempty"`
 }

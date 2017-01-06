@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DedicatedCloudUserChangePropertiesPost ...
 type DedicatedCloudUserChangePropertiesPost struct {
-
-	CanManageIpFailOvers bool `json:"canManageIpFailOvers,omitempty"`
+	CanManageIPFailOvers bool `json:"canManageIpFailOvers,omitempty"`
 
 	CanManageNetwork bool `json:"canManageNetwork,omitempty"`
 

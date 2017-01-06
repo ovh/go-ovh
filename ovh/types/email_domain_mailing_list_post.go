@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// EmailDomainMailingListPost ...
 type EmailDomainMailingListPost struct {
-
 	Language string `json:"language,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	Options DomainDomainMlOptionsStruct `json:"options,omitempty"`
+	Options *DomainMlOptionsStruct `json:"options,omitempty"`
 
 	OwnerEmail string `json:"ownerEmail,omitempty"`
 

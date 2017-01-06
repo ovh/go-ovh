@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Server attached to an SSL Gateway
-type SslGatewayServer struct {
+// SSLGatewayServer Server attached to an SSL Gateway
+type SSLGatewayServer struct {
 
-	// IP address of the server attached to your SSL Gateway
+	// Address IP address of the server attached to your SSL Gateway
 	Address string `json:"address,omitempty"`
 
-	// Id of your server
-	Id int64 `json:"id,omitempty"`
+	// ID Id of your server
+	ID int64 `json:"id,omitempty"`
 
-	// Port of your server attached to your SSL Gateway
+	// Port Port of your server attached to your SSL Gateway
 	Port int64 `json:"port,omitempty"`
 
-	// Server state
+	// State Server state
 	State string `json:"state,omitempty"`
 }

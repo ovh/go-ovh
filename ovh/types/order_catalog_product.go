@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Describe a Product in the Catalog
+// OrderCatalogProduct Describe a Product in the Catalog
 type OrderCatalogProduct struct {
 
-	// List of the configurations available for the product
-	Configurations []OrderCatalogConfigurationItem `json:"configurations,omitempty"`
+	// Configurations List of the configurations available for the product
+	Configurations []*OrderCatalogConfigurationItem `json:"configurations,omitempty"`
 
-	// Designation of the product
+	// Description Designation of the product
 	Description string `json:"description,omitempty"`
 
-	// List of the metadata of the product
-	Metadatas []ComplexTypeSafeKeyValueString `json:"metadatas,omitempty"`
+	// Metadatas List of the metadata of the product
+	Metadatas []*ComplexTypeSafeKeyValueString `json:"metadatas,omitempty"`
 
-	// Plan code identifier of the product
+	// Name Plan code identifier of the product
 	Name string `json:"name,omitempty"`
 
-	// Technicals details about product
-	TechnicalDetails []ComplexTypeSafeKeyValueString `json:"technicalDetails,omitempty"`
+	// TechnicalDetails Technicals details about product
+	TechnicalDetails []*ComplexTypeSafeKeyValueString `json:"technicalDetails,omitempty"`
 }

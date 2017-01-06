@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// information about availabilities to migrate in PPP
+// XdslPppMigrationInfo information about availabilities to migrate in PPP
 type XdslPppMigrationInfo struct {
 
-	// boolean to know if the access can migrate
+	// CanMigrate boolean to know if the access can migrate
 	CanMigrate bool `json:"canMigrate,omitempty"`
 
-	// some information if you can not migrate
+	// Reason some information if you can not migrate
 	Reason string `json:"reason,omitempty"`
 }

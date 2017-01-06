@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,19 @@ import (
 	"time"
 )
 
-// Details about an OVH account
+// BillingOvhAccount Details about an OVH account
 type BillingOvhAccount struct {
-
 	AlertThreshold int64 `json:"alertThreshold,omitempty"`
 
-	Balance OrderPrice `json:"balance,omitempty"`
+	Balance *OrderPrice `json:"balance,omitempty"`
 
 	CanBeCredited bool `json:"canBeCredited,omitempty"`
 
 	IsActive bool `json:"isActive,omitempty"`
 
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	OpenDate time.Time `json:"openDate,omitempty"`
+	OpenDate *time.Time `json:"openDate,omitempty"`
 
-	OvhAccountId string `json:"ovhAccountId,omitempty"`
+	OvhAccountID string `json:"ovhAccountId,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailExchangeServiceAccountPost ...
 type EmailExchangeServiceAccountPost struct {
-
 	SAMAccountName string `json:"SAMAccountName,omitempty"`
 
 	DisplayName string `json:"displayName,omitempty"`
@@ -36,5 +36,5 @@ type EmailExchangeServiceAccountPost struct {
 
 	Password string `json:"password,omitempty"`
 
-	SpamAndVirusConfiguration EmailExchangeSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
+	SpamAndVirusConfiguration *EmailExchangeSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
 }

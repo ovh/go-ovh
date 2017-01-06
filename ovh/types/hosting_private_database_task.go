@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// Tasks
+// HostingPrivateDatabaseTask Tasks
 type HostingPrivateDatabaseTask struct {
 
-	// Database name on which the task is working
+	// DatabaseName Database name on which the task is working
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	// Completion date
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate Completion date
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	// DumpId on which the task is working
-	DumpId int64 `json:"dumpId,omitempty"`
+	// DumpID DumpId on which the task is working
+	DumpID int64 `json:"dumpId,omitempty"`
 
-	// Function name
+	// Function Function name
 	Function string `json:"function,omitempty"`
 
-	// The id of the task
-	Id int64 `json:"id,omitempty"`
+	// ID The id of the task
+	ID int64 `json:"id,omitempty"`
 
-	// Last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Task Creation date
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate Task Creation date
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// Task status
+	// Status Task status
 	Status string `json:"status,omitempty"`
 
-	// User name on which the task is working
+	// UserName User name on which the task is working
 	UserName string `json:"userName,omitempty"`
 }

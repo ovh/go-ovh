@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,19 @@
 
 package types
 
+// HostingWebModulePost ...
 type HostingWebModulePost struct {
-
 	AdminName string `json:"adminName,omitempty"`
 
 	AdminPassword string `json:"adminPassword,omitempty"`
 
-	Dependencies []HostingWebModuleDependencyType `json:"dependencies,omitempty"`
+	Dependencies []*HostingWebModuleDependencyType `json:"dependencies,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
 	Language string `json:"language,omitempty"`
 
-	ModuleId int64 `json:"moduleId,omitempty"`
+	ModuleID int64 `json:"moduleId,omitempty"`
 
 	Path string `json:"path,omitempty"`
 }

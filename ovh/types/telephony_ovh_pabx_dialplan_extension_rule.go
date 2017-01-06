@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Dialplan rule
+// TelephonyOvhPabxDialplanExtensionRule Dialplan rule
 type TelephonyOvhPabxDialplanExtensionRule struct {
 
-	// The action made by the rule
+	// Action The action made by the rule
 	Action string `json:"action,omitempty"`
 
-	// The parameter of the chosen action
+	// ActionParam The parameter of the chosen action
 	ActionParam string `json:"actionParam,omitempty"`
 
-	// If true, the rule will be executed only when the result of the conditions is false
+	// NegativeAction If true, the rule will be executed only when the result of the conditions is false
 	NegativeAction bool `json:"negativeAction,omitempty"`
 
-	// The position of the rule in the extension (the rules are executed following this order)
+	// Position The position of the rule in the extension (the rules are executed following this order)
 	Position int64 `json:"position,omitempty"`
 
-	RuleId int64 `json:"ruleId,omitempty"`
+	RuleID int64 `json:"ruleId,omitempty"`
 }

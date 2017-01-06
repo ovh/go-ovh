@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,16 +14,15 @@ import (
 	"time"
 )
 
-// Task
+// RouterTask Task
 type RouterTask struct {
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	CreationDate time.Time `json:"creationDate,omitempty"`
-
-	FinishDate time.Time `json:"finishDate,omitempty"`
+	FinishDate *time.Time `json:"finishDate,omitempty"`
 
 	Function string `json:"function,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Status string `json:"status,omitempty"`
 }

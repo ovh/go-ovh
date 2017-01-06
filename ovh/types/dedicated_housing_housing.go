@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,23 @@
 
 package types
 
-// Housing bay
-type DedicatedHousingHousing struct {
+// DedicatedHousing Housing bay
+type DedicatedHousing struct {
 
-	// Housing bay datacenter
+	// Datacenter Housing bay datacenter
 	Datacenter string `json:"datacenter,omitempty"`
 
-	// The name you give to the bay
+	// Name The name you give to the bay
 	Name string `json:"name,omitempty"`
 
-	// Housing bay network
-	Network []DedicatedHousingNetworkInfo `json:"network,omitempty"`
+	// Network Housing bay network
+	Network []*DedicatedHousingNetworkInfo `json:"network,omitempty"`
 
-	Options DedicatedHousingOptions `json:"options,omitempty"`
+	Options *DedicatedHousingOptions `json:"options,omitempty"`
 
-	// The bay's description
+	// Rack The bay's description
 	Rack string `json:"rack,omitempty"`
 
-	// Bay Security code
+	// SecurityCode Bay Security code
 	SecurityCode string `json:"securityCode,omitempty"`
 }

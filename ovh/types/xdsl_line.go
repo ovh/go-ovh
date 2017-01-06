@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,38 @@
 
 package types
 
-// Information about the physical copper line
+// XdslLine Information about the physical copper line
 type XdslLine struct {
-
-	ConcentrationPoint XdslLandlineConcentrationPoint `json:"concentrationPoint,omitempty"`
+	ConcentrationPoint *XdslLandlineConcentrationPoint `json:"concentrationPoint,omitempty"`
 
 	Deconsolidation string `json:"deconsolidation,omitempty"`
 
-	// True if the line is directly wired on the DSLAM
+	// DirectDistribution True if the line is directly wired on the DSLAM
 	DirectDistribution bool `json:"directDistribution,omitempty"`
 
-	// Distance in meters from the DSLAM
+	// Distance Distance in meters from the DSLAM
 	Distance int64 `json:"distance,omitempty"`
 
 	FaultRepairTime string `json:"faultRepairTime,omitempty"`
 
-	// Detailed information about the sections between the DSLAM and the telephone jack
-	LineSectionsLength []XdslLineSectionLength `json:"lineSectionsLength,omitempty"`
+	// LineSectionsLength Detailed information about the sections between the DSLAM and the telephone jack
+	LineSectionsLength []*XdslLineSectionLength `json:"lineSectionsLength,omitempty"`
 
-	// Mitigation of the line in dB
+	// Mitigation Mitigation of the line in dB
 	Mitigation float64 `json:"mitigation,omitempty"`
 
-	// The number of the line
+	// Number The number of the line
 	Number string `json:"number,omitempty"`
 
-	// The number used to place the order. Null if the same as the current number.
+	// OriginalNumber The number used to place the order. Null if the same as the current number.
 	OriginalNumber string `json:"originalNumber,omitempty"`
 
-	// Whether the line number has been ported to OVH, to be used with VoIP service
+	// Portability Whether the line number has been ported to OVH, to be used with VoIP service
 	Portability bool `json:"portability,omitempty"`
 
-	// The download synchronisation on the DSLAM in Kbps
+	// SyncDown The download synchronisation on the DSLAM in Kbps
 	SyncDown float64 `json:"syncDown,omitempty"`
 
-	// The upload synchronisation on the DSLAM in Kbps
+	// SyncUp The upload synchronisation on the DSLAM in Kbps
 	SyncUp float64 `json:"syncUp,omitempty"`
 }

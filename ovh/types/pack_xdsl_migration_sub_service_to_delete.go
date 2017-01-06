@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Sub service to delete
+// PackXdslMigrationSubServiceToDelete Sub service to delete
 type PackXdslMigrationSubServiceToDelete struct {
 
-	// Number of services to be deleted
+	// NumberToDelete Number of services to be deleted
 	NumberToDelete int64 `json:"numberToDelete,omitempty"`
 
-	// List of domains of sub services
+	// Services List of domains of sub services
 	Services []string `json:"services,omitempty"`
 
-	// Type of service to be deleted
-	Type_ string `json:"type,omitempty"`
+	// TType Type of service to be deleted
+	TType string `json:"type,omitempty"`
 }

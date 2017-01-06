@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,9 +14,9 @@ import (
 	"time"
 )
 
+// OrderCartPut ...
 type OrderCartPut struct {
-
 	Description string `json:"description,omitempty"`
 
-	Expire time.Time `json:"expire,omitempty"`
+	Expire *time.Time `json:"expire,omitempty"`
 }

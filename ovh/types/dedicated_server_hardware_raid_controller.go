@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// RAID controller configuration
+// DedicatedServerHardwareRaidController RAID controller configuration
 type DedicatedServerHardwareRaidController struct {
 
-	// Connected disk type
-	Disks []DedicatedServerHardwareRaidDiskGroup `json:"disks,omitempty"`
+	// Disks Connected disk type
+	Disks []*DedicatedServerHardwareRaidDiskGroup `json:"disks,omitempty"`
 
-	// Raid controler model
+	// Model Raid controler model
 	Model string `json:"model,omitempty"`
 
-	// Raid controler type
-	Type_ string `json:"type,omitempty"`
+	// TType Raid controler type
+	TType string `json:"type,omitempty"`
 }

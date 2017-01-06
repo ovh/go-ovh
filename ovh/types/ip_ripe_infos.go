@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// IP block RIPE informations
-type IpRipeInfos struct {
-
+// IPRipeInfos IP block RIPE informations
+type IPRipeInfos struct {
 	Description string `json:"description,omitempty"`
 
 	Netname string `json:"netname,omitempty"`

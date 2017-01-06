@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Managed Hadoop Cluster
-type ClusterHadoopHadoop struct {
+// ClusterHadoop Managed Hadoop Cluster
+type ClusterHadoop struct {
 
-	// CDH and Cloudera Manager version
+	// ClouderaVersion CDH and Cloudera Manager version
 	ClouderaVersion string `json:"clouderaVersion,omitempty"`
 
-	// Maximum quantity of nodes allowed to be ordered in the cluster
+	// MaxOrderableNodes Maximum quantity of nodes allowed to be ordered in the cluster
 	MaxOrderableNodes int64 `json:"maxOrderableNodes,omitempty"`
 
-	// Service name of your Cluster
+	// Name Service name of your Cluster
 	Name string `json:"name,omitempty"`
 
-	// State of the Hadoop Cluster
+	// State State of the Hadoop Cluster
 	State string `json:"state,omitempty"`
 }

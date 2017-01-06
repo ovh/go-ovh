@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Monitoring SMS alert details, This service is currently not supported for servers at BHS 
+// DedicatedServerSmsAlert Monitoring SMS alert details, This service is currently not supported for servers at BHS
 type DedicatedServerSmsAlert struct {
 
-	// Id of this alert
-	AlertId int64 `json:"alertId,omitempty"`
+	// AlertID Id of this alert
+	AlertID int64 `json:"alertId,omitempty"`
 
-	// Is this alert enabled
+	// Enabled Is this alert enabled
 	Enabled bool `json:"enabled,omitempty"`
 
-	// Daily hour end time for SMS notification
+	// FromHour Daily hour end time for SMS notification
 	FromHour int64 `json:"fromHour,omitempty"`
 
-	// Alert language
+	// Language Alert language
 	Language string `json:"language,omitempty"`
 
-	// Alert destination
+	// PhoneNumberTo Alert destination
 	PhoneNumberTo string `json:"phoneNumberTo,omitempty"`
 
-	// Your SMS account
+	// SmsAccount Your SMS account
 	SmsAccount string `json:"smsAccount,omitempty"`
 
-	// Daily hour start time for SMS notification
+	// ToHour Daily hour start time for SMS notification
 	ToHour int64 `json:"toHour,omitempty"`
 }

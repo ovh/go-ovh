@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing a backup's access informations
+// VpsAutomatedBackupAttachedInfos A structure describing a backup's access informations
 type VpsAutomatedBackupAttachedInfos struct {
 
-	// Additional Disk details
+	// AdditionalDisk Additional Disk details
 	AdditionalDisk string `json:"additionalDisk,omitempty"`
 
-	// NFS URL of the backup
+	// Nfs NFS URL of the backup
 	Nfs string `json:"nfs,omitempty"`
 
-	// SMB URL of the backup
+	// Smb SMB URL of the backup
 	Smb string `json:"smb,omitempty"`
 }

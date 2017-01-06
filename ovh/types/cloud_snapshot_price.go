@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,12 @@
 
 package types
 
-// Details about snapshot pricing
+// CloudSnapshotPrice Details about snapshot pricing
 type CloudSnapshotPrice struct {
+	MonthlyPrice *OrderPrice `json:"monthlyPrice,omitempty"`
 
-	MonthlyPrice OrderPrice `json:"monthlyPrice,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
-
-	// Snapshot region
+	// Region Snapshot region
 	Region string `json:"region,omitempty"`
 }

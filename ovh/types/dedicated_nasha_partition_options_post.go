@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedNashaPartitionOptionsPost ...
 type DedicatedNashaPartitionOptionsPost struct {
-
 	Atime string `json:"atime,omitempty"`
 
 	Recordsize string `json:"recordsize,omitempty"`

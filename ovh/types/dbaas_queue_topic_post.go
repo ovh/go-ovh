@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DbaasQueueTopicPost ...
 type DbaasQueueTopicPost struct {
-
-	Id string `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	Partitions int64 `json:"partitions,omitempty"`
 

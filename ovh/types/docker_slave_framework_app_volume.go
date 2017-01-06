@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Application volumes
-type DockerSlaveFrameworkAppVolume struct {
+// DockerSLAveFrameworkAppVolume Application volumes
+type DockerSLAveFrameworkAppVolume struct {
 
-	// Container path
+	// ContainerPath Container path
 	ContainerPath int64 `json:"containerPath,omitempty"`
 
-	// Host path
+	// HostPath Host path
 	HostPath int64 `json:"hostPath,omitempty"`
 
-	// Volume mode
+	// Mode Volume mode
 	Mode string `json:"mode,omitempty"`
 }

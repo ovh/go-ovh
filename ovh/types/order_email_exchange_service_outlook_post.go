@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderEmailExchangeServiceOutlookPost ...
 type OrderEmailExchangeServiceOutlookPost struct {
-
 	Licence string `json:"licence,omitempty"`
 
 	PrimaryEmailAddress string `json:"primaryEmailAddress,omitempty"`

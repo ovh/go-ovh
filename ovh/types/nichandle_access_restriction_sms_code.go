@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Send secret code
+// NichandleAccessRestrictionSmsCode Send secret code
 type NichandleAccessRestrictionSmsCode struct {
-
 	Challenge string `json:"challenge,omitempty"`
 }

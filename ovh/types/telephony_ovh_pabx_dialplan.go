@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,22 +14,22 @@ import (
 	"time"
 )
 
-// Dialplan
+// TelephonyOvhPabxDialplan Dialplan
 type TelephonyOvhPabxDialplan struct {
 
-	// Reject (hangup) anonymous calls
+	// AnonymousRejection Reject (hangup) anonymous calls
 	AnonymousRejection bool `json:"anonymousRejection,omitempty"`
 
-	DialplanId int64 `json:"dialplanId,omitempty"`
+	DialplanID int64 `json:"dialplanId,omitempty"`
 
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// The dialplan name
+	// Name The dialplan name
 	Name string `json:"name,omitempty"`
 
-	// The presented number when bridging calls
+	// ShowCallerNumber The presented number when bridging calls
 	ShowCallerNumber string `json:"showCallerNumber,omitempty"`
 
-	// The timeout (in seconds) when bridging calls
+	// TransferTimeout The timeout (in seconds) when bridging calls
 	TransferTimeout int64 `json:"transferTimeout,omitempty"`
 }

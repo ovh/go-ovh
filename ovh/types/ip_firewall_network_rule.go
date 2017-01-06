@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,39 +14,39 @@ import (
 	"time"
 )
 
-// Rule on ip
-type IpFirewallNetworkRule struct {
+// IPFirewallNetworkRule Rule on ip
+type IPFirewallNetworkRule struct {
 
-	// Action on this rule
+	// Action Action on this rule
 	Action string `json:"action,omitempty"`
 
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Destination ip for your rule
+	// Destination Destination ip for your rule
 	Destination string `json:"destination,omitempty"`
 
-	// Destination port range for your rule. Only with TCP/UDP protocol
+	// DestinationPort Destination port range for your rule. Only with TCP/UDP protocol
 	DestinationPort string `json:"destinationPort,omitempty"`
 
-	// Fragments option
+	// Fragments Fragments option
 	Fragments bool `json:"fragments,omitempty"`
 
-	// Network protocol
+	// Protocol Network protocol
 	Protocol string `json:"protocol,omitempty"`
 
 	Rule string `json:"rule,omitempty"`
 
 	Sequence int64 `json:"sequence,omitempty"`
 
-	// Source ip for your rule
+	// Source Source ip for your rule
 	Source string `json:"source,omitempty"`
 
-	// Source port range for your rule. Only with TCP/UDP protocol
+	// SourcePort Source port range for your rule. Only with TCP/UDP protocol
 	SourcePort string `json:"sourcePort,omitempty"`
 
-	// Current state of your rule
+	// State Current state of your rule
 	State string `json:"state,omitempty"`
 
-	// TCP option on your rule
-	TcpOption string `json:"tcpOption,omitempty"`
+	// TCPOption TCP option on your rule
+	TCPOption string `json:"tcpOption,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// OVH calls queues and OVH IVRs (Interactive Voice Response)
+// TelephonyOvhPabx OVH calls queues and OVH IVRs (Interactive Voice Response)
 type TelephonyOvhPabx struct {
-
 	Description string `json:"description,omitempty"`
 
 	FeatureType string `json:"featureType,omitempty"`

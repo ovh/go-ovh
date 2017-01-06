@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,45 +10,45 @@
 
 package types
 
-// Exchange server
+// EmailExchangeServer Exchange server
 type EmailExchangeServer struct {
 
-	// Exchange commercial version
+	// CommercialVersion Exchange commercial version
 	CommercialVersion string `json:"commercialVersion,omitempty"`
 
-	// Current disk usage in MB
+	// CurrentDiskUsage Current disk usage in MB
 	CurrentDiskUsage int64 `json:"currentDiskUsage,omitempty"`
 
-	// Total disk size in MB
+	// DiskSize Total disk size in MB
 	DiskSize int64 `json:"diskSize,omitempty"`
 
-	// If true server is 2010 individual offer
+	// Individual2010 If true server is 2010 individual offer
 	Individual2010 bool `json:"individual2010,omitempty"`
 
-	// ipV4
-	Ip string `json:"ip,omitempty"`
+	// IP ipV4
+	IP string `json:"ip,omitempty"`
 
-	// ipV6
-	IpV6 string `json:"ipV6,omitempty"`
+	// IPV6 ipV6
+	IPV6 string `json:"ipV6,omitempty"`
 
-	// If true your dns A record is valid
+	// IsAValid If true your dns A record is valid
 	IsAValid bool `json:"isAValid,omitempty"`
 
-	// If true your dns AAAA record is valid
+	// IsAaaaValid If true your dns AAAA record is valid
 	IsAaaaValid bool `json:"isAaaaValid,omitempty"`
 
-	// If true your dns ptrV6 record is valid
+	// IsPtrV6Valid If true your dns ptrV6 record is valid
 	IsPtrV6Valid bool `json:"isPtrV6Valid,omitempty"`
 
-	// If true your dns ptr record is valid
+	// IsPtrValid If true your dns ptr record is valid
 	IsPtrValid bool `json:"isPtrValid,omitempty"`
 
-	// Server state
+	// State Server state
 	State string `json:"state,omitempty"`
 
-	// Task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 
-	// ExchangeServer version
+	// Version ExchangeServer version
 	Version int64 `json:"version,omitempty"`
 }

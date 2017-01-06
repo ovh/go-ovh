@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Availability of outlook version
+// EmailExchangeOutlookVersions Availability of outlook version
 type EmailExchangeOutlookVersions struct {
-
 	OutlookLanguage string `json:"outlookLanguage,omitempty"`
 
 	OutlookVersion string `json:"outlookVersion,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Live statistics of the queue
+// TelephonyOvhPabxHuntingAgentLiveStatus Live statistics of the queue
 type TelephonyOvhPabxHuntingAgentLiveStatus struct {
 
-	// The number of calls this agent took on the current day
+	// AnsweredCalls The number of calls this agent took on the current day
 	AnsweredCalls int64 `json:"answeredCalls,omitempty"`
 
-	// Last status change date
-	LastStatusChange time.Time `json:"lastStatusChange,omitempty"`
+	// LastStatusChange Last status change date
+	LastStatusChange *time.Time `json:"lastStatusChange,omitempty"`
 
-	// Current status of the agent
+	// Status Current status of the agent
 	Status string `json:"status,omitempty"`
 
-	// The total duration in seconds of the calls this agent took on the current day
+	// TotalCallDuration The total duration in seconds of the calls this agent took on the current day
 	TotalCallDuration int64 `json:"totalCallDuration,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// Backend_Server
-type IplbBackendServer struct {
+// IPLBBackendServer Backend_Server
+type IPLBBackendServer struct {
 
-	// Backend id
-	BackendId int64 `json:"backendId,omitempty"`
+	// BackendID Backend id
+	BackendID int64 `json:"backendId,omitempty"`
 
-	// Backup state
+	// Backup Backup state
 	Backup bool `json:"backup,omitempty"`
 
-	// Certificate chain. Allow server certificate verification (Avoid man-in-the-middle attacks)
+	// Chain Certificate chain. Allow server certificate verification (Avoid man-in-the-middle attacks)
 	Chain string `json:"chain,omitempty"`
 
-	// Server cookie value configured for cookie stickiness
+	// Cookie Server cookie value configured for cookie stickiness
 	Cookie string `json:"cookie,omitempty"`
 
-	// Id of your backend/server link
-	Id int64 `json:"id,omitempty"`
+	// ID Id of your backend/server link
+	ID int64 `json:"id,omitempty"`
 
-	// Port attached to your server. Inherited from backend if null
+	// Port Port attached to your server. Inherited from backend if null
 	Port int64 `json:"port,omitempty"`
 
-	// Probe state
+	// Probe Probe state
 	Probe bool `json:"probe,omitempty"`
 
-	// Enforce use of the PROXY protocol version over any connection established to this server (disabled if null)
+	// ProxyProtocolVersion Enforce use of the PROXY protocol version over any connection established to this server (disabled if null)
 	ProxyProtocolVersion string `json:"proxyProtocolVersion,omitempty"`
 
-	// Server id
-	ServerId int64 `json:"serverId,omitempty"`
+	// ServerID Server id
+	ServerID int64 `json:"serverId,omitempty"`
 
-	// SSL ciphering. Probes will also be sent ciphered
-	Ssl bool `json:"ssl,omitempty"`
+	// SSL SSL ciphering. Probes will also be sent ciphered
+	SSL bool `json:"ssl,omitempty"`
 
-	// Weight value (1 if null)
+	// Weight Weight value (1 if null)
 	Weight int64 `json:"weight,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// PublicCloud project in vrack
+// VrackCloudProject PublicCloud project in vrack
 type VrackCloudProject struct {
 
-	// publicCloud project
+	// Project publicCloud project
 	Project string `json:"project,omitempty"`
 
-	// vrack name
+	// Vrack vrack name
 	Vrack string `json:"vrack,omitempty"`
 }

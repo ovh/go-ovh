@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Elasticsearch index
+// DBaaSLogsIndex Elasticsearch index
 type DBaaSLogsIndex struct {
 
-	// Index creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Index creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Index description
+	// Description Index description
 	Description string `json:"description,omitempty"`
 
-	// Index UUID
-	IndexId string `json:"indexId,omitempty"`
+	// IndexID Index UUID
+	IndexID string `json:"indexId,omitempty"`
 
-	// Indicates if you are allowed to edit entry
+	// IsEditable Indicates if you are allowed to edit entry
 	IsEditable bool `json:"isEditable,omitempty"`
 
-	// Index name
+	// Name Index name
 	Name string `json:"name,omitempty"`
 
-	// Associated DBaaS Logs option
-	OptionId string `json:"optionId,omitempty"`
+	// OptionID Associated DBaaS Logs option
+	OptionID string `json:"optionId,omitempty"`
 
-	// Index last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Index last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

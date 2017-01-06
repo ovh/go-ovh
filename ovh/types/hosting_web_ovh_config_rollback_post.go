@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// HostingWebOvhConfigRollbackPost ...
 type HostingWebOvhConfigRollbackPost struct {
-
-	RollbackId int64 `json:"rollbackId,omitempty"`
+	RollbackID int64 `json:"rollbackId,omitempty"`
 }

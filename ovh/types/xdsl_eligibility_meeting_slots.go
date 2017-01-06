@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// List of available meeting time slots
+// XdslEligibilityMeetingSlots List of available meeting time slots
 type XdslEligibilityMeetingSlots struct {
 
-	// Whether or not it is possible to book a fake meeting
+	// CanBookFakeMeeting Whether or not it is possible to book a fake meeting
 	CanBookFakeMeeting bool `json:"canBookFakeMeeting,omitempty"`
 
-	// A time slot
-	MeetingSlots []XdslEligibilityMeetingSlot `json:"meetingSlots,omitempty"`
+	// MeetingSlots A time slot
+	MeetingSlots []*XdslEligibilityMeetingSlot `json:"meetingSlots,omitempty"`
 }

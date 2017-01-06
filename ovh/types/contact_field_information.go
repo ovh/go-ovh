@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Extras informations about a field
+// ContactFieldInformation Extras informations about a field
 type ContactFieldInformation struct {
 
-	// Name of the field concerned by restrictions
+	// FieldName Name of the field concerned by restrictions
 	FieldName string `json:"fieldName,omitempty"`
 
-	// Indicates if the field is mandatory when editing
+	// Mandatory Indicates if the field is mandatory when editing
 	Mandatory bool `json:"mandatory,omitempty"`
 
-	// Indicates if the field can't be edited
+	// ReadOnly Indicates if the field can't be edited
 	ReadOnly bool `json:"readOnly,omitempty"`
 }

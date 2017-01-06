@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// The Dedicated Cloud Nsx option
+// DedicatedCloudNsx The Dedicated Cloud Nsx option
 type DedicatedCloudNsx struct {
 
-	// State of the option
+	// State State of the option
 	State string `json:"state,omitempty"`
 }

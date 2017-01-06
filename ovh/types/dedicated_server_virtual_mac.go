@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A virtual MAC address associated to one or more IPs
+// DedicatedServerVirtualMac A virtual MAC address associated to one or more IPs
 type DedicatedServerVirtualMac struct {
 
-	// Virtual MAC address in 00:00:00:00:00:00 format
+	// MacAddress Virtual MAC address in 00:00:00:00:00:00 format
 	MacAddress string `json:"macAddress,omitempty"`
 
-	// Virtual MAC address type
-	Type_ string `json:"type,omitempty"`
+	// TType Virtual MAC address type
+	TType string `json:"type,omitempty"`
 }

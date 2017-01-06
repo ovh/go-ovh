@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Graylog stream
+// DBaaSLogsStream Graylog stream
 type DBaaSLogsStream struct {
 
-	// Stream creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Stream creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Stream description
+	// Description Stream description
 	Description string `json:"description,omitempty"`
 
-	// Indicates if you are allowed to edit entry
+	// IsEditable Indicates if you are allowed to edit entry
 	IsEditable bool `json:"isEditable,omitempty"`
 
-	// Associated DBaaS Logs option
-	OptionId string `json:"optionId,omitempty"`
+	// OptionID Associated DBaaS Logs option
+	OptionID string `json:"optionId,omitempty"`
 
-	// Stream UUID
-	StreamId string `json:"streamId,omitempty"`
+	// StreamID Stream UUID
+	StreamID string `json:"streamId,omitempty"`
 
-	// Stream description
+	// Title Stream description
 	Title string `json:"title,omitempty"`
 
-	// Stream last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Stream last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

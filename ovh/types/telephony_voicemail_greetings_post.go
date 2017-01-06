@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// TelephonyVoicemailGreetingsPost ...
 type TelephonyVoicemailGreetingsPost struct {
-
 	Dir string `json:"dir,omitempty"`
 
-	DocumentId string `json:"documentId,omitempty"`
+	DocumentID string `json:"documentId,omitempty"`
 }

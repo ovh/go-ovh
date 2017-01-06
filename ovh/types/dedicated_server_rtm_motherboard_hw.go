@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing informations about motherboard
+// DedicatedServerRtmMotherboardHw A structure describing informations about motherboard
 type DedicatedServerRtmMotherboardHw struct {
 
-	// Motherboard manufacturer
+	// Manufacturer Motherboard manufacturer
 	Manufacturer string `json:"manufacturer,omitempty"`
 
-	// Motherboard name
+	// Name Motherboard name
 	Name string `json:"name,omitempty"`
 }

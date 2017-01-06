@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// TelephonySetDefaultSipDomainPost ...
 type TelephonySetDefaultSipDomainPost struct {
-
 	Country string `json:"country,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

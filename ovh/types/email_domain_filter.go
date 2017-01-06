@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Filter List
+// EmailDomainFilter Filter List
 type EmailDomainFilter struct {
 
-	// Action of filter
+	// Action Action of filter
 	Action string `json:"action,omitempty"`
 
-	// Action parameter of filter
+	// ActionParam Action parameter of filter
 	ActionParam string `json:"actionParam,omitempty"`
 
-	// If true filter is active
+	// Active If true filter is active
 	Active bool `json:"active,omitempty"`
 
-	// Domain name of filter
+	// Domain Domain name of filter
 	Domain string `json:"domain,omitempty"`
 
-	// Filter name
+	// Name Filter name
 	Name string `json:"name,omitempty"`
 
-	// Account name of filter
+	// Pop Account name of filter
 	Pop string `json:"pop,omitempty"`
 
-	// Priority of filter
+	// Priority Priority of filter
 	Priority int64 `json:"priority,omitempty"`
 }

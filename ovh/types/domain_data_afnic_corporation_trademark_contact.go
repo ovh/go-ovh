@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Representation of an Inpi additional information for a corporation
+// DomainDataAfnicCorporationTrademarkContact Representation of an Inpi additional information for a corporation
 type DomainDataAfnicCorporationTrademarkContact struct {
 
-	// Contact ID related to the Inpi additional information
-	ContactId int64 `json:"contactId,omitempty"`
+	// ContactID Contact ID related to the Inpi additional information
+	ContactID int64 `json:"contactId,omitempty"`
 
-	// Corporation Inpi additional information ID
-	Id int64 `json:"id,omitempty"`
+	// ID Corporation Inpi additional information ID
+	ID int64 `json:"id,omitempty"`
 
-	// Number of the Inpi declaration
+	// InpiNumber Number of the Inpi declaration
 	InpiNumber string `json:"inpiNumber,omitempty"`
 
-	// Owner of the trademark
+	// InpiTrademarkOwner Owner of the trademark
 	InpiTrademarkOwner string `json:"inpiTrademarkOwner,omitempty"`
 }

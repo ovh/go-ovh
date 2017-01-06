@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,16 @@
 
 package types
 
-// Telephony service
-type TelephonyTelephonyService struct {
+// TelephonyService Telephony service
+type TelephonyService struct {
 
-	// The country of the number
+	// Country The country of the number
 	Country string `json:"country,omitempty"`
 
-	// The country code of the number
+	// CountryCode The country code of the number
 	CountryCode int64 `json:"countryCode,omitempty"`
 
-	CurrentOutplan OrderPrice `json:"currentOutplan,omitempty"`
+	CurrentOutplan *OrderPrice `json:"currentOutplan,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
@@ -29,7 +29,7 @@ type TelephonyTelephonyService struct {
 
 	Properties []string `json:"properties,omitempty"`
 
-	// The identifier to use to port the number
+	// Rio The identifier to use to port the number
 	Rio string `json:"rio,omitempty"`
 
 	ServiceName string `json:"serviceName,omitempty"`

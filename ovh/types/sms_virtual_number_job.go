@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// Sms job
+// SmsVirtualNumberJob Sms job
 type SmsVirtualNumberJob struct {
-
-	CreationDatetime time.Time `json:"creationDatetime,omitempty"`
+	CreationDatetime *time.Time `json:"creationDatetime,omitempty"`
 
 	Credits float64 `json:"credits,omitempty"`
 
@@ -25,7 +24,7 @@ type SmsVirtualNumberJob struct {
 
 	DifferedDelivery int64 `json:"differedDelivery,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Message string `json:"message,omitempty"`
 

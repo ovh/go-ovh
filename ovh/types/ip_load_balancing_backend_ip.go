@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Backends attached to your IP load balancing
-type IpLoadBalancingBackendIp struct {
+// IPLoadBalancingBackendIP Backends attached to your IP load balancing
+type IPLoadBalancingBackendIP struct {
 
-	// IP of your backend
+	// Backend IP of your backend
 	Backend string `json:"backend,omitempty"`
 
-	// If the backend has been configured as backup, this field contains the ip of the main backend
-	MainBackendIp string `json:"mainBackendIp,omitempty"`
+	// MainBackendIP If the backend has been configured as backup, this field contains the ip of the main backend
+	MainBackendIP string `json:"mainBackendIp,omitempty"`
 
-	// Probe used for your backend
+	// Probe Probe used for your backend
 	Probe string `json:"probe,omitempty"`
 
-	// Weight of the backend on its zone, must be between 1 and 100, default is 8
+	// Weight Weight of the backend on its zone, must be between 1 and 100, default is 8
 	Weight int64 `json:"weight,omitempty"`
 
-	// Location where your service is
+	// Zone Location where your service is
 	Zone string `json:"zone,omitempty"`
 }

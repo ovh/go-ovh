@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// DynHost record
+// DomainZoneDynHostRecord DynHost record
 type DomainZoneDynHostRecord struct {
 
-	// Id of the DynHost record
-	Id int64 `json:"id,omitempty"`
+	// ID Id of the DynHost record
+	ID int64 `json:"id,omitempty"`
 
-	// Ip address of the DynHost record
-	Ip string `json:"ip,omitempty"`
+	// IP Ip address of the DynHost record
+	IP string `json:"ip,omitempty"`
 
-	// Subdomain of the DynHost record
+	// SubDomain Subdomain of the DynHost record
 	SubDomain string `json:"subDomain,omitempty"`
 
-	// Zone of the DynHost record
+	// Zone Zone of the DynHost record
 	Zone string `json:"zone,omitempty"`
 }

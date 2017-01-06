@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Partition Snapshot
+// DedicatedNashaSnapshot Partition Snapshot
 type DedicatedNashaSnapshot struct {
 
-	// the interval of snapshot
+	// SnapshotType the interval of snapshot
 	SnapshotType string `json:"snapshotType,omitempty"`
 }

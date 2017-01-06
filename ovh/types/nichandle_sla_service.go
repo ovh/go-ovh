@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Describe all services impacted by SLA
-type NichandleSlaService struct {
+// NichandleSLAService Describe all services impacted by SLA
+type NichandleSLAService struct {
 
-	// Service description
+	// Description Service description
 	Description string `json:"description,omitempty"`
 
-	// Impacted service name
+	// ServiceName Impacted service name
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// SLA plan application
-	SlaApplication string `json:"slaApplication,omitempty"`
+	// SLAApplication SLA plan application
+	SLAApplication string `json:"slaApplication,omitempty"`
 
-	// SLA plan description
-	SlaPlan string `json:"slaPlan,omitempty"`
+	// SLAPlan SLA plan description
+	SLAPlan string `json:"slaPlan,omitempty"`
 }

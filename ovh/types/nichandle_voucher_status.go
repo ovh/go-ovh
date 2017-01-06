@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Voucher Status and Information
+// NichandleVoucherStatus Voucher Status and Information
 type NichandleVoucherStatus struct {
 
-	// Is voucher valid
+	// Validity Is voucher valid
 	Validity bool `json:"validity,omitempty"`
 }

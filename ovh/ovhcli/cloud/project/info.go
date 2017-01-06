@@ -5,6 +5,7 @@ import (
 
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 )
 
 var (
@@ -18,7 +19,7 @@ var (
 			if projectID == "" && projectName == "" {
 				common.WrongUsage(cmd)
 			}
-			var p *ovh.Project
+			var p *types.CloudProject
 			if projectID != "" {
 				p, err = client.CloudProjectInfoByID(projectID)
 			} else {

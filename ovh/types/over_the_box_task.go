@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Task
+// OverTheBoxTask Task
 type OverTheBoxTask struct {
 
-	// The name of the task
+	// Name The name of the task
 	Name string `json:"name,omitempty"`
 
-	// The status of the task
+	// Status The status of the task
 	Status string `json:"status,omitempty"`
 
-	// The id of the task
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID The id of the task
+	TaskID string `json:"taskId,omitempty"`
 }

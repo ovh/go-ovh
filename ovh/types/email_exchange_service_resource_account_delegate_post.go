@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// EmailExchangeServiceResourceAccountDelegatePost ...
 type EmailExchangeServiceResourceAccountDelegatePost struct {
-
-	AllowedAccountId int64 `json:"allowedAccountId,omitempty"`
+	AllowedAccountID int64 `json:"allowedAccountId,omitempty"`
 }

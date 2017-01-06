@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Information about a datacenter of a VPS Virtual Machine
+// VpsDatacenter Information about a datacenter of a VPS Virtual Machine
 type VpsDatacenter struct {
-
 	LongName string `json:"longName,omitempty"`
 
 	Name string `json:"name,omitempty"`

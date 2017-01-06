@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Directory Informations
+// TelephonyDirectoryInfo Directory Informations
 type TelephonyDirectoryInfo struct {
-
 	PJSocialNomination string `json:"PJSocialNomination,omitempty"`
 
 	Address string `json:"address,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Consumption of the Host.
+// DedicatedCloudHostHourlyConsumptionConsumption Consumption of the Host.
 type DedicatedCloudHostHourlyConsumptionConsumption struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

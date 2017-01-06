@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// possible value for specific answer
+// XdslLineDiagnosticPossibleValue possible value for specific answer
 type XdslLineDiagnosticPossibleValue struct {
 
-	// answer id
-	Id int64 `json:"id,omitempty"`
+	// ID answer id
+	ID int64 `json:"id,omitempty"`
 
-	// answer choice string
+	// Label answer choice string
 	Label string `json:"label,omitempty"`
 
-	// answer choice value
+	// Value answer choice value
 	Value string `json:"value,omitempty"`
 }

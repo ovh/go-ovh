@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// SmsHlrPost ...
 type SmsHlrPost struct {
-
 	Receivers []string `json:"receivers,omitempty"`
 
-	ReceiversDocumentUrl string `json:"receiversDocumentUrl,omitempty"`
+	ReceiversDocumentURL string `json:"receiversDocumentUrl,omitempty"`
 }

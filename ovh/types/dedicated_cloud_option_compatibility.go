@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing option compatibility
+// DedicatedCloudOptionCompatibility A structure describing option compatibility
 type DedicatedCloudOptionCompatibility struct {
 
-	// The new/future commercial version
+	// NewCommercialVersion The new/future commercial version
 	NewCommercialVersion string `json:"newCommercialVersion,omitempty"`
 
-	// The old/current commercial version
+	// OldCommercialVersion The old/current commercial version
 	OldCommercialVersion string `json:"oldCommercialVersion,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// IPPool
-type CloudNetworkIpPool struct {
+// CloudNetworkIPPool IPPool
+type CloudNetworkIPPool struct {
 
-	// Enable DHCP
+	// Dhcp Enable DHCP
 	Dhcp bool `json:"dhcp,omitempty"`
 
-	// Last IP for this region (eg: 192.168.1.24)
+	// End Last IP for this region (eg: 192.168.1.24)
 	End string `json:"end,omitempty"`
 
-	// Global network with cidr (eg: 192.168.1.0/24)
+	// Network Global network with cidr (eg: 192.168.1.0/24)
 	Network string `json:"network,omitempty"`
 
-	// Region where this subnet will be created
+	// Region Region where this subnet will be created
 	Region string `json:"region,omitempty"`
 
-	// First IP for this region (eg: 192.168.1.12)
+	// Start First IP for this region (eg: 192.168.1.12)
 	Start string `json:"start,omitempty"`
 }

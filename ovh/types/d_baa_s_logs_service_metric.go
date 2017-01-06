@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// ServiceMetric
+// DBaaSLogsServiceMetric ServiceMetric
 type DBaaSLogsServiceMetric struct {
 
-	// IOT server url
+	// Host IOT server url
 	Host string `json:"host,omitempty"`
 
-	// IOT credentials
+	// Token IOT credentials
 	Token string `json:"token,omitempty"`
 }

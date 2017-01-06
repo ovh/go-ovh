@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyPhonebookPhonebookContactPost ...
 type TelephonyPhonebookPhonebookContactPost struct {
-
 	Group string `json:"group,omitempty"`
 
 	HomeMobile string `json:"homeMobile,omitempty"`

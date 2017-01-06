@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Definition of claim notices applying to a domain name
-type DomainDataClaimNoticeClaimNotice struct {
+// DomainDataClaimNotice Definition of claim notices applying to a domain name
+type DomainDataClaimNotice struct {
 
-	// Array of claim notice for the domain
-	Claims []DomainDataClaimNoticeClaimNoticeDecision `json:"claims,omitempty"`
+	// Claims Array of claim notice for the domain
+	Claims []*DomainDataClaimNoticeDecision `json:"claims,omitempty"`
 
-	// Ending date of claim notice
+	// EndingDate Ending date of claim notice
 	EndingDate string `json:"endingDate,omitempty"`
 
-	// Claim notice ID
-	Id string `json:"id,omitempty"`
+	// ID Claim notice ID
+	ID string `json:"id,omitempty"`
 
-	// Label referring to claim notice
+	// Label Label referring to claim notice
 	Label string `json:"label,omitempty"`
 
-	// Beginning date of claim notice
+	// StartingDate Beginning date of claim notice
 	StartingDate string `json:"startingDate,omitempty"`
 
-	// Type of claim notice
-	Type_ string `json:"type,omitempty"`
+	// TType Type of claim notice
+	TType string `json:"type,omitempty"`
 }

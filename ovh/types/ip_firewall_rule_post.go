@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type IpFirewallRulePost struct {
-
+// IPFirewallRulePost ...
+type IPFirewallRulePost struct {
 	Action string `json:"action,omitempty"`
 
 	DestinationPort int64 `json:"destinationPort,omitempty"`
@@ -24,5 +24,5 @@ type IpFirewallRulePost struct {
 
 	SourcePort int64 `json:"sourcePort,omitempty"`
 
-	TcpOption IpFirewallOptionTcp `json:"tcpOption,omitempty"`
+	TCPOption *IPFirewallOptionTCP `json:"tcpOption,omitempty"`
 }

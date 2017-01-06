@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Structure of imapCopy
-type DomainDomainMlOptionsStruct struct {
+// DomainMlOptionsStruct Structure of imapCopy
+type DomainMlOptionsStruct struct {
 
-	// If true, messages are moderate
+	// ModeratorMessage If true, messages are moderate
 	ModeratorMessage bool `json:"moderatorMessage,omitempty"`
 
-	// If true, enabled moderation for subscribe
+	// SubscribeByModerator If true, enabled moderation for subscribe
 	SubscribeByModerator bool `json:"subscribeByModerator,omitempty"`
 
-	// If true, just user can post
+	// UsersPostOnly If true, just user can post
 	UsersPostOnly bool `json:"usersPostOnly,omitempty"`
 }

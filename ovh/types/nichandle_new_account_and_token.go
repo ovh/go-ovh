@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Newly created OVH identifier and a login token for the API
+// NichandleNewAccountAndToken Newly created OVH identifier and a login token for the API
 type NichandleNewAccountAndToken struct {
-
 	ConsumerKey string `json:"consumerKey,omitempty"`
 
-	OvhIdentifier string `json:"ovhIdentifier,omitempty"`
+	OvhIDentifier string `json:"ovhIdentifier,omitempty"`
 }

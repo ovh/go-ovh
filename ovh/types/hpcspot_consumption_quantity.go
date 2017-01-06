@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Quantity consumed (minutes, core minutes, licences, token)
+// HpcspotConsumptionQuantity Quantity consumed (minutes, core minutes, licences, token)
 type HpcspotConsumptionQuantity struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

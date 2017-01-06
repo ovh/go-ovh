@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// XdslLinesDiagnosticRunPost ...
 type XdslLinesDiagnosticRunPost struct {
-
 	ActionsDone []string `json:"actionsDone,omitempty"`
 
-	Answers XdslLineDiagnosticAnswers `json:"answers,omitempty"`
+	Answers *XdslLineDiagnosticAnswers `json:"answers,omitempty"`
 
 	FaultType string `json:"faultType,omitempty"`
 }

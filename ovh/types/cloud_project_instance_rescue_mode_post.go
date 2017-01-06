@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// CloudProjectInstanceRescueModePost ...
 type CloudProjectInstanceRescueModePost struct {
-
-	ImageId string `json:"imageId,omitempty"`
+	ImageID string `json:"imageId,omitempty"`
 
 	Rescue bool `json:"rescue,omitempty"`
 }

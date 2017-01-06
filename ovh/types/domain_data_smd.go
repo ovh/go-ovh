@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Representation of a SMD Resource file
+// DomainDataSmd Representation of a SMD Resource file
 type DomainDataSmd struct {
 
-	// SMD file content
+	// Data SMD file content
 	Data string `json:"data,omitempty"`
 
-	// SMD file ID
-	Id int64 `json:"id,omitempty"`
+	// ID SMD file ID
+	ID int64 `json:"id,omitempty"`
 
-	// Date when information about SMD file aren't valid anymore
-	NotAfter time.Time `json:"notAfter,omitempty"`
+	// NotAfter Date when information about SMD file aren't valid anymore
+	NotAfter *time.Time `json:"notAfter,omitempty"`
 
-	// Date before when information about SMD file aren't valid yet
-	NotBefore time.Time `json:"notBefore,omitempty"`
+	// NotBefore Date before when information about SMD file aren't valid yet
+	NotBefore *time.Time `json:"notBefore,omitempty"`
 
-	// List of the labels that are protected with that SMD file
-	ProtectedLabels []DomainDataSmdLabel `json:"protectedLabels,omitempty"`
+	// ProtectedLabels List of the labels that are protected with that SMD file
+	ProtectedLabels []*DomainDataSmdLabel `json:"protectedLabels,omitempty"`
 
-	// TMCH Internal identifier
-	SmdId string `json:"smdId,omitempty"`
+	// SmdID TMCH Internal identifier
+	SmdID string `json:"smdId,omitempty"`
 }

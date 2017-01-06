@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Backend for a domain
-type CdnanycastBackend struct {
-
-	Ip string `json:"ip,omitempty"`
+// CDNanycastBackend Backend for a domain
+type CDNanycastBackend struct {
+	IP string `json:"ip,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderDomainZoneNewPost ...
 type OrderDomainZoneNewPost struct {
-
 	Minimized bool `json:"minimized,omitempty"`
 
 	ZoneName string `json:"zoneName,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,10 @@ import (
 	"time"
 )
 
-// Hourly consumption of a host
+// DedicatedCloudHostHourlyConsumption Hourly consumption of a host
 type DedicatedCloudHostHourlyConsumption struct {
+	Consumption *DedicatedCloudHostHourlyConsumptionConsumption `json:"consumption,omitempty"`
 
-	Consumption DedicatedCloudHostHourlyConsumptionConsumption `json:"consumption,omitempty"`
-
-	// Last update.
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update.
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 }

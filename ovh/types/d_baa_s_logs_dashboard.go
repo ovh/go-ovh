@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Graylog dashboard
+// DBaaSLogsDashboard Graylog dashboard
 type DBaaSLogsDashboard struct {
 
-	// Dashboard creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Dashboard creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Dashboard UUID
-	DashboardId string `json:"dashboardId,omitempty"`
+	// DashboardID Dashboard UUID
+	DashboardID string `json:"dashboardId,omitempty"`
 
-	// Dashboard description
+	// Description Dashboard description
 	Description string `json:"description,omitempty"`
 
-	// Indicates if you are allowed to edit entry
+	// IsEditable Indicates if you are allowed to edit entry
 	IsEditable bool `json:"isEditable,omitempty"`
 
-	// Associated DBaaS Logs option
-	OptionId string `json:"optionId,omitempty"`
+	// OptionID Associated DBaaS Logs option
+	OptionID string `json:"optionId,omitempty"`
 
-	// Dashboard description
+	// Title Dashboard description
 	Title string `json:"title,omitempty"`
 
-	// Dashboard last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Dashboard last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

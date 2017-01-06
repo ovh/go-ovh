@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// A Shinken-based monitoring service
+// MonitoringService A Shinken-based monitoring service
 type MonitoringService struct {
 
-	// backend id
-	BackendId string `json:"backendId,omitempty"`
+	// BackendID backend id
+	BackendID string `json:"backendId,omitempty"`
 
-	// Date of the resource creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the resource creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// failover backend id
-	FailoverBackendId string `json:"failoverBackendId,omitempty"`
+	// FailoverBackendID failover backend id
+	FailoverBackendID string `json:"failoverBackendId,omitempty"`
 
-	// hostname
+	// Hostname hostname
 	Hostname string `json:"hostname,omitempty"`
 
-	// Unique UUID of the resource
-	Id string `json:"id,omitempty"`
+	// ID Unique UUID of the resource
+	ID string `json:"id,omitempty"`
 
-	// name
+	// Name name
 	Name string `json:"name,omitempty"`
 
-	// status
+	// Status status
 	Status string `json:"status,omitempty"`
 
-	// Date of the resource last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the resource last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

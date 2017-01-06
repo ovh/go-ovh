@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// SmsReceiversPost ...
 type SmsReceiversPost struct {
-
 	AutoUpdate bool `json:"autoUpdate,omitempty"`
 
-	CsvUrl string `json:"csvUrl,omitempty"`
+	CsvURL string `json:"csvUrl,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
-	SlotId int64 `json:"slotId,omitempty"`
+	SlotID int64 `json:"slotId,omitempty"`
 }

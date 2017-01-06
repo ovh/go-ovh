@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// Global Redirection
+// EmailDomainRedirectionGlobal Global Redirection
 type EmailDomainRedirectionGlobal struct {
-
 	From string `json:"from,omitempty"`
 
-	Id string `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	To string `json:"to,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Input engine
+// DBaaSLogsEngine Input engine
 type DBaaSLogsEngine struct {
 
-	// Input engine UUID
-	EngineId string `json:"engineId,omitempty"`
+	// EngineID Input engine UUID
+	EngineID string `json:"engineId,omitempty"`
 
-	// Indicates if engine will soon not be supported
+	// IsDeprecated Indicates if engine will soon not be supported
 	IsDeprecated bool `json:"isDeprecated,omitempty"`
 
-	// Software name
+	// Name Software name
 	Name string `json:"name,omitempty"`
 
-	// Software version
+	// Version Software version
 	Version string `json:"version,omitempty"`
 }

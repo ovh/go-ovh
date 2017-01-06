@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// cloud archives tasks
+// PcaTask cloud archives tasks
 type PcaTask struct {
 
-	// Task comments
+	// Comment Task comments
 	Comment string `json:"comment,omitempty"`
 
-	// Task function
+	// Function Task function
 	Function string `json:"function,omitempty"`
 
-	// Task ID
-	Id string `json:"id,omitempty"`
+	// ID Task ID
+	ID string `json:"id,omitempty"`
 
-	// Host used for task
-	IpAddress string `json:"ipAddress,omitempty"`
+	// IPAddress Host used for task
+	IPAddress string `json:"ipAddress,omitempty"`
 
-	// Task login
+	// Login Task login
 	Login string `json:"login,omitempty"`
 
-	// Task status
+	// Status Task status
 	Status string `json:"status,omitempty"`
 
-	// Task date
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	// TodoDate Task date
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

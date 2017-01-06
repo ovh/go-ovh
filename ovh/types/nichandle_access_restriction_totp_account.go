@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// TOTP Two-Factor Authentication
+// NichandleAccessRestrictionTotpAccount TOTP Two-Factor Authentication
 type NichandleAccessRestrictionTotpAccount struct {
 
-	// The Id of the restriction
-	Id int64 `json:"id,omitempty"`
+	// ID The Id of the restriction
+	ID int64 `json:"id,omitempty"`
 
-	// Status of this account
+	// Status Status of this account
 	Status string `json:"status,omitempty"`
 }

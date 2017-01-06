@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// HostingWebOvhConfigChangeConfigurationPost ...
 type HostingWebOvhConfigChangeConfigurationPost struct {
-
 	Container string `json:"container,omitempty"`
 
 	EngineName string `json:"engineName,omitempty"`
@@ -20,5 +20,5 @@ type HostingWebOvhConfigChangeConfigurationPost struct {
 
 	Environment string `json:"environment,omitempty"`
 
-	HttpFirewall string `json:"httpFirewall,omitempty"`
+	HTTPFirewall string `json:"httpFirewall,omitempty"`
 }

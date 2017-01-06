@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Definition of a trademark claim notice classification
+// DomainDataClaimNoticeClassification Definition of a trademark claim notice classification
 type DomainDataClaimNoticeClassification struct {
 
-	// Summary of the classification
+	// Description Summary of the classification
 	Description string `json:"description,omitempty"`
 
-	// Code of the classification
+	// Number Code of the classification
 	Number string `json:"number,omitempty"`
 }

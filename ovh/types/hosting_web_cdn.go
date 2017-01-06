@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// CDN service
-type HostingWebCdn struct {
+// HostingWebCDN CDN service
+type HostingWebCDN struct {
 
-	// Domain of this CDN
+	// Domain Domain of this CDN
 	Domain string `json:"domain,omitempty"`
 
-	// Option CDN free with the hosting ?
+	// Free Option CDN free with the hosting ?
 	Free bool `json:"free,omitempty"`
 
-	// Status of the CDN option
+	// Status Status of the CDN option
 	Status string `json:"status,omitempty"`
 
-	// Type of the CDN
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the CDN
+	TType string `json:"type,omitempty"`
 
-	// Version of the CDN
+	// Version Version of the CDN
 	Version string `json:"version,omitempty"`
 }

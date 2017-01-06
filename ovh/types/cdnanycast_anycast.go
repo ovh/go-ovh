@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,9 +14,8 @@ import (
 	"time"
 )
 
-// Anycast IP of a CDN customer
-type CdnanycastAnycast struct {
-
+// CDNanycastAnycast Anycast IP of a CDN customer
+type CDNanycastAnycast struct {
 	Anycast string `json:"anycast,omitempty"`
 
 	BackendLimit int64 `json:"backendLimit,omitempty"`
@@ -25,15 +24,15 @@ type CdnanycastAnycast struct {
 
 	CacheRuleLimitPerDomain int64 `json:"cacheRuleLimitPerDomain,omitempty"`
 
-	LastQuotaOrder time.Time `json:"lastQuotaOrder,omitempty"`
+	LastQuotaOrder *time.Time `json:"lastQuotaOrder,omitempty"`
 
-	// URL for downloading daily log of your CDN
-	LogUrl string `json:"logUrl,omitempty"`
+	// LogURL URL for downloading daily log of your CDN
+	LogURL string `json:"logUrl,omitempty"`
 
 	Offer string `json:"offer,omitempty"`
 
 	Quota int64 `json:"quota,omitempty"`
 
-	// The internal name of your CDN offer
+	// Service The internal name of your CDN offer
 	Service string `json:"service,omitempty"`
 }

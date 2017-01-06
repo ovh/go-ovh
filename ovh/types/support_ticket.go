@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,42 +14,42 @@ import (
 	"time"
 )
 
-// Support Ticket
+// SupportTicket Support Ticket
 type SupportTicket struct {
 
-	// Customer account identifier
-	AccountId string `json:"accountId,omitempty"`
+	// AccountID Customer account identifier
+	AccountID string `json:"accountId,omitempty"`
 
-	// Ticket request category
+	// Category Ticket request category
 	Category string `json:"category,omitempty"`
 
-	// Ticket creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Ticket creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Sender type of last message
+	// LastMessageFrom Sender type of last message
 	LastMessageFrom string `json:"lastMessageFrom,omitempty"`
 
-	// Product service concerned by ticket
+	// Product Product service concerned by ticket
 	Product string `json:"product,omitempty"`
 
-	// Name of service concerned by ticket
+	// ServiceName Name of service concerned by ticket
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// State of ticket
+	// State State of ticket
 	State string `json:"state,omitempty"`
 
-	// Ticket subject
+	// Subject Ticket subject
 	Subject string `json:"subject,omitempty"`
 
-	// Ticket identifier
-	TicketId int64 `json:"ticketId,omitempty"`
+	// TicketID Ticket identifier
+	TicketID int64 `json:"ticketId,omitempty"`
 
-	// Ticket external number
+	// TicketNumber Ticket external number
 	TicketNumber int64 `json:"ticketNumber,omitempty"`
 
-	// Ticket type
-	Type_ string `json:"type,omitempty"`
+	// TType Ticket type
+	TType string `json:"type,omitempty"`
 
-	// Ticket last update date
-	UpdateDate time.Time `json:"updateDate,omitempty"`
+	// UpdateDate Ticket last update date
+	UpdateDate *time.Time `json:"updateDate,omitempty"`
 }

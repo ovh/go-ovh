@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// Connected Device
+// XdslConnectedDevice Connected Device
 type XdslConnectedDevice struct {
 
-	// The state of this device on the modem
+	// Active The state of this device on the modem
 	Active bool `json:"active,omitempty"`
 
-	// How did the device got its IP address
+	// AddressSource How did the device got its IP address
 	AddressSource string `json:"addressSource,omitempty"`
 
-	// Host name given by the device to the modem
+	// HostName Host name given by the device to the modem
 	HostName string `json:"hostName,omitempty"`
 
-	// The date time of the last update of thoses informations
-	InformationDate time.Time `json:"informationDate,omitempty"`
+	// InformationDate The date time of the last update of thoses informations
+	InformationDate *time.Time `json:"informationDate,omitempty"`
 
-	// On which interface is connected the device
+	// InterfaceType On which interface is connected the device
 	InterfaceType string `json:"interfaceType,omitempty"`
 
-	// The IP address of the device
-	IpAddress string `json:"ipAddress,omitempty"`
+	// IPAddress The IP address of the device
+	IPAddress string `json:"ipAddress,omitempty"`
 
-	// The remaining time in seconds of the DHCP lease of this device (-1 means infinite)
+	// LeaseTimeRemaining The remaining time in seconds of the DHCP lease of this device (-1 means infinite)
 	LeaseTimeRemaining int64 `json:"leaseTimeRemaining,omitempty"`
 
-	// MAC address of the device
+	// MacAddress MAC address of the device
 	MacAddress string `json:"macAddress,omitempty"`
 }

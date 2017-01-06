@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Office domain
-type LicenseOfficeOfficeDomain struct {
+// LicenseOfficeDomain Office domain
+type LicenseOfficeDomain struct {
 
-	// Domain name
+	// DomainName Domain name
 	DomainName string `json:"domainName,omitempty"`
 
-	// Domain state
+	// Status Domain state
 	Status string `json:"status,omitempty"`
 
-	// TXT entry required for domain validation
+	// TxtEntry TXT entry required for domain validation
 	TxtEntry string `json:"txtEntry,omitempty"`
 }

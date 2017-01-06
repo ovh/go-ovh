@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SupplyMondialRelayPost ...
 type SupplyMondialRelayPost struct {
-
 	Address string `json:"address,omitempty"`
 
 	City string `json:"city,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Usage information for current month on your project
+// CloudProjectBandwidthStorageUsage Usage information for current month on your project
 type CloudProjectBandwidthStorageUsage struct {
 
-	// Downloaded bytes from your containers
+	// DownloadedBytes Downloaded bytes from your containers
 	DownloadedBytes int64 `json:"downloadedBytes,omitempty"`
 
-	// Region
+	// Region Region
 	Region string `json:"region,omitempty"`
 
-	Total OrderPrice `json:"total,omitempty"`
+	Total *OrderPrice `json:"total,omitempty"`
 }

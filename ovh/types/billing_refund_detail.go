@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Information about a Bill entry
+// BillingRefundDetail Information about a Bill entry
 type BillingRefundDetail struct {
-
 	Description string `json:"description,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
@@ -21,11 +20,11 @@ type BillingRefundDetail struct {
 
 	Reference string `json:"reference,omitempty"`
 
-	RefundDetailId string `json:"refundDetailId,omitempty"`
+	RefundDetailID string `json:"refundDetailId,omitempty"`
 
-	RefundId string `json:"refundId,omitempty"`
+	RefundID string `json:"refundId,omitempty"`
 
-	TotalPrice OrderPrice `json:"totalPrice,omitempty"`
+	TotalPrice *OrderPrice `json:"totalPrice,omitempty"`
 
-	UnitPrice OrderPrice `json:"unitPrice,omitempty"`
+	UnitPrice *OrderPrice `json:"unitPrice,omitempty"`
 }

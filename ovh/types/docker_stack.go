@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,26 +14,26 @@ import (
 	"time"
 )
 
-// An isolated client Docker PaaS environment
+// DockerStack An isolated client Docker PaaS environment
 type DockerStack struct {
 
-	// The cluster on which the stack is deployed
+	// Cluster The cluster on which the stack is deployed
 	Cluster string `json:"cluster,omitempty"`
 
-	// Date of the resource creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the resource creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// The DNS address of the stack load balancer
+	// LoadBalancer The DNS address of the stack load balancer
 	LoadBalancer string `json:"loadBalancer,omitempty"`
 
-	Metrics DockerSlaveMetrics `json:"metrics,omitempty"`
+	Metrics *DockerSLAveMetrics `json:"metrics,omitempty"`
 
-	// The stack name
+	// Name The stack name
 	Name string `json:"name,omitempty"`
 
-	// A list of slave UUIDs
-	Slaves []string `json:"slaves,omitempty"`
+	// SLAves A list of slave UUIDs
+	SLAves []string `json:"slaves,omitempty"`
 
-	// Date of the resource last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the resource last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

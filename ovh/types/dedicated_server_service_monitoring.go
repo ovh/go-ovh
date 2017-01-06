@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Service monitoring details
+// DedicatedServerServiceMonitoring Service monitoring details
 type DedicatedServerServiceMonitoring struct {
 
-	// The expected return
+	// ChallengeText The expected return
 	ChallengeText string `json:"challengeText,omitempty"`
 
-	// Is this service monitoring is enabled
+	// Enabled Is this service monitoring is enabled
 	Enabled bool `json:"enabled,omitempty"`
 
-	// The test interval in seconds
+	// Interval The test interval in seconds
 	Interval string `json:"interval,omitempty"`
 
-	// The ip to monitor
-	Ip string `json:"ip,omitempty"`
+	// IP The ip to monitor
+	IP string `json:"ip,omitempty"`
 
-	// This monitoring id
-	MonitoringId int64 `json:"monitoringId,omitempty"`
+	// MonitoringID This monitoring id
+	MonitoringID int64 `json:"monitoringId,omitempty"`
 
-	// The service port to monitor
+	// Port The service port to monitor
 	Port int64 `json:"port,omitempty"`
 
-	// The protocol to use
+	// Protocol The protocol to use
 	Protocol string `json:"protocol,omitempty"`
 
-	// The URL to test
-	Url string `json:"url,omitempty"`
+	// URL The URL to test
+	URL string `json:"url,omitempty"`
 }

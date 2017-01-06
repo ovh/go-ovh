@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type IpFirewallPost struct {
-
-	IpOnFirewall string `json:"ipOnFirewall,omitempty"`
+// IPFirewallPost ...
+type IPFirewallPost struct {
+	IPOnFirewall string `json:"ipOnFirewall,omitempty"`
 }

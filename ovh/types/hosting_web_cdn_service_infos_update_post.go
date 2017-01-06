@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type HostingWebCdnServiceInfosUpdatePost struct {
-
-	Renew ServiceRenewType `json:"renew,omitempty"`
+// HostingWebCDNServiceInfosUpdatePost ...
+type HostingWebCDNServiceInfosUpdatePost struct {
+	Renew *ServiceRenewType `json:"renew,omitempty"`
 }

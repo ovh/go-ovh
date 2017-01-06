@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
+// OrderTelephonyAccessoryPost ...
 type OrderTelephonyAccessoryPost struct {
-
 	Accessory string `json:"accessory,omitempty"`
 
-	MondialRelayId int64 `json:"mondialRelayId,omitempty"`
+	MondialRelayID int64 `json:"mondialRelayId,omitempty"`
 
 	Quantity int64 `json:"quantity,omitempty"`
 
 	Retractation bool `json:"retractation,omitempty"`
 
-	ShippingContactId int64 `json:"shippingContactId,omitempty"`
+	ShippingContactID int64 `json:"shippingContactId,omitempty"`
 }

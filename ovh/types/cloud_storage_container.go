@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Container
+// CloudStorageContainer Container
 type CloudStorageContainer struct {
 
-	// Storage id
-	Id string `json:"id,omitempty"`
+	// ID Storage id
+	ID string `json:"id,omitempty"`
 
-	// Storage name
+	// Name Storage name
 	Name string `json:"name,omitempty"`
 
 	Region string `json:"region,omitempty"`
 
-	// Total bytes stored
+	// StoredBytes Total bytes stored
 	StoredBytes int64 `json:"storedBytes,omitempty"`
 
-	// Total objects stored
+	// StoredObjects Total objects stored
 	StoredObjects int64 `json:"storedObjects,omitempty"`
 }

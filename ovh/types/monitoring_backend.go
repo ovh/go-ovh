@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Shinken infrastructure hosting backend
+// MonitoringBackend Shinken infrastructure hosting backend
 type MonitoringBackend struct {
 
-	// Date of the backend creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the backend creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Unique UUID of the backend
-	Id string `json:"id,omitempty"`
+	// ID Unique UUID of the backend
+	ID string `json:"id,omitempty"`
 
-	// The name of the backend
+	// Name The name of the backend
 	Name string `json:"name,omitempty"`
 
-	// Date of the backend last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the backend last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

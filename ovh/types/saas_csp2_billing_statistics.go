@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Billing statistics for the current period
+// SaasCsp2BillingStatistics Billing statistics for the current period
 type SaasCsp2BillingStatistics struct {
 
-	// End of the billing period
-	EndDate time.Time `json:"endDate,omitempty"`
+	// EndDate End of the billing period
+	EndDate *time.Time `json:"endDate,omitempty"`
 
-	// List of lines associated to this statistics entity.
-	Lines []SaasCsp2BillingStatisticsLine `json:"lines,omitempty"`
+	// Lines List of lines associated to this statistics entity.
+	Lines []*SaasCsp2BillingStatisticsLine `json:"lines,omitempty"`
 
-	// Start of the billing period
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate Start of the billing period
+	StartDate *time.Time `json:"startDate,omitempty"`
 }

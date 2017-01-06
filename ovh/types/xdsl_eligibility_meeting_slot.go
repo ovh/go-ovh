@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Represents a time slot for a meeting
+// XdslEligibilityMeetingSlot Represents a time slot for a meeting
 type XdslEligibilityMeetingSlot struct {
 
-	// The end of the time slot
-	EndDate time.Time `json:"endDate,omitempty"`
+	// EndDate The end of the time slot
+	EndDate *time.Time `json:"endDate,omitempty"`
 
-	// The beginning of the time slot
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate The beginning of the time slot
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// An opaque string that represents an intervention unit
-	UiCode string `json:"uiCode,omitempty"`
+	// UICode An opaque string that represents an intervention unit
+	UICode string `json:"uiCode,omitempty"`
 }

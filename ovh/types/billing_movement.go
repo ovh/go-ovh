@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,22 +14,21 @@ import (
 	"time"
 )
 
-// Details about an OVH account
+// BillingMovement Details about an OVH account
 type BillingMovement struct {
+	Amount *OrderPrice `json:"amount,omitempty"`
 
-	Amount OrderPrice `json:"amount,omitempty"`
+	Balance *OrderPrice `json:"balance,omitempty"`
 
-	Balance OrderPrice `json:"balance,omitempty"`
-
-	Date time.Time `json:"date,omitempty"`
+	Date *time.Time `json:"date,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
-	MovementId int64 `json:"movementId,omitempty"`
+	MovementID int64 `json:"movementId,omitempty"`
 
 	Operation string `json:"operation,omitempty"`
 
 	Order int64 `json:"order,omitempty"`
 
-	PreviousBalance OrderPrice `json:"previousBalance,omitempty"`
+	PreviousBalance *OrderPrice `json:"previousBalance,omitempty"`
 }

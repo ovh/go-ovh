@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Your reverse records on IP
-type IpReverseIp struct {
-
-	IpReverse string `json:"ipReverse,omitempty"`
+// IPReverseIP Your reverse records on IP
+type IPReverseIP struct {
+	IPReverse string `json:"ipReverse,omitempty"`
 
 	Reverse string `json:"reverse,omitempty"`
 }

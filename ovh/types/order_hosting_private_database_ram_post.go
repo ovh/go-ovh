@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type OrderHostingPrivateDatabaseRamPost struct {
-
-	Ram string `json:"ram,omitempty"`
+// OrderHostingPrivateDatabaseRAMPost ...
+type OrderHostingPrivateDatabaseRAMPost struct {
+	RAM string `json:"ram,omitempty"`
 }

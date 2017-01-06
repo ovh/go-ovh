@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// Details about bandwidth storage pricing
+// CloudBandwidthStoragePrice Details about bandwidth storage pricing
 type CloudBandwidthStoragePrice struct {
+	Price *OrderPrice `json:"price,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
-
-	// Bandwidth storage region
+	// Region Bandwidth storage region
 	Region string `json:"region,omitempty"`
 }

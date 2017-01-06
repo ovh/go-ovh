@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// A custom SSL certificate associated to a Docker PaaS environment
-type DockerStackCustomSsl struct {
+// DockerStackCustomSSL A custom SSL certificate associated to a Docker PaaS environment
+type DockerStackCustomSSL struct {
 
-	// The custom SSL public certificate
+	// Certificate The custom SSL public certificate
 	Certificate string `json:"certificate,omitempty"`
 
-	// Date of the resource creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the resource creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Date of the resource last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the resource last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

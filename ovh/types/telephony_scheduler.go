@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Scheduler capable services
+// TelephonyScheduler Scheduler capable services
 type TelephonyScheduler struct {
-
 	ServiceName string `json:"serviceName,omitempty"`
 
 	TimeZone string `json:"timeZone,omitempty"`

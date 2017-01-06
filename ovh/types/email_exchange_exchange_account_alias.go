@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Aliases on this mailbox
-type EmailExchangeExchangeAccountAlias struct {
+// EmailExchangeAccountAlias Aliases on this mailbox
+type EmailExchangeAccountAlias struct {
 
-	// Alias
+	// Alias Alias
 	Alias string `json:"alias,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

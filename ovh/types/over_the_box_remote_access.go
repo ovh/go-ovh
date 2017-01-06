@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,31 +14,31 @@ import (
 	"time"
 )
 
-// If authorized, a remote access will expose a port, allowing an access to the device remotely
+// OverTheBoxRemoteAccess If authorized, a remote access will expose a port, allowing an access to the device remotely
 type OverTheBoxRemoteAccess struct {
 
-	// If the remote access was accepted by the remote user
+	// Accepted If the remote access was accepted by the remote user
 	Accepted bool `json:"accepted,omitempty"`
 
-	// The date of the remote access demand
-	AskDate time.Time `json:"askDate,omitempty"`
+	// AskDate The date of the remote access demand
+	AskDate *time.Time `json:"askDate,omitempty"`
 
-	// The user that authorized the remote access
+	// AuthorizedBy The user that authorized the remote access
 	AuthorizedBy string `json:"authorizedBy,omitempty"`
 
-	ConnectionInfos OverTheBoxRemoteAccessConnectionInfos `json:"connectionInfos,omitempty"`
+	ConnectionInfos *OverTheBoxRemoteAccessConnectionInfos `json:"connectionInfos,omitempty"`
 
-	// When the remote access will be automatically deleted
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
+	// ExpirationDate When the remote access will be automatically deleted
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
-	// The device's port which will be exposed
+	// ExposedPort The device's port which will be exposed
 	ExposedPort int64 `json:"exposedPort,omitempty"`
 
-	// The id of the remote access
-	RemoteAccessId string `json:"remoteAccessId,omitempty"`
+	// RemoteAccessID The id of the remote access
+	RemoteAccessID string `json:"remoteAccessId,omitempty"`
 
-	RemoteUserInfos OverTheBoxRemoteAccessUserInfos `json:"remoteUserInfos,omitempty"`
+	RemoteUserInfos *OverTheBoxRemoteAccessUserInfos `json:"remoteUserInfos,omitempty"`
 
-	// Status of the remote access
+	// Status Status of the remote access
 	Status string `json:"status,omitempty"`
 }

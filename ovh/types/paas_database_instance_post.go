@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// PaasDatabaseInstancePost ...
 type PaasDatabaseInstancePost struct {
-
-	Parameters []PaasDatabaseInstanceParameters `json:"parameters,omitempty"`
+	Parameters []*PaasDatabaseInstanceParameters `json:"parameters,omitempty"`
 }

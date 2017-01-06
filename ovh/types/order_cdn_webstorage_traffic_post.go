@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type OrderCdnWebstorageTrafficPost struct {
-
+// OrderCDNWebstorageTrafficPost ...
+type OrderCDNWebstorageTrafficPost struct {
 	Bandwidth int64 `json:"bandwidth,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// The object the processing of the order leaded to
+// BillingOrderAssociatedObject The object the processing of the order leaded to
 type BillingOrderAssociatedObject struct {
+	ID string `json:"id,omitempty"`
 
-	Id string `json:"id,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

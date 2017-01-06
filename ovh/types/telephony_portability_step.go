@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,22 +14,22 @@ import (
 	"time"
 )
 
-// A step in the portability process
+// TelephonyPortabilityStep A step in the portability process
 type TelephonyPortabilityStep struct {
 
-	// A brief description of the step
+	// Description A brief description of the step
 	Description string `json:"description,omitempty"`
 
-	// The date when this step was done
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate The date when this step was done
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	Duration TelephonyPortabilityStepDuration `json:"duration,omitempty"`
+	Duration *TelephonyPortabilityStepDuration `json:"duration,omitempty"`
 
-	Infos TelephonyPortabilityStepInfos `json:"infos,omitempty"`
+	Infos *TelephonyPortabilityStepInfos `json:"infos,omitempty"`
 
-	// The name of the portability step
+	// Name The name of the portability step
 	Name string `json:"name,omitempty"`
 
-	// Indicates if the step is to do, currently doing or done
+	// Status Indicates if the step is to do, currently doing or done
 	Status string `json:"status,omitempty"`
 }

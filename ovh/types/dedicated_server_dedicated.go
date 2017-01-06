@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,48 +10,47 @@
 
 package types
 
-// Server informations
+// DedicatedServerDedicated Server informations
 type DedicatedServerDedicated struct {
+	BootID int64 `json:"bootId,omitempty"`
 
-	BootId int64 `json:"bootId,omitempty"`
-
-	// dedicater server commercial range
+	// CommercialRange dedicater server commercial range
 	CommercialRange string `json:"commercialRange,omitempty"`
 
-	// dedicated datacenter localisation
+	// Datacenter dedicated datacenter localisation
 	Datacenter string `json:"datacenter,omitempty"`
 
-	// dedicated server ip
-	Ip string `json:"ip,omitempty"`
+	// IP dedicated server ip
+	IP string `json:"ip,omitempty"`
 
 	LinkSpeed int64 `json:"linkSpeed,omitempty"`
 
-	// Icmp monitoring state
+	// Monitoring Icmp monitoring state
 	Monitoring bool `json:"monitoring,omitempty"`
 
-	// dedicated server name
+	// Name dedicated server name
 	Name string `json:"name,omitempty"`
 
-	// Operating system
+	// Os Operating system
 	Os string `json:"os,omitempty"`
 
-	// Does this server have professional use option
+	// ProfessionalUse Does this server have professional use option
 	ProfessionalUse bool `json:"professionalUse,omitempty"`
 
 	Rack string `json:"rack,omitempty"`
 
 	RescueMail string `json:"rescueMail,omitempty"`
 
-	// dedicated server reverse
+	// Reverse dedicated server reverse
 	Reverse string `json:"reverse,omitempty"`
 
 	RootDevice string `json:"rootDevice,omitempty"`
 
-	// your server id
-	ServerId int64 `json:"serverId,omitempty"`
+	// ServerID your server id
+	ServerID int64 `json:"serverId,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	// Dedicated server support level
+	// SupportLevel Dedicated server support level
 	SupportLevel string `json:"supportLevel,omitempty"`
 }

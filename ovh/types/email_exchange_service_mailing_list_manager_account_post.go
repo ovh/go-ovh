@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// EmailExchangeServiceMailingListManagerAccountPost ...
 type EmailExchangeServiceMailingListManagerAccountPost struct {
-
-	ManagerAccountId int64 `json:"managerAccountId,omitempty"`
+	ManagerAccountID int64 `json:"managerAccountId,omitempty"`
 }

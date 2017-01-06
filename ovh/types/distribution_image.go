@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Information about installed package for a given image
+// DistributionImage Information about installed package for a given image
 type DistributionImage struct {
 
-	// The image name
+	// Name The image name
 	Name string `json:"name,omitempty"`
 
-	// Packages informations
-	Packages []DistributionImagePackage `json:"packages,omitempty"`
+	// Packages Packages informations
+	Packages []*DistributionImagePackage `json:"packages,omitempty"`
 
-	Properties DistributionImageProperties `json:"properties,omitempty"`
+	Properties *DistributionImageProperties `json:"properties,omitempty"`
 
-	// The service type name
+	// Service The service type name
 	Service string `json:"service,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// RouterVpnSetPskPost ...
 type RouterVpnSetPskPost struct {
-
 	Psk string `json:"psk,omitempty"`
 }

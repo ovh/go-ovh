@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,35 +14,35 @@ import (
 	"time"
 )
 
-// Instance
-type CloudInstanceInstance struct {
+// CloudInstance Instance
+type CloudInstance struct {
 
-	// Instance creation date
-	Created time.Time `json:"created,omitempty"`
+	// Created Instance creation date
+	Created *time.Time `json:"created,omitempty"`
 
-	// Instance flavor id
-	FlavorId string `json:"flavorId,omitempty"`
+	// FlavorID Instance flavor id
+	FlavorID string `json:"flavorId,omitempty"`
 
-	// Instance id
-	Id string `json:"id,omitempty"`
+	// ID Instance id
+	ID string `json:"id,omitempty"`
 
-	// Instance image id
-	ImageId string `json:"imageId,omitempty"`
+	// ImageID Instance image id
+	ImageID string `json:"imageId,omitempty"`
 
-	// Instance IP addresses
-	IpAddresses []CloudInstanceIpAddress `json:"ipAddresses,omitempty"`
+	// IPAddresses Instance IP addresses
+	IPAddresses []*CloudInstanceIPAddress `json:"ipAddresses,omitempty"`
 
-	MonthlyBilling CloudInstanceMonthlyBilling `json:"monthlyBilling,omitempty"`
+	MonthlyBilling *CloudInstanceMonthlyBilling `json:"monthlyBilling,omitempty"`
 
-	// Instance name
+	// Name Instance name
 	Name string `json:"name,omitempty"`
 
-	// Instance id
+	// Region Instance id
 	Region string `json:"region,omitempty"`
 
-	// Instance ssh key id
-	SshKeyId string `json:"sshKeyId,omitempty"`
+	// SSHKeyID Instance ssh key id
+	SSHKeyID string `json:"sshKeyId,omitempty"`
 
-	// Instance status
+	// Status Instance status
 	Status string `json:"status,omitempty"`
 }

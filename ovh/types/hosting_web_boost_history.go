@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// History of your boost requests
+// HostingWebBoostHistory History of your boost requests
 type HostingWebBoostHistory struct {
 
-	// Account who requested the change
-	AccountId string `json:"accountId,omitempty"`
+	// AccountID Account who requested the change
+	AccountID string `json:"accountId,omitempty"`
 
-	// Boost offer used
+	// BoostOffer Boost offer used
 	BoostOffer string `json:"boostOffer,omitempty"`
 
-	// The date when the change has been requested
-	Date time.Time `json:"date,omitempty"`
+	// Date The date when the change has been requested
+	Date *time.Time `json:"date,omitempty"`
 
-	// Offer when the change was made
+	// Offer Offer when the change was made
 	Offer string `json:"offer,omitempty"`
 }

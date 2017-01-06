@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Sharepoint service
+// MsServicesSharepointService Sharepoint service
 type MsServicesSharepointService struct {
 
-	// Shared space usage in byte
+	// CurrentUsage Shared space usage in byte
 	CurrentUsage int64 `json:"currentUsage,omitempty"`
 
-	// Internal service name
+	// Domain Internal service name
 	Domain string `json:"domain,omitempty"`
 
-	// Shared space maximum size in byte
+	// Quota Shared space maximum size in byte
 	Quota int64 `json:"quota,omitempty"`
 
-	// Sharepoint service state
+	// State Sharepoint service state
 	State string `json:"state,omitempty"`
 
-	// Task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 
-	// Sharepoint url
-	Url string `json:"url,omitempty"`
+	// URL Sharepoint url
+	URL string `json:"url,omitempty"`
 }

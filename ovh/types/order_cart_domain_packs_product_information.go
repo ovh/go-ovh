@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// Information about a Domain Packs offer information
+// OrderCartDomainPacksProductInformation Information about a Domain Packs offer information
 type OrderCartDomainPacksProductInformation struct {
+	Description *OrderCartDomainPacksDescription `json:"description,omitempty"`
 
-	Description OrderCartDomainPacksDescription `json:"description,omitempty"`
-
-	// Identifier of the offer
+	// PlanCode Identifier of the offer
 	PlanCode string `json:"planCode,omitempty"`
 
-	// Prices of the offer
-	Prices []OrderCartGenericProductPricing `json:"prices,omitempty"`
+	// Prices Prices of the offer
+	Prices []*OrderCartGenericProductPricing `json:"prices,omitempty"`
 }

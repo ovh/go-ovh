@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// RegionStock
+// CloudReservedRegionStock RegionStock
 type CloudReservedRegionStock struct {
 
-	// Stock list by flavor
-	Flavors []CloudReservedStock `json:"flavors,omitempty"`
+	// Flavors Stock list by flavor
+	Flavors []*CloudReservedStock `json:"flavors,omitempty"`
 
-	// Region name
+	// Name Region name
 	Name string `json:"name,omitempty"`
 }

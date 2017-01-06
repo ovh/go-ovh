@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// License usage statistics line.
+// LicenseOfficeStatisticsLine License usage statistics line.
 type LicenseOfficeStatisticsLine struct {
 
-	// Count of activated licenses at the end of the day.
+	// EndOfDayCount Count of activated licenses at the end of the day.
 	EndOfDayCount int64 `json:"endOfDayCount,omitempty"`
 
-	// Type of the Office license.
+	// LicenceType Type of the Office license.
 	LicenceType string `json:"licenceType,omitempty"`
 
-	// Maximum count of simultaneous activated licences.
+	// PeakCount Maximum count of simultaneous activated licences.
 	PeakCount int64 `json:"peakCount,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Project bill
+// CloudProjectBill Project bill
 type CloudProjectBill struct {
 
-	// Bill id
-	BillId string `json:"billId,omitempty"`
+	// BillID Bill id
+	BillID string `json:"billId,omitempty"`
 
-	// Bill type
-	Type_ string `json:"type,omitempty"`
+	// TType Bill type
+	TType string `json:"type,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,18 @@
 
 package types
 
-// Instance usage
+// CloudProjectInstanceUsageDetail Instance usage
 type CloudProjectInstanceUsageDetail struct {
+	Hourly *OrderPrice `json:"hourly,omitempty"`
 
-	Hourly OrderPrice `json:"hourly,omitempty"`
+	// InstanceID Instance id
+	InstanceID string `json:"instanceId,omitempty"`
 
-	// Instance id
-	InstanceId string `json:"instanceId,omitempty"`
+	Monthly *CloudProjectInstanceMonthlyBilling `json:"monthly,omitempty"`
 
-	Monthly CloudProjectInstanceMonthlyBilling `json:"monthly,omitempty"`
-
-	// Is monthly billing enabled
+	// MonthlyBilling Is monthly billing enabled
 	MonthlyBilling bool `json:"monthlyBilling,omitempty"`
 
-	// Reference
+	// Reference Reference
 	Reference string `json:"reference,omitempty"`
 }

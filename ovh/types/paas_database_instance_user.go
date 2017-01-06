@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Users
+// PaasDatabaseInstanceUser Users
 type PaasDatabaseInstanceUser struct {
 
-	// Creation date of the user
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the user
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Databases granted for this user
-	Databases []PaasDatabaseInstanceUserDatabase `json:"databases,omitempty"`
+	// Databases Databases granted for this user
+	Databases []*PaasDatabaseInstanceUserDatabase `json:"databases,omitempty"`
 
-	// The last update date of the user
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate The last update date of the user
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// User status
+	// Status User status
 	Status string `json:"status,omitempty"`
 
-	// The id of the task working on this object
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID The id of the task working on this object
+	TaskID string `json:"taskId,omitempty"`
 
-	// User name used to connect to your databases
+	// UserName User name used to connect to your databases
 	UserName string `json:"userName,omitempty"`
 }

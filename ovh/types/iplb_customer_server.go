@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Server
-type IplbCustomerServer struct {
+// IPLBCustomerServer Server
+type IPLBCustomerServer struct {
 
-	// Address of your server
+	// Address Address of your server
 	Address string `json:"address,omitempty"`
 
-	// Id of your server
-	Id int64 `json:"id,omitempty"`
+	// ID Id of your server
+	ID int64 `json:"id,omitempty"`
 
-	// Status attached to your server
+	// Status Status attached to your server
 	Status string `json:"status,omitempty"`
 
-	// Type of your server
-	Type_ string `json:"type,omitempty"`
+	// TType Type of your server
+	TType string `json:"type,omitempty"`
 
-	// Zone of your server
+	// Zone Zone of your server
 	Zone string `json:"zone,omitempty"`
 }

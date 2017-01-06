@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailExchangeServiceMailingListPost ...
 type EmailExchangeServiceMailingListPost struct {
-
 	DepartRestriction string `json:"departRestriction,omitempty"`
 
 	DisplayName string `json:"displayName,omitempty"`

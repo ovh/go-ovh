@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Intervention made on this server
+// DedicatedServerIntervention Intervention made on this server
 type DedicatedServerIntervention struct {
 
-	// the intervention start date
-	Date time.Time `json:"date,omitempty"`
+	// Date the intervention start date
+	Date *time.Time `json:"date,omitempty"`
 
-	// The intervention id
-	InterventionId int64 `json:"interventionId,omitempty"`
+	// InterventionID The intervention id
+	InterventionID int64 `json:"interventionId,omitempty"`
 
-	// the intervention type
-	Type_ string `json:"type,omitempty"`
+	// TType the intervention type
+	TType string `json:"type,omitempty"`
 }

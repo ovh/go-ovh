@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Custom Snapshot
+// DedicatedNashaCustomSnap Custom Snapshot
 type DedicatedNashaCustomSnap struct {
 
-	// date and time at which snapshot will be automatically destroyed
+	// Expiration date and time at which snapshot will be automatically destroyed
 	Expiration string `json:"expiration,omitempty"`
 
-	// name of the snapshot
+	// Name name of the snapshot
 	Name string `json:"name,omitempty"`
 }

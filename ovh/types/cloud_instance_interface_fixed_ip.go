@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// FixedIp
-type CloudInstanceInterfaceFixedIp struct {
+// CloudInstanceInterfaceFixedIP FixedIp
+type CloudInstanceInterfaceFixedIP struct {
 
-	// Ip
-	Ip string `json:"ip,omitempty"`
+	// IP Ip
+	IP string `json:"ip,omitempty"`
 
-	// Subnetwork Id
-	SubnetId string `json:"subnetId,omitempty"`
+	// SubnetID Subnetwork Id
+	SubnetID string `json:"subnetId,omitempty"`
 }

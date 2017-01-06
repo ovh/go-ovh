@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// Export PST file url
-type EmailExchangeExportUrl struct {
+// EmailExchangeExportURL Export PST file url
+type EmailExchangeExportURL struct {
 
-	// Url expiration date
-	Expiration time.Time `json:"expiration,omitempty"`
+	// Expiration Url expiration date
+	Expiration *time.Time `json:"expiration,omitempty"`
 
-	// Export url
-	Url string `json:"url,omitempty"`
+	// URL Export url
+	URL string `json:"url,omitempty"`
 }

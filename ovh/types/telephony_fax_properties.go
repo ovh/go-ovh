@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Fax properties
+// TelephonyFaxProperties Fax properties
 type TelephonyFaxProperties struct {
-
 	CallNumber string `json:"callNumber,omitempty"`
 
 	CountryCode string `json:"countryCode,omitempty"`

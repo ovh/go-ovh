@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Flowgger configuration
+// DBaaSLogsFlowggerConfiguration Flowgger configuration
 type DBaaSLogsFlowggerConfiguration struct {
 
-	// Number of message to always waits for a full batch to be         buffered before sending it to Kafka
+	// KafkaCoalesce Number of message to always waits for a full batch to be         buffered before sending it to Kafka
 	KafkaCoalesce int64 `json:"kafkaCoalesce,omitempty"`
 
-	// Type of format to decode
+	// LogFormat Type of format to decode
 	LogFormat string `json:"logFormat,omitempty"`
 
-	// Indicates how messages are splitted
+	// LogFraming Indicates how messages are splitted
 	LogFraming string `json:"logFraming,omitempty"`
 
-	// TLS version
-	TlsMethod string `json:"tlsMethod,omitempty"`
+	// TLSMethod TLS version
+	TLSMethod string `json:"tlsMethod,omitempty"`
 
-	// Input type
-	Type_ string `json:"type,omitempty"`
+	// TType Input type
+	TType string `json:"type,omitempty"`
 }

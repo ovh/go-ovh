@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,14 @@
 
 package types
 
-// Network allowed to connect to the Dedicated Cloud management interface
+// DedicatedCloudAllowedNetwork Network allowed to connect to the Dedicated Cloud management interface
 type DedicatedCloudAllowedNetwork struct {
-
 	Description string `json:"description,omitempty"`
 
-	// Network name, e.g. 123.100.200.0/32
+	// Network Network name, e.g. 123.100.200.0/32
 	Network string `json:"network,omitempty"`
 
-	NetworkAccessId int64 `json:"networkAccessId,omitempty"`
+	NetworkAccessID int64 `json:"networkAccessId,omitempty"`
 
 	State string `json:"state,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,17 +14,16 @@ import (
 	"time"
 )
 
-// Secondary dns infos
-type SecondaryDnsSecondaryDns struct {
+// SecondaryDNS Secondary dns infos
+type SecondaryDNS struct {
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// DNS secondary dns server
+	DNS string `json:"dns,omitempty"`
 
-	// secondary dns server
-	Dns string `json:"dns,omitempty"`
-
-	// domain on slave server
+	// Domain domain on slave server
 	Domain string `json:"domain,omitempty"`
 
-	// master ip
-	IpMaster string `json:"ipMaster,omitempty"`
+	// IPMaster master ip
+	IPMaster string `json:"ipMaster,omitempty"`
 }

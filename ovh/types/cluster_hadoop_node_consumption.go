@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Detailed information on a node consumption of a Hadoop Cluster
+// ClusterHadoopNodeConsumption Detailed information on a node consumption of a Hadoop Cluster
 type ClusterHadoopNodeConsumption struct {
 
-	// Hostname of the consumed resource
+	// Hostname Hostname of the consumed resource
 	Hostname string `json:"hostname,omitempty"`
 
-	// Name of the node profile for the consumptions
+	// NodeProfile Name of the node profile for the consumptions
 	NodeProfile string `json:"nodeProfile,omitempty"`
 
-	Quantity ClusterHadoopClusterConsumptionQuantity `json:"quantity,omitempty"`
+	Quantity *ClusterHadoopClusterConsumptionQuantity `json:"quantity,omitempty"`
 }

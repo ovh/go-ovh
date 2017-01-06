@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing informations about Rtm os
+// DedicatedServerRtmOs A structure describing informations about Rtm os
 type DedicatedServerRtmOs struct {
 
-	// OS kernel release
+	// KernelRelease OS kernel release
 	KernelRelease string `json:"kernelRelease,omitempty"`
 
-	// OS kernel version
+	// KernelVersion OS kernel version
 	KernelVersion string `json:"kernelVersion,omitempty"`
 
-	// OS release
+	// Release OS release
 	Release string `json:"release,omitempty"`
 }

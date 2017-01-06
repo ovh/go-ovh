@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type IplbBackendServerPost struct {
-
+// IPLBBackendServerPost ...
+type IPLBBackendServerPost struct {
 	Backup bool `json:"backup,omitempty"`
 
 	Chain string `json:"chain,omitempty"`
@@ -24,9 +24,9 @@ type IplbBackendServerPost struct {
 
 	ProxyProtocolVersion string `json:"proxyProtocolVersion,omitempty"`
 
-	ServerId int64 `json:"serverId,omitempty"`
+	ServerID int64 `json:"serverId,omitempty"`
 
-	Ssl bool `json:"ssl,omitempty"`
+	SSL bool `json:"ssl,omitempty"`
 
 	Weight int64 `json:"weight,omitempty"`
 }

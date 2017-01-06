@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,16 @@
 
 package types
 
-// Informations about an IP address
-type XdslIp struct {
+// XdslIP Informations about an IP address
+type XdslIP struct {
+	DNSList []string `json:"dnsList,omitempty"`
 
-	DnsList []string `json:"dnsList,omitempty"`
+	// IP The IP address
+	IP string `json:"ip,omitempty"`
 
-	// The IP address
-	Ip string `json:"ip,omitempty"`
+	TRange int64 `json:"range,omitempty"`
 
-	Range_ int64 `json:"range,omitempty"`
-
-	// status of the IP
+	// Status status of the IP
 	Status string `json:"status,omitempty"`
 
 	Version string `json:"version,omitempty"`

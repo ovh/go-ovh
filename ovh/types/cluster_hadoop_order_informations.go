@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Detailed information on the order of one Hadoop Cluster
+// ClusterHadoopOrderInformations Detailed information on the order of one Hadoop Cluster
 type ClusterHadoopOrderInformations struct {
 
-	// Maximal number of Node allowed in one order
+	// MaximumOrderableNodes Maximal number of Node allowed in one order
 	MaximumOrderableNodes int64 `json:"maximumOrderableNodes,omitempty"`
 
-	// Minimum number of Node allowed in one order
+	// MinimumOrderableNodes Minimum number of Node allowed in one order
 	MinimumOrderableNodes int64 `json:"minimumOrderableNodes,omitempty"`
 }

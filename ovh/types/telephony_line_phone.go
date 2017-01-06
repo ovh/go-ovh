@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Informations related to phone capabilities
+// TelephonyLinePhone Informations related to phone capabilities
 type TelephonyLinePhone struct {
 
-	// Brand name of the phone
+	// Brand Brand name of the phone
 	Brand string `json:"brand,omitempty"`
 
-	// The phone description
+	// Description The phone description
 	Description string `json:"description,omitempty"`
 
-	// Maximum number of lines managed by a phone
+	// Maxline Maximum number of lines managed by a phone
 	Maxline int64 `json:"maxline,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// Phone protocol
+	// Protocol Phone protocol
 	Protocol string `json:"protocol,omitempty"`
 }

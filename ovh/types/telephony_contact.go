@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,32 +10,32 @@
 
 package types
 
-// Contact informations structure
+// TelephonyContact Contact informations structure
 type TelephonyContact struct {
 
-	// Contact address
+	// Address Contact address
 	Address string `json:"address,omitempty"`
 
-	// Contact city
+	// City Contact city
 	City string `json:"city,omitempty"`
 
-	// Contact country
+	// Country Contact country
 	Country string `json:"country,omitempty"`
 
 	Email string `json:"email,omitempty"`
 
-	// Contact firstname
+	// Firstname Contact firstname
 	Firstname string `json:"firstname,omitempty"`
 
-	// Contact name
+	// Name Contact name
 	Name string `json:"name,omitempty"`
 
-	// Contact organisation
+	// Organisation Contact organisation
 	Organisation string `json:"organisation,omitempty"`
 
-	// Contact phone
+	// Phone Contact phone
 	Phone string `json:"phone,omitempty"`
 
-	// Contact zip
+	// Zip Contact zip
 	Zip string `json:"zip,omitempty"`
 }

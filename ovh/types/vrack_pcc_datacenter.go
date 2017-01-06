@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// vrack datacenter interface
+// VrackPccDatacenter vrack datacenter interface
 type VrackPccDatacenter struct {
 
-	// Your dedicatedCloud datacenter name
+	// Datacenter Your dedicatedCloud datacenter name
 	Datacenter string `json:"datacenter,omitempty"`
 
-	// Your dedicatedCloud name
+	// DedicatedCloud Your dedicatedCloud name
 	DedicatedCloud string `json:"dedicatedCloud,omitempty"`
 
-	// vrack name
+	// Vrack vrack name
 	Vrack string `json:"vrack,omitempty"`
 }

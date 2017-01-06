@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Phone book on group
+// TelephonyPhonebookMaster Phone book on group
 type TelephonyPhonebookMaster struct {
 
-	// Identifier of the phonebook
+	// BookKey Identifier of the phonebook
 	BookKey string `json:"bookKey,omitempty"`
 
-	// Phone book name
+	// Name Phone book name
 	Name string `json:"name,omitempty"`
 }

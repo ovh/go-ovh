@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// French value added services subject to the RSVA reform (Référentiel des numéros SVA)
+// TelephonyRsva French value added services subject to the RSVA reform (Référentiel des numéros SVA)
 type TelephonyRsva struct {
-
 	ServiceName string `json:"serviceName,omitempty"`
 }

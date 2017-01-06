@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Disk capacity available for your hosting ( null for unlimited )
+// HostingWebCapabilitiesDisk Disk capacity available for your hosting ( null for unlimited )
 type HostingWebCapabilitiesDisk struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

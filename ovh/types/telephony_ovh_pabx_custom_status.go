@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Custom statuses of your callcenter agents
+// TelephonyOvhPabxCustomStatus Custom statuses of your callcenter agents
 type TelephonyOvhPabxCustomStatus struct {
 
-	// The color (in hexadecimal) of the status that will be displayed on agent banner web application
+	// Color The color (in hexadecimal) of the status that will be displayed on agent banner web application
 	Color string `json:"color,omitempty"`
 
-	// A short description of the status
+	// Description A short description of the status
 	Description string `json:"description,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// The name of the status (Pause, Mission, etc...)
+	// Name The name of the status (Pause, Mission, etc...)
 	Name string `json:"name,omitempty"`
 }

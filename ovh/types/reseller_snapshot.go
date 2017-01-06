@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Reseller snapshot
+// ResellerSnapshot Reseller snapshot
 type ResellerSnapshot struct {
 
-	// Snapshot creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Snapshot creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Snapshot id
-	Id string `json:"id,omitempty"`
+	// ID Snapshot id
+	ID string `json:"id,omitempty"`
 
-	// Snapshot name
+	// SnashotName Snapshot name
 	SnashotName string `json:"snashotName,omitempty"`
 
-	// Snapshot type
-	Type_ string `json:"type,omitempty"`
+	// TType Snapshot type
+	TType string `json:"type,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,18 @@
 
 package types
 
-// Firewall attached to this server
+// DedicatedServerFirewall Firewall attached to this server
 type DedicatedServerFirewall struct {
-
 	Enabled bool `json:"enabled,omitempty"`
 
 	Firewall string `json:"firewall,omitempty"`
 
-	// Firewall management IP
-	Ip string `json:"ip,omitempty"`
+	// IP Firewall management IP
+	IP string `json:"ip,omitempty"`
 
-	// transparent mode : device is invisible on the network; routed mode : the security appliance is considered to be a router hop in the network
+	// Mode transparent mode : device is invisible on the network; routed mode : the security appliance is considered to be a router hop in the network
 	Mode string `json:"mode,omitempty"`
 
-	// Firewall model
+	// Model Firewall model
 	Model string `json:"model,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// The PABX sounds
+// TelephonyOvhPabxSound The PABX sounds
 type TelephonyOvhPabxSound struct {
 
-	// The sound filename
+	// Name The sound filename
 	Name string `json:"name,omitempty"`
 
-	SoundId int64 `json:"soundId,omitempty"`
+	SoundID int64 `json:"soundId,omitempty"`
 }

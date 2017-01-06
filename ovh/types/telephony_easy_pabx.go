@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// EasyPabx
+// TelephonyEasyPabx EasyPabx
 type TelephonyEasyPabx struct {
-
 	Description string `json:"description,omitempty"`
 
 	FeatureType string `json:"featureType,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Parameters used for the instance creation
+// PaasDatabaseInstanceParameters Parameters used for the instance creation
 type PaasDatabaseInstanceParameters struct {
 
-	// Image used in the new instance
+	// ImageName Image used in the new instance
 	ImageName string `json:"imageName,omitempty"`
 
-	// Custom name
+	// Name Custom name
 	Name string `json:"name,omitempty"`
 
-	// Offer associated with this new instance
+	// OfferName Offer associated with this new instance
 	OfferName string `json:"offerName,omitempty"`
 
-	// Region where you want to run the new instance
+	// RegionName Region where you want to run the new instance
 	RegionName string `json:"regionName,omitempty"`
 }

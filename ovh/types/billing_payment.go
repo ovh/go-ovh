@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,11 @@ import (
 	"time"
 )
 
-// Details about a payment
+// BillingPayment Details about a payment
 type BillingPayment struct {
+	PaymentDate *time.Time `json:"paymentDate,omitempty"`
 
-	PaymentDate time.Time `json:"paymentDate,omitempty"`
-
-	PaymentIdentifier string `json:"paymentIdentifier,omitempty"`
+	PaymentIDentifier string `json:"paymentIdentifier,omitempty"`
 
 	PaymentType string `json:"paymentType,omitempty"`
 }

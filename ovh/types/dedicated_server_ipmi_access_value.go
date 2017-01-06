@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// A structure describing ipmi access value
-type DedicatedServerIpmiAccessValue struct {
+// DedicatedServerIPmiAccessValue A structure describing ipmi access value
+type DedicatedServerIPmiAccessValue struct {
 
-	// Session expiration date
-	Expiration time.Time `json:"expiration,omitempty"`
+	// Expiration Session expiration date
+	Expiration *time.Time `json:"expiration,omitempty"`
 
-	// value
+	// Value value
 	Value string `json:"value,omitempty"`
 }

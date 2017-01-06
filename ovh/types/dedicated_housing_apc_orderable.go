@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing informations for APC orderable for this housing bay
+// DedicatedHousingApcOrderable A structure describing informations for APC orderable for this housing bay
 type DedicatedHousingApcOrderable struct {
 
-	// Is this APC free
+	// Free Is this APC free
 	Free bool `json:"free,omitempty"`
 
-	// Is an APC is orderable for this housing bay
+	// Orderable Is an APC is orderable for this housing bay
 	Orderable bool `json:"orderable,omitempty"`
 }

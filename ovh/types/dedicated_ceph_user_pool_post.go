@@ -10,6 +10,7 @@
 
 package types
 
+// DedicatedCephUserPoolPost ...
 type DedicatedCephUserPoolPost struct {
 	Permissions []string `json:"permissions,omitempty"`
 }

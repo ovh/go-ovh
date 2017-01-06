@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Structure of usage account
-type DomainDomainUsageAccountStruct struct {
+// DomainUsageAccountStruct Structure of usage account
+type DomainUsageAccountStruct struct {
 
-	// Timestamp
-	Date time.Time `json:"date,omitempty"`
+	// Date Timestamp
+	Date *time.Time `json:"date,omitempty"`
 
-	// Number of message in mailbox
+	// EmailCount Number of message in mailbox
 	EmailCount int64 `json:"emailCount,omitempty"`
 
-	// Size of mailbox (bytes)
+	// Quota Size of mailbox (bytes)
 	Quota int64 `json:"quota,omitempty"`
 }

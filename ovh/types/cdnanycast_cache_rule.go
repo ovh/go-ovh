@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// CacheRules for a domain
-type CdnanycastCacheRule struct {
+// CDNanycastCacheRule CacheRules for a domain
+type CDNanycastCacheRule struct {
 
-	// Id for this cache rule
-	CacheRuleId int64 `json:"cacheRuleId,omitempty"`
+	// CacheRuleID Id for this cache rule
+	CacheRuleID int64 `json:"cacheRuleId,omitempty"`
 
 	CacheType string `json:"cacheType,omitempty"`
 
@@ -26,5 +26,5 @@ type CdnanycastCacheRule struct {
 
 	Status string `json:"status,omitempty"`
 
-	Ttl int64 `json:"ttl,omitempty"`
+	TTL int64 `json:"ttl,omitempty"`
 }

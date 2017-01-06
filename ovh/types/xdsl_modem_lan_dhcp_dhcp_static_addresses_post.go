@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// XdslModemLanDhcpDhcpStaticAddressesPost ...
 type XdslModemLanDhcpDhcpStaticAddressesPost struct {
-
 	IPAddress string `json:"IPAddress,omitempty"`
 
 	MACAddress string `json:"MACAddress,omitempty"`

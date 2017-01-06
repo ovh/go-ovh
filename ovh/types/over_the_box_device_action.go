@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Device action
+// OverTheBoxDeviceAction Device action
 type OverTheBoxDeviceAction struct {
 
-	// The id of the action
-	ActionId string `json:"actionId,omitempty"`
+	// ActionID The id of the action
+	ActionID string `json:"actionId,omitempty"`
 
-	// The name of the action
+	// Name The name of the action
 	Name string `json:"name,omitempty"`
 
-	// The status of the action
+	// Status The status of the action
 	Status string `json:"status,omitempty"`
 }

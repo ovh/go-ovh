@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// SiteBuilder template infos
+// PackXdslSiteBuilderTemplate SiteBuilder template infos
 type PackXdslSiteBuilderTemplate struct {
+	BkID int64 `json:"bkId,omitempty"`
 
-	BkId int64 `json:"bkId,omitempty"`
-
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Name string `json:"name,omitempty"`
 

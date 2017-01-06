@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// A ip value associated to a datetime
-type TelephonyDatetimeAndIpvalue struct {
+// TelephonyDatetimeAndIPvalue A ip value associated to a datetime
+type TelephonyDatetimeAndIPvalue struct {
+	Datetime *time.Time `json:"datetime,omitempty"`
 
-	Datetime time.Time `json:"datetime,omitempty"`
-
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 }

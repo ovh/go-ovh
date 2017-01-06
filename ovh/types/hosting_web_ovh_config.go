@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,36 +14,36 @@ import (
 	"time"
 )
 
-// Virtual service
+// HostingWebOvhConfig Virtual service
 type HostingWebOvhConfig struct {
 
-	// Container to run this website
+	// Container Container to run this website
 	Container string `json:"container,omitempty"`
 
-	// When ovhconfig was created, or found for the first time, on the hosting servers
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate When ovhconfig was created, or found for the first time, on the hosting servers
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Version of engine you want
+	// EngineName Version of engine you want
 	EngineName string `json:"engineName,omitempty"`
 
-	// Name of engine you want
+	// EngineVersion Name of engine you want
 	EngineVersion string `json:"engineVersion,omitempty"`
 
-	// Environment configuration you want
+	// Environment Environment configuration you want
 	Environment string `json:"environment,omitempty"`
 
-	// If .ovhConfig exists
+	// FileExist If .ovhConfig exists
 	FileExist bool `json:"fileExist,omitempty"`
 
-	// If this configuration is an old configuration
+	// Historical If this configuration is an old configuration
 	Historical bool `json:"historical,omitempty"`
 
-	// Configuration you want for http firewall
-	HttpFirewall string `json:"httpFirewall,omitempty"`
+	// HTTPFirewall Configuration you want for http firewall
+	HTTPFirewall string `json:"httpFirewall,omitempty"`
 
-	// Configuration's id
-	Id int64 `json:"id,omitempty"`
+	// ID Configuration's id
+	ID int64 `json:"id,omitempty"`
 
-	// Config path, relative to your home directory
+	// Path Config path, relative to your home directory
 	Path string `json:"path,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,16 @@
 
 package types
 
-// Rule on ip:ports
-type IpGameMitigationRule struct {
+// IPGameMitigationRule Rule on ip:ports
+type IPGameMitigationRule struct {
 
-	// ID of the rule
-	Id int64 `json:"id,omitempty"`
+	// ID ID of the rule
+	ID int64 `json:"id,omitempty"`
 
-	Ports IpGameMitigationRulePorts `json:"ports,omitempty"`
+	Ports *IPGameMitigationRulePorts `json:"ports,omitempty"`
 
 	Protocol string `json:"protocol,omitempty"`
 
-	// Current state of your rule
+	// State Current state of your rule
 	State string `json:"state,omitempty"`
 }

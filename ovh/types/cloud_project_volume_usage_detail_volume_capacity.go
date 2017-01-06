@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Volume capacity in gigabytes
+// CloudProjectVolumeUsageDetailVolumeCapacity Volume capacity in gigabytes
 type CloudProjectVolumeUsageDetailVolumeCapacity struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

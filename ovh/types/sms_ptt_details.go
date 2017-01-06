@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing ptt details
+// SmsPttDetails A structure describing ptt details
 type SmsPttDetails struct {
 
-	// Ptt informations
+	// Comment Ptt informations
 	Comment string `json:"comment,omitempty"`
 
-	// Ptt short description
+	// Description Ptt short description
 	Description string `json:"description,omitempty"`
 
-	// Ptt volatility type
+	// Duration Ptt volatility type
 	Duration string `json:"duration,omitempty"`
 }

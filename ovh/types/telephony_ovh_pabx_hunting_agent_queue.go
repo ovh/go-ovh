@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,12 @@
 
 package types
 
-// Agent assigned to a queue
+// TelephonyOvhPabxHuntingAgentQueue Agent assigned to a queue
 type TelephonyOvhPabxHuntingAgentQueue struct {
+	AgentID int64 `json:"agentId,omitempty"`
 
-	AgentId int64 `json:"agentId,omitempty"`
-
-	// The position in the queue
+	// Position The position in the queue
 	Position int64 `json:"position,omitempty"`
 
-	QueueId int64 `json:"queueId,omitempty"`
+	QueueID int64 `json:"queueId,omitempty"`
 }

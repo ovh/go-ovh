@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Project
+// CloudProject Project
 type CloudProject struct {
 
-	// Project access
+	// Access Project access
 	Access string `json:"access,omitempty"`
 
-	// Project creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Project creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Description of your project
+	// Description Description of your project
 	Description string `json:"description,omitempty"`
 
-	// Project order id
-	OrderId int64 `json:"orderId,omitempty"`
+	// OrderID Project order id
+	OrderID int64 `json:"orderId,omitempty"`
 
-	// Project id
-	ProjectId string `json:"project_id,omitempty"`
+	// ProjectID Project id
+	ProjectID string `json:"project_id,omitempty"`
 
-	// Current status
+	// Status Current status
 	Status string `json:"status,omitempty"`
 
-	// Project unleashed
+	// Unleash Project unleashed
 	Unleash bool `json:"unleash,omitempty"`
 }

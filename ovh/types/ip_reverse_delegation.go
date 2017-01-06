@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Your reverse delegations on IPv6 subnet
-type IpReverseDelegation struct {
+// IPReverseDelegation Your reverse delegations on IPv6 subnet
+type IPReverseDelegation struct {
 
-	// NS target for delegation
+	// Target NS target for delegation
 	Target string `json:"target,omitempty"`
 }

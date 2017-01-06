@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Define Acl for partition
+// DedicatedNasAccess Define Acl for partition
 type DedicatedNasAccess struct {
 
-	// the id of the access
-	AccessId int64 `json:"accessId,omitempty"`
+	// AccessID the id of the access
+	AccessID int64 `json:"accessId,omitempty"`
 
-	// the ip in root on storage
-	Ip string `json:"ip,omitempty"`
+	// IP the ip in root on storage
+	IP string `json:"ip,omitempty"`
 }

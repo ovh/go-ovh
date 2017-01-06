@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Config test results
+// DBaaSLogsTestResult Config test results
 type DBaaSLogsTestResult struct {
 
-	// Standard error
+	// Stderr Standard error
 	Stderr string `json:"stderr,omitempty"`
 
-	// Standard output
+	// Stdout Standard output
 	Stdout string `json:"stdout,omitempty"`
 
-	// Last config test update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Last config test update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

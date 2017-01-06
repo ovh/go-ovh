@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type MeSshKeyPost struct {
-
+// MeSSHKeyPost ...
+type MeSSHKeyPost struct {
 	Key string `json:"key,omitempty"`
 
 	KeyName string `json:"keyName,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// HostingWebUserLogsPost ...
 type HostingWebUserLogsPost struct {
-
 	Description string `json:"description,omitempty"`
 
 	Login string `json:"login,omitempty"`

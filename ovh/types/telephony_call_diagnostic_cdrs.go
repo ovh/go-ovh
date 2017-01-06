@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,10 @@ import (
 	"time"
 )
 
-// Call diagnostic analyze structure call cdrs
+// TelephonyCallDiagnosticCdrs Call diagnostic analyze structure call cdrs
 type TelephonyCallDiagnosticCdrs struct {
+	Basic *TelephonyCallDiagnosticCdrsBasic `json:"basic,omitempty"`
 
-	Basic TelephonyCallDiagnosticCdrsBasic `json:"basic,omitempty"`
-
-	// The timestamp of the call details record capture
-	Timestamp time.Time `json:"timestamp,omitempty"`
+	// Timestamp The timestamp of the call details record capture
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 }

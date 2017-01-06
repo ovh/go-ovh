@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Zone status
+// ZoneStatus Zone status
 type ZoneStatus struct {
 
-	// Error list
+	// Errors Error list
 	Errors []string `json:"errors,omitempty"`
 
-	// True if the zone has successfully been deployed
+	// IsDeployed True if the zone has successfully been deployed
 	IsDeployed bool `json:"isDeployed,omitempty"`
 
-	// Warning list
+	// Warnings Warning list
 	Warnings []string `json:"warnings,omitempty"`
 }

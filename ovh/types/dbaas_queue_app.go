@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// App
+// DbaasQueueApp App
 type DbaasQueueApp struct {
 
-	// Human ID of the application
-	HumanId string `json:"humanId,omitempty"`
+	// HumanID Human ID of the application
+	HumanID string `json:"humanId,omitempty"`
 
-	// Application ID
-	Id string `json:"id,omitempty"`
+	// ID Application ID
+	ID string `json:"id,omitempty"`
 
-	// Application name
+	// Name Application name
 	Name string `json:"name,omitempty"`
 
-	// Region ID of the application
-	RegionId string `json:"regionId,omitempty"`
+	// RegionID Region ID of the application
+	RegionID string `json:"regionId,omitempty"`
 
-	// Application status
+	// Status Application status
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Return credit balance informations structure
+// FreefaxBalanceInformations Return credit balance informations structure
 type FreefaxBalanceInformations struct {
 
-	// The number of equivalement remaining french faxs
+	// Faxs The number of equivalement remaining french faxs
 	Faxs int64 `json:"faxs,omitempty"`
 
-	// Total balance available in points
+	// Points Total balance available in points
 	Points int64 `json:"points,omitempty"`
 }

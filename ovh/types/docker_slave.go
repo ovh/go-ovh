@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,32 +14,32 @@ import (
 	"time"
 )
 
-// A host on which containers can be deployed
-type DockerSlave struct {
+// DockerSLAve A host on which containers can be deployed
+type DockerSLAve struct {
 
-	// Date of the resource creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the resource creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// The framework UUID
-	FlavorId string `json:"flavorId,omitempty"`
+	// FlavorID The framework UUID
+	FlavorID string `json:"flavorId,omitempty"`
 
-	// The slave UUID
-	Id string `json:"id,omitempty"`
+	// ID The slave UUID
+	ID string `json:"id,omitempty"`
 
-	Metrics DockerSlaveMetrics `json:"metrics,omitempty"`
+	Metrics *DockerSLAveMetrics `json:"metrics,omitempty"`
 
-	// The slave hostname
+	// Name The slave hostname
 	Name string `json:"name,omitempty"`
 
-	// The region where the slave is located
+	// Region The region where the slave is located
 	Region string `json:"region,omitempty"`
 
-	// The stack to which the slave belongs
+	// Stack The stack to which the slave belongs
 	Stack string `json:"stack,omitempty"`
 
-	// The state of the slave
+	// State The state of the slave
 	State string `json:"state,omitempty"`
 
-	// Date of the resource last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the resource last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

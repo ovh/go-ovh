@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type IplbBackendPost struct {
-
+// IPLBBackendPost ...
+type IPLBBackendPost struct {
 	Balance string `json:"balance,omitempty"`
 
 	Port int64 `json:"port,omitempty"`
@@ -20,7 +20,7 @@ type IplbBackendPost struct {
 
 	Stickiness string `json:"stickiness,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
 	Zone string `json:"zone,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Customer currency
+// NichandleCurrency Customer currency
 type NichandleCurrency struct {
 
-	// Currency code
+	// Code Currency code
 	Code string `json:"code,omitempty"`
 
-	// Currency symbol
+	// Symbol Currency symbol
 	Symbol string `json:"symbol,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Phone book
+// TelephonyPhonebook Phone book
 type TelephonyPhonebook struct {
 
-	// Identifier of the phonebook
+	// BookKey Identifier of the phonebook
 	BookKey string `json:"bookKey,omitempty"`
 
-	// Set if phonebook is readonly
+	// IsReadonly Set if phonebook is readonly
 	IsReadonly bool `json:"isReadonly,omitempty"`
 
-	// Phonebook name
+	// Name Phonebook name
 	Name string `json:"name,omitempty"`
 
-	// Phone key identifier between the phone and phonebooks
+	// PhoneKey Phone key identifier between the phone and phonebooks
 	PhoneKey string `json:"phoneKey,omitempty"`
 }

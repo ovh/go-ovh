@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,40 +10,40 @@
 
 package types
 
-// A structure describing informations about this dedicated server
+// DedicatedServerHardwareSpecifications A structure describing informations about this dedicated server
 type DedicatedServerHardwareSpecifications struct {
 
-	// number of cores per processor
+	// CoresPerProcessor number of cores per processor
 	CoresPerProcessor int64 `json:"coresPerProcessor,omitempty"`
 
-	DefaultHardwareRaidSize DedicatedServerHardwareSpecificationsDefaultHardwareRaidSize `json:"defaultHardwareRaidSize,omitempty"`
+	DefaultHardwareRaidSize *DedicatedServerHardwareSpecificationsDefaultHardwareRaidSize `json:"defaultHardwareRaidSize,omitempty"`
 
-	// Default hardware raid type configured on this server
+	// DefaultHardwareRaidType Default hardware raid type configured on this server
 	DefaultHardwareRaidType string `json:"defaultHardwareRaidType,omitempty"`
 
-	// commercial name of this server
+	// Description commercial name of this server
 	Description string `json:"description,omitempty"`
 
-	// details about the groups of disks in the server
-	DiskGroups []DedicatedServerHardwareSpecificationsDisk `json:"diskGroups,omitempty"`
+	// DiskGroups details about the groups of disks in the server
+	DiskGroups []*DedicatedServerHardwareSpecificationsDisk `json:"diskGroups,omitempty"`
 
-	MemorySize DedicatedServerHardwareSpecificationsMemorySize `json:"memorySize,omitempty"`
+	MemorySize *DedicatedServerHardwareSpecificationsMemorySize `json:"memorySize,omitempty"`
 
-	// server motherboard
+	// Motherboard server motherboard
 	Motherboard string `json:"motherboard,omitempty"`
 
-	// number of processors in this dedicated server
+	// NumberOfProcessors number of processors in this dedicated server
 	NumberOfProcessors int64 `json:"numberOfProcessors,omitempty"`
 
-	// processor architecture bit
+	// ProcessorArchitecture processor architecture bit
 	ProcessorArchitecture string `json:"processorArchitecture,omitempty"`
 
-	// processor name
+	// ProcessorName processor name
 	ProcessorName string `json:"processorName,omitempty"`
 
-	// number of threads per processor
+	// ThreadsPerProcessor number of threads per processor
 	ThreadsPerProcessor int64 `json:"threadsPerProcessor,omitempty"`
 
-	// Capacity of the USB keys installed on your server, if any
-	UsbKeys []ComplexTypeUnitAndValueLong `json:"usbKeys,omitempty"`
+	// UsbKeys Capacity of the USB keys installed on your server, if any
+	UsbKeys []*ComplexTypeUnitAndValueLong `json:"usbKeys,omitempty"`
 }

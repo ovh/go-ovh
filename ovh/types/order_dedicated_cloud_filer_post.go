@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// OrderDedicatedCloudFilerPost ...
 type OrderDedicatedCloudFilerPost struct {
-
-	DatacenterId int64 `json:"datacenterId,omitempty"`
+	DatacenterID int64 `json:"datacenterId,omitempty"`
 
 	Name string `json:"name,omitempty"`
 

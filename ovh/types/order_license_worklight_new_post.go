@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// OrderLicenseWorklightNewPost ...
 type OrderLicenseWorklightNewPost struct {
-
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
 	LessThan1000Users bool `json:"lessThan1000Users,omitempty"`
 

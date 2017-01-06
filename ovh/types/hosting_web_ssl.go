@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Hostedssl
-type HostingWebSsl struct {
+// HostingWebSSL Hostedssl
+type HostingWebSSL struct {
 
-	// Provider of the HostedSsl
+	// Provider Provider of the HostedSsl
 	Provider string `json:"provider,omitempty"`
 
-	// Regenerable flag
+	// Regenerable Regenerable flag
 	Regenerable bool `json:"regenerable,omitempty"`
 
-	// Status of the HostedSsl
+	// Status Status of the HostedSsl
 	Status string `json:"status,omitempty"`
 
-	// Type of the HostedSsl
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the HostedSsl
+	TType string `json:"type,omitempty"`
 }

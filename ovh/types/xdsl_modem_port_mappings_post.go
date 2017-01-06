@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// XdslModemPortMappingsPost ...
 type XdslModemPortMappingsPost struct {
-
-	AllowedRemoteIp string `json:"allowedRemoteIp,omitempty"`
+	AllowedRemoteIP string `json:"allowedRemoteIp,omitempty"`
 
 	Description string `json:"description,omitempty"`
 

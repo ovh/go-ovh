@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Project
+// PaasTimeseriesProject Project
 type PaasTimeseriesProject struct {
 
-	// Description
+	// Description Description
 	Description string `json:"description,omitempty"`
 
-	// Name
+	// DisplayName Name
 	DisplayName string `json:"displayName,omitempty"`
 
-	Region PaasTimeseriesRegion `json:"region,omitempty"`
+	Region *PaasTimeseriesRegion `json:"region,omitempty"`
 
-	// Id
+	// ServiceName Id
 	ServiceName string `json:"serviceName,omitempty"`
 }

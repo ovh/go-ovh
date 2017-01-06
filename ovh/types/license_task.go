@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// licenses Todos
+// LicenseTask licenses Todos
 type LicenseTask struct {
 
-	// This Task description
+	// Action This Task description
 	Action string `json:"action,omitempty"`
 
-	// When was this Task done
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate When was this Task done
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	// The last time this Task was updated
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate The last time this Task was updated
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// This Task name
+	// Name This Task name
 	Name string `json:"name,omitempty"`
 
-	// Current Taks status
+	// Status Current Taks status
 	Status string `json:"status,omitempty"`
 
-	// This Task id
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID This Task id
+	TaskID int64 `json:"taskId,omitempty"`
 
-	// When was this Task created
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	// TodoDate When was this Task created
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// The disk space currently used on your backup FTP in percent
+// DedicatedServerBackupFtpUsage The disk space currently used on your backup FTP in percent
 type DedicatedServerBackupFtpUsage struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

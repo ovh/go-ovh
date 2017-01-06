@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// Image
-type CloudImageImage struct {
+// CloudImage Image
+type CloudImage struct {
 
-	// Image creation date
+	// CreationDate Image creation date
 	CreationDate string `json:"creationDate,omitempty"`
 
-	// Image id
-	Id string `json:"id,omitempty"`
+	// ID Image id
+	ID string `json:"id,omitempty"`
 
-	// Minimum disks required to use image
+	// MinDisk Minimum disks required to use image
 	MinDisk int64 `json:"minDisk,omitempty"`
 
-	// Minimum RAM required to use image
-	MinRam int64 `json:"minRam,omitempty"`
+	// MinRAM Minimum RAM required to use image
+	MinRAM int64 `json:"minRam,omitempty"`
 
-	// Image name
+	// Name Image name
 	Name string `json:"name,omitempty"`
 
-	// Image region
+	// Region Image region
 	Region string `json:"region,omitempty"`
 
-	// Image size (in GiB)
+	// Size Image size (in GiB)
 	Size float64 `json:"size,omitempty"`
 
-	// Image status
+	// Status Image status
 	Status string `json:"status,omitempty"`
 
-	// Image type
-	Type_ string `json:"type,omitempty"`
+	// TType Image type
+	TType string `json:"type,omitempty"`
 
-	// User to connect with
+	// User User to connect with
 	User string `json:"user,omitempty"`
 
-	// Image visibility
+	// Visibility Image visibility
 	Visibility string `json:"visibility,omitempty"`
 }

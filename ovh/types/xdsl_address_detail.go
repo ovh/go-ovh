@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// All components of an address
+// XdslAddressDetail All components of an address
 type XdslAddressDetail struct {
-
 	Building string `json:"building,omitempty"`
 
 	City string `json:"city,omitempty"`
@@ -23,7 +22,7 @@ type XdslAddressDetail struct {
 
 	Floor string `json:"floor,omitempty"`
 
-	// Identifier of the city
+	// InseeCode Identifier of the city
 	InseeCode string `json:"inseeCode,omitempty"`
 
 	LastName string `json:"lastName,omitempty"`
@@ -32,7 +31,7 @@ type XdslAddressDetail struct {
 
 	Residence string `json:"residence,omitempty"`
 
-	// Identifier of the street
+	// RivoliCode Identifier of the street
 	RivoliCode string `json:"rivoliCode,omitempty"`
 
 	Stairs string `json:"stairs,omitempty"`

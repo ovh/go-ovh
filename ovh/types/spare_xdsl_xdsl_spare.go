@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Spare properties
-type SpareXdslXdslSpare struct {
+// SpareXdslSpare Spare properties
+type SpareXdslSpare struct {
 
-	// Modem brand model
+	// Brand Modem brand model
 	Brand string `json:"brand,omitempty"`
 
-	// Mac address
+	// MacAddress Mac address
 	MacAddress string `json:"macAddress,omitempty"`
 }

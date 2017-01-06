@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,39 +14,39 @@ import (
 	"time"
 )
 
-// Certificate of an SSL customer
-type SslCertificate struct {
+// SSLCertificate Certificate of an SSL customer
+type SSLCertificate struct {
 
-	// The authority your certificate is issued from
+	// Authority The authority your certificate is issued from
 	Authority string `json:"authority,omitempty"`
 
-	// Your certificate
+	// Certificate Your certificate
 	Certificate string `json:"certificate,omitempty"`
 
-	// The issuer chain of your certificate
+	// Chain The issuer chain of your certificate
 	Chain string `json:"chain,omitempty"`
 
-	// The CN field in your certificate
+	// CommonName The CN field in your certificate
 	CommonName string `json:"commonName,omitempty"`
 
-	// The CSR used to create your certificate
+	// Csr The CSR used to create your certificate
 	Csr string `json:"csr,omitempty"`
 
-	// The internal name of your certificate offer
+	// ServiceName The internal name of your certificate offer
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Current status of your certificate
+	// Status Current status of your certificate
 	Status string `json:"status,omitempty"`
 
-	// The SAN field for multidomain certificate
+	// SubjectAltName The SAN field for multidomain certificate
 	SubjectAltName []string `json:"subjectAltName,omitempty"`
 
-	// Type of your certificate
-	Type_ string `json:"type,omitempty"`
+	// TType Type of your certificate
+	TType string `json:"type,omitempty"`
 
-	// Your certificate is invalid from this date
-	ValidityEnd time.Time `json:"validityEnd,omitempty"`
+	// ValidityEnd Your certificate is invalid from this date
+	ValidityEnd *time.Time `json:"validityEnd,omitempty"`
 
-	// Your certificate is valid from this date
-	ValidityStart time.Time `json:"validityStart,omitempty"`
+	// ValidityStart Your certificate is valid from this date
+	ValidityStart *time.Time `json:"validityStart,omitempty"`
 }

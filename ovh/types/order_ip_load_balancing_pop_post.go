@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type OrderIpLoadBalancingPopPost struct {
-
+// OrderIPLoadBalancingPopPost ...
+type OrderIPLoadBalancingPopPost struct {
 	Pop string `json:"pop,omitempty"`
 }

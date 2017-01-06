@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Sms operator informations
+// SmsHlr Sms operator informations
 type SmsHlr struct {
 
-	// The country
+	// Country The country
 	Country string `json:"country,omitempty"`
 
-	// The countryCode prefix number
+	// CountryCode The countryCode prefix number
 	CountryCode string `json:"countryCode,omitempty"`
 
-	// The network name
+	// Network The network name
 	Network string `json:"network,omitempty"`
 
-	// The operator name
+	// Operator The operator name
 	Operator string `json:"operator,omitempty"`
 
-	// The region
+	// Region The region
 	Region string `json:"region,omitempty"`
 }

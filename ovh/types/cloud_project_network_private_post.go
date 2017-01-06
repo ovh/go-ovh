@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// CloudProjectNetworkPrivatePost ...
 type CloudProjectNetworkPrivatePost struct {
-
 	Name string `json:"name,omitempty"`
 
 	Regions []string `json:"regions,omitempty"`
 
-	VlanId int64 `json:"vlanId,omitempty"`
+	VlanID int64 `json:"vlanId,omitempty"`
 }

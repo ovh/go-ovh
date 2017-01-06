@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Token associated to the service for live event
+// TelephonyEventToken Token associated to the service for live event
 type TelephonyEventToken struct {
-
 	Token string `json:"token,omitempty"`
 }

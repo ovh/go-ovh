@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,19 @@ import (
 	"time"
 )
 
-// Show the resiliation terms
+// PackXdslResiliationTerms Show the resiliation terms
 type PackXdslResiliationTerms struct {
+	Due *OrderPrice `json:"due,omitempty"`
 
-	Due OrderPrice `json:"due,omitempty"`
+	// EngageDate Date until which the customer is engaged
+	EngageDate *time.Time `json:"engageDate,omitempty"`
 
-	// Date until which the customer is engaged
-	EngageDate time.Time `json:"engageDate,omitempty"`
+	// MinResiliationDate Minimum date at which the pack can be resiliated
+	MinResiliationDate *time.Time `json:"minResiliationDate,omitempty"`
 
-	// Minimum date at which the pack can be resiliated
-	MinResiliationDate time.Time `json:"minResiliationDate,omitempty"`
+	// ResiliationDate Date at which the pack will be resiliated
+	ResiliationDate *time.Time `json:"resiliationDate,omitempty"`
 
-	// Date at which the pack will be resiliated
-	ResiliationDate time.Time `json:"resiliationDate,omitempty"`
-
-	// List of available resiliation reasons
+	// ResiliationReasons List of available resiliation reasons
 	ResiliationReasons []string `json:"resiliationReasons,omitempty"`
 }

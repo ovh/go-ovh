@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,23 @@ import (
 	"time"
 )
 
-// Credit card informations
+// BillingCreditCard Credit card informations
 type BillingCreditCard struct {
-
 	DefaultPaymentMean bool `json:"defaultPaymentMean,omitempty"`
 
-	// Custom description of this account
+	// Description Custom description of this account
 	Description string `json:"description,omitempty"`
 
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Number string `json:"number,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	// True if this credit card has been registered with a successful 3DSecure challenge
+	// ThreeDsValidated True if this credit card has been registered with a successful 3DSecure challenge
 	ThreeDsValidated bool `json:"threeDsValidated,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// OrderCartDiscoverOptionsPost ...
 type OrderCartDiscoverOptionsPost struct {
-
 	Duration string `json:"duration,omitempty"`
 
-	ItemId int64 `json:"itemId,omitempty"`
+	ItemID int64 `json:"itemId,omitempty"`
 
 	PlanCode string `json:"planCode,omitempty"`
 

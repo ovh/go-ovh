@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,29 +14,28 @@ import (
 	"time"
 )
 
-// Detected incident
+// XdslIncident Detected incident
 type XdslIncident struct {
-
 	Comment string `json:"comment,omitempty"`
 
-	// Estimated start date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Estimated start date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Department list
+	// Departments Department list
 	Departments []string `json:"departments,omitempty"`
 
-	// Estimated end date
-	EndDate time.Time `json:"endDate,omitempty"`
+	// EndDate Estimated end date
+	EndDate *time.Time `json:"endDate,omitempty"`
 
-	// ID of the incident
-	Id int64 `json:"id,omitempty"`
+	// ID ID of the incident
+	ID int64 `json:"id,omitempty"`
 
-	// NRA list
+	// Nra NRA list
 	Nra []string `json:"nra,omitempty"`
 
-	// Operator
+	// Operators Operator
 	Operators []string `json:"operators,omitempty"`
 
-	// Task ID on travaux.ovh.com
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID Task ID on travaux.ovh.com
+	TaskID int64 `json:"taskId,omitempty"`
 }

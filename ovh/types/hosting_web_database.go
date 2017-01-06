@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,40 +14,40 @@ import (
 	"time"
 )
 
-// Database
+// HostingWebDatabase Database
 type HostingWebDatabase struct {
 
-	// URL for the graphical user interface
+	// GuiURL URL for the graphical user interface
 	GuiURL string `json:"guiURL,omitempty"`
 
-	// Date of the last check quota
-	LastCheck time.Time `json:"lastCheck,omitempty"`
+	// LastCheck Date of the last check quota
+	LastCheck *time.Time `json:"lastCheck,omitempty"`
 
-	// Mode of your database
+	// Mode Mode of your database
 	Mode string `json:"mode,omitempty"`
 
-	// Database name (like mydb.mysql.db or mydb.postgres.db)
+	// Name Database name (like mydb.mysql.db or mydb.postgres.db)
 	Name string `json:"name,omitempty"`
 
-	// The port on where to contact this database
+	// Port The port on where to contact this database
 	Port int64 `json:"port,omitempty"`
 
-	QuotaSize HostingWebDatabaseQuotaSize `json:"quotaSize,omitempty"`
+	QuotaSize *HostingWebDatabaseQuotaSize `json:"quotaSize,omitempty"`
 
-	QuotaUsed HostingWebDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
+	QuotaUsed *HostingWebDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
 
-	// Your database server name
+	// Server Your database server name
 	Server string `json:"server,omitempty"`
 
-	// Database state
+	// State Database state
 	State string `json:"state,omitempty"`
 
-	// Type of your database
-	Type_ string `json:"type,omitempty"`
+	// TType Type of your database
+	TType string `json:"type,omitempty"`
 
-	// Database user name
+	// User Database user name
 	User string `json:"user,omitempty"`
 
-	// Database version following the database type
+	// Version Database version following the database type
 	Version string `json:"version,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// Fax campaigns
+// TelephonyFaxCampaign Fax campaigns
 type TelephonyFaxCampaign struct {
 
-	// The count of failed faxes in the campaign
+	// CountFailed The count of failed faxes in the campaign
 	CountFailed int64 `json:"countFailed,omitempty"`
 
-	// The count of success faxes in the campaign
+	// CountSuccess The count of success faxes in the campaign
 	CountSuccess int64 `json:"countSuccess,omitempty"`
 
-	// The total count of faxes in the campaign
+	// CountTotal The total count of faxes in the campaign
 	CountTotal int64 `json:"countTotal,omitempty"`
 
-	// The end date of the fax campaign
-	DateEnd time.Time `json:"dateEnd,omitempty"`
+	// DateEnd The end date of the fax campaign
+	DateEnd *time.Time `json:"dateEnd,omitempty"`
 
-	// The start date of the fax campaign
-	DateStart time.Time `json:"dateStart,omitempty"`
+	// DateStart The start date of the fax campaign
+	DateStart *time.Time `json:"dateStart,omitempty"`
 
-	// The id of the fax campaign
-	Id int64 `json:"id,omitempty"`
+	// ID The id of the fax campaign
+	ID int64 `json:"id,omitempty"`
 
-	// The name of the fax campaign
+	// Name The name of the fax campaign
 	Name string `json:"name,omitempty"`
 
-	// The reference of the fax campaign
+	// Reference The reference of the fax campaign
 	Reference string `json:"reference,omitempty"`
 
-	// The status of the fax campaign
+	// Status The status of the fax campaign
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxDialplanPost ...
 type TelephonyOvhPabxDialplanPost struct {
-
 	AnonymousRejection bool `json:"anonymousRejection,omitempty"`
 
 	Name string `json:"name,omitempty"`

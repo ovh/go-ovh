@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,93 +10,92 @@
 
 package types
 
-// Line options
+// TelephonyLineOptions Line options
 type TelephonyLineOptions struct {
-
 	AbsentSubscriber bool `json:"absentSubscriber,omitempty"`
 
-	// Reject anonymous calls
+	// AnonymousCallRejection Reject anonymous calls
 	AnonymousCallRejection bool `json:"anonymousCallRejection,omitempty"`
 
-	// If the line receives a new call and the line is already in communication, this new call is dispatched once the current call is completed
+	// CallWaiting If the line receives a new call and the line is already in communication, this new call is dispatched once the current call is completed
 	CallWaiting bool `json:"callWaiting,omitempty"`
 
-	// Codecs preferences
+	// Codecs Codecs preferences
 	Codecs string `json:"codecs,omitempty"`
 
-	// The default voicemail of the line. It can be the voicemail of any line of your account.
+	// DefaultVoicemail The default voicemail of the line. It can be the voicemail of any line of your account.
 	DefaultVoicemail string `json:"defaultVoicemail,omitempty"`
 
 	DisplayNumber string `json:"displayNumber,omitempty"`
 
 	DoNotDisturb bool `json:"doNotDisturb,omitempty"`
 
-	// The SIP domain of the line
+	// Domain The SIP domain of the line
 	Domain string `json:"domain,omitempty"`
 
-	// Enable calls forward when the line is unavailable
+	// ForwardBackup Enable calls forward when the line is unavailable
 	ForwardBackup bool `json:"forwardBackup,omitempty"`
 
-	// Nature of the forward when the line is unavailable
+	// ForwardBackupNature Nature of the forward when the line is unavailable
 	ForwardBackupNature string `json:"forwardBackupNature,omitempty"`
 
-	// Destination of the forward when the line is unavailable
+	// ForwardBackupNumber Destination of the forward when the line is unavailable
 	ForwardBackupNumber string `json:"forwardBackupNumber,omitempty"`
 
-	// Enable calls forward when the line is busy
+	// ForwardBusy Enable calls forward when the line is busy
 	ForwardBusy bool `json:"forwardBusy,omitempty"`
 
-	// Nature of the forward when the line is busy
+	// ForwardBusyNature Nature of the forward when the line is busy
 	ForwardBusyNature string `json:"forwardBusyNature,omitempty"`
 
-	// Destination of the forward when the line is busy
+	// ForwardBusyNumber Destination of the forward when the line is busy
 	ForwardBusyNumber string `json:"forwardBusyNumber,omitempty"`
 
-	// Enable calls forward on no-reply
+	// ForwardNoReply Enable calls forward on no-reply
 	ForwardNoReply bool `json:"forwardNoReply,omitempty"`
 
-	// Delay before forward on no-reply
+	// ForwardNoReplyDelay Delay before forward on no-reply
 	ForwardNoReplyDelay int64 `json:"forwardNoReplyDelay,omitempty"`
 
-	// Nature of the forward on no-reply
+	// ForwardNoReplyNature Nature of the forward on no-reply
 	ForwardNoReplyNature string `json:"forwardNoReplyNature,omitempty"`
 
-	// Destination of the forward on no-reply
+	// ForwardNoReplyNumber Destination of the forward on no-reply
 	ForwardNoReplyNumber string `json:"forwardNoReplyNumber,omitempty"`
 
-	// Enable unconditional calls forward
+	// ForwardUnconditional Enable unconditional calls forward
 	ForwardUnconditional bool `json:"forwardUnconditional,omitempty"`
 
-	// Nature of the unconditional forward
+	// ForwardUnconditionalNature Nature of the unconditional forward
 	ForwardUnconditionalNature string `json:"forwardUnconditionalNature,omitempty"`
 
-	// Destination of the unconditional forward
+	// ForwardUnconditionalNumber Destination of the unconditional forward
 	ForwardUnconditionalNumber string `json:"forwardUnconditionalNumber,omitempty"`
 
-	// Do not display your number
-	IdentificationRestriction bool `json:"identificationRestriction,omitempty"`
+	// IDentificationRestriction Do not display your number
+	IDentificationRestriction bool `json:"identificationRestriction,omitempty"`
 
-	// Intercom mode: takes automatically the call with the loudspeaker
+	// Intercom Intercom mode: takes automatically the call with the loudspeaker
 	Intercom string `json:"intercom,omitempty"`
 
-	// The ip restrictions of your line
-	IpRestrictions []string `json:"ipRestrictions,omitempty"`
+	// IPRestrictions The ip restrictions of your line
+	IPRestrictions []string `json:"ipRestrictions,omitempty"`
 
-	// Language of the line
+	// Language Language of the line
 	Language string `json:"language,omitempty"`
 
-	// Disallow outgoing calls
+	// LockOutCall Disallow outgoing calls
 	LockOutCall bool `json:"lockOutCall,omitempty"`
 
-	// Disallow outgoing calls password
+	// LockOutCallPassword Disallow outgoing calls password
 	LockOutCallPassword string `json:"lockOutCallPassword,omitempty"`
 
-	// Enable or disable record of outgoing calls
+	// RecordOutgoingCallsBeta Enable or disable record of outgoing calls
 	RecordOutgoingCallsBeta bool `json:"recordOutgoingCallsBeta,omitempty"`
 
-	// Voicemail number to dial from any other line
+	// VoicemailExternalNumber Voicemail number to dial from any other line
 	VoicemailExternalNumber string `json:"voicemailExternalNumber,omitempty"`
 
-	// Voicemail short number to dial from the line
+	// VoicemailInternalNumber Voicemail short number to dial from the line
 	VoicemailInternalNumber string `json:"voicemailInternalNumber,omitempty"`
 }

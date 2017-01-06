@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
+// PackXdslMigrationMigratePost ...
 type PackXdslMigrationMigratePost struct {
-
 	AcceptContracts bool `json:"acceptContracts,omitempty"`
 
-	MondialRelayId int64 `json:"mondialRelayId,omitempty"`
+	MondialRelayID int64 `json:"mondialRelayId,omitempty"`
 
 	NicShipping string `json:"nicShipping,omitempty"`
 
 	OfferName string `json:"offerName,omitempty"`
 
-	Options []PackXdslMigrationOfferOption `json:"options,omitempty"`
+	Options []*PackXdslMigrationOfferOption `json:"options,omitempty"`
 
-	SubServicesToDelete []PackXdslMigrationOfferServiceToDelete `json:"subServicesToDelete,omitempty"`
+	SubServicesToDelete []*PackXdslMigrationOfferServiceToDelete `json:"subServicesToDelete,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing current housing options
+// DedicatedHousingOptions A structure describing current housing options
 type DedicatedHousingOptions struct {
 
-	// Number of APC connected to this housing bay
+	// ApcCount Number of APC connected to this housing bay
 	ApcCount int64 `json:"apcCount,omitempty"`
 
-	// Is this housing bay have handsneyes service
+	// Handsneyes Is this housing bay have handsneyes service
 	Handsneyes bool `json:"handsneyes,omitempty"`
 
-	// High Availability routing service offer
+	// HighAvailabilityRouting High Availability routing service offer
 	HighAvailabilityRouting string `json:"highAvailabilityRouting,omitempty"`
 }

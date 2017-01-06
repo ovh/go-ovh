@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Infos about the remote user
+// OverTheBoxRemoteAccessUserInfos Infos about the remote user
 type OverTheBoxRemoteAccessUserInfos struct {
 
-	// IP from which the remote access will be allowed
-	Ip string `json:"ip,omitempty"`
+	// IP IP from which the remote access will be allowed
+	IP string `json:"ip,omitempty"`
 
-	// The public key authorized on the device (for SSH purpose)
+	// PublicKey The public key authorized on the device (for SSH purpose)
 	PublicKey string `json:"publicKey,omitempty"`
 
-	// The user that will access the device remotely
+	// User The user that will access the device remotely
 	User string `json:"user,omitempty"`
 }

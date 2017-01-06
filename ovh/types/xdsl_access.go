@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,25 +10,24 @@
 
 package types
 
-// XDSL Access
+// XdslAccess XDSL Access
 type XdslAccess struct {
-
 	AccessName string `json:"accessName,omitempty"`
 
 	AccessType string `json:"accessType,omitempty"`
 
-	Address XdslAddressDetail `json:"address,omitempty"`
+	Address *XdslAddressDetail `json:"address,omitempty"`
 
-	Capabilities XdslAccessCapabilities `json:"capabilities,omitempty"`
+	Capabilities *XdslAccessCapabilities `json:"capabilities,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
-	Ipv6Enabled bool `json:"ipv6Enabled,omitempty"`
+	IPv6Enabled bool `json:"ipv6Enabled,omitempty"`
 
-	// Rate limit on the LNS in kbps - Only available if canApplyLnsRateLimit capability is set to true - Must be a multiple of 64 - Min value 64 / Max value 100032
+	// LnsRateLimit Rate limit on the LNS in kbps - Only available if canApplyLnsRateLimit capability is set to true - Must be a multiple of 64 - Min value 64 / Max value 100032
 	LnsRateLimit int64 `json:"lnsRateLimit,omitempty"`
 
-	// Whether or not this access is monitored
+	// Monitoring Whether or not this access is monitored
 	Monitoring bool `json:"monitoring,omitempty"`
 
 	Nra string `json:"nra,omitempty"`

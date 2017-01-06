@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,36 +10,36 @@
 
 package types
 
-// Sharepoint account information
+// MsServicesSharepointInformation Sharepoint account information
 type MsServicesSharepointInformation struct {
 
-	// The rights assigned to the sharepoint account
+	// AccessRights The rights assigned to the sharepoint account
 	AccessRights string `json:"accessRights,omitempty"`
 
-	// Active Directory Account id
-	ActiveDirectoryAccountId int64 `json:"activeDirectoryAccountId,omitempty"`
+	// ActiveDirectoryAccountID Active Directory Account id
+	ActiveDirectoryAccountID int64 `json:"activeDirectoryAccountId,omitempty"`
 
-	// OneDrive usage in byte
+	// CurrentUsage OneDrive usage in byte
 	CurrentUsage int64 `json:"currentUsage,omitempty"`
 
-	// delete at expiration
+	// DeleteAtExpiration delete at expiration
 	DeleteAtExpiration bool `json:"deleteAtExpiration,omitempty"`
 
-	// Sharepoint account id
-	Id int64 `json:"id,omitempty"`
+	// ID Sharepoint account id
+	ID int64 `json:"id,omitempty"`
 
-	// Sharepoint account license
+	// License Sharepoint account license
 	License string `json:"license,omitempty"`
 
-	// office license is available
+	// OfficeLicense office license is available
 	OfficeLicense bool `json:"officeLicense,omitempty"`
 
-	// OneDrive maximum size in byte
+	// Quota OneDrive maximum size in byte
 	Quota int64 `json:"quota,omitempty"`
 
-	// Sharepoint account state
+	// State Sharepoint account state
 	State string `json:"state,omitempty"`
 
-	// Pending task for this sharepoint account
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task for this sharepoint account
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,48 +14,48 @@ import (
 	"time"
 )
 
-// Automatic Call made by Call Generator on this line
+// TelephonyCallsGenerated Automatic Call made by Call Generator on this line
 type TelephonyCallsGenerated struct {
 
-	// answer date
-	AnswerDatetime time.Time `json:"answerDatetime,omitempty"`
+	// AnswerDatetime answer date
+	AnswerDatetime *time.Time `json:"answerDatetime,omitempty"`
 
-	// Application and dialplan running for call
+	// Application Application and dialplan running for call
 	Application string `json:"application,omitempty"`
 
-	// end status of application
+	// ApplicationResult end status of application
 	ApplicationResult string `json:"applicationResult,omitempty"`
 
-	// billingNumber (service used)
+	// BillingNumber billingNumber (service used)
 	BillingNumber string `json:"billingNumber,omitempty"`
 
-	// creation date of the call
-	CallCreatedDatetime time.Time `json:"callCreatedDatetime,omitempty"`
+	// CallCreatedDatetime creation date of the call
+	CallCreatedDatetime *time.Time `json:"callCreatedDatetime,omitempty"`
 
-	// call duration on seconds
+	// CallDuration call duration on seconds
 	CallDuration int64 `json:"callDuration,omitempty"`
 
-	// number called
+	// Callee number called
 	Callee string `json:"callee,omitempty"`
 
-	// number where the call come from
+	// Caller number where the call come from
 	Caller string `json:"caller,omitempty"`
 
-	// DTMF received during the call separate by commas
+	// Dtmf DTMF received during the call separate by commas
 	Dtmf string `json:"dtmf,omitempty"`
 
-	// hangup cause
+	// HangupCause hangup cause
 	HangupCause string `json:"hangupCause,omitempty"`
 
-	// hangup date
-	HangupDatetime time.Time `json:"hangupDatetime,omitempty"`
+	// HangupDatetime hangup date
+	HangupDatetime *time.Time `json:"hangupDatetime,omitempty"`
 
-	// Generated call identifier
-	Identifier string `json:"identifier,omitempty"`
+	// IDentifier Generated call identifier
+	IDentifier string `json:"identifier,omitempty"`
 
-	// original call uuid if it's a transfer
+	// TransferFrom original call uuid if it's a transfer
 	TransferFrom string `json:"transferFrom,omitempty"`
 
-	// unique call id
-	Uuid string `json:"uuid,omitempty"`
+	// UUID unique call id
+	UUID string `json:"uuid,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Information about a configuration
+// OrderCartConfigurationRequirements Information about a configuration
 type OrderCartConfigurationRequirements struct {
 
-	// Indicates if some particular fields have to be inputed during the creation of `type` resource
+	// Fields Indicates if some particular fields have to be inputed during the creation of `type` resource
 	Fields []string `json:"fields,omitempty"`
 
-	// Label for your configuration item
+	// Label Label for your configuration item
 	Label string `json:"label,omitempty"`
 
-	// Indicates if the configuration item is required
+	// Required Indicates if the configuration item is required
 	Required bool `json:"required,omitempty"`
 
-	// Type of the configuration item
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the configuration item
+	TType string `json:"type,omitempty"`
 }

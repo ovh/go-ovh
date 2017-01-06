@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Operation on a telephony service
+// TelephonyTask Operation on a telephony service
 type TelephonyTask struct {
-
 	Action string `json:"action,omitempty"`
 
 	Message string `json:"message,omitempty"`
@@ -21,5 +20,5 @@ type TelephonyTask struct {
 
 	Status string `json:"status,omitempty"`
 
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 }

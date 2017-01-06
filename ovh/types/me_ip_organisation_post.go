@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type MeIpOrganisationPost struct {
-
+// MeIPOrganisationPost ...
+type MeIPOrganisationPost struct {
 	AbuseMailbox string `json:"abuse_mailbox,omitempty"`
 
 	Address string `json:"address,omitempty"`

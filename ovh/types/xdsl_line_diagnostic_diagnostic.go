@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// Diagnostic status and informations
+// XdslLineDiagnosticDiagnostic Diagnostic status and informations
 type XdslLineDiagnosticDiagnostic struct {
+	Data *XdslLineDiagnosticDiagnosticData `json:"data,omitempty"`
 
-	Data XdslLineDiagnosticDiagnosticData `json:"data,omitempty"`
+	// ID Diagnostic id
+	ID int64 `json:"id,omitempty"`
 
-	// Diagnostic id
-	Id int64 `json:"id,omitempty"`
-
-	// Diagnostic status
+	// Status Diagnostic status
 	Status string `json:"status,omitempty"`
 }

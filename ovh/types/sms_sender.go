@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// SMS senders
+// SmsSender SMS senders
 type SmsSender struct {
 
-	// Message sent by the moderator
+	// Comment Message sent by the moderator
 	Comment string `json:"comment,omitempty"`
 
-	// Sender description
+	// Description Sender description
 	Description string `json:"description,omitempty"`
 
-	// Specify if the sender is custom or not
+	// Referer Specify if the sender is custom or not
 	Referer string `json:"referer,omitempty"`
 
-	// The sms sender
+	// Sender The sms sender
 	Sender string `json:"sender,omitempty"`
 
-	// Sender status
+	// Status Sender status
 	Status string `json:"status,omitempty"`
 
-	// Specify the kind of sender
-	Type_ string `json:"type,omitempty"`
+	// TType Specify the kind of sender
+	TType string `json:"type,omitempty"`
 
-	// Validation media identifier
+	// ValidationMedia Validation media identifier
 	ValidationMedia string `json:"validationMedia,omitempty"`
 }

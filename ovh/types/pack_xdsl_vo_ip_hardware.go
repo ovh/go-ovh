@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Hardware for VoIP line
-type PackXdslVoIpHardware struct {
-
-	Deposit OrderPrice `json:"deposit,omitempty"`
+// PackXdslVoIPHardware Hardware for VoIP line
+type PackXdslVoIPHardware struct {
+	Deposit *OrderPrice `json:"deposit,omitempty"`
 
 	Image string `json:"image,omitempty"`
 
@@ -25,5 +24,5 @@ type PackXdslVoIpHardware struct {
 
 	NeedShipping bool `json:"needShipping,omitempty"`
 
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

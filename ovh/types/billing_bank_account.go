@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,23 +14,22 @@ import (
 	"time"
 )
 
-// SEPA bank account info
+// BillingBankAccount SEPA bank account info
 type BillingBankAccount struct {
-
 	Bic string `json:"bic,omitempty"`
 
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
 	DefaultPaymentMean bool `json:"defaultPaymentMean,omitempty"`
 
-	// Custom description of this account
+	// Description Custom description of this account
 	Description string `json:"description,omitempty"`
 
 	Iban string `json:"iban,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	MandateSignatureDate time.Time `json:"mandateSignatureDate,omitempty"`
+	MandateSignatureDate *time.Time `json:"mandateSignatureDate,omitempty"`
 
 	OwnerAddress string `json:"ownerAddress,omitempty"`
 

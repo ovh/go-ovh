@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// Flavor
-type CloudFlavorFlavor struct {
+// CloudFlavor Flavor
+type CloudFlavor struct {
 
-	// Available in stock
+	// Available Available in stock
 	Available bool `json:"available,omitempty"`
 
-	// Number of disks
+	// Disk Number of disks
 	Disk int64 `json:"disk,omitempty"`
 
-	// Flavor id
-	Id string `json:"id,omitempty"`
+	// ID Flavor id
+	ID string `json:"id,omitempty"`
 
-	// Max capacity of inbound traffic in Mbit/s
+	// InboundBandwidth Max capacity of inbound traffic in Mbit/s
 	InboundBandwidth int64 `json:"inboundBandwidth,omitempty"`
 
-	// Flavor name
+	// Name Flavor name
 	Name string `json:"name,omitempty"`
 
-	// OS to install on
+	// OsType OS to install on
 	OsType string `json:"osType,omitempty"`
 
-	// Max capacity of outbound traffic in Mbit/s
+	// OutboundBandwidth Max capacity of outbound traffic in Mbit/s
 	OutboundBandwidth int64 `json:"outboundBandwidth,omitempty"`
 
-	// Ram quantity (Gio)
-	Ram int64 `json:"ram,omitempty"`
+	// RAM Ram quantity (Gio)
+	RAM int64 `json:"ram,omitempty"`
 
-	// Flavor region
+	// Region Flavor region
 	Region string `json:"region,omitempty"`
 
-	// Flavor type
-	Type_ string `json:"type,omitempty"`
+	// TType Flavor type
+	TType string `json:"type,omitempty"`
 
-	// Number of VCPUs
+	// Vcpus Number of VCPUs
 	Vcpus int64 `json:"vcpus,omitempty"`
 }

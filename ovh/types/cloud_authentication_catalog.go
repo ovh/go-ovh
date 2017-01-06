@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// Catalog
+// CloudAuthenticationCatalog Catalog
 type CloudAuthenticationCatalog struct {
+	Endpoints []*CloudAuthenticationEndpoint `json:"endpoints,omitempty"`
 
-	Endpoints []CloudAuthenticationEndpoint `json:"endpoints,omitempty"`
+	ID string `json:"id,omitempty"`
 
-	Id string `json:"id,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

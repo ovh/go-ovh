@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,19 @@
 
 package types
 
-// Rule
+// DomainRule Rule
 type DomainRule struct {
-
 	AllowedValues []string `json:"allowedValues,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
 	Fields []string `json:"fields,omitempty"`
 
-	InnerConfigurations []DomainRule `json:"innerConfigurations,omitempty"`
+	InnerConfigurations []*DomainRule `json:"innerConfigurations,omitempty"`
 
 	Label string `json:"label,omitempty"`
 
 	Required bool `json:"required,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

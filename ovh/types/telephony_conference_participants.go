@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Conference service
+// TelephonyConferenceParticipants Conference service
 type TelephonyConferenceParticipants struct {
 
-	// The caller name of the participant
+	// CallerName The caller name of the participant
 	CallerName string `json:"callerName,omitempty"`
 
-	// The caller number of the participant
+	// CallerNumber The caller number of the participant
 	CallerNumber string `json:"callerNumber,omitempty"`
 
-	// The current level of the participant audio transmission
+	// Energy The current level of the participant audio transmission
 	Energy int64 `json:"energy,omitempty"`
 
-	// Whether or not the participant is active in the room
+	// Floor Whether or not the participant is active in the room
 	Floor bool `json:"floor,omitempty"`
 
-	// Whether or not the participant can hear the conference
+	// Hear Whether or not the participant can hear the conference
 	Hear bool `json:"hear,omitempty"`
 
-	// The id of the participant
-	Id int64 `json:"id,omitempty"`
+	// ID The id of the participant
+	ID int64 `json:"id,omitempty"`
 
-	// Whether or not the participant can talk in the conference
+	// Speak Whether or not the participant can talk in the conference
 	Speak bool `json:"speak,omitempty"`
 
-	// Whether or not the participant is talking
+	// Talking Whether or not the participant is talking
 	Talking bool `json:"talking,omitempty"`
 }

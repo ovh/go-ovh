@@ -10,6 +10,7 @@
 
 package types
 
+// PaasMonitoringResourceBatchPost ...
 type PaasMonitoringResourceBatchPost struct {
-	m []MonitoringConfig `json:",omitempty"`
+	Config []*MonitoringConfig `json:"config,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Configuration for the NSCA receiver
+// MonitoringNscaConfig Configuration for the NSCA receiver
 type MonitoringNscaConfig struct {
 
-	// true to enable the NSCA receiver (for passive checks)
+	// Enabled true to enable the NSCA receiver (for passive checks)
 	Enabled bool `json:"enabled,omitempty"`
 
-	// The kind of encryption (only kind 1 is supported, 0 is for no encryption)
+	// Encryption The kind of encryption (only kind 1 is supported, 0 is for no encryption)
 	Encryption int64 `json:"encryption,omitempty"`
 
-	// The encryption key
+	// Key The encryption key
 	Key string `json:"key,omitempty"`
 }

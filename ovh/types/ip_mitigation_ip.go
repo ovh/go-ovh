@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Your IP on mitigation
-type IpMitigationIp struct {
+// IPMitigationIP Your IP on mitigation
+type IPMitigationIP struct {
 
-	// Set on true if your ip is on auto-mitigation
+	// Auto Set on true if your ip is on auto-mitigation
 	Auto bool `json:"auto,omitempty"`
 
-	IpOnMitigation string `json:"ipOnMitigation,omitempty"`
+	IPOnMitigation string `json:"ipOnMitigation,omitempty"`
 
-	// Set on true if your ip is on permanent mitigation
+	// Permanent Set on true if your ip is on permanent mitigation
 	Permanent bool `json:"permanent,omitempty"`
 
-	// Current state of your ip on mitigation
+	// State Current state of your ip on mitigation
 	State string `json:"state,omitempty"`
 }

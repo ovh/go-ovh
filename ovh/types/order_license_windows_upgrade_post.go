@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// OrderLicenseWindowsUpgradePost ...
 type OrderLicenseWindowsUpgradePost struct {
-
-	SqlVersion string `json:"sqlVersion,omitempty"`
+	SQLVersion string `json:"sqlVersion,omitempty"`
 
 	Version string `json:"version,omitempty"`
 }

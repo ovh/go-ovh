@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,36 +10,36 @@
 
 package types
 
-// A structure describing SMART health disk status
+// DedicatedServerRtmDiskSmart A structure describing SMART health disk status
 type DedicatedServerRtmDiskSmart struct {
 
-	// Current pending sectors
+	// CurrentPendingSector Current pending sectors
 	CurrentPendingSector int64 `json:"current_pending_sector,omitempty"`
 
-	// Multizone error rate
+	// MultizoneErrorRate Multizone error rate
 	MultizoneErrorRate int64 `json:"multizone_error_rate,omitempty"`
 
-	// Offline seek rate
+	// OfflineSeekPerformance Offline seek rate
 	OfflineSeekPerformance int64 `json:"offline_seek_performance,omitempty"`
 
-	// Offline uncorrectable
+	// OfflineUncorrectable Offline uncorrectable
 	OfflineUncorrectable int64 `json:"offline_uncorrectable,omitempty"`
 
-	// Other errors
+	// OtherErrors Other errors
 	OtherErrors int64 `json:"other_errors,omitempty"`
 
-	// Realocated event count
+	// RealocatedEventCount Realocated event count
 	RealocatedEventCount int64 `json:"realocated_event_count,omitempty"`
 
-	// temperature
+	// TemperatureCelsius temperature
 	TemperatureCelsius int64 `json:"temperature_celsius,omitempty"`
 
-	// UDMA crc error
+	// UdmaCrcError UDMA crc error
 	UdmaCrcError int64 `json:"udma_crc_error,omitempty"`
 
-	// Uncorrected read errors
+	// UncorrectedReadErrors Uncorrected read errors
 	UncorrectedReadErrors int64 `json:"uncorrected_read_errors,omitempty"`
 
-	// Uncorrected write errors
+	// UncorrectedWriteErrors Uncorrected write errors
 	UncorrectedWriteErrors int64 `json:"uncorrected_write_errors,omitempty"`
 }

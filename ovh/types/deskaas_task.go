@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Operation on a Desktop As A Service component
+// DeskaasTask Operation on a Desktop As A Service component
 type DeskaasTask struct {
 
-	// Current progress description
+	// Description Current progress description
 	Description string `json:"description,omitempty"`
 
-	// Task last modification date
-	LastModificationDate time.Time `json:"lastModificationDate,omitempty"`
+	// LastModificationDate Task last modification date
+	LastModificationDate *time.Time `json:"lastModificationDate,omitempty"`
 
-	// Task name
+	// Name Task name
 	Name string `json:"name,omitempty"`
 
-	// Current progress
+	// Progress Current progress
 	Progress int64 `json:"progress,omitempty"`
 
-	// Current Task state
+	// State Current Task state
 	State string `json:"state,omitempty"`
 
-	// Task id
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID Task id
+	TaskID int64 `json:"taskId,omitempty"`
 }

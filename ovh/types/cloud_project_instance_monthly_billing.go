@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,11 @@ import (
 	"time"
 )
 
-// Instance monthly billing details
+// CloudProjectInstanceMonthlyBilling Instance monthly billing details
 type CloudProjectInstanceMonthlyBilling struct {
 
-	// Monthly billing activation date
-	ActivatedOn time.Time `json:"activatedOn,omitempty"`
+	// ActivatedOn Monthly billing activation date
+	ActivatedOn *time.Time `json:"activatedOn,omitempty"`
 
-	Cost OrderPrice `json:"cost,omitempty"`
+	Cost *OrderPrice `json:"cost,omitempty"`
 }

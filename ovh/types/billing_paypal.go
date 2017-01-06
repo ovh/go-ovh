@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,20 @@ import (
 	"time"
 )
 
-// Paypal account info
+// BillingPaypal Paypal account info
 type BillingPaypal struct {
+	AgreementID string `json:"agreementId,omitempty"`
 
-	AgreementId string `json:"agreementId,omitempty"`
-
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
 	DefaultPaymentMean bool `json:"defaultPaymentMean,omitempty"`
 
-	// Custom description of this account
+	// Description Custom description of this account
 	Description string `json:"description,omitempty"`
 
 	Email string `json:"email,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	State string `json:"state,omitempty"`
 }

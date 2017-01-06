@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,16 @@
 
 package types
 
-// Terms to unpack services
+// PackXdslUnpackTerms Terms to unpack services
 type PackXdslUnpackTerms struct {
 
-	// Tells whether or not the service can be unpacked
+	// IsAllowed Tells whether or not the service can be unpacked
 	IsAllowed bool `json:"isAllowed,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// Renew period in month of the service
+	// RenewPeriod Renew period in month of the service
 	RenewPeriod float64 `json:"renewPeriod,omitempty"`
 
-	RenewPrice OrderPrice `json:"renewPrice,omitempty"`
+	RenewPrice *OrderPrice `json:"renewPrice,omitempty"`
 }

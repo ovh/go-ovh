@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Available boots
+// DedicatedServerNetboot Available boots
 type DedicatedServerNetboot struct {
 
-	// boot id
-	BootId int64 `json:"bootId,omitempty"`
+	// BootID boot id
+	BootID int64 `json:"bootId,omitempty"`
 
-	// the boot system
+	// BootType the boot system
 	BootType string `json:"bootType,omitempty"`
 
-	// the boot description
+	// Description the boot description
 	Description string `json:"description,omitempty"`
 
-	// The boot kernel
+	// Kernel The boot kernel
 	Kernel string `json:"kernel,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// A structure describing informations about RTM
+// DedicatedServerRtmCommandSize A structure describing informations about RTM
 type DedicatedServerRtmCommandSize struct {
 
-	// Complete command line used for starting this process
+	// Command Complete command line used for starting this process
 	Command string `json:"command,omitempty"`
 
-	Memory DedicatedServerRtmCommandSizeMemory `json:"memory,omitempty"`
+	Memory *DedicatedServerRtmCommandSizeMemory `json:"memory,omitempty"`
 }

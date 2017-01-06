@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Zone
-type IplbIpZone struct {
+// IPLBIPZone Zone
+type IPLBIPZone struct {
 
-	// Name of your zone
+	// Name Name of your zone
 	Name string `json:"name,omitempty"`
 
-	// State of your zone
+	// State State of your zone
 	State string `json:"state,omitempty"`
 }

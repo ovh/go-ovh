@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// The object linked to this debt entry
+// DebtEntryAssociatedObject The object linked to this debt entry
 type DebtEntryAssociatedObject struct {
+	ID string `json:"id,omitempty"`
 
-	Id string `json:"id,omitempty"`
+	PaymentInfo *DebtAssociatedObjectPaymentInfo `json:"paymentInfo,omitempty"`
 
-	PaymentInfo DebtAssociatedObjectPaymentInfo `json:"paymentInfo,omitempty"`
+	SubID string `json:"subId,omitempty"`
 
-	SubId string `json:"subId,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

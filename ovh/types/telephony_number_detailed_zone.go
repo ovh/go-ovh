@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,36 +10,36 @@
 
 package types
 
-// A geographic zone from a country
+// TelephonyNumberDetailedZone A geographic zone from a country
 type TelephonyNumberDetailedZone struct {
 
-	// The searched value
+	// AskedCity The searched value
 	AskedCity string `json:"askedCity,omitempty"`
 
-	// The city of the zone
+	// City The city of the zone
 	City string `json:"city,omitempty"`
 
-	// The country of the zone
+	// Country The country of the zone
 	Country string `json:"country,omitempty"`
 
-	// The number's range of this zone, in international format
+	// InternationalNumber The number's range of this zone, in international format
 	InternationalNumber string `json:"internationalNumber,omitempty"`
 
-	// The criteria that matched the searched value
+	// MatchingCriteria The criteria that matched the searched value
 	MatchingCriteria string `json:"matchingCriteria,omitempty"`
 
-	// The number's range of this zone
+	// Number The number's range of this zone
 	Number string `json:"number,omitempty"`
 
-	// The country code of the number's range
+	// Prefix The country code of the number's range
 	Prefix int64 `json:"prefix,omitempty"`
 
-	// The type of number's range of this zone
-	Type_ string `json:"type,omitempty"`
+	// TType The type of number's range of this zone
+	TType string `json:"type,omitempty"`
 
-	// The zip code of the zone
+	// ZipCode The zip code of the zone
 	ZipCode string `json:"zipCode,omitempty"`
 
-	// The list of ZNE of this zone
+	// ZneList The list of ZNE of this zone
 	ZneList []string `json:"zneList,omitempty"`
 }

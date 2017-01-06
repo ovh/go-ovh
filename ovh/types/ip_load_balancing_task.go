@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// List of tasks associated with your IP load balancing
-type IpLoadBalancingTask struct {
+// IPLoadBalancingTask List of tasks associated with your IP load balancing
+type IPLoadBalancingTask struct {
 
-	// The action made
+	// Action The action made
 	Action string `json:"action,omitempty"`
 
-	// Creation date of your task
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of your task
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Identifier of your task
-	Id int64 `json:"id,omitempty"`
+	// ID Identifier of your task
+	ID int64 `json:"id,omitempty"`
 
-	// Current status of your task
+	// Status Current status of your task
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Post-creation return information structure
+// TelephonyRmaReturn Post-creation return information structure
 type TelephonyRmaReturn struct {
 
-	// Voucher reference identifier of the return merchandise authorisation
-	Id string `json:"id,omitempty"`
+	// ID Voucher reference identifier of the return merchandise authorisation
+	ID string `json:"id,omitempty"`
 }

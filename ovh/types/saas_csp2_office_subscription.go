@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Office subscription
+// SaasCsp2OfficeSubscription Office subscription
 type SaasCsp2OfficeSubscription struct {
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Subscription's unique identifier
-	Id int64 `json:"id,omitempty"`
+	// ID Subscription's unique identifier
+	ID int64 `json:"id,omitempty"`
 
-	// Last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// License's type id
-	LicenseId int64 `json:"licenseId,omitempty"`
+	// LicenseID License's type id
+	LicenseID int64 `json:"licenseId,omitempty"`
 
-	// Number of available licenses
+	// Quantity Number of available licenses
 	Quantity int64 `json:"quantity,omitempty"`
 
-	// Subscription's status
+	// Status Subscription's status
 	Status string `json:"status,omitempty"`
 
-	// Pending task's unique identifier
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task's unique identifier
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

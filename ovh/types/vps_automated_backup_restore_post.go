@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,11 @@ import (
 	"time"
 )
 
+// VpsAutomatedBackupRestorePost ...
 type VpsAutomatedBackupRestorePost struct {
-
 	ChangePassword bool `json:"changePassword,omitempty"`
 
-	RestorePoint time.Time `json:"restorePoint,omitempty"`
+	RestorePoint *time.Time `json:"restorePoint,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

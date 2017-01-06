@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
+// PackXdslAddressMoveMovePost ...
 type PackXdslAddressMoveMovePost struct {
-
-	Creation PackXdslAddressMoveCreation `json:"creation,omitempty"`
+	Creation *PackXdslAddressMoveCreation `json:"creation,omitempty"`
 
 	KeepCurrentNumber bool `json:"keepCurrentNumber,omitempty"`
 
-	Landline PackXdslAddressMoveLandline `json:"landline,omitempty"`
+	Landline *PackXdslAddressMoveLandline `json:"landline,omitempty"`
 
-	MoveOutDate time.Time `json:"moveOutDate,omitempty"`
+	MoveOutDate *time.Time `json:"moveOutDate,omitempty"`
 
 	OfferCode string `json:"offerCode,omitempty"`
 

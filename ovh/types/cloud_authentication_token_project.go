@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// TokenProject
+// CloudAuthenticationTokenProject TokenProject
 type CloudAuthenticationTokenProject struct {
+	Domain *CloudAuthenticationDomain `json:"domain,omitempty"`
 
-	Domain CloudAuthenticationDomain `json:"domain,omitempty"`
-
-	Id string `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	Name string `json:"name,omitempty"`
 }

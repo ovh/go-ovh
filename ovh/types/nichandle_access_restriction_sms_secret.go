@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Describe secret key
+// NichandleAccessRestrictionSmsSecret Describe secret key
 type NichandleAccessRestrictionSmsSecret struct {
-
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	RemainingTry int64 `json:"remainingTry,omitempty"`
 }

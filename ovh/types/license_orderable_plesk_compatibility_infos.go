@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// All versions available for Plesk products
+// LicenseOrderablePleskCompatibilityInfos All versions available for Plesk products
 type LicenseOrderablePleskCompatibilityInfos struct {
-
 	CanHavePowerPack bool `json:"canHavePowerPack,omitempty"`
 
 	CanHaveResellerManagement bool `json:"canHaveResellerManagement,omitempty"`

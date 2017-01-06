@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyMiniPabxHuntingAgentPost ...
 type TelephonyMiniPabxHuntingAgentPost struct {
-
 	AgentNumber string `json:"agentNumber,omitempty"`
 
 	Logged bool `json:"logged,omitempty"`

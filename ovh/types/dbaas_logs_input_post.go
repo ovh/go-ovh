@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,19 @@
 
 package types
 
+// DbaasLogsInputPost ...
 type DbaasLogsInputPost struct {
-
 	Description string `json:"description,omitempty"`
 
-	EngineId string `json:"engineId,omitempty"`
+	EngineID string `json:"engineId,omitempty"`
 
 	ExposedPort string `json:"exposedPort,omitempty"`
 
-	OptionId string `json:"optionId,omitempty"`
+	OptionID string `json:"optionId,omitempty"`
 
 	SingleInstance bool `json:"singleInstance,omitempty"`
 
-	StreamId string `json:"streamId,omitempty"`
+	StreamID string `json:"streamId,omitempty"`
 
 	Title string `json:"title,omitempty"`
 }

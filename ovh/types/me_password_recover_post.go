@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// MePasswordRecoverPost ...
 type MePasswordRecoverPost struct {
-
 	OvhCompany string `json:"ovhCompany,omitempty"`
 
-	OvhId string `json:"ovhId,omitempty"`
+	OvhID string `json:"ovhId,omitempty"`
 }

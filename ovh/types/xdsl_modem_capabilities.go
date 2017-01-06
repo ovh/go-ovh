@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Describe the capabilities of the Modem
+// XdslModemCapabilities Describe the capabilities of the Modem
 type XdslModemCapabilities struct {
-
 	CanBeManagedByOvh bool `json:"canBeManagedByOvh,omitempty"`
 
 	CanChangeBridgeMode bool `json:"canChangeBridgeMode,omitempty"`

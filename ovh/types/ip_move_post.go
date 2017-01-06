@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type IpMovePost struct {
-
+// IPMovePost ...
+type IPMovePost struct {
 	Nexthop string `json:"nexthop,omitempty"`
 
 	To string `json:"to,omitempty"`

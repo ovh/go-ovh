@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// LAN Configuration of the Modem
+// XdslLan LAN Configuration of the Modem
 type XdslLan struct {
 
-	// The IP address of the LAN interface of the modem
+	// IPAddress The IP address of the LAN interface of the modem
 	IPAddress string `json:"IPAddress,omitempty"`
 
-	// How the LAN interface of the modem is gettig its address
+	// AddressingType How the LAN interface of the modem is gettig its address
 	AddressingType string `json:"addressingType,omitempty"`
 
-	// Name of the LAN
+	// LanName Name of the LAN
 	LanName string `json:"lanName,omitempty"`
 
-	// The subnet mask of the LAN interface of the modem
+	// SubnetMask The subnet mask of the LAN interface of the modem
 	SubnetMask string `json:"subnetMask,omitempty"`
 
-	// ID of the ongoing todo (NULL if none)
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID ID of the ongoing todo (NULL if none)
+	TaskID int64 `json:"taskId,omitempty"`
 }

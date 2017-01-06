@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Access rule required for the application
+// AuthAccessRule Access rule required for the application
 type AuthAccessRule struct {
-
 	Method string `json:"method,omitempty"`
 
 	Path string `json:"path,omitempty"`

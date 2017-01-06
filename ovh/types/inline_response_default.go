@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// InlineResponseDefault ...
 type InlineResponseDefault struct {
-
 	ErrorCode int32 `json:"errorCode,omitempty"`
 
-	HttpCode int32 `json:"httpCode,omitempty"`
+	HTTPCode int32 `json:"httpCode,omitempty"`
 
 	Message string `json:"message,omitempty"`
 }

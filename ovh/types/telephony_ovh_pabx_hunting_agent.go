@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,26 +10,25 @@
 
 package types
 
-// Calls agent
+// TelephonyOvhPabxHuntingAgent Calls agent
 type TelephonyOvhPabxHuntingAgent struct {
+	AgentID int64 `json:"agentId,omitempty"`
 
-	AgentId int64 `json:"agentId,omitempty"`
-
-	// The id of the current break status of the agent
+	// BreakStatus The id of the current break status of the agent
 	BreakStatus int64 `json:"breakStatus,omitempty"`
 
-	// The number of the agent
+	// Number The number of the agent
 	Number string `json:"number,omitempty"`
 
-	// The maximum of simultaneous calls that the agent will receive from the hunting
+	// SimultaneousLines The maximum of simultaneous calls that the agent will receive from the hunting
 	SimultaneousLines int64 `json:"simultaneousLines,omitempty"`
 
-	// The current status of the agent
+	// Status The current status of the agent
 	Status string `json:"status,omitempty"`
 
-	// The waiting timeout (in seconds) before hangup an assigned called
+	// Timeout The waiting timeout (in seconds) before hangup an assigned called
 	Timeout int64 `json:"timeout,omitempty"`
 
-	// The wrap up time (in seconds) after the calls
+	// WrapUpTime The wrap up time (in seconds) after the calls
 	WrapUpTime int64 `json:"wrapUpTime,omitempty"`
 }

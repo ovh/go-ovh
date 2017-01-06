@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedNashaConfirmTerminationPost ...
 type DedicatedNashaConfirmTerminationPost struct {
-
 	Commentary string `json:"commentary,omitempty"`
 
 	Reason string `json:"reason,omitempty"`

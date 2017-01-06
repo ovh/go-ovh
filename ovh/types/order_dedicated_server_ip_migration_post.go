@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type OrderDedicatedServerIpMigrationPost struct {
-
-	Ip string `json:"ip,omitempty"`
+// OrderDedicatedServerIPMigrationPost ...
+type OrderDedicatedServerIPMigrationPost struct {
+	IP string `json:"ip,omitempty"`
 
 	Token string `json:"token,omitempty"`
 }

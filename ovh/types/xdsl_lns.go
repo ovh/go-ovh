@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// L2TP Network Server
+// XdslLns L2TP Network Server
 type XdslLns struct {
-
 	City string `json:"city,omitempty"`
 
 	IsCurrent bool `json:"isCurrent,omitempty"`

@@ -10,13 +10,13 @@
 
 package types
 
-// ConsumptionItem
+// PaasTimeseriesConsumptionItem ConsumptionItem
 type PaasTimeseriesConsumptionItem struct {
 	MetricName string `json:"metricName,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	Quantity PaasTimeseriesConsumptionItemQuantity `json:"quantity,omitempty"`
+	Quantity *PaasTimeseriesConsumptionItemQuantity `json:"quantity,omitempty"`
 
-	UnitPrice OrderPrice `json:"unitPrice,omitempty"`
+	UnitPrice *OrderPrice `json:"unitPrice,omitempty"`
 }

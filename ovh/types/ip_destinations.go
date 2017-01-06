@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// A structure given all services allowed as a destination for this ip
-type IpDestinations struct {
+// IPDestinations A structure given all services allowed as a destination for this ip
+type IPDestinations struct {
 
-	// list of public cloud projects
-	CloudProject []IpDestination `json:"cloudProject,omitempty"`
+	// CloudProject list of public cloud projects
+	CloudProject []*IPDestination `json:"cloudProject,omitempty"`
 
-	// list of dedicated clouds
-	DedicatedCloud []IpDestination `json:"dedicatedCloud,omitempty"`
+	// DedicatedCloud list of dedicated clouds
+	DedicatedCloud []*IPDestination `json:"dedicatedCloud,omitempty"`
 
-	// list of dedicated servers
-	DedicatedServer []IpDestination `json:"dedicatedServer,omitempty"`
+	// DedicatedServer list of dedicated servers
+	DedicatedServer []*IPDestination `json:"dedicatedServer,omitempty"`
 
-	// list of load balancing services
-	Iplb []IpDestination `json:"iplb,omitempty"`
+	// IPLB list of load balancing services
+	IPLB []*IPDestination `json:"iplb,omitempty"`
 
-	// list of vps
-	Vps []IpDestination `json:"vps,omitempty"`
+	// Vps list of vps
+	Vps []*IPDestination `json:"vps,omitempty"`
 }

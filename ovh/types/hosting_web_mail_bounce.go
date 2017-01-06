@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// The volume history type
+// HostingWebMailBounce The volume history type
 type HostingWebMailBounce struct {
 
-	// The datetime of this bounce
-	Date time.Time `json:"date,omitempty"`
+	// Date The datetime of this bounce
+	Date *time.Time `json:"date,omitempty"`
 
-	// The return message for this bounce
+	// Message The return message for this bounce
 	Message string `json:"message,omitempty"`
 
-	// The email where you have the bounce
+	// To The email where you have the bounce
 	To string `json:"to,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Infos about a network interface
+// OverTheBoxDeviceInterface Infos about a network interface
 type OverTheBoxDeviceInterface struct {
 
-	// The DNS servers of this interface
-	DnsServers []string `json:"dnsServers,omitempty"`
+	// DNSServers The DNS servers of this interface
+	DNSServers []string `json:"dnsServers,omitempty"`
 
-	// Gateway of the interface
+	// Gateway Gateway of the interface
 	Gateway string `json:"gateway,omitempty"`
 
-	// IP of the interface
-	Ip string `json:"ip,omitempty"`
+	// IP IP of the interface
+	IP string `json:"ip,omitempty"`
 
-	// Status of MPTCP on this interface
+	// MultipathStatus Status of MPTCP on this interface
 	MultipathStatus string `json:"multipathStatus,omitempty"`
 
-	// Name of the interface
+	// Name Name of the interface
 	Name string `json:"name,omitempty"`
 
-	// Netmask of the interface
+	// Netmask Netmask of the interface
 	Netmask string `json:"netmask,omitempty"`
 
-	// Public IP of the interface
-	PublicIp string `json:"publicIp,omitempty"`
+	// PublicIP Public IP of the interface
+	PublicIP string `json:"publicIp,omitempty"`
 }

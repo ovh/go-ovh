@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Option of Offer
+// PackXdslMigrationOfferOption Option of Offer
 type PackXdslMigrationOfferOption struct {
 
-	// Name of the option
+	// Name Name of the option
 	Name string `json:"name,omitempty"`
 
-	// Number of slots, couting included slots
+	// Quantity Number of slots, couting included slots
 	Quantity int64 `json:"quantity,omitempty"`
 }

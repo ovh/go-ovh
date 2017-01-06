@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Elasticsearch alias
+// DBaaSLogsAlias Elasticsearch alias
 type DBaaSLogsAlias struct {
 
-	// Alias UUID
-	AliasId string `json:"aliasId,omitempty"`
+	// AliasID Alias UUID
+	AliasID string `json:"aliasId,omitempty"`
 
-	// Input creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Input creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Alias description
+	// Description Alias description
 	Description string `json:"description,omitempty"`
 
-	// Indicates if you are allowed to edit entry
+	// IsEditable Indicates if you are allowed to edit entry
 	IsEditable bool `json:"isEditable,omitempty"`
 
-	// Alias name
+	// Name Alias name
 	Name string `json:"name,omitempty"`
 
-	// Associated DBaaS Logs option
-	OptionId string `json:"optionId,omitempty"`
+	// OptionID Associated DBaaS Logs option
+	OptionID string `json:"optionId,omitempty"`
 
-	// Input last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Input last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// ClusterHadoopUserPost ...
 type ClusterHadoopUserPost struct {
-
 	ClouderaManager bool `json:"clouderaManager,omitempty"`
 
-	HttpFrontend bool `json:"httpFrontend,omitempty"`
+	HTTPFrontend bool `json:"httpFrontend,omitempty"`
 
 	Hue bool `json:"hue,omitempty"`
 

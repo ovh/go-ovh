@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Describes an Addon
+// OrderCatalogAddonItem Describes an Addon
 type OrderCatalogAddonItem struct {
 
-	// List of the addons of this family
-	Addons []OrderCatalogAddonOffer `json:"addons,omitempty"`
+	// Addons List of the addons of this family
+	Addons []*OrderCatalogAddonOffer `json:"addons,omitempty"`
 
-	// Whether you can only have one instance of this addon family (xor)
+	// Exclusive Whether you can only have one instance of this addon family (xor)
 	Exclusive bool `json:"exclusive,omitempty"`
 
-	// Addon family name
+	// Family Addon family name
 	Family string `json:"family,omitempty"`
 
-	// Indicated if addon family must be contracted
+	// Mandatory Indicated if addon family must be contracted
 	Mandatory bool `json:"mandatory,omitempty"`
 }

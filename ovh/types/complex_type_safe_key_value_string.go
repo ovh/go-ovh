@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Key and value, with proper key strings
+// ComplexTypeSafeKeyValueString Key and value, with proper key strings
 type ComplexTypeSafeKeyValueString struct {
-
 	Key string `json:"key,omitempty"`
 
 	Value string `json:"value,omitempty"`

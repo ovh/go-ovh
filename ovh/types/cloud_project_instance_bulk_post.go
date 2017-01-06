@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,25 +10,25 @@
 
 package types
 
+// CloudProjectInstanceBulkPost ...
 type CloudProjectInstanceBulkPost struct {
+	FlavorID string `json:"flavorId,omitempty"`
 
-	FlavorId string `json:"flavorId,omitempty"`
+	GroupID string `json:"groupId,omitempty"`
 
-	GroupId string `json:"groupId,omitempty"`
-
-	ImageId string `json:"imageId,omitempty"`
+	ImageID string `json:"imageId,omitempty"`
 
 	MonthlyBilling bool `json:"monthlyBilling,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	Networks []CloudInstanceNetworkBulkParams `json:"networks,omitempty"`
+	Networks []*CloudInstanceNetworkBulkParams `json:"networks,omitempty"`
 
 	Number int64 `json:"number,omitempty"`
 
 	Region string `json:"region,omitempty"`
 
-	SshKeyId string `json:"sshKeyId,omitempty"`
+	SSHKeyID string `json:"sshKeyId,omitempty"`
 
 	UserData string `json:"userData,omitempty"`
 }

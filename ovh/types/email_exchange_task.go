@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Exchange task details
+// EmailExchangeTask Exchange task details
 type EmailExchangeTask struct {
 
-	// Completion date
-	FinishDate time.Time `json:"finishDate,omitempty"`
+	// FinishDate Completion date
+	FinishDate *time.Time `json:"finishDate,omitempty"`
 
-	// Function name
+	// Function Function name
 	Function string `json:"function,omitempty"`
 
-	// Task id
-	Id int64 `json:"id,omitempty"`
+	// ID Task id
+	ID int64 `json:"id,omitempty"`
 
-	// Task status
+	// Status Task status
 	Status string `json:"status,omitempty"`
 
-	// Creation date
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	// TodoDate Creation date
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

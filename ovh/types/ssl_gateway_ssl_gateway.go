@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// Your SSL Gateway
-type SslGatewaySslGateway struct {
+// SSLGateway Your SSL Gateway
+type SSLGateway struct {
 
-	// Restrict SSL Gateway access to these ip block. No restriction if null
+	// AllowedSource Restrict SSL Gateway access to these ip block. No restriction if null
 	AllowedSource []string `json:"allowedSource,omitempty"`
 
-	// Custom name of your SSL Gateway
+	// DisplayName Custom name of your SSL Gateway
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Set to true to enable Strict-Transport-Security HTTP header
+	// Hsts Set to true to enable Strict-Transport-Security HTTP header
 	Hsts bool `json:"hsts,omitempty"`
 
-	// Set to true to enable https redirect
-	HttpsRedirect bool `json:"httpsRedirect,omitempty"`
+	// HTTPSRedirect Set to true to enable https redirect
+	HTTPSRedirect bool `json:"httpsRedirect,omitempty"`
 
-	// The IPv4 you need to put in the A field of your domain name
-	Ipv4 string `json:"ipv4,omitempty"`
+	// IPv4 The IPv4 you need to put in the A field of your domain name
+	IPv4 string `json:"ipv4,omitempty"`
 
-	// Current offer for your SSL Gateway
+	// Offer Current offer for your SSL Gateway
 	Offer string `json:"offer,omitempty"`
 
-	// Custom reverse for your SSL Gateway
+	// Reverse Custom reverse for your SSL Gateway
 	Reverse string `json:"reverse,omitempty"`
 
-	// Set to true to contact backend servers over HTTPS
-	ServerHttps bool `json:"serverHttps,omitempty"`
+	// ServerHTTPS Set to true to contact backend servers over HTTPS
+	ServerHTTPS bool `json:"serverHttps,omitempty"`
 
-	// The internal name of your SSL Gateway
+	// ServiceName The internal name of your SSL Gateway
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Modern oldest compatible clients : Firefox 27, Chrome 30, IE 11 on Windows 7, Edge, Opera 17, Safari 9, Android 5.0, and Java 8. Intermediate oldest compatible clients : Firefox 1, Chrome 1, IE 7, Opera 5, Safari 1, Windows XP IE8, Android 2.3, Java 7. Intermediate if null.
-	SslConfiguration string `json:"sslConfiguration,omitempty"`
+	// SSLConfiguration Modern oldest compatible clients : Firefox 27, Chrome 30, IE 11 on Windows 7, Edge, Opera 17, Safari 9, Android 5.0, and Java 8. Intermediate oldest compatible clients : Firefox 1, Chrome 1, IE 7, Opera 5, Safari 1, Windows XP IE8, Android 2.3, Java 7. Intermediate if null.
+	SSLConfiguration string `json:"sslConfiguration,omitempty"`
 
-	// Current state of your SSL Gateway
+	// State Current state of your SSL Gateway
 	State string `json:"state,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Horizon As A Service User
+// HorizonViewUser Horizon As A Service User
 type HorizonViewUser struct {
 
-	// Username of your HaaS User
+	// Username Username of your HaaS User
 	Username string `json:"username,omitempty"`
 }

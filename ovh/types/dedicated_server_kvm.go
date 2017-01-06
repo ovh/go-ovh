@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Physical KVM
+// DedicatedServerKvm Physical KVM
 type DedicatedServerKvm struct {
 
-	// KVM expiration date
-	Expiration time.Time `json:"expiration,omitempty"`
+	// Expiration KVM expiration date
+	Expiration *time.Time `json:"expiration,omitempty"`
 
-	// KVM access ip
-	Ip string `json:"ip,omitempty"`
+	// IP KVM access ip
+	IP string `json:"ip,omitempty"`
 
-	// KVM hostname
+	// Name KVM hostname
 	Name string `json:"name,omitempty"`
 }

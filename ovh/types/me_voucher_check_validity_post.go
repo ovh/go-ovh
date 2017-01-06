@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// MeVoucherCheckValidityPost ...
 type MeVoucherCheckValidityPost struct {
-
 	Voucher string `json:"voucher,omitempty"`
 }

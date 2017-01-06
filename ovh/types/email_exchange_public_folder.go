@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,50 +14,50 @@ import (
 	"time"
 )
 
-// Exchange organization public folder
+// EmailExchangePublicFolder Exchange organization public folder
 type EmailExchangePublicFolder struct {
 
-	// Access right for the guest users
+	// AnonymousPermission Access right for the guest users
 	AnonymousPermission string `json:"anonymousPermission,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Default access right
+	// DefaultPermission Default access right
 	DefaultPermission string `json:"defaultPermission,omitempty"`
 
-	// If true, this public folder has subfolders
+	// HasSubFolders If true, this public folder has subfolders
 	HasSubFolders bool `json:"hasSubFolders,omitempty"`
 
-	// Number of items in public folder
+	// ItemCount Number of items in public folder
 	ItemCount int64 `json:"itemCount,omitempty"`
 
-	// Time for which public folder was accessed for the last time
-	LastAccessTime time.Time `json:"lastAccessTime,omitempty"`
+	// LastAccessTime Time for which public folder was accessed for the last time
+	LastAccessTime *time.Time `json:"lastAccessTime,omitempty"`
 
-	// Time for which public folder was modified for the last time 
-	LastModificationTime time.Time `json:"lastModificationTime,omitempty"`
+	// LastModificationTime Time for which public folder was modified for the last time
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
 
-	// Time for which public folder was accessed for the last time by the user
-	LastUserAccessTime time.Time `json:"lastUserAccessTime,omitempty"`
+	// LastUserAccessTime Time for which public folder was accessed for the last time by the user
+	LastUserAccessTime *time.Time `json:"lastUserAccessTime,omitempty"`
 
-	// Time for which public folder was modified for the last time by the user
-	LastUserModificationTime time.Time `json:"lastUserModificationTime,omitempty"`
+	// LastUserModificationTime Time for which public folder was modified for the last time by the user
+	LastUserModificationTime *time.Time `json:"lastUserModificationTime,omitempty"`
 
-	// Path for public folder
+	// Path Path for public folder
 	Path string `json:"path,omitempty"`
 
-	// Quota for public folder in MB
+	// Quota Quota for public folder in MB
 	Quota int64 `json:"quota,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	// task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 
-	// Sum of all items in public folder in MB
+	// TotalItemSize Sum of all items in public folder in MB
 	TotalItemSize int64 `json:"totalItemSize,omitempty"`
 
-	// Type for public folder
-	Type_ string `json:"type,omitempty"`
+	// TType Type for public folder
+	TType string `json:"type,omitempty"`
 }

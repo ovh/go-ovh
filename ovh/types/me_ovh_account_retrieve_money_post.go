@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// MeOvhAccountRetrieveMoneyPost ...
 type MeOvhAccountRetrieveMoneyPost struct {
-
 	Amount int64 `json:"amount,omitempty"`
 
-	BankAccountId int64 `json:"bankAccountId,omitempty"`
+	BankAccountID int64 `json:"bankAccountId,omitempty"`
 }

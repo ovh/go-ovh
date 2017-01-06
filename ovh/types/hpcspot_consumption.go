@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,32 +14,32 @@ import (
 	"time"
 )
 
-// Detail of a HPC Spot consumtion
+// HpcspotConsumption Detail of a HPC Spot consumtion
 type HpcspotConsumption struct {
 
-	// Description of the ressource
+	// Description Description of the ressource
 	Description string `json:"description,omitempty"`
 
-	// Date of the completion of the item consumption
-	HpcspotItemEndDate time.Time `json:"hpcspotItemEndDate,omitempty"`
+	// HpcspotItemEndDate Date of the completion of the item consumption
+	HpcspotItemEndDate *time.Time `json:"hpcspotItemEndDate,omitempty"`
 
-	// ID of the linked job on HPC Spot interface
-	HpcspotItemId int64 `json:"hpcspotItemId,omitempty"`
+	// HpcspotItemID ID of the linked job on HPC Spot interface
+	HpcspotItemID int64 `json:"hpcspotItemId,omitempty"`
 
-	// URL for the description of the consumption on the HPC Spot interface
-	HpcspotUrl string `json:"hpcspotUrl,omitempty"`
+	// HpcspotURL URL for the description of the consumption on the HPC Spot interface
+	HpcspotURL string `json:"hpcspotUrl,omitempty"`
 
-	// ID of the detail
-	Id int64 `json:"id,omitempty"`
+	// ID ID of the detail
+	ID int64 `json:"id,omitempty"`
 
-	// ID of the Order that billed this item. If null, this item has not been billed
-	OrderId int64 `json:"orderId,omitempty"`
+	// OrderID ID of the Order that billed this item. If null, this item has not been billed
+	OrderID int64 `json:"orderId,omitempty"`
 
-	Quantity HpcspotConsumptionQuantity `json:"quantity,omitempty"`
+	Quantity *HpcspotConsumptionQuantity `json:"quantity,omitempty"`
 
-	// Reference of the item. This reference is linked with the type of the item
+	// Reference Reference of the item. This reference is linked with the type of the item
 	Reference string `json:"reference,omitempty"`
 
-	// Type of consumption
-	Type_ string `json:"type,omitempty"`
+	// TType Type of consumption
+	TType string `json:"type,omitempty"`
 }

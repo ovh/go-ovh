@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// CPU cache size
-type DedicatedServerRtmCpuCache struct {
-
+// DedicatedServerRtmCPUCache CPU cache size
+type DedicatedServerRtmCPUCache struct {
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

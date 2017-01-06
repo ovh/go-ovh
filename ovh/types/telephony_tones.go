@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Line tones
+// TelephonyTones Line tones
 type TelephonyTones struct {
 
-	// Tone played when caller is waiting in queue
+	// CallWaiting Tone played when caller is waiting in queue
 	CallWaiting string `json:"callWaiting,omitempty"`
 
-	// Tone played when callee is ending call
+	// EndCall Tone played when callee is ending call
 	EndCall string `json:"endCall,omitempty"`
 
-	// Tone played when caller is put on hold
+	// OnHold Tone played when caller is put on hold
 	OnHold string `json:"onHold,omitempty"`
 
-	// Ringback tone
+	// Ringback Ringback tone
 	Ringback string `json:"ringback,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// Sharepoint account license per day
+// MsServicesSharepointDailyLicense Sharepoint account license per day
 type MsServicesSharepointDailyLicense struct {
+	AccountLicense []*MsServicesSharepointAccountLicense `json:"accountLicense,omitempty"`
 
-	AccountLicense []MsServicesSharepointAccountLicense `json:"accountLicense,omitempty"`
-
-	Date time.Time `json:"date,omitempty"`
+	Date *time.Time `json:"date,omitempty"`
 }

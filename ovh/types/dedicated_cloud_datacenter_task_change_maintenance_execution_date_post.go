@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
+// DedicatedCloudDatacenterTaskChangeMaintenanceExecutionDatePost ...
 type DedicatedCloudDatacenterTaskChangeMaintenanceExecutionDatePost struct {
-
-	ExecutionDate time.Time `json:"executionDate,omitempty"`
+	ExecutionDate *time.Time `json:"executionDate,omitempty"`
 }

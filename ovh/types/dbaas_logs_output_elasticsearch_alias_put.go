@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DbaasLogsOutputElasticsearchAliasPut ...
 type DbaasLogsOutputElasticsearchAliasPut struct {
-
 	Description string `json:"description,omitempty"`
 
-	OptionId string `json:"optionId,omitempty"`
+	OptionID string `json:"optionId,omitempty"`
 }

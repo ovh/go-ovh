@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Images
+// PaasDatabaseImage Images
 type PaasDatabaseImage struct {
 
-	// Image name
+	// ImageName Image name
 	ImageName string `json:"imageName,omitempty"`
 
-	// Image status
+	// Status Image status
 	Status string `json:"status,omitempty"`
 
-	// Image type
-	Type_ string `json:"type,omitempty"`
+	// TType Image type
+	TType string `json:"type,omitempty"`
 
-	// Image version
+	// Version Image version
 	Version string `json:"version,omitempty"`
 }

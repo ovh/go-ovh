@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// OrderDedicatedCloudUpgradeRessourcePost ...
 type OrderDedicatedCloudUpgradeRessourcePost struct {
-
 	UpgradeType string `json:"upgradeType,omitempty"`
 
-	UpgradedRessourceId int64 `json:"upgradedRessourceId,omitempty"`
+	UpgradedRessourceID int64 `json:"upgradedRessourceId,omitempty"`
 
 	UpgradedRessourceType string `json:"upgradedRessourceType,omitempty"`
 }

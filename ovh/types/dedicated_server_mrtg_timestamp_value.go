@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// A timestamp associated to a value
+// DedicatedServerMrtgTimestampValue A timestamp associated to a value
 type DedicatedServerMrtgTimestampValue struct {
-
 	Timestamp int64 `json:"timestamp,omitempty"`
 
-	Value DedicatedServerMrtgTimestampValueValue `json:"value,omitempty"`
+	Value *DedicatedServerMrtgTimestampValueValue `json:"value,omitempty"`
 }

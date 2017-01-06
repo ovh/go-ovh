@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Server raid informations
+// DedicatedServerRtmRaid Server raid informations
 type DedicatedServerRtmRaid struct {
 
-	// Raid unit
+	// Unit Raid unit
 	Unit string `json:"unit,omitempty"`
 }

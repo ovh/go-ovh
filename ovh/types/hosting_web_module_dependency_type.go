@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Dependency parameters. A dependency can be a standard database (like MySQL or PostgreSQL) or a key-value store (like Redis or Memcached) for example
+// HostingWebModuleDependencyType Dependency parameters. A dependency can be a standard database (like MySQL or PostgreSQL) or a key-value store (like Redis or Memcached) for example
 type HostingWebModuleDependencyType struct {
 
-	// The name of this dependency
+	// Name The name of this dependency
 	Name string `json:"name,omitempty"`
 
-	// The password associated with the user
+	// Password The password associated with the user
 	Password string `json:"password,omitempty"`
 
-	// The port on where to contact this dependency
+	// Port The port on where to contact this dependency
 	Port int64 `json:"port,omitempty"`
 
-	// The prefix to set to the data to distinguish between the data from the module and the rest
+	// Prefix The prefix to set to the data to distinguish between the data from the module and the rest
 	Prefix string `json:"prefix,omitempty"`
 
-	// The server on where your dependency is hosted
+	// Server The server on where your dependency is hosted
 	Server string `json:"server,omitempty"`
 
-	// Type
-	Type_ string `json:"type,omitempty"`
+	// TType Type
+	TType string `json:"type,omitempty"`
 
-	// The user to use to connect to this dependency
+	// User The user to use to connect to this dependency
 	User string `json:"user,omitempty"`
 }

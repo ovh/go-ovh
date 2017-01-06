@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,36 +14,36 @@ import (
 	"time"
 )
 
-// Describe device informations of a Modem
+// XdslDeviceModemInfo Describe device informations of a Modem
 type XdslDeviceModemInfo struct {
 
-	// Modem brand
+	// Brand Modem brand
 	Brand string `json:"brand,omitempty"`
 
-	// Modem ip address
-	Ip string `json:"ip,omitempty"`
+	// IP Modem ip address
+	IP string `json:"ip,omitempty"`
 
-	// Time of last information refresh
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Time of last information refresh
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Modem mac address
+	// MacAddress Modem mac address
 	MacAddress string `json:"macAddress,omitempty"`
 
-	// Modem type of model
+	// Model Modem type of model
 	Model string `json:"model,omitempty"`
 
-	// Organizational Unique Identifier
+	// Oui Organizational Unique Identifier
 	Oui string `json:"oui,omitempty"`
 
-	// Protocol used for connection
+	// OverEthernet Protocol used for connection
 	OverEthernet string `json:"overEthernet,omitempty"`
 
-	// login used for ppp protocol
+	// PppLogin login used for ppp protocol
 	PppLogin string `json:"pppLogin,omitempty"`
 
-	// Modem serial key
+	// Serial Modem serial key
 	Serial string `json:"serial,omitempty"`
 
-	// Software Version
+	// SoftVersion Software Version
 	SoftVersion string `json:"softVersion,omitempty"`
 }

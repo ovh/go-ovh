@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Storage nas HA
+// DedicatedNashaStorage Storage nas HA
 type DedicatedNashaStorage struct {
 
-	// True, if partition creation is allowed on this nas HA
+	// CanCreatePartition True, if partition creation is allowed on this nas HA
 	CanCreatePartition bool `json:"canCreatePartition,omitempty"`
 
-	// The name you give to the nas
+	// CustomName The name you give to the nas
 	CustomName string `json:"customName,omitempty"`
 
-	// area of nas
+	// Datacenter area of nas
 	Datacenter string `json:"datacenter,omitempty"`
 
-	// Access ip of nas
-	Ip string `json:"ip,omitempty"`
+	// IP Access ip of nas
+	IP string `json:"ip,omitempty"`
 
-	// Send an email to customer if any issue is detected
+	// Monitored Send an email to customer if any issue is detected
 	Monitored bool `json:"monitored,omitempty"`
 
-	// The storage service name
+	// ServiceName The storage service name
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// percentage of nas space used in %
+	// ZpoolCapacity percentage of nas space used in %
 	ZpoolCapacity int64 `json:"zpoolCapacity,omitempty"`
 
-	// the size of the nas
+	// ZpoolSize the size of the nas
 	ZpoolSize int64 `json:"zpoolSize,omitempty"`
 }

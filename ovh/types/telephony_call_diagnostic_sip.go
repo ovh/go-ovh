@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,10 @@
 
 package types
 
-// Call diagnostic analyze structure on sip signal
+// TelephonyCallDiagnosticSip Call diagnostic analyze structure on sip signal
 type TelephonyCallDiagnosticSip struct {
 
-	// Encoded json headers
+	// Headers Encoded json headers
 	Headers string `json:"headers,omitempty"`
 
 	RequestMethod string `json:"requestMethod,omitempty"`

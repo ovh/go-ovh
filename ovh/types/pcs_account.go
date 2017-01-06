@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// PCS Infrastructure
+// PcsAccount PCS Infrastructure
 type PcsAccount struct {
-
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Available option for the offer
+// PackXdslMigrationOfferAvailableOption Available option for the offer
 type PackXdslMigrationOfferAvailableOption struct {
 
-	// Number of months paid for
+	// Duration Number of months paid for
 	Duration int64 `json:"duration,omitempty"`
 
-	// Number of slots included by default in this offer
+	// Included Number of slots included by default in this offer
 	Included int64 `json:"included,omitempty"`
 
-	// Name of the option
+	// Name Name of the option
 	Name string `json:"name,omitempty"`
 
-	// Number of optional slots that can be puchased
+	// Optional Number of optional slots that can be puchased
 	Optional int64 `json:"optional,omitempty"`
 
-	OptionalPrice OrderPrice `json:"optionalPrice,omitempty"`
+	OptionalPrice *OrderPrice `json:"optionalPrice,omitempty"`
 }

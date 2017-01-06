@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Describe the capabilities of the Access
+// XdslAccessCapabilities Describe the capabilities of the Access
 type XdslAccessCapabilities struct {
-
 	CanApplyLnsRateLimit bool `json:"canApplyLnsRateLimit,omitempty"`
 
 	CanChangeDslamProfile bool `json:"canChangeDslamProfile,omitempty"`

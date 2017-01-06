@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,28 +10,28 @@
 
 package types
 
-// Represents an address
+// XdslEligibilityAddress Represents an address
 type XdslEligibilityAddress struct {
 
-	// The name of the building, if any
+	// Building The name of the building, if any
 	Building string `json:"building,omitempty"`
 
-	City XdslEligibilityCity `json:"city,omitempty"`
+	City *XdslEligibilityCity `json:"city,omitempty"`
 
-	// The identifier of the door, if any
+	// Door The identifier of the door, if any
 	Door string `json:"door,omitempty"`
 
-	// The identifier of the floor, if any
+	// Floor The identifier of the floor, if any
 	Floor string `json:"floor,omitempty"`
 
-	// The name of the residence, if any
+	// Residence The name of the residence, if any
 	Residence string `json:"residence,omitempty"`
 
-	// The identifier of the stair, if any
+	// Stair The identifier of the stair, if any
 	Stair string `json:"stair,omitempty"`
 
-	Street XdslEligibilityStreet `json:"street,omitempty"`
+	Street *XdslEligibilityStreet `json:"street,omitempty"`
 
-	// The number in the street
+	// StreetNumber The number in the street
 	StreetNumber string `json:"streetNumber,omitempty"`
 }

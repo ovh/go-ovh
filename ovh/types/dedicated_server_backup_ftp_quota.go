@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// The disk space available in gigabytes
+// DedicatedServerBackupFtpQuota The disk space available in gigabytes
 type DedicatedServerBackupFtpQuota struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

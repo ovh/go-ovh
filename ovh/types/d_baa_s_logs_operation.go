@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,36 +14,36 @@ import (
 	"time"
 )
 
-// Input operation
+// DBaaSLogsOperation Input operation
 type DBaaSLogsOperation struct {
 
-	// Alias used
-	AliasId string `json:"aliasId,omitempty"`
+	// AliasID Alias used
+	AliasID string `json:"aliasId,omitempty"`
 
-	// Operation creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Operation creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Dashboard used
-	DashboardId string `json:"dashboardId,omitempty"`
+	// DashboardID Dashboard used
+	DashboardID string `json:"dashboardId,omitempty"`
 
-	// Index used
-	IndexId string `json:"indexId,omitempty"`
+	// IndexID Index used
+	IndexID string `json:"indexId,omitempty"`
 
-	// Input used
-	InputId string `json:"inputId,omitempty"`
+	// InputID Input used
+	InputID string `json:"inputId,omitempty"`
 
-	// Operation UUID
-	OperationId string `json:"operationId,omitempty"`
+	// OperationID Operation UUID
+	OperationID string `json:"operationId,omitempty"`
 
-	// Role used
-	RoleId string `json:"roleId,omitempty"`
+	// RoleID Role used
+	RoleID string `json:"roleId,omitempty"`
 
-	// Operation status
+	// State Operation status
 	State string `json:"state,omitempty"`
 
-	// Stream used
-	StreamId string `json:"streamId,omitempty"`
+	// StreamID Stream used
+	StreamID string `json:"streamId,omitempty"`
 
-	// Operation last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Operation last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

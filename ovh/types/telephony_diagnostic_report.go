@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Relevant informations of the service detected from the MOS or the signal leg in SIP/MGCP protocol.
+// TelephonyDiagnosticReport Relevant informations of the service detected from the MOS or the signal leg in SIP/MGCP protocol.
 type TelephonyDiagnosticReport struct {
 
-	// Identifier of the concerned leg
-	CallId string `json:"callId,omitempty"`
+	// CallID Identifier of the concerned leg
+	CallID string `json:"callId,omitempty"`
 
-	// Typology where the diagnostic arriving from
+	// Category Typology where the diagnostic arriving from
 	Category string `json:"category,omitempty"`
 
-	// Datetime of the diagnostic
-	Datetime time.Time `json:"datetime,omitempty"`
+	// Datetime Datetime of the diagnostic
+	Datetime *time.Time `json:"datetime,omitempty"`
 
-	// Explanation of the diagnostic
+	// Description Explanation of the diagnostic
 	Description string `json:"description,omitempty"`
 
-	// The level of the diagnostic
+	// Level The level of the diagnostic
 	Level string `json:"level,omitempty"`
 
-	// Name of the rule detected
+	// Name Name of the rule detected
 	Name string `json:"name,omitempty"`
 
-	// Report of the diagnostic
+	// Report Report of the diagnostic
 	Report string `json:"report,omitempty"`
 }

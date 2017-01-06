@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,12 @@
 
 package types
 
-type IpGameMitigationRulePorts struct {
+// IPGameMitigationRulePorts ...
+type IPGameMitigationRulePorts struct {
 
-	// Start point of the range
+	// From Start point of the range
 	From int64 `json:"from,omitempty"`
 
-	// End point of the range
+	// To End point of the range
 	To int64 `json:"to,omitempty"`
 }

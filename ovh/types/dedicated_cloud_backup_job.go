@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Dedicated Cloud Backup Job
+// DedicatedCloudBackupJob Dedicated Cloud Backup Job
 type DedicatedCloudBackupJob struct {
 
-	// Disk space allocated to the virtual machine
+	// AllocatedDisk Disk space allocated to the virtual machine
 	AllocatedDisk float64 `json:"allocatedDisk,omitempty"`
 
-	// List of days your Virtual Machine will be backuped
+	// BackupDays List of days your Virtual Machine will be backuped
 	BackupDays []string `json:"backupDays,omitempty"`
 
-	// Backup is encrypted
+	// Encryption Backup is encrypted
 	Encryption bool `json:"encryption,omitempty"`
 
-	// Offer type of the backup job
+	// OfferType Offer type of the backup job
 	OfferType string `json:"offerType,omitempty"`
 
-	// Number of days before the backup is deleted
+	// RetentionTime Number of days before the backup is deleted
 	RetentionTime int64 `json:"retentionTime,omitempty"`
 
-	// State of the backup job
+	// State State of the backup job
 	State string `json:"state,omitempty"`
 
-	// Name of the virtual Machine
-	VmName string `json:"vmName,omitempty"`
+	// VMName Name of the virtual Machine
+	VMName string `json:"vmName,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Storage partition
+// DedicatedNasPartition Storage partition
 type DedicatedNasPartition struct {
 
-	// the given name of partition
+	// PartitionName the given name of partition
 	PartitionName string `json:"partitionName,omitempty"`
 
-	// must be nfs cifs or both
+	// Protocol must be nfs cifs or both
 	Protocol string `json:"protocol,omitempty"`
 
-	// Partition size
+	// Size Partition size
 	Size int64 `json:"size,omitempty"`
 }

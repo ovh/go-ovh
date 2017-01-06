@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Ssl
-type IplbSsl struct {
+// IPLBSSL Ssl
+type IPLBSSL struct {
 
-	// Fingerprint of your ssl
+	// Fingerprint Fingerprint of your ssl
 	Fingerprint string `json:"fingerprint,omitempty"`
 
-	// Id of your ssl
-	Id int64 `json:"id,omitempty"`
+	// ID Id of your ssl
+	ID int64 `json:"id,omitempty"`
 
-	// Serial of your ssl (Deprecated, use fingerprint instead !)
+	// Serial Serial of your ssl (Deprecated, use fingerprint instead !)
 	Serial string `json:"serial,omitempty"`
 
-	// Subject of your ssl
+	// Subject Subject of your ssl
 	Subject string `json:"subject,omitempty"`
 
-	// Type of your ssl
-	Type_ string `json:"type,omitempty"`
+	// TType Type of your ssl
+	TType string `json:"type,omitempty"`
 }

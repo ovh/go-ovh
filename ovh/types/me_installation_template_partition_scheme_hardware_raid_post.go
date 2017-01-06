@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// MeInstallationTemplatePartitionSchemeHardwareRaidPost ...
 type MeInstallationTemplatePartitionSchemeHardwareRaidPost struct {
-
 	Disks []string `json:"disks,omitempty"`
 
 	Mode string `json:"mode,omitempty"`

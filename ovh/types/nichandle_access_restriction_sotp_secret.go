@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Describe SOTP secret keys
+// NichandleAccessRestrictionSotpSecret Describe SOTP secret keys
 type NichandleAccessRestrictionSotpSecret struct {
-
 	Codes []string `json:"codes,omitempty"`
 }

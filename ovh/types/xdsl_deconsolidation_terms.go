@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// Show the deconsolidation terms
+// XdslDeconsolidationTerms Show the deconsolidation terms
 type XdslDeconsolidationTerms struct {
 
-	// Duration of month the access will be engaged
+	// Engagement Duration of month the access will be engaged
 	Engagement float64 `json:"engagement,omitempty"`
 
-	MonthlyPrice OrderPrice `json:"monthlyPrice,omitempty"`
+	MonthlyPrice *OrderPrice `json:"monthlyPrice,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// PABX Hunting
+// TelephonyOvhPabxHunting PABX Hunting
 type TelephonyOvhPabxHunting struct {
 
-	// The templated url of your CRM, opened by the banner application of your cloudpabx
-	CrmUrlTemplate string `json:"crmUrlTemplate,omitempty"`
+	// CrmURLTemplate The templated url of your CRM, opened by the banner application of your cloudpabx
+	CrmURLTemplate string `json:"crmUrlTemplate,omitempty"`
 
-	// Enable G729 codec on your callcenter
+	// G729 Enable G729 codec on your callcenter
 	G729 bool `json:"g729,omitempty"`
 
-	// The name of your callcenter offer
+	// Name The name of your callcenter offer
 	Name string `json:"name,omitempty"`
 }

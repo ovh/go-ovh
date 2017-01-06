@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,36 +10,36 @@
 
 package types
 
-// Struct which describs an offer
+// HostingWebCapabilities Struct which describs an offer
 type HostingWebCapabilities struct {
 
-	// Number of domains you can attach to your hosting
+	// AttachedDomains Number of domains you can attach to your hosting
 	AttachedDomains int64 `json:"attachedDomains,omitempty"`
 
-	// Tell if you have acces to crontab
+	// Crontab Tell if you have acces to crontab
 	Crontab bool `json:"crontab,omitempty"`
 
-	// Describe all databases type you can have
-	Databases []HostingWebDatabaseCreationDatabaseCapabilities `json:"databases,omitempty"`
+	// Databases Describe all databases type you can have
+	Databases []*HostingWebDatabaseCreationDatabaseCapabilities `json:"databases,omitempty"`
 
-	Disk HostingWebCapabilitiesDisk `json:"disk,omitempty"`
+	Disk *HostingWebCapabilitiesDisk `json:"disk,omitempty"`
 
-	Emails HostingWebCreationEmailCapabilities `json:"emails,omitempty"`
+	Emails *HostingWebCreationEmailCapabilities `json:"emails,omitempty"`
 
-	// Number of ftp user you can create
+	// ExtraUsers Number of ftp user you can create
 	ExtraUsers int64 `json:"extraUsers,omitempty"`
 
-	// Tell if you have acces to module on click
+	// ModuleOneClick Tell if you have acces to module on click
 	ModuleOneClick bool `json:"moduleOneClick,omitempty"`
 
-	// Describe all privateDatabases type you can have
-	PrivateDatabases []HostingWebDatabaseCreationDatabaseCapabilities `json:"privateDatabases,omitempty"`
+	// PrivateDatabases Describe all privateDatabases type you can have
+	PrivateDatabases []*HostingWebDatabaseCreationDatabaseCapabilities `json:"privateDatabases,omitempty"`
 
-	// Number of sites recommended for your hosting ( -1 for unlimited )
+	// SitesRecommended Number of sites recommended for your hosting ( -1 for unlimited )
 	SitesRecommended int64 `json:"sitesRecommended,omitempty"`
 
-	// Tell if you have acces to ssh
-	Ssh bool `json:"ssh,omitempty"`
+	// SSH Tell if you have acces to ssh
+	SSH bool `json:"ssh,omitempty"`
 
-	Traffic HostingWebCapabilitiesTraffic `json:"traffic,omitempty"`
+	Traffic *HostingWebCapabilitiesTraffic `json:"traffic,omitempty"`
 }

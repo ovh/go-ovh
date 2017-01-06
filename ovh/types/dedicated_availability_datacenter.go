@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing the hardware availability for each datacenter
+// DedicatedAvailabilityDatacenter A structure describing the hardware availability for each datacenter
 type DedicatedAvailabilityDatacenter struct {
 
-	// The availability
+	// Availability The availability
 	Availability string `json:"availability,omitempty"`
 
-	// The code of the datacenter
+	// Datacenter The code of the datacenter
 	Datacenter string `json:"datacenter,omitempty"`
 }

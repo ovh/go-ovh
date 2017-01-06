@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type OrderCdnDedicatedQuotaPost struct {
-
+// OrderCDNDedicatedQuotaPost ...
+type OrderCDNDedicatedQuotaPost struct {
 	Quota int64 `json:"quota,omitempty"`
 }

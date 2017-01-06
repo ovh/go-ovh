@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,102 +10,102 @@
 
 package types
 
-// Dedicated Cloud Virtual Machine
-type DedicatedCloudVm struct {
+// DedicatedCloudVM Dedicated Cloud Virtual Machine
+type DedicatedCloudVM struct {
 
-	// Cluster of the virtual machine.
+	// ClusterName Cluster of the virtual machine.
 	ClusterName string `json:"clusterName,omitempty"`
 
-	// Maximum CPU performance, in MHz.
-	CpuMax float64 `json:"cpuMax,omitempty"`
+	// CPUMax Maximum CPU performance, in MHz.
+	CPUMax float64 `json:"cpuMax,omitempty"`
 
-	// Number of processors in the virtual machine.
-	CpuNum int64 `json:"cpuNum,omitempty"`
+	// CPUNum Number of processors in the virtual machine.
+	CPUNum int64 `json:"cpuNum,omitempty"`
 
-	// Time that the virtual machine was ready, but could not get scheduled to run on the physical CPU. In millisecond
-	CpuReady float64 `json:"cpuReady,omitempty"`
+	// CPUReady Time that the virtual machine was ready, but could not get scheduled to run on the physical CPU. In millisecond
+	CPUReady float64 `json:"cpuReady,omitempty"`
 
-	// Percentage of time that the virtual machine was ready, but could not get scheduled to run on the physical CPU. In percent
-	CpuReadyPercent float64 `json:"cpuReadyPercent,omitempty"`
+	// CPUReadyPercent Percentage of time that the virtual machine was ready, but could not get scheduled to run on the physical CPU. In percent
+	CPUReadyPercent float64 `json:"cpuReadyPercent,omitempty"`
 
-	// Current CPU performance, in MHz.
-	CpuUsed int64 `json:"cpuUsed,omitempty"`
+	// CPUUsed Current CPU performance, in MHz.
+	CPUUsed int64 `json:"cpuUsed,omitempty"`
 
-	// List of filers in use by the virtual machine.
-	Filers []DedicatedCloudVmFiler `json:"filers,omitempty"`
+	// Filers List of filers in use by the virtual machine.
+	Filers []*DedicatedCloudVMFiler `json:"filers,omitempty"`
 
-	// Folder of the virtual machine.
+	// FolderName Folder of the virtual machine.
 	FolderName string `json:"folderName,omitempty"`
 
-	// Name of the host hosting the virtual machine.
+	// HostName Name of the host hosting the virtual machine.
 	HostName string `json:"hostName,omitempty"`
 
-	// Memory size of the virtual machine, in MB
+	// MemoryMax Memory size of the virtual machine, in MB
 	MemoryMax int64 `json:"memoryMax,omitempty"`
 
-	// Amount of guest memory that is shared with other virtual machines, in Mb
+	// MemoryTps Amount of guest memory that is shared with other virtual machines, in Mb
 	MemoryTps string `json:"memoryTps,omitempty"`
 
-	// Current memory utilization, in MB
+	// MemoryUsed Current memory utilization, in MB
 	MemoryUsed int64 `json:"memoryUsed,omitempty"`
 
-	// moRef of the virtual machine.
+	// MoRef moRef of the virtual machine.
 	MoRef string `json:"moRef,omitempty"`
 
-	// Name of the virtual machine.
+	// Name Name of the virtual machine.
 	Name string `json:"name,omitempty"`
 
-	// Number of packets received.
+	// NetPacketRx Number of packets received.
 	NetPacketRx float64 `json:"netPacketRx,omitempty"`
 
-	// Number of packets transmitted.
+	// NetPacketTx Number of packets transmitted.
 	NetPacketTx float64 `json:"netPacketTx,omitempty"`
 
-	// Rate at which data is received. In KB/s
+	// NetRx Rate at which data is received. In KB/s
 	NetRx float64 `json:"netRx,omitempty"`
 
-	// Rate at which data is transmitted. In KB/s
+	// NetTx Rate at which data is transmitted. In KB/s
 	NetTx float64 `json:"netTx,omitempty"`
 
-	// List of the networks link to this virtual machine
-	Networks []DedicatedCloudVmNetwork `json:"networks,omitempty"`
+	// Networks List of the networks link to this virtual machine
+	Networks []*DedicatedCloudVMNetwork `json:"networks,omitempty"`
 
-	// Power state of the virtual machine.
+	// PowerState Power state of the virtual machine.
 	PowerState string `json:"powerState,omitempty"`
 
-	// Amount of time for a read operation from the virtual disk. In millisecond
+	// ReadLatency Amount of time for a read operation from the virtual disk. In millisecond
 	ReadLatency float64 `json:"readLatency,omitempty"`
 
-	// Number of read issued per second to the virtual disk. In millisecond
+	// ReadPerSecond Number of read issued per second to the virtual disk. In millisecond
 	ReadPerSecond float64 `json:"readPerSecond,omitempty"`
 
-	// Rate of reading data from the virtual disk. In KB/s
+	// ReadRate Rate of reading data from the virtual disk. In KB/s
 	ReadRate float64 `json:"readRate,omitempty"`
 
-	// The index of the current VM in instanceUuids array starting from 1, so 1 means that it is the primary VM.
+	// RoleFt The index of the current VM in instanceUuids array starting from 1, so 1 means that it is the primary VM.
 	RoleFt string `json:"roleFt,omitempty"`
 
-	// Number of snapshot of the virtual machine.
+	// SnapshotNum Number of snapshot of the virtual machine.
 	SnapshotNum int64 `json:"snapshotNum,omitempty"`
 
-	// The fault tolerance state of the virtual machine.
+	// StateFt The fault tolerance state of the virtual machine.
 	StateFt string `json:"stateFt,omitempty"`
 
-	// Id of the virtual machine.
-	VmId int64 `json:"vmId,omitempty"`
+	// VMID Id of the virtual machine.
+	VMID int64 `json:"vmId,omitempty"`
 
-	// Current version status of VMware Tools in the guest operating system.
-	VmwareTools string `json:"vmwareTools,omitempty"`
+	// VMwareTools Current version status of VMware Tools in the guest operating system.
+	VMwareTools string `json:"vmwareTools,omitempty"`
 
-	// Current version of VMware Tools
-	VmwareToolsVersion string `json:"vmwareToolsVersion,omitempty"`
+	// VMwareToolsVersion Current version of VMware Tools
+	VMwareToolsVersion string `json:"vmwareToolsVersion,omitempty"`
 
-	// Amount of time for a write operation from the virtual disk. In millisecond
+	// WriteLatency Amount of time for a write operation from the virtual disk. In millisecond
 	WriteLatency float64 `json:"writeLatency,omitempty"`
 
-	// Number of write issued per second to the virtual disk. In millisecond
+	// WritePerSecond Number of write issued per second to the virtual disk. In millisecond
 	WritePerSecond float64 `json:"writePerSecond,omitempty"`
 
-	// Rate of writing data from the virtual disk. In KB/s
+	// WriteRate Rate of writing data from the virtual disk. In KB/s
 	WriteRate float64 `json:"writeRate,omitempty"`
 }

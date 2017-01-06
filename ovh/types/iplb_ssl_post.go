@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type IplbSslPost struct {
-
+// IPLBSSLPost ...
+type IPLBSSLPost struct {
 	Certificate string `json:"certificate,omitempty"`
 
 	Chain string `json:"chain,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// RegionDetail
-type CloudRegionRegionDetail struct {
+// CloudRegionDetail RegionDetail
+type CloudRegionDetail struct {
 
-	// Region continent code
+	// ContinentCode Region continent code
 	ContinentCode string `json:"continentCode,omitempty"`
 
-	// Location of the datacenter where the region is
+	// DatacenterLocation Location of the datacenter where the region is
 	DatacenterLocation string `json:"datacenterLocation,omitempty"`
 
-	// Region name
+	// Name Region name
 	Name string `json:"name,omitempty"`
 
-	// Details about openstack services status
-	Services []CloudRegionOpenstackService `json:"services,omitempty"`
+	// Services Details about openstack services status
+	Services []*CloudRegionOpenstackService `json:"services,omitempty"`
 }

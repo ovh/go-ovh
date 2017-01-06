@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,28 +10,28 @@
 
 package types
 
-// Detailed statistics about your traffic
-type IpMitigationDetailedStats struct {
+// IPMitigationDetailedStats Detailed statistics about your traffic
+type IPMitigationDetailedStats struct {
 
-	// Traffic dest port
+	// DestPort Traffic dest port
 	DestPort int64 `json:"destPort,omitempty"`
 
 	Fragments bool `json:"fragments,omitempty"`
 
-	// ICMP protocol code
+	// IcmpCode ICMP protocol code
 	IcmpCode int64 `json:"icmpCode,omitempty"`
 
-	// ICMP protocol type
+	// IcmpType ICMP protocol type
 	IcmpType int64 `json:"icmpType,omitempty"`
 
-	In IpMitigationTraffic `json:"in,omitempty"`
+	In *IPMitigationTraffic `json:"in,omitempty"`
 
-	Out IpMitigationTraffic `json:"out,omitempty"`
+	Out *IPMitigationTraffic `json:"out,omitempty"`
 
-	// Used protocol. See RFC5237 for more information
+	// Protocol Used protocol. See RFC5237 for more information
 	Protocol int64 `json:"protocol,omitempty"`
 
-	// Traffic source port
+	// SrcPort Traffic source port
 	SrcPort int64 `json:"srcPort,omitempty"`
 
 	Syn bool `json:"syn,omitempty"`

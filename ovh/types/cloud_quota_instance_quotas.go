@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,23 @@
 
 package types
 
-// InstanceQuotas
+// CloudQuotaInstanceQuotas InstanceQuotas
 type CloudQuotaInstanceQuotas struct {
 
-	// Maximum total cores allowed in your project
+	// MaxCores Maximum total cores allowed in your project
 	MaxCores int64 `json:"maxCores,omitempty"`
 
-	// Maximum total cores allowed in your project
+	// MaxInstances Maximum total cores allowed in your project
 	MaxInstances int64 `json:"maxInstances,omitempty"`
 
-	MaxRam int64 `json:"maxRam,omitempty"`
+	MaxRAM int64 `json:"maxRam,omitempty"`
 
-	// Current used cores number
+	// UsedCores Current used cores number
 	UsedCores int64 `json:"usedCores,omitempty"`
 
-	// Current used instances
+	// UsedInstances Current used instances
 	UsedInstances int64 `json:"usedInstances,omitempty"`
 
-	// Current used ram
+	// UsedRAM Current used ram
 	UsedRAM int64 `json:"usedRAM,omitempty"`
 }

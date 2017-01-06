@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,14 @@ import (
 	"time"
 )
 
-// Previous tollfree bill
+// TelephonyHistoryTollfreeConsumption Previous tollfree bill
 type TelephonyHistoryTollfreeConsumption struct {
 
-	// date of the bill
-	Date time.Time `json:"date,omitempty"`
+	// Date date of the bill
+	Date *time.Time `json:"date,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// status of the bill
+	// Status status of the bill
 	Status string `json:"status,omitempty"`
 }

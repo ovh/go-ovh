@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Domain on CDN
-type CdnWebsiteDomain struct {
-
+// CDNWebsiteDomain Domain on CDN
+type CDNWebsiteDomain struct {
 	Domain string `json:"domain,omitempty"`
 
 	Status string `json:"status,omitempty"`

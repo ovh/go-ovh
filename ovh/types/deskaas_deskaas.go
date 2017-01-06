@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,37 +10,37 @@
 
 package types
 
-// Desktop As A Service
-type DeskaasDeskaas struct {
+// Deskaas Desktop As A Service
+type Deskaas struct {
 
-	// Alias determined by the use
+	// Alias Alias determined by the use
 	Alias string `json:"alias,omitempty"`
 
-	DataDisk DeskaasDeskaasDataDisk `json:"dataDisk,omitempty"`
+	DataDisk *DeskaasDataDisk `json:"dataDisk,omitempty"`
 
-	// Outgoing ip
-	Ip string `json:"ip,omitempty"`
+	// IP Outgoing ip
+	IP string `json:"ip,omitempty"`
 
-	// Operating system of desktop
+	// Os Operating system of desktop
 	Os string `json:"os,omitempty"`
 
-	// Profile of Virtual Desktop
+	// PlanCode Profile of Virtual Desktop
 	PlanCode string `json:"planCode,omitempty"`
 
-	Ram DeskaasDeskaasRam `json:"ram,omitempty"`
+	RAM *DeskaasRAM `json:"ram,omitempty"`
 
-	// Reference of Virtual Desktop
+	// Reference Reference of Virtual Desktop
 	Reference string `json:"reference,omitempty"`
 
-	// Service name of your Desktop As A Service
+	// ServiceName Service name of your Desktop As A Service
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Current state of your Virtual Desktop
+	// State Current state of your Virtual Desktop
 	State string `json:"state,omitempty"`
 
-	// URL to connect to the virtualDesktop
-	Url string `json:"url,omitempty"`
+	// URL URL to connect to the virtualDesktop
+	URL string `json:"url,omitempty"`
 
-	// Vcpu allocated to desktop
+	// Vcpu Vcpu allocated to desktop
 	Vcpu int64 `json:"vcpu,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Task of ImapCopy
+// ImapcopyTask Task of ImapCopy
 type ImapcopyTask struct {
 
-	// Finished date of task
-	FinishDate time.Time `json:"finishDate,omitempty"`
+	// FinishDate Finished date of task
+	FinishDate *time.Time `json:"finishDate,omitempty"`
 
-	// Id of task
-	Id int64 `json:"id,omitempty"`
+	// ID Id of task
+	ID int64 `json:"id,omitempty"`
 
-	// Last update of task
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update of task
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Return message of task
-	Return_ string `json:"return,omitempty"`
+	// TReturn Return message of task
+	TReturn string `json:"return,omitempty"`
 
-	// Status of task
+	// Status Status of task
 	Status string `json:"status,omitempty"`
 
-	// Creation date of task
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	// TodoDate Creation date of task
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

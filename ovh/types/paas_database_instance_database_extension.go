@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Databases extension
+// PaasDatabaseInstanceDatabaseExtension Databases extension
 type PaasDatabaseInstanceDatabaseExtension struct {
 
-	// Extension description
+	// Description Extension description
 	Description string `json:"description,omitempty"`
 
-	// Extension name
+	// ExtensionName Extension name
 	ExtensionName string `json:"extensionName,omitempty"`
 
-	// Name of required extensions to enable this one
+	// RequiredExtensions Name of required extensions to enable this one
 	RequiredExtensions []string `json:"requiredExtensions,omitempty"`
 
-	// Extension status
+	// Status Extension status
 	Status string `json:"status,omitempty"`
 }

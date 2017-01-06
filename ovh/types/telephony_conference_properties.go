@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,33 +10,33 @@
 
 package types
 
-// Conference properties
+// TelephonyConferenceProperties Conference properties
 type TelephonyConferenceProperties struct {
 
-	// Whether or not announce file is played before entrance
+	// AnnounceFile Whether or not announce file is played before entrance
 	AnnounceFile bool `json:"announceFile,omitempty"`
 
-	// Whether or not anonmyous participants are allowed
+	// AnonymousRejection Whether or not anonmyous participants are allowed
 	AnonymousRejection bool `json:"anonymousRejection,omitempty"`
 
-	// Whether or not participants enter conference room muted
+	// EnterMuted Whether or not participants enter conference room muted
 	EnterMuted bool `json:"enterMuted,omitempty"`
 
-	// The events channel hash
+	// EventsChannel The events channel hash
 	EventsChannel string `json:"eventsChannel,omitempty"`
 
-	// The conference sounds language
+	// Language The conference sounds language
 	Language string `json:"language,omitempty"`
 
-	// The conference pin number
+	// Pin The conference pin number
 	Pin string `json:"pin,omitempty"`
 
-	// Whether or not conference is recorded
+	// RecordStatus Whether or not conference is recorded
 	RecordStatus bool `json:"recordStatus,omitempty"`
 
-	// The email address to send conference report to
+	// ReportEmail The email address to send conference report to
 	ReportEmail string `json:"reportEmail,omitempty"`
 
-	// The status of the reporting
+	// ReportStatus The status of the reporting
 	ReportStatus string `json:"reportStatus,omitempty"`
 }

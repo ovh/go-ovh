@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Result of a configuration test
+// MonitoringTestConfigResult Result of a configuration test
 type MonitoringTestConfigResult struct {
 
-	// errors
+	// Errors errors
 	Errors []string `json:"errors,omitempty"`
 
-	// valid
+	// Valid valid
 	Valid bool `json:"valid,omitempty"`
 }

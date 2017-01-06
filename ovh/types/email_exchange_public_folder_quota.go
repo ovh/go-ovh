@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Get public folder quota usage in total available space
+// EmailExchangePublicFolderQuota Get public folder quota usage in total available space
 type EmailExchangePublicFolderQuota struct {
 
-	// total amount of space in MB for public folders within organization
+	// QuotaLimit total amount of space in MB for public folders within organization
 	QuotaLimit int64 `json:"quotaLimit,omitempty"`
 
-	// space in MB already reserved from the quota limit
+	// QuotaReserved space in MB already reserved from the quota limit
 	QuotaReserved int64 `json:"quotaReserved,omitempty"`
 
-	// currently used space in MB within all public folders
+	// QuotaUsed currently used space in MB within all public folders
 	QuotaUsed int64 `json:"quotaUsed,omitempty"`
 }

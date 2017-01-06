@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Partitioning schemes available on this template
+// DedicatedInstallationTemplateTemplatePartitioningSchemes Partitioning schemes available on this template
 type DedicatedInstallationTemplateTemplatePartitioningSchemes struct {
 
-	// name of this partitioning scheme
+	// Name name of this partitioning scheme
 	Name string `json:"name,omitempty"`
 
-	// on a reinstall, if a partitioning scheme is not specified, the one with the higher priority will be used by default, among all the compatible partitioning schemes (given the underlying hardware specifications)
+	// Priority on a reinstall, if a partitioning scheme is not specified, the one with the higher priority will be used by default, among all the compatible partitioning schemes (given the underlying hardware specifications)
 	Priority int64 `json:"priority,omitempty"`
 }

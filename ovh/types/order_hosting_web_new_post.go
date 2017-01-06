@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// OrderHostingWebNewPost ...
 type OrderHostingWebNewPost struct {
-
-	DnsZone string `json:"dnsZone,omitempty"`
+	DNSZone string `json:"dnsZone,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// VIP Status by Universe
+// NichandleVipStatus VIP Status by Universe
 type NichandleVipStatus struct {
 
-	// Is account VIP for Cloud Universe
+	// Cloud Is account VIP for Cloud Universe
 	Cloud bool `json:"cloud,omitempty"`
 
-	// Is account VIP for Dedicated Universe
+	// Dedicated Is account VIP for Dedicated Universe
 	Dedicated bool `json:"dedicated,omitempty"`
 
-	// Is account VIP for Telecom Universe
+	// Telecom Is account VIP for Telecom Universe
 	Telecom bool `json:"telecom,omitempty"`
 
-	// Is account VIP for Web Universe
+	// Web Is account VIP for Web Universe
 	Web bool `json:"web,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// Router
-type RouterRouter struct {
-
+// Router Router
+type Router struct {
 	Name string `json:"name,omitempty"`
 
-	// The internal name of your Router offer
+	// Service The internal name of your Router offer
 	Service string `json:"service,omitempty"`
 
 	Status string `json:"status,omitempty"`

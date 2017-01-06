@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// IpAddress
-type CloudInstanceIpAddress struct {
+// CloudInstanceIPAddress IpAddress
+type CloudInstanceIPAddress struct {
 
-	// Instance IP address
-	Ip string `json:"ip,omitempty"`
+	// IP Instance IP address
+	IP string `json:"ip,omitempty"`
 
-	// Network ID
-	NetworkId string `json:"networkId,omitempty"`
+	// NetworkID Network ID
+	NetworkID string `json:"networkId,omitempty"`
 
-	// Instance IP address type
-	Type_ string `json:"type,omitempty"`
+	// TType Instance IP address type
+	TType string `json:"type,omitempty"`
 
-	// IP version
+	// Version IP version
 	Version int64 `json:"version,omitempty"`
 }

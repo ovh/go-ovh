@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A custom SSL certificate associated to a Docker PaaS environment
-type DockerStackInputCustomSsl struct {
+// DockerStackInputCustomSSL A custom SSL certificate associated to a Docker PaaS environment
+type DockerStackInputCustomSSL struct {
 
-	// The custom SSL public certificate
+	// Certificate The custom SSL public certificate
 	Certificate string `json:"certificate,omitempty"`
 
-	// The custom SSL certificate private key
+	// Key The custom SSL certificate private key
 	Key string `json:"key,omitempty"`
 }

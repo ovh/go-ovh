@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Subnet
+// CloudNetworkSubnet Subnet
 type CloudNetworkSubnet struct {
 
-	// Subnet CIDR
+	// Cidr Subnet CIDR
 	Cidr string `json:"cidr,omitempty"`
 
-	// Gateway IP in the subnet
-	GatewayIp string `json:"gatewayIp,omitempty"`
+	// GatewayIP Gateway IP in the subnet
+	GatewayIP string `json:"gatewayIp,omitempty"`
 
-	// Subnet id
-	Id string `json:"id,omitempty"`
+	// ID Subnet id
+	ID string `json:"id,omitempty"`
 
-	// List of ip pools allocated in subnet
-	IpPools []CloudNetworkIpPool `json:"ipPools,omitempty"`
+	// IPPools List of ip pools allocated in subnet
+	IPPools []*CloudNetworkIPPool `json:"ipPools,omitempty"`
 }

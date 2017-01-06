@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,17 +14,16 @@ import (
 	"time"
 )
 
-// Network
+// RouterNetwork Network
 type RouterNetwork struct {
-
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// Gateway IP / CIDR Netmask
-	IpNet string `json:"ipNet,omitempty"`
+	// IPNet Gateway IP / CIDR Netmask
+	IPNet string `json:"ipNet,omitempty"`
 
 	Status string `json:"status,omitempty"`
 

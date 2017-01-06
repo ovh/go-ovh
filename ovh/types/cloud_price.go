@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,31 +10,31 @@
 
 package types
 
-// A structure defining prices for cloud services
+// CloudPrice A structure defining prices for cloud services
 type CloudPrice struct {
 
-	// Price for archive storage
-	Archive []CloudArchiveStoragePrice `json:"archive,omitempty"`
+	// Archive Price for archive storage
+	Archive []*CloudArchiveStoragePrice `json:"archive,omitempty"`
 
-	// Price for incoming bandwidth on archive storage
-	BandwidthArchiveIn []CloudBandwidthStoragePrice `json:"bandwidthArchiveIn,omitempty"`
+	// BandwidthArchiveIn Price for incoming bandwidth on archive storage
+	BandwidthArchiveIn []*CloudBandwidthStoragePrice `json:"bandwidthArchiveIn,omitempty"`
 
-	// Price for outgoing bandwidth on archive storage
-	BandwidthArchiveOut []CloudBandwidthStoragePrice `json:"bandwidthArchiveOut,omitempty"`
+	// BandwidthArchiveOut Price for outgoing bandwidth on archive storage
+	BandwidthArchiveOut []*CloudBandwidthStoragePrice `json:"bandwidthArchiveOut,omitempty"`
 
-	// Price for bandwidth storage
-	BandwidthStorage []CloudBandwidthStoragePrice `json:"bandwidthStorage,omitempty"`
+	// BandwidthStorage Price for bandwidth storage
+	BandwidthStorage []*CloudBandwidthStoragePrice `json:"bandwidthStorage,omitempty"`
 
-	Instances []CloudFlavorPrice `json:"instances,omitempty"`
+	Instances []*CloudFlavorPrice `json:"instances,omitempty"`
 
-	ProjectCreation OrderPrice `json:"projectCreation,omitempty"`
+	ProjectCreation *OrderPrice `json:"projectCreation,omitempty"`
 
-	// Prices for snapshots
-	Snapshots []CloudSnapshotPrice `json:"snapshots,omitempty"`
+	// Snapshots Prices for snapshots
+	Snapshots []*CloudSnapshotPrice `json:"snapshots,omitempty"`
 
-	// Price for storage
-	Storage []CloudStoragePrice `json:"storage,omitempty"`
+	// Storage Price for storage
+	Storage []*CloudStoragePrice `json:"storage,omitempty"`
 
-	// Prices for volumes
-	Volumes []CloudVolumePrice `json:"volumes,omitempty"`
+	// Volumes Prices for volumes
+	Volumes []*CloudVolumePrice `json:"volumes,omitempty"`
 }

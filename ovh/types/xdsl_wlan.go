@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,33 +10,33 @@
 
 package types
 
-// WLAN Configuration of the Modem
+// XdslWlan WLAN Configuration of the Modem
 type XdslWlan struct {
 
-	// Service Set Identifier of the WLAN interface
+	// SSID Service Set Identifier of the WLAN interface
 	SSID string `json:"SSID,omitempty"`
 
-	// Hide or show the Wifi
+	// SSIDAdvertisementEnabled Hide or show the Wifi
 	SSIDAdvertisementEnabled bool `json:"SSIDAdvertisementEnabled,omitempty"`
 
-	// Choice of a channel (When chosen, channelMode is set to Manual)
+	// Channel Choice of a channel (When chosen, channelMode is set to Manual)
 	Channel int64 `json:"channel,omitempty"`
 
-	// How the channel is chosen (Auto / Manual)
+	// ChannelMode How the channel is chosen (Auto / Manual)
 	ChannelMode string `json:"channelMode,omitempty"`
 
-	// Wifi state
+	// Enabled Wifi state
 	Enabled bool `json:"enabled,omitempty"`
 
-	// WPA or WEP key
+	// SecurityKey WPA or WEP key
 	SecurityKey string `json:"securityKey,omitempty"`
 
-	// Security (None | WEP | WPA | WPA2 | WPAandWPA2)
+	// SecurityType Security (None | WEP | WPA | WPA2 | WPAandWPA2)
 	SecurityType string `json:"securityType,omitempty"`
 
-	// ID of the ongoing todo (NULL if none)
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID ID of the ongoing todo (NULL if none)
+	TaskID int64 `json:"taskId,omitempty"`
 
-	// Name of the Wifi
+	// WifiName Name of the Wifi
 	WifiName string `json:"wifiName,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// Relevant informations of the phone reset
+// TelephonyResetPhoneInfo Relevant informations of the phone reset
 type TelephonyResetPhoneInfo struct {
+	ResetCodeInfo *TelephonyResetPhoneCodeInfo `json:"resetCodeInfo,omitempty"`
 
-	ResetCodeInfo TelephonyResetPhoneCodeInfo `json:"resetCodeInfo,omitempty"`
-
-	// Which way had been used to reset the phone
+	// ResetPhoneMethod Which way had been used to reset the phone
 	ResetPhoneMethod string `json:"resetPhoneMethod,omitempty"`
 }

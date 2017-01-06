@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Mailing list members
-type EmailExchangeExchangeDistributionGroupMember struct {
+// EmailExchangeDistributionGroupMember Mailing list members
+type EmailExchangeDistributionGroupMember struct {
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Member account id
-	MemberAccountId int64 `json:"memberAccountId,omitempty"`
+	// MemberAccountID Member account id
+	MemberAccountID int64 `json:"memberAccountId,omitempty"`
 
-	// Member account id
-	MemberContactId int64 `json:"memberContactId,omitempty"`
+	// MemberContactID Member account id
+	MemberContactID int64 `json:"memberContactId,omitempty"`
 
-	// Member account primaryEmailAddress
+	// MemberEmailAddress Member account primaryEmailAddress
 	MemberEmailAddress string `json:"memberEmailAddress,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

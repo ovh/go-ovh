@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,11 @@ import (
 	"time"
 )
 
-// ProjectForecast
+// CloudForecastProjectForecast ProjectForecast
 type CloudForecastProjectForecast struct {
 
-	// Time when we got last metric
-	LastMetric time.Time `json:"lastMetric,omitempty"`
+	// LastMetric Time when we got last metric
+	LastMetric *time.Time `json:"lastMetric,omitempty"`
 
-	ProjectForecast OrderPrice `json:"projectForecast,omitempty"`
+	ProjectForecast *OrderPrice `json:"projectForecast,omitempty"`
 }

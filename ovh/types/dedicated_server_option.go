@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Information about the options of a dedicated server
+// DedicatedServerOption Information about the options of a dedicated server
 type DedicatedServerOption struct {
 
-	// The option name
+	// Option The option name
 	Option string `json:"option,omitempty"`
 
-	// The state of the option
+	// State The state of the option
 	State string `json:"state,omitempty"`
 }

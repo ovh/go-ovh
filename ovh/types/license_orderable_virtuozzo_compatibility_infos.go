@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// All versions available for Virtuozzo products
+// LicenseOrderableVirtuozzoCompatibilityInfos All versions available for Virtuozzo products
 type LicenseOrderableVirtuozzoCompatibilityInfos struct {
-
 	CompliantContainers []string `json:"compliantContainers,omitempty"`
 
 	PotentialProblems []string `json:"potentialProblems,omitempty"`

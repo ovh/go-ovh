@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,14 @@
 
 package types
 
-// SMS details
+// SmsAccount SMS details
 type SmsAccount struct {
-
 	AutomaticRecreditAmount int64 `json:"automaticRecreditAmount,omitempty"`
 
-	// URL called when state of a sent SMS changes
+	// CallBack URL called when state of a sent SMS changes
 	CallBack string `json:"callBack,omitempty"`
 
-	// Credit threshold after which an automatic recredit is launched
+	// CreditThresholdForAutomaticRecredit Credit threshold after which an automatic recredit is launched
 	CreditThresholdForAutomaticRecredit float64 `json:"creditThresholdForAutomaticRecredit,omitempty"`
 
 	CreditsHoldByQuota float64 `json:"creditsHoldByQuota,omitempty"`
@@ -29,14 +28,14 @@ type SmsAccount struct {
 
 	Name string `json:"name,omitempty"`
 
-	SmsResponse SmsResponse `json:"smsResponse,omitempty"`
+	SmsResponse *SmsResponse `json:"smsResponse,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	// URL called when a STOP is received after a receiver replied stop to a SMS
+	// StopCallBack URL called when a STOP is received after a receiver replied stop to a SMS
 	StopCallBack string `json:"stopCallBack,omitempty"`
 
-	Templates SmsTemplates `json:"templates,omitempty"`
+	Templates *SmsTemplates `json:"templates,omitempty"`
 
 	UserQuantityWithQuota int64 `json:"userQuantityWithQuota,omitempty"`
 }

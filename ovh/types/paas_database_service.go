@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// PAAS Project
+// PaasDatabaseService PAAS Project
 type PaasDatabaseService struct {
 
-	// Project creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Project creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Project last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Project last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Project custom name
+	// Name Project custom name
 	Name string `json:"name,omitempty"`
 
-	// Project id
-	ProjectId string `json:"projectId,omitempty"`
+	// ProjectID Project id
+	ProjectID string `json:"projectId,omitempty"`
 
-	// Project status
+	// Status Project status
 	Status string `json:"status,omitempty"`
 
-	// Project type
-	Type_ string `json:"type,omitempty"`
+	// TType Project type
+	TType string `json:"type,omitempty"`
 }

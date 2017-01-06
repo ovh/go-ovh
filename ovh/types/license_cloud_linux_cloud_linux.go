@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Your CloudLinux license
-type LicenseCloudLinuxCloudLinux struct {
+// LicenseCloudLinux Your CloudLinux license
+type LicenseCloudLinux struct {
 
-	// This license creation date
-	Creation time.Time `json:"creation,omitempty"`
+	// Creation This license creation date
+	Creation *time.Time `json:"creation,omitempty"`
 
-	// The internal name of your license
+	// Domain The internal name of your license
 	Domain string `json:"domain,omitempty"`
 
-	// The ip on which this license is attached
-	Ip string `json:"ip,omitempty"`
+	// IP The ip on which this license is attached
+	IP string `json:"ip,omitempty"`
 
-	// The license id on license provider side
-	LicenseId string `json:"licenseId,omitempty"`
+	// LicenseID The license id on license provider side
+	LicenseID string `json:"licenseId,omitempty"`
 
-	// This license state
+	// Status This license state
 	Status string `json:"status,omitempty"`
 
-	// This license version
+	// Version This license version
 	Version string `json:"version,omitempty"`
 }

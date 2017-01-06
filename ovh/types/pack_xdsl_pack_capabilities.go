@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Describe the capabilities of this pack
+// PackXdslPackCapabilities Describe the capabilities of this pack
 type PackXdslPackCapabilities struct {
 
-	// Whether or not this pack can move address
+	// CanMoveAddress Whether or not this pack can move address
 	CanMoveAddress bool `json:"canMoveAddress,omitempty"`
 
-	// Whether or not this pack is from an old offer
+	// IsLegacyOffer Whether or not this pack is from an old offer
 	IsLegacyOffer bool `json:"isLegacyOffer,omitempty"`
 }

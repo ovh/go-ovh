@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Stock
+// CloudReservedStock Stock
 type CloudReservedStock struct {
 
-	// Error message, if any
-	Error_ string `json:"error,omitempty"`
+	// TError Error message, if any
+	TError string `json:"error,omitempty"`
 
-	// Flavor id
-	FlavorId string `json:"flavorId,omitempty"`
+	// FlavorID Flavor id
+	FlavorID string `json:"flavorId,omitempty"`
 
-	// Flavor name
+	// FlavorName Flavor name
 	FlavorName string `json:"flavorName,omitempty"`
 
-	// Number of available instances
+	// Quantity Number of available instances
 	Quantity int64 `json:"quantity,omitempty"`
 }

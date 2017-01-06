@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// VOIP line services
-type PackXdslVoipLineService struct {
-
+// PackXdslVOIPLineService VOIP line services
+type PackXdslVOIPLineService struct {
 	BillingAccount string `json:"billingAccount,omitempty"`
 
 	Domain string `json:"domain,omitempty"`

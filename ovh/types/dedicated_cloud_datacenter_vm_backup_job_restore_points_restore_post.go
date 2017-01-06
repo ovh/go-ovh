@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type DedicatedCloudDatacenterVmBackupJobRestorePointsRestorePost struct {
-
-	FilerId int64 `json:"filerId,omitempty"`
+// DedicatedCloudDatacenterVMBackupJobRestorePointsRestorePost ...
+type DedicatedCloudDatacenterVMBackupJobRestorePointsRestorePost struct {
+	FilerID int64 `json:"filerId,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Phone book contact
+// TelephonyPhonebookContact Phone book contact
 type TelephonyPhonebookContact struct {
 
-	// Group name of the phonebook
+	// Group Group name of the phonebook
 	Group string `json:"group,omitempty"`
 
-	// Home mobile phone number of the contact
+	// HomeMobile Home mobile phone number of the contact
 	HomeMobile string `json:"homeMobile,omitempty"`
 
-	// Home landline phone number of the contact
+	// HomePhone Home landline phone number of the contact
 	HomePhone string `json:"homePhone,omitempty"`
 
-	// Contact identifier
-	Id int64 `json:"id,omitempty"`
+	// ID Contact identifier
+	ID int64 `json:"id,omitempty"`
 
-	// Contact name
+	// Name Contact name
 	Name string `json:"name,omitempty"`
 
-	// Contact surname
+	// Surname Contact surname
 	Surname string `json:"surname,omitempty"`
 
-	// Mobile phone office number of the contact
+	// WorkMobile Mobile phone office number of the contact
 	WorkMobile string `json:"workMobile,omitempty"`
 
-	// Landline phone office number of the contact
+	// WorkPhone Landline phone office number of the contact
 	WorkPhone string `json:"workPhone,omitempty"`
 }

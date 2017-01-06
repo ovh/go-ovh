@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Backup your VPS
+// VpsAutomatedBackup Backup your VPS
 type VpsAutomatedBackup struct {
 
-	// Scheduled time of your daily backup
+	// Schedule Scheduled time of your daily backup
 	Schedule string `json:"schedule,omitempty"`
 
-	// Backup state
+	// State Backup state
 	State string `json:"state,omitempty"`
 }

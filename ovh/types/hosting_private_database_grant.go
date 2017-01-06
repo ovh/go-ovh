@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Grants
+// HostingPrivateDatabaseGrant Grants
 type HostingPrivateDatabaseGrant struct {
 
-	// Creation date of the grant
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the grant
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Database name where grant is set
+	// DatabaseName Database name where grant is set
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	// Grant set
+	// Grant Grant set
 	Grant string `json:"grant,omitempty"`
 }

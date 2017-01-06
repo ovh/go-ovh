@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,23 @@
 
 package types
 
-// A structure describing informations about server disks
+// DedicatedServerHardwareSpecificationsDisk A structure describing informations about server disks
 type DedicatedServerHardwareSpecificationsDisk struct {
 
-	// human readable description of this disk group
+	// Description human readable description of this disk group
 	Description string `json:"description,omitempty"`
 
-	// identifier of this disk group
-	DiskGroupId int64 `json:"diskGroupId,omitempty"`
+	// DiskGroupID identifier of this disk group
+	DiskGroupID int64 `json:"diskGroupId,omitempty"`
 
-	DiskSize DedicatedServerHardwareSpecificationsDiskDiskSize `json:"diskSize,omitempty"`
+	DiskSize *DedicatedServerHardwareSpecificationsDiskDiskSize `json:"diskSize,omitempty"`
 
-	// type of the disk (SSD, SATA, SAS, ...)
+	// DiskType type of the disk (SSD, SATA, SAS, ...)
 	DiskType string `json:"diskType,omitempty"`
 
-	// number of disks in this group
+	// NumberOfDisks number of disks in this group
 	NumberOfDisks int64 `json:"numberOfDisks,omitempty"`
 
-	// raid controller, if any, managing this group of disks
+	// RaidController raid controller, if any, managing this group of disks
 	RaidController string `json:"raidController,omitempty"`
 }

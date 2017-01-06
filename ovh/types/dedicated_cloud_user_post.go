@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedCloudUserPost ...
 type DedicatedCloudUserPost struct {
-
 	CanAddRessource bool `json:"canAddRessource,omitempty"`
 
 	Email string `json:"email,omitempty"`
@@ -24,5 +24,5 @@ type DedicatedCloudUserPost struct {
 
 	Right string `json:"right,omitempty"`
 
-	VmNetworkRole string `json:"vmNetworkRole,omitempty"`
+	VMNetworkRole string `json:"vmNetworkRole,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,44 +10,44 @@
 
 package types
 
-// Mondial Relay Point Details
+// SupplyMondialRelay Mondial Relay Point Details
 type SupplyMondialRelay struct {
 
-	// Relay point address
+	// Address Relay point address
 	Address string `json:"address,omitempty"`
 
-	// City
+	// City City
 	City string `json:"city,omitempty"`
 
-	// Relay point closing dates
-	Closing []SupplyMondialRelayClosingPeriod `json:"closing,omitempty"`
+	// Closing Relay point closing dates
+	Closing []*SupplyMondialRelayClosingPeriod `json:"closing,omitempty"`
 
-	// Relay country
+	// Country Relay country
 	Country string `json:"country,omitempty"`
 
-	// Distance between address and relay point
+	// Distance Distance between address and relay point
 	Distance float64 `json:"distance,omitempty"`
 
-	// Mondial Relay point ID
-	Id string `json:"id,omitempty"`
+	// ID Mondial Relay point ID
+	ID string `json:"id,omitempty"`
 
-	// Relay point latitude
+	// Lat Relay point latitude
 	Lat float64 `json:"lat,omitempty"`
 
-	// Relay point longitude
+	// Lng Relay point longitude
 	Lng float64 `json:"lng,omitempty"`
 
-	// URL of short map
-	MapUrl string `json:"mapUrl,omitempty"`
+	// MapURL URL of short map
+	MapURL string `json:"mapUrl,omitempty"`
 
-	// Relay point name
+	// Name Relay point name
 	Name string `json:"name,omitempty"`
 
-	Opening SupplyMondialRelayOpening `json:"opening,omitempty"`
+	Opening *SupplyMondialRelayOpening `json:"opening,omitempty"`
 
-	// Relay point picture\\s URL
-	PictureUrl string `json:"pictureUrl,omitempty"`
+	// PictureURL Relay point picture\\s URL
+	PictureURL string `json:"pictureUrl,omitempty"`
 
-	// Zipcode
+	// Zipcode Zipcode
 	Zipcode string `json:"zipcode,omitempty"`
 }

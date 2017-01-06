@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Get protocol status on that mailbox
-type EmailExchangeExchangeAccountProtocol struct {
+// EmailExchangeAccountProtocol Get protocol status on that mailbox
+type EmailExchangeAccountProtocol struct {
 
-	// IMAP protocol enabled on that mailbox
+	// IMAP IMAP protocol enabled on that mailbox
 	IMAP bool `json:"IMAP,omitempty"`
 
-	// POP protocol enabled on that mailbox
+	// POP POP protocol enabled on that mailbox
 	POP bool `json:"POP,omitempty"`
 
-	// Mobile access enabled on that mailbox
+	// ActiveSync Mobile access enabled on that mailbox
 	ActiveSync bool `json:"activeSync,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 
-	// Web mail enabled on that mailbox
+	// WebMail Web mail enabled on that mailbox
 	WebMail bool `json:"webMail,omitempty"`
 }

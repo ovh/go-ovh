@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DbaasLogsInputConfigurationLogstashPut ...
 type DbaasLogsInputConfigurationLogstashPut struct {
-
 	FilterSection string `json:"filterSection,omitempty"`
 
 	InputSection string `json:"inputSection,omitempty"`

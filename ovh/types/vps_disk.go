@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,22 +10,21 @@
 
 package types
 
-// Information about a disk of a VPS Virtual Machine
+// VpsDisk Information about a disk of a VPS Virtual Machine
 type VpsDisk struct {
-
 	BandwidthLimit int64 `json:"bandwidthLimit,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// The low disk free space threshold in MiB
+	// LowFreeSpaceThreshold The low disk free space threshold in MiB
 	LowFreeSpaceThreshold int64 `json:"lowFreeSpaceThreshold,omitempty"`
 
-	// The monitoring state of this disk
+	// Monitoring The monitoring state of this disk
 	Monitoring bool `json:"monitoring,omitempty"`
 
 	Size int64 `json:"size,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,19 @@
 
 package types
 
+// DedicatedServerServiceMonitoringPost ...
 type DedicatedServerServiceMonitoringPost struct {
-
 	ChallengeText string `json:"challengeText,omitempty"`
 
 	Enabled bool `json:"enabled,omitempty"`
 
 	Interval string `json:"interval,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
 	Port int64 `json:"port,omitempty"`
 
 	Protocol string `json:"protocol,omitempty"`
 
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

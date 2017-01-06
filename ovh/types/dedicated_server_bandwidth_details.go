@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,14 @@
 
 package types
 
-// A structure describing bandwidth informations about this dedicated server
+// DedicatedServerBandwidthDetails A structure describing bandwidth informations about this dedicated server
 type DedicatedServerBandwidthDetails struct {
+	InternetToOvh *DedicatedServerBandwidthDetailsInternetToOvh `json:"InternetToOvh,omitempty"`
 
-	InternetToOvh DedicatedServerBandwidthDetailsInternetToOvh `json:"InternetToOvh,omitempty"`
+	OvhToInternet *DedicatedServerBandwidthDetailsOvhToInternet `json:"OvhToInternet,omitempty"`
 
-	OvhToInternet DedicatedServerBandwidthDetailsOvhToInternet `json:"OvhToInternet,omitempty"`
+	OvhToOvh *DedicatedServerBandwidthDetailsOvhToOvh `json:"OvhToOvh,omitempty"`
 
-	OvhToOvh DedicatedServerBandwidthDetailsOvhToOvh `json:"OvhToOvh,omitempty"`
-
-	// bandwidth offer type
-	Type_ string `json:"type,omitempty"`
+	// TType bandwidth offer type
+	TType string `json:"type,omitempty"`
 }

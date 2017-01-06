@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Domain name of a allDom
-type AllDomAllDomDomain struct {
+// AllDomDomain Domain name of a allDom
+type AllDomDomain struct {
 
-	// Domain name
+	// Domain Domain name
 	Domain string `json:"domain,omitempty"`
 }

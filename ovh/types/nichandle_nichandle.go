@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Details about your OVH identifier
-type NichandleNichandle struct {
-
+// Nichandle Details about your OVH identifier
+type Nichandle struct {
 	Address string `json:"address,omitempty"`
 
 	Area string `json:"area,omitempty"`
@@ -23,15 +22,15 @@ type NichandleNichandle struct {
 
 	City string `json:"city,omitempty"`
 
-	CompanyNationalIdentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
+	CompanyNationalIDentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
 
 	CorporationType string `json:"corporationType,omitempty"`
 
 	Country string `json:"country,omitempty"`
 
-	Currency NichandleCurrency `json:"currency,omitempty"`
+	Currency *NichandleCurrency `json:"currency,omitempty"`
 
-	// Your customer code (a numerical value used for identification when contacting support via phone call)
+	// CustomerCode Your customer code (a numerical value used for identification when contacting support via phone call)
 	CustomerCode string `json:"customerCode,omitempty"`
 
 	Email string `json:"email,omitempty"`
@@ -46,7 +45,7 @@ type NichandleNichandle struct {
 
 	Name string `json:"name,omitempty"`
 
-	NationalIdentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
+	NationalIDentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
 
 	Nichandle string `json:"nichandle,omitempty"`
 

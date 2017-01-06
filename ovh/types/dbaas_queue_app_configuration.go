@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// AppConfiguration
+// DbaasQueueAppConfiguration AppConfiguration
 type DbaasQueueAppConfiguration struct {
+	App *DbaasQueueApp `json:"app,omitempty"`
 
-	App DbaasQueueApp `json:"app,omitempty"`
+	MetricsAccount *DbaasQueueMetricsAccount `json:"metricsAccount,omitempty"`
 
-	MetricsAccount DbaasQueueMetricsAccount `json:"metricsAccount,omitempty"`
+	// Roles List of created roles
+	Roles []*DbaasQueueRole `json:"roles,omitempty"`
 
-	// List of created roles
-	Roles []DbaasQueueRole `json:"roles,omitempty"`
-
-	// List of created users
-	Users []DbaasQueueUserWithPassword `json:"users,omitempty"`
+	// Users List of created users
+	Users []*DbaasQueueUserWithPassword `json:"users,omitempty"`
 }

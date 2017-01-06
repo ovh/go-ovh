@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// SshKeyDetail
-type CloudSshkeySshKeyDetail struct {
+// CloudSSHKeyDetail SshKeyDetail
+type CloudSSHKeyDetail struct {
 
-	// SSH key fingerprint
+	// FingerPrint SSH key fingerprint
 	FingerPrint string `json:"fingerPrint,omitempty"`
 
-	// SSH key id
-	Id string `json:"id,omitempty"`
+	// ID SSH key id
+	ID string `json:"id,omitempty"`
 
-	// SSH key name
+	// Name SSH key name
 	Name string `json:"name,omitempty"`
 
-	// SSH public key
+	// PublicKey SSH public key
 	PublicKey string `json:"publicKey,omitempty"`
 
-	// SSH key regions
+	// Regions SSH key regions
 	Regions []string `json:"regions,omitempty"`
 }

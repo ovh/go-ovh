@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,13 @@ import (
 	"time"
 )
 
-// Outgoing routes configured inside a Private Link
+// RouterPrivateLinkRoute Outgoing routes configured inside a Private Link
 type RouterPrivateLinkRoute struct {
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
-
-	// Network allowed to be routed outside
+	// Network Network allowed to be routed outside
 	Network string `json:"network,omitempty"`
 
 	Status string `json:"status,omitempty"`

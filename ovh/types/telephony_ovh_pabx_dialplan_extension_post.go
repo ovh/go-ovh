@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxDialplanExtensionPost ...
 type TelephonyOvhPabxDialplanExtensionPost struct {
-
 	Enable bool `json:"enable,omitempty"`
 
 	Position int64 `json:"position,omitempty"`

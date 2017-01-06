@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// CloudProjectStoragePost ...
 type CloudProjectStoragePost struct {
-
 	Archive bool `json:"archive,omitempty"`
 
 	ContainerName string `json:"containerName,omitempty"`

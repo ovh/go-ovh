@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Details about an IP block organisation
-type NichandleIpv4Org struct {
-
+// NichandleIPv4Org Details about an IP block organisation
+type NichandleIPv4Org struct {
 	AbuseMailbox string `json:"abuse_mailbox,omitempty"`
 
 	Address string `json:"address,omitempty"`
@@ -25,7 +24,7 @@ type NichandleIpv4Org struct {
 
 	Lastname string `json:"lastname,omitempty"`
 
-	OrganisationId string `json:"organisationId,omitempty"`
+	OrganisationID string `json:"organisationId,omitempty"`
 
 	Phone string `json:"phone,omitempty"`
 

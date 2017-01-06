@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Easy hunting time conditions options
+// TelephonyEasyHuntingTimeConditionsSettings Easy hunting time conditions options
 type TelephonyEasyHuntingTimeConditionsSettings struct {
-
 	Enable bool `json:"enable,omitempty"`
 
 	Slot1Number string `json:"slot1Number,omitempty"`

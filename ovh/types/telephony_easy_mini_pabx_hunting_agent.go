@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Easy/Mini PABX agent
+// TelephonyEasyMiniPabxHuntingAgent Easy/Mini PABX agent
 type TelephonyEasyMiniPabxHuntingAgent struct {
 
-	// The phone number of the agent
+	// AgentNumber The phone number of the agent
 	AgentNumber string `json:"agentNumber,omitempty"`
 
-	// True if the agent is logged
+	// Logged True if the agent is logged
 	Logged bool `json:"logged,omitempty"`
 
-	// The maxium ringing time
+	// NoReplyTimer The maxium ringing time
 	NoReplyTimer int64 `json:"noReplyTimer,omitempty"`
 
-	// The position in the hunting
+	// Position The position in the hunting
 	Position int64 `json:"position,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,54 +14,54 @@ import (
 	"time"
 )
 
-// Exchange service
-type EmailExchangeExchangeService struct {
+// EmailExchangeService Exchange service
+type EmailExchangeService struct {
 
-	// enable policy for strong and secure passwords
+	// ComplexityEnabled enable policy for strong and secure passwords
 	ComplexityEnabled bool `json:"complexityEnabled,omitempty"`
 
-	// service displayName
+	// DisplayName service displayName
 	DisplayName string `json:"displayName,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
 	Hostname string `json:"hostname,omitempty"`
 
-	// Update date
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
+	// LastUpdateDate Update date
+	LastUpdateDate *time.Time `json:"lastUpdateDate,omitempty"`
 
-	// number of minutes account will remain locked if it occurs
+	// LockoutDuration number of minutes account will remain locked if it occurs
 	LockoutDuration int64 `json:"lockoutDuration,omitempty"`
 
-	// number of minutes that must elapse after a failed logon to reset lockout trigger
+	// LockoutObservationWindow number of minutes that must elapse after a failed logon to reset lockout trigger
 	LockoutObservationWindow int64 `json:"lockoutObservationWindow,omitempty"`
 
-	// number of attempts before account to be locked
+	// LockoutThreshold number of attempts before account to be locked
 	LockoutThreshold int64 `json:"lockoutThreshold,omitempty"`
 
-	// maximum number of days that account's password is valid before expiration
+	// MaxPasswordAge maximum number of days that account's password is valid before expiration
 	MaxPasswordAge int64 `json:"maxPasswordAge,omitempty"`
 
-	// Maximum message size that You can receive in MB
+	// MaxReceiveSize Maximum message size that You can receive in MB
 	MaxReceiveSize int64 `json:"maxReceiveSize,omitempty"`
 
-	// Maximum message size that You can send in MB
+	// MaxSendSize Maximum message size that You can send in MB
 	MaxSendSize int64 `json:"maxSendSize,omitempty"`
 
-	// minimum number of days before able to change account's password
+	// MinPasswordAge minimum number of days before able to change account's password
 	MinPasswordAge int64 `json:"minPasswordAge,omitempty"`
 
-	// minimum number of characters password must contain
+	// MinPasswordLength minimum number of characters password must contain
 	MinPasswordLength int64 `json:"minPasswordLength,omitempty"`
 
 	Offer string `json:"offer,omitempty"`
 
-	SpamAndVirusConfiguration EmailExchangeSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
+	SpamAndVirusConfiguration *EmailExchangeSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
 
-	SslExpirationDate time.Time `json:"sslExpirationDate,omitempty"`
+	SSLExpirationDate *time.Time `json:"sslExpirationDate,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	// Task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

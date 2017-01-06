@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// PackXdslExchangeLiteServicesPost ...
 type PackXdslExchangeLiteServicesPost struct {
-
 	Antispam bool `json:"antispam,omitempty"`
 
 	DisplayName string `json:"displayName,omitempty"`

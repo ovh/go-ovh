@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,12 @@
 
 package types
 
+// XdslLineSectionLength ...
 type XdslLineSectionLength struct {
 
-	// The diameter of this section in millimeters
+	// Diameter The diameter of this section in millimeters
 	Diameter int64 `json:"diameter,omitempty"`
 
-	// The length of this section in meters
+	// Length The length of this section in meters
 	Length int64 `json:"length,omitempty"`
 }

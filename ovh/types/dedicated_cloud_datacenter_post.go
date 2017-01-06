@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedCloudDatacenterPost ...
 type DedicatedCloudDatacenterPost struct {
-
 	CommercialRangeName string `json:"commercialRangeName,omitempty"`
 
 	VrackName string `json:"vrackName,omitempty"`

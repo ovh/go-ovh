@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Representation of an Address
+// ContactAddress Representation of an Address
 type ContactAddress struct {
 
-	// City
+	// City City
 	City string `json:"city,omitempty"`
 
-	// Country
+	// Country Country
 	Country string `json:"country,omitempty"`
 
-	// First line of the address
+	// Line1 First line of the address
 	Line1 string `json:"line1,omitempty"`
 
-	// Second line of the address
+	// Line2 Second line of the address
 	Line2 string `json:"line2,omitempty"`
 
-	// Third line of the address
+	// Line3 Third line of the address
 	Line3 string `json:"line3,omitempty"`
 
-	// Others details
+	// OtherDetails Others details
 	OtherDetails string `json:"otherDetails,omitempty"`
 
-	// Province name
+	// Province Province name
 	Province string `json:"province,omitempty"`
 
-	// Zipcode
+	// Zip Zipcode
 	Zip string `json:"zip,omitempty"`
 }

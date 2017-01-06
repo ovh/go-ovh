@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Service
+// DBaaSLogsService Service
 type DBaaSLogsService struct {
 
-	// Contact ID to use
-	ContactId int64 `json:"contactId,omitempty"`
+	// ContactID Contact ID to use
+	ContactID int64 `json:"contactId,omitempty"`
 
-	// Service creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Service creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Service name
+	// ServiceName Service name
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Service state
+	// State Service state
 	State string `json:"state,omitempty"`
 
-	// Service last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Service last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 
-	// Username on DBaaS Logs
+	// Username Username on DBaaS Logs
 	Username string `json:"username,omitempty"`
 }

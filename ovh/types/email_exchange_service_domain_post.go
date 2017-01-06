@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailExchangeServiceDomainPost ...
 type EmailExchangeServiceDomainPost struct {
-
 	ConfigureAutodiscover bool `json:"configureAutodiscover,omitempty"`
 
 	ConfigureMx bool `json:"configureMx,omitempty"`
@@ -24,5 +24,5 @@ type EmailExchangeServiceDomainPost struct {
 
 	Organization2010 string `json:"organization2010,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

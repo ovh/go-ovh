@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Describes a product inside a operation
+// OrderUpgradeOperationProduct Describes a product inside a operation
 type OrderUpgradeOperationProduct struct {
 
-	// Detailled description of a product
+	// Description Detailled description of a product
 	Description string `json:"description,omitempty"`
 
-	// Name of the product
+	// Name Name of the product
 	Name string `json:"name,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Configuration
+// HostingPrivateDatabaseConfiguration Configuration
 type HostingPrivateDatabaseConfiguration struct {
 
-	// Configuration full details
-	Details []HostingPrivateDatabaseConfigurationDetail `json:"details,omitempty"`
+	// Details Configuration full details
+	Details []*HostingPrivateDatabaseConfigurationDetail `json:"details,omitempty"`
 
-	// Last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Configuration status
+	// Status Configuration status
 	Status string `json:"status,omitempty"`
 
-	// Configuration linked task id
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID Configuration linked task id
+	TaskID string `json:"taskId,omitempty"`
 }

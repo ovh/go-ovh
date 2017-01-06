@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
+// PaasTimeseriesSetupPost ...
 type PaasTimeseriesSetupPost struct {
-
 	Description string `json:"description,omitempty"`
 
 	DisplayName string `json:"displayName,omitempty"`
 
-	RaTokenId string `json:"raTokenId,omitempty"`
+	RaTokenID string `json:"raTokenId,omitempty"`
 
 	RaTokenKey string `json:"raTokenKey,omitempty"`
 
-	RegionId string `json:"regionId,omitempty"`
+	RegionID string `json:"regionId,omitempty"`
 }

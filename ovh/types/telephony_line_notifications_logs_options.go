@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Error logging notifications options
+// TelephonyLineNotificationsLogsOptions Error logging notifications options
 type TelephonyLineNotificationsLogsOptions struct {
 
-	// Email address where to send notifications
+	// Email Email address where to send notifications
 	Email string `json:"email,omitempty"`
 
-	// Frequency at which the notifications will be send
+	// Frequency Frequency at which the notifications will be send
 	Frequency string `json:"frequency,omitempty"`
 
-	// Send a blank notification if there is no diagnosticReports entries for the period
+	// SendIfNull Send a blank notification if there is no diagnosticReports entries for the period
 	SendIfNull bool `json:"sendIfNull,omitempty"`
 }

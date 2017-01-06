@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// DHCP Configuration of the Modem
+// XdslDhcp DHCP Configuration of the Modem
 type XdslDhcp struct {
 
-	// The default gateway to be given to the clients
+	// DefaultGateway The default gateway to be given to the clients
 	DefaultGateway string `json:"defaultGateway,omitempty"`
 
-	// Name of the DHCP
+	// DhcpName Name of the DHCP
 	DhcpName string `json:"dhcpName,omitempty"`
 
-	// Domain name provided to the clients
+	// DomainName Domain name provided to the clients
 	DomainName string `json:"domainName,omitempty"`
 
-	// Last address of the pool assigned by the DHCP
+	// EndAddress Last address of the pool assigned by the DHCP
 	EndAddress string `json:"endAddress,omitempty"`
 
-	// Lease time in seconds of client assigned address (-1 means infinite)
+	// LeaseTime Lease time in seconds of client assigned address (-1 means infinite)
 	LeaseTime int64 `json:"leaseTime,omitempty"`
 
-	// Primary DNS servers to be given to the clients
+	// PrimaryDNS Primary DNS servers to be given to the clients
 	PrimaryDNS string `json:"primaryDNS,omitempty"`
 
-	// Secondary DNS servers to be given to the clients
+	// SecondaryDNS Secondary DNS servers to be given to the clients
 	SecondaryDNS string `json:"secondaryDNS,omitempty"`
 
-	// State of the DHCP server of the modem
+	// ServerEnabled State of the DHCP server of the modem
 	ServerEnabled bool `json:"serverEnabled,omitempty"`
 
-	// First address of the pool assigned by the DHCP
+	// StartAddress First address of the pool assigned by the DHCP
 	StartAddress string `json:"startAddress,omitempty"`
 
-	// The subnet mask given to the clients
+	// SubnetMask The subnet mask given to the clients
 	SubnetMask string `json:"subnetMask,omitempty"`
 
-	// ID of the ongoing todo (NULL if none)
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID ID of the ongoing todo (NULL if none)
+	TaskID int64 `json:"taskId,omitempty"`
 }

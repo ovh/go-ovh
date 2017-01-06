@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Informations about a VPS Veeam backups
+// VpsVeeam Informations about a VPS Veeam backups
 type VpsVeeam struct {
 
-	// Backup state
+	// Backup Backup state
 	Backup bool `json:"backup,omitempty"`
 }

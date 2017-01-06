@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// A structure given all service allowed for this vrack
+// VrackAllowedServices A structure given all service allowed for this vrack
 type VrackAllowedServices struct {
 
-	// list of publicCloud projects allowed to be connected to vrack
+	// CloudProject list of publicCloud projects allowed to be connected to vrack
 	CloudProject []string `json:"cloudProject,omitempty"`
 
-	// list of dedicated cloud allowed to be connected to vrack
+	// DedicatedCloud list of dedicated cloud allowed to be connected to vrack
 	DedicatedCloud []string `json:"dedicatedCloud,omitempty"`
 
-	// list of dedicated cloud datacenters allowed to be connected to vrack
+	// DedicatedCloudDatacenter list of dedicated cloud datacenters allowed to be connected to vrack
 	DedicatedCloudDatacenter []string `json:"dedicatedCloudDatacenter,omitempty"`
 
-	// list of dedicated connect links allowed to be connected to vrack
+	// DedicatedConnect list of dedicated connect links allowed to be connected to vrack
 	DedicatedConnect []string `json:"dedicatedConnect,omitempty"`
 
-	// list of dedicated servers allowed to be connected to vrack
+	// DedicatedServer list of dedicated servers allowed to be connected to vrack
 	DedicatedServer []string `json:"dedicatedServer,omitempty"`
 
-	// list of dedicated server interfaces allowed to be connected to vrack
-	DedicatedServerInterface []VrackAllowedDedicatedServerInterfaces `json:"dedicatedServerInterface,omitempty"`
+	// DedicatedServerInterface list of dedicated server interfaces allowed to be connected to vrack
+	DedicatedServerInterface []*VrackAllowedDedicatedServerInterfaces `json:"dedicatedServerInterface,omitempty"`
 
-	// list of blocks allowed to be connected to vrack
-	Ip []string `json:"ip,omitempty"`
+	// IP list of blocks allowed to be connected to vrack
+	IP []string `json:"ip,omitempty"`
 
-	// list of legacy vrack (1.0) allowed to be connected to vrack
+	// LegacyVrack list of legacy vrack (1.0) allowed to be connected to vrack
 	LegacyVrack []string `json:"legacyVrack,omitempty"`
 }

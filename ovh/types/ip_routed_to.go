@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Information about routing
-type IpRoutedTo struct {
+// IPRoutedTo Information about routing
+type IPRoutedTo struct {
 
-	// Service where ip is routed to
+	// ServiceName Service where ip is routed to
 	ServiceName string `json:"serviceName,omitempty"`
 }

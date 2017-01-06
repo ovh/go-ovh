@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,23 @@ import (
 	"time"
 )
 
-// Details about an Order
+// BillingOrder Details about an Order
 type BillingOrder struct {
+	Date *time.Time `json:"date,omitempty"`
 
-	Date time.Time `json:"date,omitempty"`
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
-
-	OrderId int64 `json:"orderId,omitempty"`
+	OrderID int64 `json:"orderId,omitempty"`
 
 	Password string `json:"password,omitempty"`
 
-	PdfUrl string `json:"pdfUrl,omitempty"`
+	PdfURL string `json:"pdfUrl,omitempty"`
 
-	PriceWithTax OrderPrice `json:"priceWithTax,omitempty"`
+	PriceWithTax *OrderPrice `json:"priceWithTax,omitempty"`
 
-	PriceWithoutTax OrderPrice `json:"priceWithoutTax,omitempty"`
+	PriceWithoutTax *OrderPrice `json:"priceWithoutTax,omitempty"`
 
-	Tax OrderPrice `json:"tax,omitempty"`
+	Tax *OrderPrice `json:"tax,omitempty"`
 
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

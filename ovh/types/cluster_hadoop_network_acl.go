@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// ACL for allowing ip blocks to access to your cluster
+// ClusterHadoopNetworkAcl ACL for allowing ip blocks to access to your cluster
 type ClusterHadoopNetworkAcl struct {
 
-	// IP Block to allow
+	// Block IP Block to allow
 	Block string `json:"block,omitempty"`
 
-	// description of this ACL
+	// Description description of this ACL
 	Description string `json:"description,omitempty"`
 
-	// State of the NetworkAcl.
+	// State State of the NetworkAcl.
 	State string `json:"state,omitempty"`
 }

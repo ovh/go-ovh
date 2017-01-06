@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Values of quota account (pop, mailing list, redirection, responder and big pop)
-type DomainDomainQuota struct {
+// DomainQuota Values of quota account (pop, mailing list, redirection, responder and big pop)
+type DomainQuota struct {
 
-	// Maximum number of mailboxes
+	// Account Maximum number of mailboxes
 	Account int64 `json:"account,omitempty"`
 
-	// Maximum number of aliases
+	// Alias Maximum number of aliases
 	Alias int64 `json:"alias,omitempty"`
 
-	// Maximum number of mailing lists
+	// MailingList Maximum number of mailing lists
 	MailingList int64 `json:"mailingList,omitempty"`
 
-	// Maximum number of redirections
+	// Redirection Maximum number of redirections
 	Redirection int64 `json:"redirection,omitempty"`
 
-	// Maximum number of responders
+	// Responder Maximum number of responders
 	Responder int64 `json:"responder,omitempty"`
 }

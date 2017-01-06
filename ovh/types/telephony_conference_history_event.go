@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Event of a conference (participant left/join)
+// TelephonyConferenceHistoryEvent Event of a conference (participant left/join)
 type TelephonyConferenceHistoryEvent struct {
 
-	// The caller id of the participant
+	// Callerid The caller id of the participant
 	Callerid string `json:"callerid,omitempty"`
 
-	// The date of the conference event
-	Date time.Time `json:"date,omitempty"`
+	// Date The date of the conference event
+	Date *time.Time `json:"date,omitempty"`
 
-	// The nature of the event : left/join
-	Type_ string `json:"type,omitempty"`
+	// TType The nature of the event : left/join
+	TType string `json:"type,omitempty"`
 }

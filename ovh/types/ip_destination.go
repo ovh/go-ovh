@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure given service and its nexthops as a destination for failover ips
-type IpDestination struct {
+// IPDestination A structure given service and its nexthops as a destination for failover ips
+type IPDestination struct {
 
-	// Nexthops available on this service
+	// Nexthop Nexthops available on this service
 	Nexthop []string `json:"nexthop,omitempty"`
 
-	// Service destination
+	// Service Service destination
 	Service string `json:"service,omitempty"`
 }

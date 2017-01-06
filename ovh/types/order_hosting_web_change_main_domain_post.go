@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderHostingWebChangeMainDomainPost ...
 type OrderHostingWebChangeMainDomainPost struct {
-
 	Domain string `json:"domain,omitempty"`
 
 	Mxplan string `json:"mxplan,omitempty"`

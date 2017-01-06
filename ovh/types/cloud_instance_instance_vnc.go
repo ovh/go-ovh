@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// InstanceVnc
-type CloudInstanceInstanceVnc struct {
+// CloudInstanceVnc InstanceVnc
+type CloudInstanceVnc struct {
 
-	// VNC type
-	Type_ string `json:"type,omitempty"`
+	// TType VNC type
+	TType string `json:"type,omitempty"`
 
-	// VNC url
-	Url string `json:"url,omitempty"`
+	// URL VNC url
+	URL string `json:"url,omitempty"`
 }

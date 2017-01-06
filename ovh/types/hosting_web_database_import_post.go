@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// HostingWebDatabaseImportPost ...
 type HostingWebDatabaseImportPost struct {
-
-	DocumentId string `json:"documentId,omitempty"`
+	DocumentID string `json:"documentId,omitempty"`
 
 	FlushDatabase bool `json:"flushDatabase,omitempty"`
 

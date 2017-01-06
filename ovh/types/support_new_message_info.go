@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Newly created support identifiers
+// SupportNewMessageInfo Newly created support identifiers
 type SupportNewMessageInfo struct {
 
-	// Message identifier
-	MessageId int64 `json:"messageId,omitempty"`
+	// MessageID Message identifier
+	MessageID int64 `json:"messageId,omitempty"`
 
-	// Ticket identifier
-	TicketId int64 `json:"ticketId,omitempty"`
+	// TicketID Ticket identifier
+	TicketID int64 `json:"ticketId,omitempty"`
 
-	// Ticket external number
+	// TicketNumber Ticket external number
 	TicketNumber int64 `json:"ticketNumber,omitempty"`
 }

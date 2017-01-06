@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DedicatedNashaPartitionQuotaPost ...
 type DedicatedNashaPartitionQuotaPost struct {
-
 	Size int64 `json:"size,omitempty"`
 
-	Uid int64 `json:"uid,omitempty"`
+	UID int64 `json:"uid,omitempty"`
 }

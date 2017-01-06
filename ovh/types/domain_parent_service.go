@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Parent service
+// DomainParentService Parent service
 type DomainParentService struct {
 
-	// Name of the parent service
+	// Name Name of the parent service
 	Name string `json:"name,omitempty"`
 
-	// Type of the parent service
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the parent service
+	TType string `json:"type,omitempty"`
 }

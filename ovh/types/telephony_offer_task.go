@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,20 @@ import (
 	"time"
 )
 
-// Operation on a telephony offer
+// TelephonyOfferTask Operation on a telephony offer
 type TelephonyOfferTask struct {
 
-	// Actual action that will be executed
+	// Action Actual action that will be executed
 	Action string `json:"action,omitempty"`
 
-	// Planned execution date
-	ExecutionDate time.Time `json:"executionDate,omitempty"`
+	// ExecutionDate Planned execution date
+	ExecutionDate *time.Time `json:"executionDate,omitempty"`
 
-	// Current status of the task
+	// Status Current status of the task
 	Status string `json:"status,omitempty"`
 
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 
-	// Type of operation that will be executed
-	Type_ string `json:"type,omitempty"`
+	// TType Type of operation that will be executed
+	TType string `json:"type,omitempty"`
 }

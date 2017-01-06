@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyLineAbbreviatedNumberPost ...
 type TelephonyLineAbbreviatedNumberPost struct {
-
 	AbbreviatedNumber int64 `json:"abbreviatedNumber,omitempty"`
 
 	DestinationNumber string `json:"destinationNumber,omitempty"`

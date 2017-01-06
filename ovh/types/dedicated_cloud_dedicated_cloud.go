@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,52 +10,52 @@
 
 package types
 
-// Dedicated Cloud
-type DedicatedCloudDedicatedCloud struct {
+// DedicatedCloud Dedicated Cloud
+type DedicatedCloud struct {
 
-	// The current bandwidth of your Dedicated Cloud
+	// Bandwidth The current bandwidth of your Dedicated Cloud
 	Bandwidth string `json:"bandwidth,omitempty"`
 
-	// Billing type of your Dedicated Cloud
+	// BillingType Billing type of your Dedicated Cloud
 	BillingType string `json:"billingType,omitempty"`
 
-	// The current version of your Dedicated Cloud
+	// CommercialRange The current version of your Dedicated Cloud
 	CommercialRange string `json:"commercialRange,omitempty"`
 
-	// Description of your Dedicated Cloud
+	// Description Description of your Dedicated Cloud
 	Description string `json:"description,omitempty"`
 
-	// Datacenter where your Dedicated Cloud is physically located
+	// Location Datacenter where your Dedicated Cloud is physically located
 	Location string `json:"location,omitempty"`
 
-	// The management interface name
+	// ManagementInterface The management interface name
 	ManagementInterface string `json:"managementInterface,omitempty"`
 
-	// Service name of your Dedicated Cloud
+	// ServiceName Service name of your Dedicated Cloud
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// SPLA licensing state
+	// Spla SPLA licensing state
 	Spla bool `json:"spla,omitempty"`
 
-	// Enable SSL v3 support. Warning : this option is not recommended as it was recognized as a security breach. If this is enabled, we advise you to enable the filtered User access policy
-	SslV3 bool `json:"sslV3,omitempty"`
+	// SSLV3 Enable SSL v3 support. Warning : this option is not recommended as it was recognized as a security breach. If this is enabled, we advise you to enable the filtered User access policy
+	SSLV3 bool `json:"sslV3,omitempty"`
 
-	// Current state of your Dedicated Cloud
+	// State Current state of your Dedicated Cloud
 	State string `json:"state,omitempty"`
 
-	// Access policy of your Dedicated Cloud : opened to every IPs or filtered
+	// UserAccessPolicy Access policy of your Dedicated Cloud : opened to every IPs or filtered
 	UserAccessPolicy string `json:"userAccessPolicy,omitempty"`
 
-	// The maximum amount of connected users allowed on the Dedicated Cloud management interface
+	// UserLimitConcurrentSession The maximum amount of connected users allowed on the Dedicated Cloud management interface
 	UserLimitConcurrentSession int64 `json:"userLimitConcurrentSession,omitempty"`
 
 	UserLogoutPolicy string `json:"userLogoutPolicy,omitempty"`
 
-	// The timeout (in seconds) for the user sessions on the Dedicated Cloud management interface. 0 value disable the timeout
+	// UserSessionTimeout The timeout (in seconds) for the user sessions on the Dedicated Cloud management interface. 0 value disable the timeout
 	UserSessionTimeout int64 `json:"userSessionTimeout,omitempty"`
 
-	// Url to the vScope associated to this Dedicated Cloud
-	VScopeUrl string `json:"vScopeUrl,omitempty"`
+	// VScopeURL Url to the vScope associated to this Dedicated Cloud
+	VScopeURL string `json:"vScopeUrl,omitempty"`
 
-	Version DedicatedCloudVersion `json:"version,omitempty"`
+	Version *DedicatedCloudVersion `json:"version,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,45 +14,45 @@ import (
 	"time"
 )
 
-// Describe statistics information of a Modem
+// XdslStatsModemInfo Describe statistics information of a Modem
 type XdslStatsModemInfo struct {
 
-	// Connection uptime
+	// ConnectionUptime Connection uptime
 	ConnectionUptime int64 `json:"connectionUptime,omitempty"`
 
-	// Amount of CRC error detected
+	// CrcError Amount of CRC error detected
 	CrcError int64 `json:"crcError,omitempty"`
 
-	// Modem uptime
+	// DeviceUptime Modem uptime
 	DeviceUptime int64 `json:"deviceUptime,omitempty"`
 
-	// Downstream attenuation
+	// DownstreamAttenuation Downstream attenuation
 	DownstreamAttenuation float64 `json:"downstreamAttenuation,omitempty"`
 
-	// Downstream margin
+	// DownstreamMargin Downstream margin
 	DownstreamMargin float64 `json:"downstreamMargin,omitempty"`
 
-	// Downstream synchronization
+	// DownstreamSync Downstream synchronization
 	DownstreamSync float64 `json:"downstreamSync,omitempty"`
 
-	// Time of last refresh
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Time of last refresh
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Line modulation used
+	// Modulation Line modulation used
 	Modulation string `json:"modulation,omitempty"`
 
-	// Count from last refresh in seconds
+	// QuarterHourStart Count from last refresh in seconds
 	QuarterHourStart int64 `json:"quarterHourStart,omitempty"`
 
-	// Synchronization uptime
+	// SyncUptime Synchronization uptime
 	SyncUptime int64 `json:"syncUptime,omitempty"`
 
-	// Upstream attenuation
+	// UpstreamAttenuation Upstream attenuation
 	UpstreamAttenuation float64 `json:"upstreamAttenuation,omitempty"`
 
-	// Upstream margin
+	// UpstreamMargin Upstream margin
 	UpstreamMargin float64 `json:"upstreamMargin,omitempty"`
 
-	// Upstream synchronization
+	// UpstreamSync Upstream synchronization
 	UpstreamSync float64 `json:"upstreamSync,omitempty"`
 }

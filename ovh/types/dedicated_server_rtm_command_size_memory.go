@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Memory used by this process
+// DedicatedServerRtmCommandSizeMemory Memory used by this process
 type DedicatedServerRtmCommandSizeMemory struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

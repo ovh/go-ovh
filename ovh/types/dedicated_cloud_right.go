@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,22 +10,22 @@
 
 package types
 
-// Dedicated Cloud User right
+// DedicatedCloudRight Dedicated Cloud User right
 type DedicatedCloudRight struct {
 
-	// Determine if the user can add ressources in your Dedicated Cloud
+	// CanAddRessource Determine if the user can add ressources in your Dedicated Cloud
 	CanAddRessource bool `json:"canAddRessource,omitempty"`
 
-	DatacenterId int64 `json:"datacenterId,omitempty"`
+	DatacenterID int64 `json:"datacenterId,omitempty"`
 
-	// Determine how this user can interact with the Dedicated Cloud V(x)Lans
+	// NetworkRole Determine how this user can interact with the Dedicated Cloud V(x)Lans
 	NetworkRole string `json:"networkRole,omitempty"`
 
-	// Determine what kind of access the User will have in this Datacenter of your Dedicated Cloud
+	// Right Determine what kind of access the User will have in this Datacenter of your Dedicated Cloud
 	Right string `json:"right,omitempty"`
 
-	RightId int64 `json:"rightId,omitempty"`
+	RightID int64 `json:"rightId,omitempty"`
 
-	// Determine how this user can interact with the Dedicated Cloud VM Network
-	VmNetworkRole string `json:"vmNetworkRole,omitempty"`
+	// VMNetworkRole Determine how this user can interact with the Dedicated Cloud VM Network
+	VMNetworkRole string `json:"vmNetworkRole,omitempty"`
 }

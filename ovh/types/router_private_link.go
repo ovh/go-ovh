@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,17 +14,16 @@ import (
 	"time"
 )
 
-// Private Link to another service
+// RouterPrivateLink Private Link to another service
 type RouterPrivateLink struct {
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
-
-	// Your memory-friendly name of this private link
+	// Name Your memory-friendly name of this private link
 	Name string `json:"name,omitempty"`
 
-	// Service name of the other side of this link
+	// PeerServiceName Service name of the other side of this link
 	PeerServiceName string `json:"peerServiceName,omitempty"`
 
 	Status string `json:"status,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Screen list
+// TelephonyScreenList Screen list
 type TelephonyScreenList struct {
-
 	CallNumber string `json:"callNumber,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Nature string `json:"nature,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

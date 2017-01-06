@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DedicatedNashaPartitionAccessPost ...
 type DedicatedNashaPartitionAccessPost struct {
+	IP string `json:"ip,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Hosting users logs
+// HostingWebUserLogs Hosting users logs
 type HostingWebUserLogs struct {
 
-	// Date of the user creation
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Date of the user creation
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Description field for you
+	// Description Description field for you
 	Description string `json:"description,omitempty"`
 
-	// The userLogs login used to connect to logs.ovh.net
+	// Login The userLogs login used to connect to logs.ovh.net
 	Login string `json:"login,omitempty"`
 }

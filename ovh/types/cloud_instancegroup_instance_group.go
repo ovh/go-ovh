@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// InstanceGroup
-type CloudInstancegroupInstanceGroup struct {
+// CloudInstanceGroup InstanceGroup
+type CloudInstanceGroup struct {
 
-	// Instance group id
-	Id string `json:"id,omitempty"`
+	// ID Instance group id
+	ID string `json:"id,omitempty"`
 
-	// Instances ids
-	InstanceIds []string `json:"instance_ids,omitempty"`
+	// InstanceIDs Instances ids
+	InstanceIDs []string `json:"instance_ids,omitempty"`
 
-	// Instance group name
+	// Name Instance group name
 	Name string `json:"name,omitempty"`
 
-	// region
+	// Region region
 	Region string `json:"region,omitempty"`
 
-	// Instance group type
-	Type_ string `json:"type,omitempty"`
+	// TType Instance group type
+	TType string `json:"type,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Server partitions informations
+// DedicatedServerRtmPartition Server partitions informations
 type DedicatedServerRtmPartition struct {
+	InodeUsage *DedicatedServerRtmPartitionInodeUsage `json:"inodeUsage,omitempty"`
 
-	InodeUsage DedicatedServerRtmPartitionInodeUsage `json:"inodeUsage,omitempty"`
-
-	// Partition mount point
+	// MountPoint Partition mount point
 	MountPoint string `json:"mountPoint,omitempty"`
 
-	// Partition
+	// Partition Partition
 	Partition string `json:"partition,omitempty"`
 
-	Usage DedicatedServerRtmPartitionUsage `json:"usage,omitempty"`
+	Usage *DedicatedServerRtmPartitionUsage `json:"usage,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// InstanceMetrics
-type CloudInstanceInstanceMetrics struct {
-
+// CloudInstanceMetrics InstanceMetrics
+type CloudInstanceMetrics struct {
 	Unit string `json:"unit,omitempty"`
 
-	Values []CloudInstanceInstanceMetricsValue `json:"values,omitempty"`
+	Values []*CloudInstanceMetricsValue `json:"values,omitempty"`
 }

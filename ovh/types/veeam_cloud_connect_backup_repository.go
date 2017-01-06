@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// Veeam Backup Repository
+// VeeamCloudConnectBackupRepository Veeam Backup Repository
 type VeeamCloudConnectBackupRepository struct {
 
-	// The inventory name of your backup repository
+	// InventoryName The inventory name of your backup repository
 	InventoryName string `json:"inventoryName,omitempty"`
 
-	Quota VeeamCloudConnectBackupRepositoryQuota `json:"quota,omitempty"`
+	Quota *VeeamCloudConnectBackupRepositoryQuota `json:"quota,omitempty"`
 
-	QuotaUsed VeeamCloudConnectBackupRepositoryQuotaUsed `json:"quotaUsed,omitempty"`
+	QuotaUsed *VeeamCloudConnectBackupRepositoryQuotaUsed `json:"quotaUsed,omitempty"`
 }

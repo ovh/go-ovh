@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// A structure describing the server's resulting layout after RAID configuration
+// DedicatedServerHardwareRaidSize A structure describing the server's resulting layout after RAID configuration
 type DedicatedServerHardwareRaidSize struct {
 
-	// Hardware RAID configuration list
-	Configurations []DedicatedServerHardwareRaidConfiguration `json:"configurations,omitempty"`
+	// Configurations Hardware RAID configuration list
+	Configurations []*DedicatedServerHardwareRaidConfiguration `json:"configurations,omitempty"`
 }

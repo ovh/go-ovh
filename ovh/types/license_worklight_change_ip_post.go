@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type LicenseWorklightChangeIpPost struct {
-
-	DestinationIp string `json:"destinationIp,omitempty"`
+// LicenseWorklightChangeIPPost ...
+type LicenseWorklightChangeIPPost struct {
+	DestinationIP string `json:"destinationIp,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Specific number available
+// TelephonySpecificNumber Specific number available
 type TelephonySpecificNumber struct {
 
-	// Set if number is premium
+	// IsPremium Set if number is premium
 	IsPremium bool `json:"isPremium,omitempty"`
 
-	// The number
+	// Number The number
 	Number string `json:"number,omitempty"`
 }

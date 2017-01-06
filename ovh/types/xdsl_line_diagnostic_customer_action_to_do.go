@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Customer action to do
+// XdslLineDiagnosticCustomerActionToDo Customer action to do
 type XdslLineDiagnosticCustomerActionToDo struct {
 
-	// action's description
+	// Description action's description
 	Description string `json:"description,omitempty"`
 
-	// action's name
+	// Name action's name
 	Name string `json:"name,omitempty"`
 }

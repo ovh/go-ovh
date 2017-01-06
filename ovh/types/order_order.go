@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// An order
-type OrderOrder struct {
+// Order An order
+type Order struct {
+	Contracts []*OrderContract `json:"contracts,omitempty"`
 
-	Contracts []OrderContract `json:"contracts,omitempty"`
+	Details []*OrderDetail `json:"details,omitempty"`
 
-	Details []OrderOrderDetail `json:"details,omitempty"`
+	OrderID int64 `json:"orderId,omitempty"`
 
-	OrderId int64 `json:"orderId,omitempty"`
+	Prices *OrderPrices `json:"prices,omitempty"`
 
-	Prices OrderOrderPrices `json:"prices,omitempty"`
-
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

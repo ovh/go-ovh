@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A structure describing all information about templates informations
+// SmsTemplates A structure describing all information about templates informations
 type SmsTemplates struct {
-
 	CustomizedEmailMode bool `json:"customizedEmailMode,omitempty"`
 
 	CustomizedSmsMode bool `json:"customizedSmsMode,omitempty"`

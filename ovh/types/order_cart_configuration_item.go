@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Representation of a configuration item for personalizing product
+// OrderCartConfigurationItem Representation of a configuration item for personalizing product
 type OrderCartConfigurationItem struct {
 
-	// Configuration ID
-	Id int64 `json:"id,omitempty"`
+	// ID Configuration ID
+	ID int64 `json:"id,omitempty"`
 
-	// Identifier of the resource
+	// Label Identifier of the resource
 	Label string `json:"label,omitempty"`
 
-	// Path to the resource in API.OVH.COM
+	// Value Path to the resource in API.OVH.COM
 	Value string `json:"value,omitempty"`
 }

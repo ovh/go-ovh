@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Infos about a Landline at the concentration point
+// XdslLandlineConcentrationPoint Infos about a Landline at the concentration point
 type XdslLandlineConcentrationPoint struct {
 
-	// Identifier of the head of the cable from the MDF
+	// LineHead Identifier of the head of the cable from the MDF
 	LineHead string `json:"lineHead,omitempty"`
 
-	// Identifier of the section at the lineHead
+	// LineInitialSection Identifier of the section at the lineHead
 	LineInitialSection int64 `json:"lineInitialSection,omitempty"`
 
-	// Identifier of the pair at the lineHead's lineInitialSection
+	// LineInitialSectionPair Identifier of the pair at the lineHead's lineInitialSection
 	LineInitialSectionPair int64 `json:"lineInitialSectionPair,omitempty"`
 }

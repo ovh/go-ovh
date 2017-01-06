@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// InstanceStock
-type CloudInstanceInstanceStock struct {
+// CloudInstanceStock InstanceStock
+type CloudInstanceStock struct {
 
-	// Flavor id
-	FlavorId string `json:"flavor_id,omitempty"`
+	// FlavorID Flavor id
+	FlavorID string `json:"flavor_id,omitempty"`
 
-	// Flavor name
+	// FlavorName Flavor name
 	FlavorName string `json:"flavor_name,omitempty"`
 
-	// Flavor stock
+	// Stock Flavor stock
 	Stock int64 `json:"stock,omitempty"`
 }

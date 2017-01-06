@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// List of documents added on your account
-type NichandleDocumentDocument struct {
+// NichandleDocument List of documents added on your account
+type NichandleDocument struct {
 
-	// Document creation
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Document creation
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Document expiration
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
+	// ExpirationDate Document expiration
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
-	// URL used to get document
-	GetUrl string `json:"getUrl,omitempty"`
+	// GetURL URL used to get document
+	GetURL string `json:"getUrl,omitempty"`
 
-	// Document id
-	Id string `json:"id,omitempty"`
+	// ID Document id
+	ID string `json:"id,omitempty"`
 
-	// Document name
+	// Name Document name
 	Name string `json:"name,omitempty"`
 
-	// URL used to put document
-	PutUrl string `json:"putUrl,omitempty"`
+	// PutURL URL used to put document
+	PutURL string `json:"putUrl,omitempty"`
 
-	// Document size (in bytes)
+	// Size Document size (in bytes)
 	Size int64 `json:"size,omitempty"`
 
-	// Document tags
-	Tags []ComplexTypeSafeKeyValueString `json:"tags,omitempty"`
+	// Tags Document tags
+	Tags []*ComplexTypeSafeKeyValueString `json:"tags,omitempty"`
 
-	// Document validation
-	ValidationDate time.Time `json:"validationDate,omitempty"`
+	// ValidationDate Document validation
+	ValidationDate *time.Time `json:"validationDate,omitempty"`
 }

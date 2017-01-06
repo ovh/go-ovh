@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// A structure describing informations bandwidth orderable for this dedicated server
+// DedicatedServerBandwidthOrderable A structure describing informations bandwidth orderable for this dedicated server
 type DedicatedServerBandwidthOrderable struct {
 
-	// Is bandwidth orderable for this server
+	// Orderable Is bandwidth orderable for this server
 	Orderable bool `json:"orderable,omitempty"`
 
-	// Bandwidth \"platinum\" orderable in mbps
+	// Platinum Bandwidth \"platinum\" orderable in mbps
 	Platinum []int64 `json:"platinum,omitempty"`
 
-	// Bandwidth \"premium\" orderable in mbps
+	// Premium Bandwidth \"premium\" orderable in mbps
 	Premium []int64 `json:"premium,omitempty"`
 
-	// Bandwidth \"ultimate\" orderable in mbps
+	// Ultimate Bandwidth \"ultimate\" orderable in mbps
 	Ultimate []int64 `json:"ultimate,omitempty"`
 }

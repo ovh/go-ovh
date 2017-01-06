@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// A list of resource configuration sets
+// MonitoringConfig A list of resource configuration sets
 type MonitoringConfig struct {
 
-	// The configuration attributes of the resource
-	Config []MonitoringConfigPair `json:"config,omitempty"`
+	// Config The configuration attributes of the resource
+	Config []*MonitoringConfigPair `json:"config,omitempty"`
 }

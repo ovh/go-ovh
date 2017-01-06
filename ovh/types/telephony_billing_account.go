@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,29 +10,28 @@
 
 package types
 
-// Billing Account
+// TelephonyBillingAccount Billing Account
 type TelephonyBillingAccount struct {
+	AllowedOutplan *OrderPrice `json:"allowedOutplan,omitempty"`
 
-	AllowedOutplan OrderPrice `json:"allowedOutplan,omitempty"`
-
-	// Name of the billing account
+	// BillingAccount Name of the billing account
 	BillingAccount string `json:"billingAccount,omitempty"`
 
-	CreditThreshold OrderPrice `json:"creditThreshold,omitempty"`
+	CreditThreshold *OrderPrice `json:"creditThreshold,omitempty"`
 
-	CurrentOutplan OrderPrice `json:"currentOutplan,omitempty"`
+	CurrentOutplan *OrderPrice `json:"currentOutplan,omitempty"`
 
-	// Description of the billing account
+	// Description Description of the billing account
 	Description string `json:"description,omitempty"`
 
-	// Override number display for calls between services of your billing account
+	// OverrideDisplayedNumber Override number display for calls between services of your billing account
 	OverrideDisplayedNumber bool `json:"overrideDisplayedNumber,omitempty"`
 
-	SecurityDeposit OrderPrice `json:"securityDeposit,omitempty"`
+	SecurityDeposit *OrderPrice `json:"securityDeposit,omitempty"`
 
-	// Current status of billing account
+	// Status Current status of billing account
 	Status string `json:"status,omitempty"`
 
-	// Is the billing account trusted
+	// Trusted Is the billing account trusted
 	Trusted bool `json:"trusted,omitempty"`
 }

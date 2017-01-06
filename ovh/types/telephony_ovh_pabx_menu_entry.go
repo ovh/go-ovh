@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// IVR menu entry
+// TelephonyOvhPabxMenuEntry IVR menu entry
 type TelephonyOvhPabxMenuEntry struct {
 
-	// The action triggered by the DTMF
+	// Action The action triggered by the DTMF
 	Action string `json:"action,omitempty"`
 
-	// The additionnal parameter of the action
+	// ActionParam The additionnal parameter of the action
 	ActionParam string `json:"actionParam,omitempty"`
 
-	// The DTMF that triggers the action
+	// Dtmf The DTMF that triggers the action
 	Dtmf string `json:"dtmf,omitempty"`
 
-	EntryId int64 `json:"entryId,omitempty"`
+	EntryID int64 `json:"entryId,omitempty"`
 
-	// The position of the entry in the menu
+	// Position The position of the entry in the menu
 	Position int64 `json:"position,omitempty"`
 }

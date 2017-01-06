@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Sms Two-Factor Authentication
+// NichandleAccessRestrictionSmsAccount Sms Two-Factor Authentication
 type NichandleAccessRestrictionSmsAccount struct {
 
-	// The Id of the restriction
-	Id int64 `json:"id,omitempty"`
+	// ID The Id of the restriction
+	ID int64 `json:"id,omitempty"`
 
-	// Associated phone number
+	// PhoneNumber Associated phone number
 	PhoneNumber string `json:"phoneNumber,omitempty"`
 
-	// Status of this account
+	// Status Status of this account
 	Status string `json:"status,omitempty"`
 }

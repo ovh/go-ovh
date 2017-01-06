@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,18 @@
 
 package types
 
-// Pack of xDSL services
+// PackXdslPackAdsl Pack of xDSL services
 type PackXdslPackAdsl struct {
+	Capabilities *PackXdslPackCapabilities `json:"capabilities,omitempty"`
 
-	Capabilities PackXdslPackCapabilities `json:"capabilities,omitempty"`
-
-	// Customer pack description
+	// Description Customer pack description
 	Description string `json:"description,omitempty"`
 
-	// Name of the offer
+	// OfferDescription Name of the offer
 	OfferDescription string `json:"offerDescription,omitempty"`
 
-	OfferPrice OrderPrice `json:"offerPrice,omitempty"`
+	OfferPrice *OrderPrice `json:"offerPrice,omitempty"`
 
-	// Name of the xdsl pack
+	// PackName Name of the xdsl pack
 	PackName string `json:"packName,omitempty"`
 }

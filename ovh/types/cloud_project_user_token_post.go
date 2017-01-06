@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// CloudProjectUserTokenPost ...
 type CloudProjectUserTokenPost struct {
-
 	Password string `json:"password,omitempty"`
 }

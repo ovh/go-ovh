@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Office licence
+// SaasCsp2OfficeLicence Office licence
 type SaasCsp2OfficeLicence struct {
 
-	// License unique identifier
-	Id int64 `json:"id,omitempty"`
+	// ID License unique identifier
+	ID int64 `json:"id,omitempty"`
 
-	// Maximum purchasable license
+	// Limit Maximum purchasable license
 	Limit int64 `json:"limit,omitempty"`
 
-	// License name
+	// Name License name
 	Name string `json:"name,omitempty"`
 }

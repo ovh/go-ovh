@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Represents a city
+// XdslEligibilityCity Represents a city
 type XdslEligibilityCity struct {
 
-	// The identifier of the city
+	// InseeCode The identifier of the city
 	InseeCode string `json:"inseeCode,omitempty"`
 
-	// The name of the city
+	// Name The name of the city
 	Name string `json:"name,omitempty"`
 
-	// The zip code of the city
+	// ZipCode The zip code of the city
 	ZipCode string `json:"zipCode,omitempty"`
 }

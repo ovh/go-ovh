@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// Task on CDN
-type CdnWebsiteTask struct {
-
+// CDNWebsiteTask Task on CDN
+type CDNWebsiteTask struct {
 	Comment string `json:"comment,omitempty"`
 
 	Function string `json:"function,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 }

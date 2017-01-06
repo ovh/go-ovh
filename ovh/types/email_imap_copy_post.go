@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// EmailImapCopyPost ...
 type EmailImapCopyPost struct {
+	From *ImapcopyStructImapCopy `json:"from,omitempty"`
 
-	From ImapcopyStructImapCopy `json:"from,omitempty"`
-
-	To ImapcopyStructImapCopy `json:"to,omitempty"`
+	To *ImapcopyStructImapCopy `json:"to,omitempty"`
 }

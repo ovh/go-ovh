@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Office task
-type LicenseOfficeOfficeTask struct {
+// LicenseOfficeTask Office task
+type LicenseOfficeTask struct {
 
-	// Completion date
-	FinishDate time.Time `json:"finishDate,omitempty"`
+	// FinishDate Completion date
+	FinishDate *time.Time `json:"finishDate,omitempty"`
 
-	// Function name
+	// Function Function name
 	Function string `json:"function,omitempty"`
 
-	// Task state
+	// Status Task state
 	Status string `json:"status,omitempty"`
 
-	// Creation date
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	// TodoDate Creation date
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

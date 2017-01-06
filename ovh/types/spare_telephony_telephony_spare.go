@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Spare properties
-type SpareTelephonyTelephonySpare struct {
+// SpareTelephonySpare Spare properties
+type SpareTelephonySpare struct {
 
-	// Phone brand model
+	// Brand Phone brand model
 	Brand string `json:"brand,omitempty"`
 
-	// Mac address
+	// MacAddress Mac address
 	MacAddress string `json:"macAddress,omitempty"`
 
-	// Phone protocol
+	// Protocol Phone protocol
 	Protocol string `json:"protocol,omitempty"`
 }

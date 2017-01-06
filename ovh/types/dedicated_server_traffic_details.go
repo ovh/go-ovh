@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// A structure describing traffic informations about this dedicated server
+// DedicatedServerTrafficDetails A structure describing traffic informations about this dedicated server
 type DedicatedServerTrafficDetails struct {
+	InputQuotaSize *DedicatedServerTrafficDetailsInputQuotaSize `json:"inputQuotaSize,omitempty"`
 
-	InputQuotaSize DedicatedServerTrafficDetailsInputQuotaSize `json:"inputQuotaSize,omitempty"`
+	InputQuotaUsed *DedicatedServerTrafficDetailsInputQuotaUsed `json:"inputQuotaUsed,omitempty"`
 
-	InputQuotaUsed DedicatedServerTrafficDetailsInputQuotaUsed `json:"inputQuotaUsed,omitempty"`
+	OutputQuotaSize *DedicatedServerTrafficDetailsOutputQuotaSize `json:"outputQuotaSize,omitempty"`
 
-	OutputQuotaSize DedicatedServerTrafficDetailsOutputQuotaSize `json:"outputQuotaSize,omitempty"`
-
-	OutputQuotaUsed DedicatedServerTrafficDetailsOutputQuotaUsed `json:"outputQuotaUsed,omitempty"`
+	OutputQuotaUsed *DedicatedServerTrafficDetailsOutputQuotaUsed `json:"outputQuotaUsed,omitempty"`
 }

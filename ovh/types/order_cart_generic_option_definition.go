@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Representation of a generic product option
+// OrderCartGenericOptionDefinition Representation of a generic product option
 type OrderCartGenericOptionDefinition struct {
 
-	// Define if options of this family are exclusive with each other
+	// Exclusive Define if options of this family are exclusive with each other
 	Exclusive bool `json:"exclusive,omitempty"`
 
-	// Option family
+	// Family Option family
 	Family string `json:"family,omitempty"`
 
-	// Define if an option of this family is mandatory
+	// Mandatory Define if an option of this family is mandatory
 	Mandatory bool `json:"mandatory,omitempty"`
 
-	// Product offer identifier
+	// PlanCode Product offer identifier
 	PlanCode string `json:"planCode,omitempty"`
 
-	// Prices of the product offer
-	Prices []OrderCartGenericProductPricing `json:"prices,omitempty"`
+	// Prices Prices of the product offer
+	Prices []*OrderCartGenericProductPricing `json:"prices,omitempty"`
 
-	// Name of the product
+	// ProductName Name of the product
 	ProductName string `json:"productName,omitempty"`
 
-	// Product type
+	// ProductType Product type
 	ProductType string `json:"productType,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
+// EmailDomainResponderPost ...
 type EmailDomainResponderPost struct {
-
 	Account string `json:"account,omitempty"`
 
 	Content string `json:"content,omitempty"`
@@ -24,7 +24,7 @@ type EmailDomainResponderPost struct {
 
 	CopyTo string `json:"copyTo,omitempty"`
 
-	From time.Time `json:"from,omitempty"`
+	From *time.Time `json:"from,omitempty"`
 
-	To time.Time `json:"to,omitempty"`
+	To *time.Time `json:"to,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// The serviceTypes allowed to Order a plesk version and associated Versions
+// LicensePleskOrderConfiguration The serviceTypes allowed to Order a plesk version and associated Versions
 type LicensePleskOrderConfiguration struct {
-
-	OrderableVersions []LicenseOrderablePleskCompatibilityInfos `json:"orderableVersions,omitempty"`
+	OrderableVersions []*LicenseOrderablePleskCompatibilityInfos `json:"orderableVersions,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 }

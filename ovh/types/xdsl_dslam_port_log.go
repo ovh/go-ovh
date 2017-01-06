@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,16 +14,15 @@ import (
 	"time"
 )
 
-// A message log from the DSLAM
+// XdslDslamPortLog A message log from the DSLAM
 type XdslDslamPortLog struct {
+	Date *time.Time `json:"date,omitempty"`
 
-	Date time.Time `json:"date,omitempty"`
-
-	// The last time this message occured
-	LastOccurrenceDate time.Time `json:"lastOccurrenceDate,omitempty"`
+	// LastOccurrenceDate The last time this message occured
+	LastOccurrenceDate *time.Time `json:"lastOccurrenceDate,omitempty"`
 
 	Message string `json:"message,omitempty"`
 
-	// The number of times this message occured between date and lastOccurrenceDate
+	// NumberOfOccurrences The number of times this message occured between date and lastOccurrenceDate
 	NumberOfOccurrences int64 `json:"numberOfOccurrences,omitempty"`
 }

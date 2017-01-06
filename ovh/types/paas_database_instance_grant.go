@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// Grants
+// PaasDatabaseInstanceGrant Grants
 type PaasDatabaseInstanceGrant struct {
 
-	// Creation date of the grant
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the grant
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Database's name for this grant
+	// DatabaseName Database's name for this grant
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	// Grant id
-	GrantId string `json:"grantId,omitempty"`
+	// GrantID Grant id
+	GrantID string `json:"grantId,omitempty"`
 
-	// Grant type
+	// GrantType Grant type
 	GrantType string `json:"grantType,omitempty"`
 
-	// The last update date of this grant
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate The last update date of this grant
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Grant status
+	// Status Grant status
 	Status string `json:"status,omitempty"`
 
-	// The id of the task working on this object
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID The id of the task working on this object
+	TaskID string `json:"taskId,omitempty"`
 
-	// User name to grant
+	// UserName User name to grant
 	UserName string `json:"userName,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Shinken resource (e.g. Host, Service, Contact, etc)
+// MonitoringResource Shinken resource (e.g. Host, Service, Contact, etc)
 type MonitoringResource struct {
 
-	// Configuration
-	Config []MonitoringConfigPair `json:"config,omitempty"`
+	// Config Configuration
+	Config []*MonitoringConfigPair `json:"config,omitempty"`
 
-	// Date of the resource creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the resource creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Unique UUID of the resource
-	Id string `json:"id,omitempty"`
+	// ID Unique UUID of the resource
+	ID string `json:"id,omitempty"`
 
-	// Date of the resource last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the resource last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

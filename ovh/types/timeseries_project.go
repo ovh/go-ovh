@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Timeseries project
+// TimeseriesProject Timeseries project
 type TimeseriesProject struct {
 
-	// description of your project
+	// Description description of your project
 	Description string `json:"description,omitempty"`
 
-	// name of your project
+	// DisplayName name of your project
 	DisplayName string `json:"displayName,omitempty"`
 
-	// subscribed offer
-	OfferId string `json:"offerId,omitempty"`
+	// OfferID subscribed offer
+	OfferID string `json:"offerId,omitempty"`
 
-	// region where your data are located
-	RegionId string `json:"regionId,omitempty"`
+	// RegionID region where your data are located
+	RegionID string `json:"regionId,omitempty"`
 
-	// timeseries Project id
+	// ServiceName timeseries Project id
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// project status
+	// Status project status
 	Status string `json:"status,omitempty"`
 }

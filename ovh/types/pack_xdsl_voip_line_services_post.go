@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-type PackXdslVoipLineServicesPost struct {
-
+// PackXdslVOIPLineServicesPost ...
+type PackXdslVOIPLineServicesPost struct {
 	HardwareNames []string `json:"hardwareNames,omitempty"`
 
-	MondialRelayId string `json:"mondialRelayId,omitempty"`
+	MondialRelayID string `json:"mondialRelayId,omitempty"`
 
-	ShippingId string `json:"shippingId,omitempty"`
+	ShippingID string `json:"shippingId,omitempty"`
 }

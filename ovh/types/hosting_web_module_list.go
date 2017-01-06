@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,43 +10,43 @@
 
 package types
 
-// A module specifically packaged by OVH
+// HostingWebModuleList A module specifically packaged by OVH
 type HostingWebModuleList struct {
 
-	// Is the module available?
+	// Active Is the module available?
 	Active bool `json:"active,omitempty"`
 
-	// The type of the admin name
+	// AdminNameType The type of the admin name
 	AdminNameType string `json:"adminNameType,omitempty"`
 
-	// The packager of this module for OVH
+	// Author The packager of this module for OVH
 	Author string `json:"author,omitempty"`
 
-	// The branch of the module
+	// Branch The branch of the module
 	Branch string `json:"branch,omitempty"`
 
-	// The ID of the module
-	Id int64 `json:"id,omitempty"`
+	// ID The ID of the module
+	ID int64 `json:"id,omitempty"`
 
-	// The keywords for this module
+	// Keywords The keywords for this module
 	Keywords []string `json:"keywords,omitempty"`
 
-	// All available languages for this module
+	// Language All available languages for this module
 	Language []string `json:"language,omitempty"`
 
-	LanguageRequirement HostingWebModuleListLanguageRequirement `json:"languageRequirement,omitempty"`
+	LanguageRequirement *HostingWebModuleListLanguageRequirement `json:"languageRequirement,omitempty"`
 
-	// Is this the latest version available?
+	// Latest Is this the latest version available?
 	Latest bool `json:"latest,omitempty"`
 
-	// The name of the module
+	// Name The name of the module
 	Name string `json:"name,omitempty"`
 
-	Size HostingWebModuleListSize `json:"size,omitempty"`
+	Size *HostingWebModuleListSize `json:"size,omitempty"`
 
-	// The IDs of the module you can upgrade to
+	// UpgradeFrom The IDs of the module you can upgrade to
 	UpgradeFrom []int64 `json:"upgradeFrom,omitempty"`
 
-	// The version of the module
+	// Version The version of the module
 	Version string `json:"version,omitempty"`
 }

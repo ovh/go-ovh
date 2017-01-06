@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// Struct which describs an boost offer from a service
+// HostingWebAvailableOfferStruct Struct which describs an boost offer from a service
 type HostingWebAvailableOfferStruct struct {
 
-	// Available boost offer
+	// Offer Available boost offer
 	Offer string `json:"offer,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 }

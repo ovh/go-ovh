@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type MeIpxeScriptPost struct {
-
+// MeIPxeScriptPost ...
+type MeIPxeScriptPost struct {
 	Description string `json:"description,omitempty"`
 
 	Name string `json:"name,omitempty"`

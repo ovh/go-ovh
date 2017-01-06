@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,18 @@
 
 package types
 
-// Dedicated Cloud Vlan
+// DedicatedCloudVlan Dedicated Cloud Vlan
 type DedicatedCloudVlan struct {
-
 	Name string `json:"name,omitempty"`
 
-	// Speed in Mbps
+	// RoutingRateLimit Speed in Mbps
 	RoutingRateLimit string `json:"routingRateLimit,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
-	VlanId int64 `json:"vlanId,omitempty"`
+	VlanID int64 `json:"vlanId,omitempty"`
 
 	VlanNumber int64 `json:"vlanNumber,omitempty"`
 }

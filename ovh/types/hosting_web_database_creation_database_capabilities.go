@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// Struct which describs quota and available for a specific type of database
+// HostingWebDatabaseCreationDatabaseCapabilities Struct which describs quota and available for a specific type of database
 type HostingWebDatabaseCreationDatabaseCapabilities struct {
 
-	// Number of database left for creation
+	// Available Number of database left for creation
 	Available int64 `json:"available,omitempty"`
 
-	Quota DedicatedCloudFilerProfileSize `json:"quota,omitempty"`
+	Quota *DedicatedCloudFilerProfileSize `json:"quota,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

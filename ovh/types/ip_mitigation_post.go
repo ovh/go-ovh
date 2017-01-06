@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type IpMitigationPost struct {
-
-	IpOnMitigation string `json:"ipOnMitigation,omitempty"`
+// IPMitigationPost ...
+type IPMitigationPost struct {
+	IPOnMitigation string `json:"ipOnMitigation,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Mitigation profile for your ip
-type IpMitigationProfile struct {
+// IPMitigationProfile Mitigation profile for your ip
+type IPMitigationProfile struct {
 
-	// Delay to wait before remove ip from auto mitigation after an attack
+	// AutoMitigationTimeOut Delay to wait before remove ip from auto mitigation after an attack
 	AutoMitigationTimeOut int64 `json:"autoMitigationTimeOut,omitempty"`
 
-	IpMitigationProfile string `json:"ipMitigationProfile,omitempty"`
+	IPMitigationProfile string `json:"ipMitigationProfile,omitempty"`
 
-	// Current state of your mitigation profile
+	// State Current state of your mitigation profile
 	State string `json:"state,omitempty"`
 }

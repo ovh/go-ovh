@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// VeeamCloudConnectBackupRepositoryUpgradeQuotaPost ...
 type VeeamCloudConnectBackupRepositoryUpgradeQuotaPost struct {
-
 	NewQuota int64 `json:"newQuota,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,83 +10,83 @@
 
 package types
 
-// Web Hosting
+// HostingWebService Web Hosting
 type HostingWebService struct {
 
-	// Available offers for boost option
-	AvailableBoostOffer []HostingWebAvailableOfferStruct `json:"availableBoostOffer,omitempty"`
+	// AvailableBoostOffer Available offers for boost option
+	AvailableBoostOffer []*HostingWebAvailableOfferStruct `json:"availableBoostOffer,omitempty"`
 
-	// Current boost offer
+	// BoostOffer Current boost offer
 	BoostOffer string `json:"boostOffer,omitempty"`
 
-	// Cluster name
+	// Cluster Cluster name
 	Cluster string `json:"cluster,omitempty"`
 
-	// This direct ip to your cluster ( usefull for application like api )
-	ClusterIp string `json:"clusterIp,omitempty"`
+	// ClusterIP This direct ip to your cluster ( usefull for application like api )
+	ClusterIP string `json:"clusterIp,omitempty"`
 
-	// This direct ipv6 to your cluster ( usefull for application like api )
-	ClusterIpv6 string `json:"clusterIpv6,omitempty"`
+	// ClusterIPv6 This direct ipv6 to your cluster ( usefull for application like api )
+	ClusterIPv6 string `json:"clusterIpv6,omitempty"`
 
-	// Available clusterIp by countries
-	CountriesIp []HostingWebCountriesIp `json:"countriesIp,omitempty"`
+	// CountriesIP Available clusterIp by countries
+	CountriesIP []*HostingWebCountriesIP `json:"countriesIp,omitempty"`
 
-	// Datacenter where this account is located
+	// Datacenter Datacenter where this account is located
 	Datacenter string `json:"datacenter,omitempty"`
 
-	// Set the name displayed in ManagerV6 for your hosting (max 50 chars)
+	// DisplayName Set the name displayed in ManagerV6 for your hosting (max 50 chars)
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Filer name
+	// Filer Filer name
 	Filer string `json:"filer,omitempty"`
 
-	// Has a CDN service linked on the hosting
-	HasCdn bool `json:"hasCdn,omitempty"`
+	// HasCDN Has a CDN service linked on the hosting
+	HasCDN bool `json:"hasCdn,omitempty"`
 
-	// Has a HostedSSL service linked on the hosting
-	HasHostedSsl bool `json:"hasHostedSsl,omitempty"`
+	// HasHostedSSL Has a HostedSSL service linked on the hosting
+	HasHostedSSL bool `json:"hasHostedSsl,omitempty"`
 
-	// Path of your home
+	// Home Path of your home
 	Home string `json:"home,omitempty"`
 
-	// The recommended ip for your hosting ( depends on hosting's linked services, e.g CDN or hostedSSL )
-	HostingIp string `json:"hostingIp,omitempty"`
+	// HostingIP The recommended ip for your hosting ( depends on hosting's linked services, e.g CDN or hostedSSL )
+	HostingIP string `json:"hostingIp,omitempty"`
 
-	// The recommended ipv6 for your hosting ( depends on hosting's linked services, e.g CDN or hostedSSL )
-	HostingIpv6 string `json:"hostingIpv6,omitempty"`
+	// HostingIPv6 The recommended ipv6 for your hosting ( depends on hosting's linked services, e.g CDN or hostedSSL )
+	HostingIPv6 string `json:"hostingIpv6,omitempty"`
 
-	// Hosting offer
+	// Offer Hosting offer
 	Offer string `json:"offer,omitempty"`
 
-	// Hosting's OS
+	// OperatingSystem Hosting's OS
 	OperatingSystem string `json:"operatingSystem,omitempty"`
 
-	// State of available php versions for this account
-	PhpVersions []HostingWebPhpVersion `json:"phpVersions,omitempty"`
+	// PhpVersions State of available php versions for this account
+	PhpVersions []*HostingWebPhpVersion `json:"phpVersions,omitempty"`
 
-	// Hosting's main login
+	// PrimaryLogin Hosting's main login
 	PrimaryLogin string `json:"primaryLogin,omitempty"`
 
-	QuotaSize HostingWebDatabaseQuotaSize `json:"quotaSize,omitempty"`
+	QuotaSize *HostingWebDatabaseQuotaSize `json:"quotaSize,omitempty"`
 
-	QuotaUsed HostingWebDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
+	QuotaUsed *HostingWebDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
 
-	// If your offer is old, return a recommended offer to migrate on
+	// RecommendedOffer If your offer is old, return a recommended offer to migrate on
 	RecommendedOffer string `json:"recommendedOffer,omitempty"`
 
-	// Hosting resource type
+	// ResourceType Hosting resource type
 	ResourceType string `json:"resourceType,omitempty"`
 
-	// Service name
+	// ServiceName Service name
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// State of your hosting
+	// State State of your hosting
 	State string `json:"state,omitempty"`
 
-	// Use to link an external domain. ( This token has to be insert into a TXT field on your dns zone with ovhcontrol subdomain )
+	// Token Use to link an external domain. ( This token has to be insert into a TXT field on your dns zone with ovhcontrol subdomain )
 	Token string `json:"token,omitempty"`
 
-	TrafficQuotaSize HostingWebServiceTrafficQuotaSize `json:"trafficQuotaSize,omitempty"`
+	TrafficQuotaSize *HostingWebServiceTrafficQuotaSize `json:"trafficQuotaSize,omitempty"`
 
-	TrafficQuotaUsed HostingWebServiceTrafficQuotaUsed `json:"trafficQuotaUsed,omitempty"`
+	TrafficQuotaUsed *HostingWebServiceTrafficQuotaUsed `json:"trafficQuotaUsed,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Eligibility of the portability of the line number
+// XdslEligibilityPortability Eligibility of the portability of the line number
 type XdslEligibilityPortability struct {
 
-	// The reason(s) of the negative portability eligibility
-	Comments []XdslEligibilityCodeAndMessage `json:"comments,omitempty"`
+	// Comments The reason(s) of the negative portability eligibility
+	Comments []*XdslEligibilityCodeAndMessage `json:"comments,omitempty"`
 
-	// Whether or not it is possible to port the line number. If false, commentList contains the reason(s)
+	// Eligible Whether or not it is possible to port the line number. If false, commentList contains the reason(s)
 	Eligible bool `json:"eligible,omitempty"`
 
-	// Whether or not the portability is possible under condition. If true, warningList contains the reason(s)
+	// UnderCondition Whether or not the portability is possible under condition. If true, warningList contains the reason(s)
 	UnderCondition bool `json:"underCondition,omitempty"`
 
-	// The special condition(s) of the portability
-	Warnings []XdslEligibilityCodeAndMessage `json:"warnings,omitempty"`
+	// Warnings The special condition(s) of the portability
+	Warnings []*XdslEligibilityCodeAndMessage `json:"warnings,omitempty"`
 }

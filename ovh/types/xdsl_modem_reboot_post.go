@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
+// XdslModemRebootPost ...
 type XdslModemRebootPost struct {
-
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

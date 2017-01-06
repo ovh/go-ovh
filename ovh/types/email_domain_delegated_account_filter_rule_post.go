@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// EmailDomainDelegatedAccountFilterRulePost ...
 type EmailDomainDelegatedAccountFilterRulePost struct {
-
 	Header string `json:"header,omitempty"`
 
 	Operand string `json:"operand,omitempty"`

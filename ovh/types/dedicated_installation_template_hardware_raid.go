@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Hardware RAID defined in this partitioning scheme
+// DedicatedInstallationTemplateHardwareRaid Hardware RAID defined in this partitioning scheme
 type DedicatedInstallationTemplateHardwareRaid struct {
 
-	// Disk list
+	// Disks Disk list
 	Disks []string `json:"disks,omitempty"`
 
-	// RAID mode
+	// Mode RAID mode
 	Mode string `json:"mode,omitempty"`
 
-	// Hardware RAID name
+	// Name Hardware RAID name
 	Name string `json:"name,omitempty"`
 
-	// Specifies the creation order of the hardware RAID
+	// Step Specifies the creation order of the hardware RAID
 	Step int64 `json:"step,omitempty"`
 }

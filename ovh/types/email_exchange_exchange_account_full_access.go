@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Users having full access on this mailbox
-type EmailExchangeExchangeAccountFullAccess struct {
+// EmailExchangeAccountFullAccess Users having full access on this mailbox
+type EmailExchangeAccountFullAccess struct {
 
-	// Account id to give full access
-	AllowedAccountId int64 `json:"allowedAccountId,omitempty"`
+	// AllowedAccountID Account id to give full access
+	AllowedAccountID int64 `json:"allowedAccountId,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

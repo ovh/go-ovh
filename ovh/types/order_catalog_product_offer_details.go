@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// Describe the details of a commercial offer
+// OrderCatalogProductOfferDetails Describe the details of a commercial offer
 type OrderCatalogProductOfferDetails struct {
 
-	// List of the metadatas attached
-	Metadatas []ComplexTypeSafeKeyValueString `json:"metadatas,omitempty"`
+	// Metadatas List of the metadatas attached
+	Metadatas []*ComplexTypeSafeKeyValueString `json:"metadatas,omitempty"`
 
-	Pricings OrderCatalogPricingDefault `json:"pricings,omitempty"`
+	Pricings *OrderCatalogPricingDefault `json:"pricings,omitempty"`
 
-	Product OrderCatalogProduct `json:"product,omitempty"`
+	Product *OrderCatalogProduct `json:"product,omitempty"`
 }

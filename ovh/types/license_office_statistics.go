@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// License usage statistics.
+// LicenseOfficeStatistics License usage statistics.
 type LicenseOfficeStatistics struct {
 
-	// Date of the statistics.
-	Date time.Time `json:"date,omitempty"`
+	// Date Date of the statistics.
+	Date *time.Time `json:"date,omitempty"`
 
-	// List of lines associated to this statistics entity.
-	Lines []LicenseOfficeStatisticsLine `json:"lines,omitempty"`
+	// Lines List of lines associated to this statistics entity.
+	Lines []*LicenseOfficeStatisticsLine `json:"lines,omitempty"`
 }

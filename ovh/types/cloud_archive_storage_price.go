@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// Details about archive storage pricing
+// CloudArchiveStoragePrice Details about archive storage pricing
 type CloudArchiveStoragePrice struct {
+	MonthlyPrice *OrderPrice `json:"monthlyPrice,omitempty"`
 
-	MonthlyPrice OrderPrice `json:"monthlyPrice,omitempty"`
-
-	// Archive region
+	// Region Archive region
 	Region string `json:"region,omitempty"`
 }

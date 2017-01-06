@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Rule List
+// EmailDomainRule Rule List
 type EmailDomainRule struct {
 
-	// Header to be filtered
+	// Header Header to be filtered
 	Header string `json:"header,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// Rule of filter
+	// Operand Rule of filter
 	Operand string `json:"operand,omitempty"`
 
-	// Rule parameter of filter
+	// Value Rule parameter of filter
 	Value string `json:"value,omitempty"`
 }

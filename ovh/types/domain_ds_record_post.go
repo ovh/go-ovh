@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// DomainDsRecordPost ...
 type DomainDsRecordPost struct {
-
-	Keys []DnssecKey `json:"keys,omitempty"`
+	Keys []*DNSsecKey `json:"keys,omitempty"`
 }

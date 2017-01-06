@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Role
+// CloudAuthenticationRole Role
 type CloudAuthenticationRole struct {
-
-	Id string `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	Name string `json:"name,omitempty"`
 }

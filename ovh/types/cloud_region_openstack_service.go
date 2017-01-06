@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// OpenstackService
+// CloudRegionOpenstackService OpenstackService
 type CloudRegionOpenstackService struct {
 
-	// Service name
+	// Name Service name
 	Name string `json:"name,omitempty"`
 
-	// Service status
+	// Status Service status
 	Status string `json:"status,omitempty"`
 }

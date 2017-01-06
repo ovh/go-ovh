@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// NetworkBulkParams
+// CloudInstanceNetworkBulkParams NetworkBulkParams
 type CloudInstanceNetworkBulkParams struct {
 
-	// Private or public network Id
-	NetworkId string `json:"networkId,omitempty"`
+	// NetworkID Private or public network Id
+	NetworkID string `json:"networkId,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,22 @@
 
 package types
 
-// SMS users
+// SmsUser SMS users
 type SmsUser struct {
+	AlertThresholdInformations *SmsAlertThreshold `json:"alertThresholdInformations,omitempty"`
 
-	AlertThresholdInformations SmsAlertThreshold `json:"alertThresholdInformations,omitempty"`
-
-	// URL called when state of a sent SMS changes
+	// CallBack URL called when state of a sent SMS changes
 	CallBack string `json:"callBack,omitempty"`
 
-	IpRestrictions []string `json:"ipRestrictions,omitempty"`
+	IPRestrictions []string `json:"ipRestrictions,omitempty"`
 
-	// The sms user login
+	// Login The sms user login
 	Login string `json:"login,omitempty"`
 
 	Password string `json:"password,omitempty"`
 
-	QuotaInformations SmsQuota `json:"quotaInformations,omitempty"`
+	QuotaInformations *SmsQuota `json:"quotaInformations,omitempty"`
 
-	// URL called when a STOP is received after a receiver replied stop to a SMS
+	// StopCallBack URL called when a STOP is received after a receiver replied stop to a SMS
 	StopCallBack string `json:"stopCallBack,omitempty"`
 }

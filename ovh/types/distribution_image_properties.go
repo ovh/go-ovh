@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// properties
+// DistributionImageProperties properties
 type DistributionImageProperties struct {
 
-	// The image category
+	// Category The image category
 	Category string `json:"category,omitempty"`
 }

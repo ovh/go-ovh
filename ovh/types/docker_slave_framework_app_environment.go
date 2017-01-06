@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Application environment variable
-type DockerSlaveFrameworkAppEnvironment struct {
+// DockerSLAveFrameworkAppEnvironment Application environment variable
+type DockerSLAveFrameworkAppEnvironment struct {
 
-	// variable key
+	// Key variable key
 	Key string `json:"key,omitempty"`
 
-	// variable value
+	// Value variable value
 	Value string `json:"value,omitempty"`
 }

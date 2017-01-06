@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// All SQL options available for Windows products
+// LicenseOrderableWindowsCompatibilityInfos All SQL options available for Windows products
 type LicenseOrderableWindowsCompatibilityInfos struct {
-
-	CompliantSql []string `json:"compliantSql,omitempty"`
+	CompliantSQL []string `json:"compliantSql,omitempty"`
 
 	Version string `json:"version,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Describe an item that contains multiple plans
+// OrderCatalogPlansItem Describe an item that contains multiple plans
 type OrderCatalogPlansItem struct {
 
-	// Family of the product
+	// Family Family of the product
 	Family string `json:"family,omitempty"`
 
-	// List of the plans for this catalog
-	Plans []OrderCatalogProductPlan `json:"plans,omitempty"`
+	// Plans List of the plans for this catalog
+	Plans []*OrderCatalogProductPlan `json:"plans,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// Voucher validity range
+// CloudCommonVoucherValidity Voucher validity range
 type CloudCommonVoucherValidity struct {
 
-	// Valid from
-	From time.Time `json:"from,omitempty"`
+	// From Valid from
+	From *time.Time `json:"from,omitempty"`
 
-	// Valid to
-	To time.Time `json:"to,omitempty"`
+	// To Valid to
+	To *time.Time `json:"to,omitempty"`
 }

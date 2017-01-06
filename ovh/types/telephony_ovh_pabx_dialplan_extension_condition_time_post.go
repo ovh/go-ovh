@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxDialplanExtensionConditionTimePost ...
 type TelephonyOvhPabxDialplanExtensionConditionTimePost struct {
-
 	TimeFrom string `json:"timeFrom,omitempty"`
 
 	TimeTo string `json:"timeTo,omitempty"`

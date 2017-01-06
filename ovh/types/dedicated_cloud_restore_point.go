@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Private Cloud Restore Point
+// DedicatedCloudRestorePoint Private Cloud Restore Point
 type DedicatedCloudRestorePoint struct {
 
-	// Creation time of the restore point
+	// CreationTime Creation time of the restore point
 	CreationTime string `json:"creationTime,omitempty"`
 
-	// Show if the restore point is corrupted
+	// IsCorrupted Show if the restore point is corrupted
 	IsCorrupted bool `json:"isCorrupted,omitempty"`
 
-	// Id of the restore point.
-	RestorePointId int64 `json:"restorePointId,omitempty"`
+	// RestorePointID Id of the restore point.
+	RestorePointID int64 `json:"restorePointId,omitempty"`
 
-	RestorePointSize DedicatedCloudRestorePointRestorePointSize `json:"restorePointSize,omitempty"`
+	RestorePointSize *DedicatedCloudRestorePointRestorePointSize `json:"restorePointSize,omitempty"`
 
-	// Type of the restore point
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the restore point
+	TType string `json:"type,omitempty"`
 }

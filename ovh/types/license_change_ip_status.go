@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// License change ip status return
-type LicenseChangeIpStatus struct {
-
+// LicenseChangeIPStatus License change ip status return
+type LicenseChangeIPStatus struct {
 	Message string `json:"message,omitempty"`
 
 	Success bool `json:"success,omitempty"`

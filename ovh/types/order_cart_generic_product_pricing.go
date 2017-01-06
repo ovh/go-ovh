@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,41 +10,41 @@
 
 package types
 
-// Representation of a product pricing
+// OrderCartGenericProductPricing Representation of a product pricing
 type OrderCartGenericProductPricing struct {
 
-	// Capacities of the pricing (type of pricing)
+	// Capacities Capacities of the pricing (type of pricing)
 	Capacities []string `json:"capacities,omitempty"`
 
-	// Description of the pricing
+	// Description Description of the pricing
 	Description string `json:"description,omitempty"`
 
-	// Duration for ordering the product
+	// Duration Duration for ordering the product
 	Duration string `json:"duration,omitempty"`
 
-	// Interval of renewal
+	// Interval Interval of renewal
 	Interval int64 `json:"interval,omitempty"`
 
-	// Maximum quantity that can be ordered
+	// MaximumQuantity Maximum quantity that can be ordered
 	MaximumQuantity int64 `json:"maximumQuantity,omitempty"`
 
-	// Maximum repeat for renewal
+	// MaximumRepeat Maximum repeat for renewal
 	MaximumRepeat int64 `json:"maximumRepeat,omitempty"`
 
-	// Minimum quantity that can be ordered
+	// MinimumQuantity Minimum quantity that can be ordered
 	MinimumQuantity int64 `json:"minimumQuantity,omitempty"`
 
-	// Minimum repeat for renewal
+	// MinimumRepeat Minimum repeat for renewal
 	MinimumRepeat int64 `json:"minimumRepeat,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// Price of the product in micro-centims
+	// PriceInUcents Price of the product in micro-centims
 	PriceInUcents int64 `json:"priceInUcents,omitempty"`
 
-	// Pricing model identifier
+	// PricingMode Pricing model identifier
 	PricingMode string `json:"pricingMode,omitempty"`
 
-	// Pricing type
+	// PricingType Pricing type
 	PricingType string `json:"pricingType,omitempty"`
 }

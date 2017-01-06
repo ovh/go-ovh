@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedNashaPartitionCustomSnapshotPost ...
 type DedicatedNashaPartitionCustomSnapshotPost struct {
-
 	Expiration string `json:"expiration,omitempty"`
 
 	Name string `json:"name,omitempty"`

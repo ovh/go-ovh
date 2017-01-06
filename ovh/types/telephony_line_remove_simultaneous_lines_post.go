@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// TelephonyLineRemoveSimultaneousLinesPost ...
 type TelephonyLineRemoveSimultaneousLinesPost struct {
-
 	QuantityRemove int64 `json:"quantityRemove,omitempty"`
 }

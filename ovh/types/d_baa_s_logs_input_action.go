@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Action on input
+// DBaaSLogsInputAction Action on input
 type DBaaSLogsInputAction struct {
 
-	// Indicates if action is allowed
+	// IsAllowed Indicates if action is allowed
 	IsAllowed bool `json:"isAllowed,omitempty"`
 
-	// Action type
-	Type_ string `json:"type,omitempty"`
+	// TType Action type
+	TType string `json:"type,omitempty"`
 }

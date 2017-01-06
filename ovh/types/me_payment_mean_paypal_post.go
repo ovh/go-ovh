@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// MePaymentMeanPaypalPost ...
 type MePaymentMeanPaypalPost struct {
-
 	Description string `json:"description,omitempty"`
 
-	ReturnUrl string `json:"returnUrl,omitempty"`
+	ReturnURL string `json:"returnUrl,omitempty"`
 
 	SetDefault bool `json:"setDefault,omitempty"`
 }

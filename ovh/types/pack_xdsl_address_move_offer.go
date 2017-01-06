@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,50 +10,49 @@
 
 package types
 
-// An offer
+// PackXdslAddressMoveOffer An offer
 type PackXdslAddressMoveOffer struct {
+	Address *XdslEligibilityAddress `json:"address,omitempty"`
 
-	Address XdslEligibilityAddress `json:"address,omitempty"`
-
-	// The estimated download synchronisation in kbps
+	// EstimatedDownload The estimated download synchronisation in kbps
 	EstimatedDownload int64 `json:"estimatedDownload,omitempty"`
 
-	// The estimated upload synchronisation in kbps
+	// EstimatedUpload The estimated upload synchronisation in kbps
 	EstimatedUpload int64 `json:"estimatedUpload,omitempty"`
 
-	// Detailed information about the sections between the DSLAM and the telephone jack
-	LineSectionsLength []XdslLineSectionLength `json:"lineSectionsLength,omitempty"`
+	// LineSectionsLength Detailed information about the sections between the DSLAM and the telephone jack
+	LineSectionsLength []*XdslLineSectionLength `json:"lineSectionsLength,omitempty"`
 
-	// The status of the landline
+	// LineStatus The status of the landline
 	LineStatus string `json:"lineStatus,omitempty"`
 
-	MeetingSlots XdslEligibilityMeetingSlots `json:"meetingSlots,omitempty"`
+	MeetingSlots *XdslEligibilityMeetingSlots `json:"meetingSlots,omitempty"`
 
-	// The NRA of the landline
+	// Nra The NRA of the landline
 	Nra string `json:"nra,omitempty"`
 
-	// The code of the offer
+	// OfferCode The code of the offer
 	OfferCode string `json:"offerCode,omitempty"`
 
-	Portability XdslEligibilityPortability `json:"portability,omitempty"`
+	Portability *XdslEligibilityPortability `json:"portability,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// Status of the request
+	// Provider Status of the request
 	Provider string `json:"provider,omitempty"`
 
-	// Whether this is a reseller offer or not
+	// Reseller Whether this is a reseller offer or not
 	Reseller bool `json:"reseller,omitempty"`
 
-	// The download synchronisation in kbps
+	// SyncDownload The download synchronisation in kbps
 	SyncDownload int64 `json:"syncDownload,omitempty"`
 
-	// The upload synchronisation in kbps
+	// SyncUpload The upload synchronisation in kbps
 	SyncUpload int64 `json:"syncUpload,omitempty"`
 
-	// DSL technology
-	Type_ string `json:"type,omitempty"`
+	// TType DSL technology
+	TType string `json:"type,omitempty"`
 
-	// The unbundling type
+	// Unbundling The unbundling type
 	Unbundling string `json:"unbundling,omitempty"`
 }

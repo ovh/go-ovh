@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// A structure describing informations about server memory
+// DedicatedServerRtmMemory A structure describing informations about server memory
 type DedicatedServerRtmMemory struct {
+	Capacity *DedicatedServerRtmMemoryCapacity `json:"capacity,omitempty"`
 
-	Capacity DedicatedServerRtmMemoryCapacity `json:"capacity,omitempty"`
-
-	// Memory slot
+	// Slot Memory slot
 	Slot string `json:"slot,omitempty"`
 }

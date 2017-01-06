@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// Get the list of your ActiveSync devices registered on this Exchange service
-type EmailExchangeExchangeServiceDevice struct {
+// EmailExchangeServiceDevice Get the list of your ActiveSync devices registered on this Exchange service
+type EmailExchangeServiceDevice struct {
 
-	// International Mobile Equipment Identity
+	// IMEI International Mobile Equipment Identity
 	IMEI string `json:"IMEI,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Device Id
-	DeviceId string `json:"deviceId,omitempty"`
+	// DeviceID Device Id
+	DeviceID string `json:"deviceId,omitempty"`
 
-	// Model device
+	// DeviceModel Model device
 	DeviceModel string `json:"deviceModel,omitempty"`
 
-	// Device State
+	// DeviceState Device State
 	DeviceState string `json:"deviceState,omitempty"`
 
-	// user guid
-	Guid string `json:"guid,omitempty"`
+	// GUID user guid
+	GUID string `json:"guid,omitempty"`
 
-	// Exchange identity
-	Identity string `json:"identity,omitempty"`
+	// IDentity Exchange identity
+	IDentity string `json:"identity,omitempty"`
 
-	// Last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

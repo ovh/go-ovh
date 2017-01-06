@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Shipping address
+// PackXdslShippingAddress Shipping address
 type PackXdslShippingAddress struct {
-
 	Address string `json:"address,omitempty"`
 
 	CityName string `json:"cityName,omitempty"`
@@ -23,7 +22,7 @@ type PackXdslShippingAddress struct {
 
 	LastName string `json:"lastName,omitempty"`
 
-	ShippingId string `json:"shippingId,omitempty"`
+	ShippingID string `json:"shippingId,omitempty"`
 
 	ZipCode string `json:"zipCode,omitempty"`
 }

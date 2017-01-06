@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// TelephonyLineNotificationsOptions ...
 type TelephonyLineNotificationsOptions struct {
-
-	Logs TelephonyLineNotificationsLogsOptions `json:"logs,omitempty"`
+	Logs *TelephonyLineNotificationsLogsOptions `json:"logs,omitempty"`
 }

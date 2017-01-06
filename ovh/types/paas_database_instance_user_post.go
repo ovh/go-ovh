@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// PaasDatabaseInstanceUserPost ...
 type PaasDatabaseInstanceUserPost struct {
-
 	Password string `json:"password,omitempty"`
 
 	UserName string `json:"userName,omitempty"`

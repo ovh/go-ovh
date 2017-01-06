@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,17 @@
 
 package types
 
-// Endpoint
+// CloudAuthenticationEndpoint Endpoint
 type CloudAuthenticationEndpoint struct {
+	ID string `json:"id,omitempty"`
 
-	Id string `json:"id,omitempty"`
+	TInterface string `json:"interface,omitempty"`
 
-	Interface_ string `json:"interface,omitempty"`
+	LegacyEndpointID string `json:"legacy_endpoint_id,omitempty"`
 
-	LegacyEndpointId string `json:"legacy_endpoint_id,omitempty"`
+	RegionID string `json:"region_id,omitempty"`
 
-	RegionId string `json:"region_id,omitempty"`
+	ServiceID string `json:"service_id,omitempty"`
 
-	ServiceId string `json:"service_id,omitempty"`
-
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Billing statistics line.
+// SaasCsp2BillingStatisticsLine Billing statistics line.
 type SaasCsp2BillingStatisticsLine struct {
 
-	// Id of the Office license.
-	LicenceId int64 `json:"licenceId,omitempty"`
+	// LicenceID Id of the Office license.
+	LicenceID int64 `json:"licenceId,omitempty"`
 
-	// Name of the Office license.
+	// LicenceName Name of the Office license.
 	LicenceName string `json:"licenceName,omitempty"`
 
-	// Maximum count of simultaneous activated licences.
+	// PeakCount Maximum count of simultaneous activated licences.
 	PeakCount int64 `json:"peakCount,omitempty"`
 }

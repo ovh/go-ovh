@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Describe SOTP validation status
+// NichandleAccessRestrictionSotpValidate Describe SOTP validation status
 type NichandleAccessRestrictionSotpValidate struct {
-
 	RemainingCodes int64 `json:"remainingCodes,omitempty"`
 }

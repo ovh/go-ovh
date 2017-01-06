@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Key
+// DbaasQueueKey Key
 type DbaasQueueKey struct {
 
-	// Human ID of the key's application
-	HumanAppId string `json:"humanAppId,omitempty"`
+	// HumanAppID Human ID of the key's application
+	HumanAppID string `json:"humanAppId,omitempty"`
 
-	// Key ID
-	Id string `json:"id,omitempty"`
+	// ID Key ID
+	ID string `json:"id,omitempty"`
 
-	// Key name
+	// Name Key name
 	Name string `json:"name,omitempty"`
 }

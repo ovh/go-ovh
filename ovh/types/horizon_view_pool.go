@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// All informations about access point
+// HorizonViewPool All informations about access point
 type HorizonViewPool struct {
 
-	// Pool id
-	AccessPointId int64 `json:"accessPointId,omitempty"`
+	// AccessPointID Pool id
+	AccessPointID int64 `json:"accessPointId,omitempty"`
 
-	// DHCP netmask in this port group
+	// DhcpNetmask DHCP netmask in this port group
 	DhcpNetmask string `json:"dhcpNetmask,omitempty"`
 
-	// DHCP network in this port group
+	// DhcpNetwork DHCP network in this port group
 	DhcpNetwork string `json:"dhcpNetwork,omitempty"`
 
-	// External url of your access point
-	ExternalUrl string `json:"externalUrl,omitempty"`
+	// ExternalURL External url of your access point
+	ExternalURL string `json:"externalUrl,omitempty"`
 
-	// Port group id
-	PortGroupId string `json:"portGroupId,omitempty"`
+	// PortGroupID Port group id
+	PortGroupID string `json:"portGroupId,omitempty"`
 
-	// Network state
+	// State Network state
 	State string `json:"state,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,107 +14,107 @@ import (
 	"time"
 )
 
-// Exchange mailbox
+// EmailExchangeAccount Exchange mailbox
 type EmailExchangeAccount struct {
 
-	// SAM account name
+	// SAMAccountName SAM account name
 	SAMAccountName string `json:"SAMAccountName,omitempty"`
 
-	// Exchange account type
+	// AccountLicense Exchange account type
 	AccountLicense string `json:"accountLicense,omitempty"`
 
-	// Indicates if the account is configured
+	// Configured Indicates if the account is configured
 	Configured bool `json:"configured,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Mailbox usage
+	// CurrentUsage Mailbox usage
 	CurrentUsage int64 `json:"currentUsage,omitempty"`
 
-	// delete at expiration
+	// DeleteAtExpiration delete at expiration
 	DeleteAtExpiration bool `json:"deleteAtExpiration,omitempty"`
 
-	// delete outlook at expiration
+	// DeleteOutlookAtExpiration delete outlook at expiration
 	DeleteOutlookAtExpiration bool `json:"deleteOutlookAtExpiration,omitempty"`
 
-	// Account display name
+	// DisplayName Account display name
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Email domain
+	// Domain Email domain
 	Domain string `json:"domain,omitempty"`
 
-	// exchangeGuid for manual configuration
-	ExchangeGuid string `json:"exchangeGuid,omitempty"`
+	// ExchangeGUID exchangeGuid for manual configuration
+	ExchangeGUID string `json:"exchangeGuid,omitempty"`
 
-	// expiration date
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
+	// ExpirationDate expiration date
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
-	// expiration date
-	ExpirationOutlookDate time.Time `json:"expirationOutlookDate,omitempty"`
+	// ExpirationOutlookDate expiration date
+	ExpirationOutlookDate *time.Time `json:"expirationOutlookDate,omitempty"`
 
-	// Account first name
+	// FirstName Account first name
 	FirstName string `json:"firstName,omitempty"`
 
-	// GUID for user in active directory
-	Guid string `json:"guid,omitempty"`
+	// GUID GUID for user in active directory
+	GUID string `json:"guid,omitempty"`
 
-	// Hide account in Global Address List
+	// HiddenFromGAL Hide account in Global Address List
 	HiddenFromGAL bool `json:"hiddenFromGAL,omitempty"`
 
-	// Account id
-	Id int64 `json:"id,omitempty"`
+	// ID Account id
+	ID int64 `json:"id,omitempty"`
 
-	// Account initials
+	// Initial Account initials
 	Initial string `json:"initial,omitempty"`
 
-	// Last logoff
-	LastLogoffDate time.Time `json:"lastLogoffDate,omitempty"`
+	// LastLogoffDate Last logoff
+	LastLogoffDate *time.Time `json:"lastLogoffDate,omitempty"`
 
-	// Last logon
-	LastLogonDate time.Time `json:"lastLogonDate,omitempty"`
+	// LastLogonDate Last logon
+	LastLogonDate *time.Time `json:"lastLogonDate,omitempty"`
 
-	// Account last name
+	// LastName Account last name
 	LastName string `json:"lastName,omitempty"`
 
-	// Last update
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
+	// LastUpdateDate Last update
+	LastUpdateDate *time.Time `json:"lastUpdateDate,omitempty"`
 
-	// Account login
+	// Login Account login
 	Login string `json:"login,omitempty"`
 
-	// Enable or disable anti-virus and anti-spam
+	// MailingFilter Enable or disable anti-virus and anti-spam
 	MailingFilter []string `json:"mailingFilter,omitempty"`
 
-	// Outlook licence
+	// OutlookLicense Outlook licence
 	OutlookLicense bool `json:"outlookLicense,omitempty"`
 
-	// Time of account's password last update
-	PasswordLastUpdate time.Time `json:"passwordLastUpdate,omitempty"`
+	// PasswordLastUpdate Time of account's password last update
+	PasswordLastUpdate *time.Time `json:"passwordLastUpdate,omitempty"`
 
-	// Default email for this mailbox
+	// PrimaryEmailAddress Default email for this mailbox
 	PrimaryEmailAddress string `json:"primaryEmailAddress,omitempty"`
 
-	// Account maximum size
+	// Quota Account maximum size
 	Quota int64 `json:"quota,omitempty"`
 
-	// change the renew period for outlook
+	// RenewOutlookPeriod change the renew period for outlook
 	RenewOutlookPeriod string `json:"renewOutlookPeriod,omitempty"`
 
-	// change the renew period
+	// RenewPeriod change the renew period
 	RenewPeriod string `json:"renewPeriod,omitempty"`
 
-	SpamAndVirusConfiguration EmailExchangeSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
+	SpamAndVirusConfiguration *EmailExchangeSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
 
-	// Account was sending spam
+	// SpamDetected Account was sending spam
 	SpamDetected bool `json:"spamDetected,omitempty"`
 
-	// Ticket number of spam detection
+	// SpamTicketNumber Ticket number of spam detection
 	SpamTicketNumber int64 `json:"spamTicketNumber,omitempty"`
 
-	// Account state
+	// State Account state
 	State string `json:"state,omitempty"`
 
-	// Pending tasks for this account
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending tasks for this account
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

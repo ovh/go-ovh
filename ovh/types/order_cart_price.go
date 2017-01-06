@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// Price informations with label
+// OrderCartPrice Price informations with label
 type OrderCartPrice struct {
 
-	// Label corresponding to a price
+	// Label Label corresponding to a price
 	Label string `json:"label,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 }

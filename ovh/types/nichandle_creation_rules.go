@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,52 +10,51 @@
 
 package types
 
-// Describe rules foreach field in order to create a nic
+// NichandleCreationRules Describe rules foreach field in order to create a nic
 type NichandleCreationRules struct {
+	Address *NichandleCreationRule `json:"address,omitempty"`
 
-	Address NichandleCreationRule `json:"address,omitempty"`
+	Area *NichandleCreationRule `json:"area,omitempty"`
 
-	Area NichandleCreationRule `json:"area,omitempty"`
+	BirthCity *NichandleCreationRule `json:"birthCity,omitempty"`
 
-	BirthCity NichandleCreationRule `json:"birthCity,omitempty"`
+	BirthDay *NichandleCreationRule `json:"birthDay,omitempty"`
 
-	BirthDay NichandleCreationRule `json:"birthDay,omitempty"`
+	City *NichandleCreationRule `json:"city,omitempty"`
 
-	City NichandleCreationRule `json:"city,omitempty"`
+	CompanyNationalIDentificationNumber *NichandleCreationRule `json:"companyNationalIdentificationNumber,omitempty"`
 
-	CompanyNationalIdentificationNumber NichandleCreationRule `json:"companyNationalIdentificationNumber,omitempty"`
+	CorporationType *NichandleCreationRule `json:"corporationType,omitempty"`
 
-	CorporationType NichandleCreationRule `json:"corporationType,omitempty"`
+	Country *NichandleCreationRule `json:"country,omitempty"`
 
-	Country NichandleCreationRule `json:"country,omitempty"`
+	Email *NichandleCreationRule `json:"email,omitempty"`
 
-	Email NichandleCreationRule `json:"email,omitempty"`
+	Fax *NichandleCreationRule `json:"fax,omitempty"`
 
-	Fax NichandleCreationRule `json:"fax,omitempty"`
+	Firstname *NichandleCreationRule `json:"firstname,omitempty"`
 
-	Firstname NichandleCreationRule `json:"firstname,omitempty"`
+	Language *NichandleCreationRule `json:"language,omitempty"`
 
-	Language NichandleCreationRule `json:"language,omitempty"`
+	Legalform *NichandleCreationRule `json:"legalform,omitempty"`
 
-	Legalform NichandleCreationRule `json:"legalform,omitempty"`
+	Name *NichandleCreationRule `json:"name,omitempty"`
 
-	Name NichandleCreationRule `json:"name,omitempty"`
+	NationalIDentificationNumber *NichandleCreationRule `json:"nationalIdentificationNumber,omitempty"`
 
-	NationalIdentificationNumber NichandleCreationRule `json:"nationalIdentificationNumber,omitempty"`
+	Organisation *NichandleCreationRule `json:"organisation,omitempty"`
 
-	Organisation NichandleCreationRule `json:"organisation,omitempty"`
+	OvhCompany *NichandleCreationRule `json:"ovhCompany,omitempty"`
 
-	OvhCompany NichandleCreationRule `json:"ovhCompany,omitempty"`
+	OvhSubsidiary *NichandleCreationRule `json:"ovhSubsidiary,omitempty"`
 
-	OvhSubsidiary NichandleCreationRule `json:"ovhSubsidiary,omitempty"`
+	Phone *NichandleCreationRule `json:"phone,omitempty"`
 
-	Phone NichandleCreationRule `json:"phone,omitempty"`
+	Sex *NichandleCreationRule `json:"sex,omitempty"`
 
-	Sex NichandleCreationRule `json:"sex,omitempty"`
+	SpareEmail *NichandleCreationRule `json:"spareEmail,omitempty"`
 
-	SpareEmail NichandleCreationRule `json:"spareEmail,omitempty"`
+	Vat *NichandleCreationRule `json:"vat,omitempty"`
 
-	Vat NichandleCreationRule `json:"vat,omitempty"`
-
-	Zip NichandleCreationRule `json:"zip,omitempty"`
+	Zip *NichandleCreationRule `json:"zip,omitempty"`
 }

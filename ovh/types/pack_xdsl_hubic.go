@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Hubic service
+// PackXdslHubic Hubic service
 type PackXdslHubic struct {
 
-	// Size of the hubic account in bytes
+	// Bytes Size of the hubic account in bytes
 	Bytes int64 `json:"bytes,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
-	// Human readable size of the hubic account
+	// Size Human readable size of the hubic account
 	Size string `json:"size,omitempty"`
 
-	// Voucher to enter on HubiC website to activate the account
+	// Voucher Voucher to enter on HubiC website to activate the account
 	Voucher string `json:"voucher,omitempty"`
 }

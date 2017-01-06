@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing informations about server PCI devices
+// DedicatedServerRtmPci A structure describing informations about server PCI devices
 type DedicatedServerRtmPci struct {
 
-	// PCI bus device
+	// Bus PCI bus device
 	Bus string `json:"bus,omitempty"`
 
-	// PCI device information
+	// Device PCI device information
 	Device string `json:"device,omitempty"`
 }

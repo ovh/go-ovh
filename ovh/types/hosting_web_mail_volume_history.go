@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// The volume history type
+// HostingWebMailVolumeHistory The volume history type
 type HostingWebMailVolumeHistory struct {
 
-	// The datetime of this volume history point
-	Date time.Time `json:"date,omitempty"`
+	// Date The datetime of this volume history point
+	Date *time.Time `json:"date,omitempty"`
 
-	// The volume history size
+	// Volume The volume history size
 	Volume int64 `json:"volume,omitempty"`
 }

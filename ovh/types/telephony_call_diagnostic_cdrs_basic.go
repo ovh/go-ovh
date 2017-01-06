@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Call diagnostic analyze structure call cdrs
+// TelephonyCallDiagnosticCdrsBasic Call diagnostic analyze structure call cdrs
 type TelephonyCallDiagnosticCdrsBasic struct {
 
-	// Hexadecimal SIP-to-SS7 ISUP cause codes
+	// Cause Hexadecimal SIP-to-SS7 ISUP cause codes
 	Cause string `json:"cause,omitempty"`
 
-	// SS7 ISUP cause codes
+	// CauseDescription SS7 ISUP cause codes
 	CauseDescription string `json:"causeDescription,omitempty"`
 
-	// Release location type : forward if the calling hangup, backward if the caller hangup, else local
+	// ReleaseLocation Release location type : forward if the calling hangup, backward if the caller hangup, else local
 	ReleaseLocation string `json:"releaseLocation,omitempty"`
 }

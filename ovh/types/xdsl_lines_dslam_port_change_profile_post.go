@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// XdslLinesDslamPortChangeProfilePost ...
 type XdslLinesDslamPortChangeProfilePost struct {
-
-	DslamProfileId int64 `json:"dslamProfileId,omitempty"`
+	DslamProfileID int64 `json:"dslamProfileId,omitempty"`
 }

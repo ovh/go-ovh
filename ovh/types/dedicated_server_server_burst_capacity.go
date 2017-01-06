@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Bandwidth busrt capacity
-type DedicatedServerServerBurstCapacity struct {
-
+// DedicatedServerBurstCapacity Bandwidth busrt capacity
+type DedicatedServerBurstCapacity struct {
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Openrc
+// CloudUserOpenrc Openrc
 type CloudUserOpenrc struct {
 
-	// openrc file
+	// Content openrc file
 	Content string `json:"content,omitempty"`
 }

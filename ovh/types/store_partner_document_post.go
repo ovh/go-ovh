@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// StorePartnerDocumentPost ...
 type StorePartnerDocumentPost struct {
-
-	DocumentId string `json:"documentId,omitempty"`
+	DocumentID string `json:"documentId,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Obfuscate whois
+// DomainOwo Obfuscate whois
 type DomainOwo struct {
 
-	// Obfuscated field
+	// Field Obfuscated field
 	Field string `json:"field,omitempty"`
 }

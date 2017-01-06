@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// PackXdslSiteBuilderStartServicesPost ...
 type PackXdslSiteBuilderStartServicesPost struct {
-
 	Domain string `json:"domain,omitempty"`
 
 	Subdomain string `json:"subdomain,omitempty"`
 
-	TemplateId int64 `json:"templateId,omitempty"`
+	TemplateID int64 `json:"templateId,omitempty"`
 }

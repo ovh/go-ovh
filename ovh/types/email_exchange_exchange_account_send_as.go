@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Users authorized to send mails from this mailbox
-type EmailExchangeExchangeAccountSendAs struct {
+// EmailExchangeAccountSendAs Users authorized to send mails from this mailbox
+type EmailExchangeAccountSendAs struct {
 
-	// Account id to give send as
-	AllowedAccountId int64 `json:"allowedAccountId,omitempty"`
+	// AllowedAccountID Account id to give send as
+	AllowedAccountID int64 `json:"allowedAccountId,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

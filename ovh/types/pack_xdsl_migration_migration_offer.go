@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,45 +10,45 @@
 
 package types
 
-// Migration offer
-type PackXdslMigrationMigrationOffer struct {
+// PackXdslMigrationOffer Migration offer
+type PackXdslMigrationOffer struct {
 
-	// DEPRECATED - List of contracts
+	// ContractList DEPRECATED - List of contracts
 	ContractList []string `json:"contractList,omitempty"`
 
-	// List of contracts for this offer
-	Contracts []OrderContract `json:"contracts,omitempty"`
+	// Contracts List of contracts for this offer
+	Contracts []*OrderContract `json:"contracts,omitempty"`
 
-	CurrentOfferPrice OrderPrice `json:"currentOfferPrice,omitempty"`
+	CurrentOfferPrice *OrderPrice `json:"currentOfferPrice,omitempty"`
 
-	// Description of the offer
+	// Description Description of the offer
 	Description string `json:"description,omitempty"`
 
-	Due OrderPrice `json:"due,omitempty"`
+	Due *OrderPrice `json:"due,omitempty"`
 
-	// Number of months of engagement
+	// EngageMonths Number of months of engagement
 	EngageMonths int64 `json:"engageMonths,omitempty"`
 
-	// Mac address of the modem to be returned
+	// ModemMacToReturn Mac address of the modem to be returned
 	ModemMacToReturn string `json:"modemMacToReturn,omitempty"`
 
-	// Tells if the offer needs a modem
+	// NeedModem Tells if the offer needs a modem
 	NeedModem bool `json:"needModem,omitempty"`
 
-	// Tells if the customer will have to change its modem
+	// NeedNewModem Tells if the customer will have to change its modem
 	NeedNewModem bool `json:"needNewModem,omitempty"`
 
-	// Name of the offer
+	// OfferName Name of the offer
 	OfferName string `json:"offerName,omitempty"`
 
-	// Available options for the migration
-	Options []PackXdslMigrationOfferAvailableOption `json:"options,omitempty"`
+	// Options Available options for the migration
+	Options []*PackXdslMigrationOfferAvailableOption `json:"options,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// List of sub services to delete
-	SubServicesToDelete []PackXdslMigrationSubServiceToDelete `json:"subServicesToDelete,omitempty"`
+	// SubServicesToDelete List of sub services to delete
+	SubServicesToDelete []*PackXdslMigrationSubServiceToDelete `json:"subServicesToDelete,omitempty"`
 
-	// URL of the offer
-	Url string `json:"url,omitempty"`
+	// URL URL of the offer
+	URL string `json:"url,omitempty"`
 }

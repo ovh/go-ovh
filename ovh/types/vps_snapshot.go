@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// Information about the snapshot of a VPS Virtual Machine
+// VpsSnapshot Information about the snapshot of a VPS Virtual Machine
 type VpsSnapshot struct {
-
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
 	Description string `json:"description,omitempty"`
 }

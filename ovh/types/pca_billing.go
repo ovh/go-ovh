@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// cloud archives billing
+// PcaBilling cloud archives billing
 type PcaBilling struct {
 
-	// Billing action is billed.
+	// Billed Billing action is billed.
 	Billed bool `json:"billed,omitempty"`
 
-	// Date and time the operation took place
-	Date time.Time `json:"date,omitempty"`
+	// Date Date and time the operation took place
+	Date *time.Time `json:"date,omitempty"`
 
-	// Billing id
-	Id int64 `json:"id,omitempty"`
+	// ID Billing id
+	ID int64 `json:"id,omitempty"`
 
-	// Quantity of bytes for operation
+	// Quantity Quantity of bytes for operation
 	Quantity int64 `json:"quantity,omitempty"`
 
-	// Billing reference name
+	// Reference Billing reference name
 	Reference string `json:"reference,omitempty"`
 
-	// Total usage after operation
+	// Total Total usage after operation
 	Total int64 `json:"total,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Disk Container
+// PaasDatabaseInstanceDisk Disk Container
 type PaasDatabaseInstanceDisk struct {
+	Size *PaasDatabaseInstanceDiskSize `json:"size,omitempty"`
 
-	Size PaasDatabaseInstanceDiskSize `json:"size,omitempty"`
-
-	Used PaasDatabaseInstanceDiskUsed `json:"used,omitempty"`
+	Used *PaasDatabaseInstanceDiskUsed `json:"used,omitempty"`
 }

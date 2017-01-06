@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,12 @@
 
 package types
 
-// Traffic statistics in and out on a mitigated ip
-type IpMitigationStats struct {
+// IPMitigationStats Traffic statistics in and out on a mitigated ip
+type IPMitigationStats struct {
+	In *IPMitigationTraffic `json:"in,omitempty"`
 
-	In IpMitigationTraffic `json:"in,omitempty"`
+	Out *IPMitigationTraffic `json:"out,omitempty"`
 
-	Out IpMitigationTraffic `json:"out,omitempty"`
-
-	// Traffic timestamp
+	// Timestamp Traffic timestamp
 	Timestamp int64 `json:"timestamp,omitempty"`
 }

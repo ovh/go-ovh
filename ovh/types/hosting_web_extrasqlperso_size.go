@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Quota size allowed per each database by this option
+// HostingWebExtrasqlpersoSize Quota size allowed per each database by this option
 type HostingWebExtrasqlpersoSize struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

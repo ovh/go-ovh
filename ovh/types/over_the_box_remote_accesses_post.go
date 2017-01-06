@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,11 @@ import (
 	"time"
 )
 
+// OverTheBoxRemoteAccessesPost ...
 type OverTheBoxRemoteAccessesPost struct {
+	AllowedIP string `json:"allowedIp,omitempty"`
 
-	AllowedIp string `json:"allowedIp,omitempty"`
-
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
 	ExposedPort int64 `json:"exposedPort,omitempty"`
 

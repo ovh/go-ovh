@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Operation on a Hadoop Cluster component
+// ClusterHadoopTask Operation on a Hadoop Cluster component
 type ClusterHadoopTask struct {
 
-	// Operation name
+	// Name Operation name
 	Name string `json:"name,omitempty"`
 
-	// Current Task state
+	// Status Current Task state
 	Status string `json:"status,omitempty"`
 
-	TaskId int64 `json:"taskId,omitempty"`
+	TaskID int64 `json:"taskId,omitempty"`
 }

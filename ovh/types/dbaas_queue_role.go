@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Role
+// DbaasQueueRole Role
 type DbaasQueueRole struct {
 
-	// Automatically create non-existing topics on read & write operations
+	// AutoCreateACL Automatically create non-existing topics on read & write operations
 	AutoCreateACL bool `json:"autoCreateACL,omitempty"`
 
-	// Role name
+	// Name Role name
 	Name string `json:"name,omitempty"`
 
-	// List of topics with read access
+	// ReadAcl List of topics with read access
 	ReadAcl []string `json:"readAcl,omitempty"`
 
-	// List of topics with write access
+	// WriteAcl List of topics with write access
 	WriteAcl []string `json:"writeAcl,omitempty"`
 }

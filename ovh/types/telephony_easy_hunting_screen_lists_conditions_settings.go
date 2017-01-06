@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Easy hunting screen lists conditions options
+// TelephonyEasyHuntingScreenListsConditionsSettings Easy hunting screen lists conditions options
 type TelephonyEasyHuntingScreenListsConditionsSettings struct {
-
 	Status string `json:"status,omitempty"`
 }

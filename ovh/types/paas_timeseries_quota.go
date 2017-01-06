@@ -10,14 +10,14 @@
 
 package types
 
-// Quota
+// PaasTimeseriesQuota Quota
 type PaasTimeseriesQuota struct {
 
-	// Current value
+	// Current Current value
 	Current int64 `json:"current,omitempty"`
 
-	// Max allowed
+	// Max Max allowed
 	Max int64 `json:"max,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

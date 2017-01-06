@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,72 +14,72 @@ import (
 	"time"
 )
 
-// Customer answers for line diagnostic
+// XdslLineDiagnosticAnswers Customer answers for line diagnostic
 type XdslLineDiagnosticAnswers struct {
 
-	// comment will contains all informations needed for intervention and about your access problem
+	// Comment comment will contains all informations needed for intervention and about your access problem
 	Comment string `json:"comment,omitempty"`
 
-	// customer knows that he can be charged (150 euros HT) if he is responsible for the problem or if tests have not been done correctly ?
+	// ConditionsAccepted customer knows that he can be charged (150 euros HT) if he is responsible for the problem or if tests have not been done correctly ?
 	ConditionsAccepted bool `json:"conditionsAccepted,omitempty"`
 
-	// customer's phone number
+	// ContactPhone customer's phone number
 	ContactPhone string `json:"contactPhone,omitempty"`
 
-	// approximative datetime of problem happening
-	DatetimeOfAppearance time.Time `json:"datetimeOfAppearance,omitempty"`
+	// DatetimeOfAppearance approximative datetime of problem happening
+	DatetimeOfAppearance *time.Time `json:"datetimeOfAppearance,omitempty"`
 
-	// afternoon closing informations or time for the site
+	// EndAfternoonHours afternoon closing informations or time for the site
 	EndAfternoonHours string `json:"endAfternoonHours,omitempty"`
 
-	// morning closing informations or time for the site
+	// EndMorningHours morning closing informations or time for the site
 	EndMorningHours string `json:"endMorningHours,omitempty"`
 
-	// indicate if customer wants to be informed by sms
+	// FollowBySms indicate if customer wants to be informed by sms
 	FollowBySms bool `json:"followBySms,omitempty"`
 
-	// Has modem kept his synchronization during line port reset ?
+	// HasModemKeptSynchronization Has modem kept his synchronization during line port reset ?
 	HasModemKeptSynchronization bool `json:"hasModemKeptSynchronization,omitempty"`
 
-	// id of appointment chosen (\"possibleValues\" contains choices list with id)
-	IdAppointment int64 `json:"idAppointment,omitempty"`
+	// IDAppointment id of appointment chosen (\"possibleValues\" contains choices list with id)
+	IDAppointment int64 `json:"idAppointment,omitempty"`
 
-	// is non-professional site ?
+	// IndividualSite is non-professional site ?
 	IndividualSite bool `json:"individualSite,omitempty"`
 
-	// Is modem synchronized ? (whatever internet connection)
+	// ModemIsSynchronized Is modem synchronized ? (whatever internet connection)
 	ModemIsSynchronized bool `json:"modemIsSynchronized,omitempty"`
 
-	// modem mac address
+	// ModemMac modem mac address
 	ModemMac string `json:"modemMac,omitempty"`
 
-	// Modem still synchronized ? Please check once again.
+	// ModemStillSynchronized Modem still synchronized ? Please check once again.
 	ModemStillSynchronized bool `json:"modemStillSynchronized,omitempty"`
 
-	// modem brand and reference
+	// ModemType modem brand and reference
 	ModemType string `json:"modemType,omitempty"`
 
-	// is access problem solved ?
+	// ResolvedAfterTests is access problem solved ?
 	ResolvedAfterTests bool `json:"resolvedAfterTests,omitempty"`
 
-	// is secure site ?
+	// SecureSite is secure site ?
 	SecureSite bool `json:"secureSite,omitempty"`
 
-	// Has customer several internal connections ? (on the same place)
+	// SeveralInternetConnections Has customer several internal connections ? (on the same place)
 	SeveralInternetConnections bool `json:"severalInternetConnections,omitempty"`
 
-	// days or period where site access is not possible
+	// SiteClosedDays days or period where site access is not possible
 	SiteClosedDays string `json:"siteClosedDays,omitempty"`
 
-	// digicode for site entrance
+	// SiteDigicode digicode for site entrance
 	SiteDigicode string `json:"siteDigicode,omitempty"`
 
-	// site opening hours or informations
+	// SiteOpening site opening hours or informations
 	SiteOpening string `json:"siteOpening,omitempty"`
 
-	// afternoon opening informations or time for the site
+	// StartAfternoonHours afternoon opening informations or time for the site
 	StartAfternoonHours string `json:"startAfternoonHours,omitempty"`
 
-	// morning opening informations or time for the site
+	// StartMorningHours morning opening informations or time for the site
 	StartMorningHours string `json:"startMorningHours,omitempty"`
 }

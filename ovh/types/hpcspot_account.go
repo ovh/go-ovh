@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Account HPC Spot
+// HpcspotAccount Account HPC Spot
 type HpcspotAccount struct {
 
-	// Name of the HPC Spot Account
+	// Name Name of the HPC Spot Account
 	Name string `json:"name,omitempty"`
 }

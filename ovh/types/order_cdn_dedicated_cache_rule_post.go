@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type OrderCdnDedicatedCacheRulePost struct {
-
+// OrderCDNDedicatedCacheRulePost ...
+type OrderCDNDedicatedCacheRulePost struct {
 	CacheRule int64 `json:"cacheRule,omitempty"`
 }

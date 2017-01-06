@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,51 +14,51 @@ import (
 	"time"
 )
 
-// Input
+// DBaaSLogsInput Input
 type DBaaSLogsInput struct {
 
-	// Input creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Input creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Input description
+	// Description Input description
 	Description string `json:"description,omitempty"`
 
-	// Input engine UUID
-	EngineId string `json:"engineId,omitempty"`
+	// EngineID Input engine UUID
+	EngineID string `json:"engineId,omitempty"`
 
-	// Port
+	// ExposedPort Port
 	ExposedPort string `json:"exposedPort,omitempty"`
 
-	// Hostname
+	// Hostname Hostname
 	Hostname string `json:"hostname,omitempty"`
 
-	// Input ID
-	InputId string `json:"inputId,omitempty"`
+	// InputID Input ID
+	InputID string `json:"inputId,omitempty"`
 
-	// Associated DBaaS Logs option
-	OptionId string `json:"optionId,omitempty"`
+	// OptionID Associated DBaaS Logs option
+	OptionID string `json:"optionId,omitempty"`
 
-	// Input IP address
+	// PublicAddress Input IP address
 	PublicAddress string `json:"publicAddress,omitempty"`
 
-	// Indicate if input need to be restarted
+	// RestartRequired Indicate if input need to be restarted
 	RestartRequired bool `json:"restartRequired,omitempty"`
 
-	// Force only one instance
+	// SingleInstance Force only one instance
 	SingleInstance bool `json:"singleInstance,omitempty"`
 
-	// Input SSL certificate
-	SslCertificate string `json:"sslCertificate,omitempty"`
+	// SSLCertificate Input SSL certificate
+	SSLCertificate string `json:"sslCertificate,omitempty"`
 
-	// init: configuration required, pending: ready to start, running: available
+	// Status init: configuration required, pending: ready to start, running: available
 	Status string `json:"status,omitempty"`
 
-	// Associated Graylog stream
-	StreamId string `json:"streamId,omitempty"`
+	// StreamID Associated Graylog stream
+	StreamID string `json:"streamId,omitempty"`
 
-	// Input title
+	// Title Input title
 	Title string `json:"title,omitempty"`
 
-	// Input last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Input last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

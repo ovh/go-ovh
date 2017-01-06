@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,36 +10,36 @@
 
 package types
 
-// Voicemail Properties
+// TelephonyVoicemailProperties Voicemail Properties
 type TelephonyVoicemailProperties struct {
 
-	// Name of the voicemail panel announce file
+	// AnnouceMessage Name of the voicemail panel announce file
 	AnnouceMessage string `json:"annouceMessage,omitempty"`
 
-	// Format of the voicemail audio file attached to emails
+	// AudioFormat Format of the voicemail audio file attached to emails
 	AudioFormat string `json:"audioFormat,omitempty"`
 
-	// Don't allow callers to leave voicemails
+	// DoNotRecord Don't allow callers to leave voicemails
 	DoNotRecord bool `json:"doNotRecord,omitempty"`
 
-	// Force password request to access the voicemail panel
+	// ForcePassword Force password request to access the voicemail panel
 	ForcePassword bool `json:"forcePassword,omitempty"`
 
-	// Email address from which emails will be sent
+	// FromEmail Email address from which emails will be sent
 	FromEmail string `json:"fromEmail,omitempty"`
 
-	// Name from which emails will be sent
+	// FromName Name from which emails will be sent
 	FromName string `json:"fromName,omitempty"`
 
-	// Current voicemail version
+	// IsNewVersion Current voicemail version
 	IsNewVersion bool `json:"isNewVersion,omitempty"`
 
-	// Don't delete voicemails after they've been sent by email
+	// KeepMessage Don't delete voicemails after they've been sent by email
 	KeepMessage bool `json:"keepMessage,omitempty"`
 
-	// Email addresses to notify when a new voicemail is left
-	RedirectionEmails []TelephonyServiceVoicemailNotifications `json:"redirectionEmails,omitempty"`
+	// RedirectionEmails Email addresses to notify when a new voicemail is left
+	RedirectionEmails []*TelephonyServiceVoicemailNotifications `json:"redirectionEmails,omitempty"`
 
-	// Quantity of unread voicemails
+	// UnreadMessages Quantity of unread voicemails
 	UnreadMessages int64 `json:"unreadMessages,omitempty"`
 }

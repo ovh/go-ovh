@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Representation of an .pro Contact Resource
+// DomainDataProContact Representation of an .pro Contact Resource
 type DomainDataProContact struct {
 
-	// Authority that certify your profesional status
+	// Authority Authority that certify your profesional status
 	Authority string `json:"authority,omitempty"`
 
-	// Website of the authority that certify your profesional status
+	// AuthorityWebsite Website of the authority that certify your profesional status
 	AuthorityWebsite string `json:"authorityWebsite,omitempty"`
 
-	// .pro Contact ID
-	Id int64 `json:"id,omitempty"`
+	// ID .pro Contact ID
+	ID int64 `json:"id,omitempty"`
 
-	// Description of your job
+	// JobDescription Description of your job
 	JobDescription string `json:"jobDescription,omitempty"`
 
-	// License number given by the authority
+	// LicenseNumber License number given by the authority
 	LicenseNumber string `json:"licenseNumber,omitempty"`
 }

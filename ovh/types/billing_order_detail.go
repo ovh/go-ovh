@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,17 @@
 
 package types
 
-// Information about a Bill entry
+// BillingOrderDetail Information about a Bill entry
 type BillingOrderDetail struct {
-
 	Description string `json:"description,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
-	OrderDetailId int64 `json:"orderDetailId,omitempty"`
+	OrderDetailID int64 `json:"orderDetailId,omitempty"`
 
 	Quantity string `json:"quantity,omitempty"`
 
-	TotalPrice OrderPrice `json:"totalPrice,omitempty"`
+	TotalPrice *OrderPrice `json:"totalPrice,omitempty"`
 
-	UnitPrice OrderPrice `json:"unitPrice,omitempty"`
+	UnitPrice *OrderPrice `json:"unitPrice,omitempty"`
 }

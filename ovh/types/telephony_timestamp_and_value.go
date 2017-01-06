@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A value associated to a timestamp
+// TelephonyTimestampAndValue A value associated to a timestamp
 type TelephonyTimestampAndValue struct {
-
 	Timestamp int64 `json:"timestamp,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

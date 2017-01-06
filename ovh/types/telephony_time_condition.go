@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Time conditions
+// TelephonyTimeCondition Time conditions
 type TelephonyTimeCondition struct {
-
 	Day string `json:"day,omitempty"`
 
 	HourBegin string `json:"hourBegin,omitempty"`
 
 	HourEnd string `json:"hourEnd,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Policy string `json:"policy,omitempty"`
 

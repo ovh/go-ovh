@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Network allowed to join input
+// DBaaSLogsAllowedNetwork Network allowed to join input
 type DBaaSLogsAllowedNetwork struct {
 
-	// Network UUID
-	AllowedNetworkId string `json:"allowedNetworkId,omitempty"`
+	// AllowedNetworkID Network UUID
+	AllowedNetworkID string `json:"allowedNetworkId,omitempty"`
 
-	// IP block
+	// Network IP block
 	Network string `json:"network,omitempty"`
 }

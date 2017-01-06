@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Token
+// CloudAuthenticationToken Token
 type CloudAuthenticationToken struct {
-
 	XAuthToken string `json:"X-Auth-Token,omitempty"`
 
-	Token CloudAuthenticationOpenstackToken `json:"token,omitempty"`
+	Token *CloudAuthenticationOpenstackToken `json:"token,omitempty"`
 }

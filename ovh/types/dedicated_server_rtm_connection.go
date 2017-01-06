@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,33 +10,33 @@
 
 package types
 
-// A structure describing informations about opened sockets on the server
+// DedicatedServerRtmConnection A structure describing informations about opened sockets on the server
 type DedicatedServerRtmConnection struct {
 
-	// Complete command line used for starting this process
+	// Cmdline Complete command line used for starting this process
 	Cmdline string `json:"cmdline,omitempty"`
 
-	// Domain used by the process
+	// Domain Domain used by the process
 	Domain string `json:"domain,omitempty"`
 
-	// Path to the program
+	// Exe Path to the program
 	Exe string `json:"exe,omitempty"`
 
-	// The IP address connected
-	Ip string `json:"ip,omitempty"`
+	// IP The IP address connected
+	IP string `json:"ip,omitempty"`
 
-	// Process ID
+	// Pid Process ID
 	Pid int64 `json:"pid,omitempty"`
 
-	// Port opened
+	// Port Port opened
 	Port int64 `json:"port,omitempty"`
 
-	// Name of the process
+	// Procname Name of the process
 	Procname string `json:"procname,omitempty"`
 
-	// System user ID
-	Uid int64 `json:"uid,omitempty"`
+	// UID System user ID
+	UID int64 `json:"uid,omitempty"`
 
-	// Username used to start the process
+	// Username Username used to start the process
 	Username string `json:"username,omitempty"`
 }

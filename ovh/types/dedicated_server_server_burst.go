@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// Server bandwidth burst details
-type DedicatedServerServerBurst struct {
+// DedicatedServerBurst Server bandwidth burst details
+type DedicatedServerBurst struct {
+	Capacity *DedicatedServerBurstCapacity `json:"capacity,omitempty"`
 
-	Capacity DedicatedServerServerBurstCapacity `json:"capacity,omitempty"`
-
-	// indicates wether burstable bandwidth is currently active, allowing it to temporarily exceed the normally included bandwidth.OvhToInternet amount, within the limits indicated by the burst.capacity item. It can also be inactiveLocked when temporarily disabled due to overuse, capping it to the included non-burstable bandwidth capacity of bandwidth.OvhToInternet
+	// Status indicates wether burstable bandwidth is currently active, allowing it to temporarily exceed the normally included bandwidth.OvhToInternet amount, within the limits indicated by the burst.capacity item. It can also be inactiveLocked when temporarily disabled due to overuse, capping it to the included non-burstable bandwidth capacity of bandwidth.OvhToInternet
 	Status string `json:"status,omitempty"`
 }

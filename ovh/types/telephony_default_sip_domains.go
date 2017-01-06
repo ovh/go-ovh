@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,18 @@
 
 package types
 
+// TelephonyDefaultSipDomains ...
 type TelephonyDefaultSipDomains struct {
 
-	// Country
+	// Country Country
 	Country string `json:"country,omitempty"`
 
-	// Current SIP domain
+	// CurrentDomain Current SIP domain
 	CurrentDomain string `json:"currentDomain,omitempty"`
 
-	// List of available SIP domains
+	// List List of available SIP domains
 	List []string `json:"list,omitempty"`
 
-	// Type of the VoIP product concerned
+	// ProductType Type of the VoIP product concerned
 	ProductType string `json:"productType,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// MeTaskEmailChangeRefusePost ...
 type MeTaskEmailChangeRefusePost struct {
-
 	Token string `json:"token,omitempty"`
 }

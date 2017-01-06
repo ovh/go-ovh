@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Vxml Properties
+// TelephonyVxmlProperties Vxml Properties
 type TelephonyVxmlProperties struct {
+	URL string `json:"url,omitempty"`
 
-	Url string `json:"url,omitempty"`
-
-	UrlRecord string `json:"urlRecord,omitempty"`
+	URLRecord string `json:"urlRecord,omitempty"`
 }

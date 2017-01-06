@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,22 +10,21 @@
 
 package types
 
-// Your IP linked to service
-type IpServiceIp struct {
-
+// IPServiceIP Your IP linked to service
+type IPServiceIP struct {
 	CanBeTerminated bool `json:"canBeTerminated,omitempty"`
 
 	Country string `json:"country,omitempty"`
 
-	// Custom description on your ip
+	// Description Custom description on your ip
 	Description string `json:"description,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
-	// IP block organisation Id
-	OrganisationId string `json:"organisationId,omitempty"`
+	// OrganisationID IP block organisation Id
+	OrganisationID string `json:"organisationId,omitempty"`
 
-	RoutedTo IpRoutedTo `json:"routedTo,omitempty"`
+	RoutedTo *IPRoutedTo `json:"routedTo,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

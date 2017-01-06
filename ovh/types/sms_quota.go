@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A structure describing all information about quota informations
+// SmsQuota A structure describing all information about quota informations
 type SmsQuota struct {
-
 	QuotaLeft float64 `json:"quotaLeft,omitempty"`
 
 	QuotaStatus string `json:"quotaStatus,omitempty"`

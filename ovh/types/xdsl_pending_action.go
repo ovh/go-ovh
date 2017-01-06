@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// Scheduled action before the next renewal of the service
+// XdslPendingAction Scheduled action before the next renewal of the service
 type XdslPendingAction struct {
-
 	Action string `json:"action,omitempty"`
 
-	DateTodo time.Time `json:"dateTodo,omitempty"`
+	DateTodo *time.Time `json:"dateTodo,omitempty"`
 }

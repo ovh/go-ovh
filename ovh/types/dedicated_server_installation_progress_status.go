@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing informations about this dedicated server installation status
+// DedicatedServerInstallationProgressStatus A structure describing informations about this dedicated server installation status
 type DedicatedServerInstallationProgressStatus struct {
 
-	// Elapsed time in seconds since installation beggining
+	// ElapsedTime Elapsed time in seconds since installation beggining
 	ElapsedTime int64 `json:"elapsedTime,omitempty"`
 
-	// Installation steps
-	Progress []DedicatedServerInstallationProgressSteps `json:"progress,omitempty"`
+	// Progress Installation steps
+	Progress []*DedicatedServerInstallationProgressSteps `json:"progress,omitempty"`
 }

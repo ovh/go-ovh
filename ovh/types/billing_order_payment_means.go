@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,22 +10,21 @@
 
 package types
 
-// TODO
+// BillingOrderPaymentMeans TODO
 type BillingOrderPaymentMeans struct {
+	CreditCard []*BillingOrderPaymentMean `json:"creditCard,omitempty"`
 
-	CreditCard []BillingOrderPaymentMean `json:"creditCard,omitempty"`
+	Edinar []*BillingOrderPaymentMean `json:"edinar,omitempty"`
 
-	Edinar []BillingOrderPaymentMean `json:"edinar,omitempty"`
+	FidelityPoints []*BillingOrderPaymentMean `json:"fidelityPoints,omitempty"`
 
-	FidelityPoints []BillingOrderPaymentMean `json:"fidelityPoints,omitempty"`
+	IDeal []*BillingOrderPaymentMean `json:"ideal,omitempty"`
 
-	Ideal []BillingOrderPaymentMean `json:"ideal,omitempty"`
+	Multibanco []*BillingOrderPaymentMean `json:"multibanco,omitempty"`
 
-	Multibanco []BillingOrderPaymentMean `json:"multibanco,omitempty"`
+	OvhAccount []*BillingOrderPaymentMean `json:"ovhAccount,omitempty"`
 
-	OvhAccount []BillingOrderPaymentMean `json:"ovhAccount,omitempty"`
+	Paypal []*BillingOrderPaymentMean `json:"paypal,omitempty"`
 
-	Paypal []BillingOrderPaymentMean `json:"paypal,omitempty"`
-
-	Promotion []BillingOrderPaymentMean `json:"promotion,omitempty"`
+	Promotion []*BillingOrderPaymentMean `json:"promotion,omitempty"`
 }

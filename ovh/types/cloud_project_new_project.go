@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,23 @@
 
 package types
 
-// New cloud project
+// CloudProjectNewProject New cloud project
 type CloudProjectNewProject struct {
 
-	// Agreement to valid
+	// Agreements Agreement to valid
 	Agreements []int64 `json:"agreements,omitempty"`
 
-	Credit CloudProjectNewProjectCredit `json:"credit,omitempty"`
+	Credit *CloudProjectNewProjectCredit `json:"credit,omitempty"`
 
-	// Cloud project description
+	// Description Cloud project description
 	Description string `json:"description,omitempty"`
 
-	// Cloud project order id
-	OrderId int64 `json:"orderId,omitempty"`
+	// OrderID Cloud project order id
+	OrderID int64 `json:"orderId,omitempty"`
 
-	// Cloud project
+	// Project Cloud project
 	Project string `json:"project,omitempty"`
 
-	// Project creation status
+	// Status Project creation status
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// LoadBalancingPort mapping
-type IpLoadBalancingIpLoadBalancingPort struct {
-
+// IPLoadBalancingIPLoadBalancingPort LoadBalancingPort mapping
+type IPLoadBalancingIPLoadBalancingPort struct {
 	DstPort int64 `json:"dstPort,omitempty"`
 
 	SrcPort int64 `json:"srcPort,omitempty"`

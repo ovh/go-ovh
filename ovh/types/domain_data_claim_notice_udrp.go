@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Definition of a UDRP procedure
+// DomainDataClaimNoticeUdrp Definition of a UDRP procedure
 type DomainDataClaimNoticeUdrp struct {
 
-	// Case number
+	// CaseNumber Case number
 	CaseNumber string `json:"caseNumber,omitempty"`
 
-	// UDRP Provider
+	// UdrpProvider UDRP Provider
 	UdrpProvider string `json:"udrpProvider,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// DbaasLogsRolePermissionDashboardPost ...
 type DbaasLogsRolePermissionDashboardPost struct {
-
-	DashboardId string `json:"dashboardId,omitempty"`
+	DashboardID string `json:"dashboardId,omitempty"`
 }

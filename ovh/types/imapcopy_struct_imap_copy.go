@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Structure of imapCopy
+// ImapcopyStructImapCopy Structure of imapCopy
 type ImapcopyStructImapCopy struct {
 
-	// If true, IMAP Serveur of mailbox
+	// SSL If true, IMAP Serveur of mailbox
 	SSL bool `json:"SSL,omitempty"`
 
-	// Account of mailbox
+	// Account Account of mailbox
 	Account string `json:"account,omitempty"`
 
-	// Password of mailbox
+	// Password Password of mailbox
 	Password string `json:"password,omitempty"`
 
-	// IMAP Serveur of mailbox
+	// ServerIMAP IMAP Serveur of mailbox
 	ServerIMAP string `json:"serverIMAP,omitempty"`
 }

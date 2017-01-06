@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// The commercial ranges actually available in your Dedicated Cloud
+// DedicatedCloudCommercialRange The commercial ranges actually available in your Dedicated Cloud
 type DedicatedCloudCommercialRange struct {
 
-	// The hypervisor versions compliant with this commercial Range
+	// AllowedHypervisorVersions The hypervisor versions compliant with this commercial Range
 	AllowedHypervisorVersions []string `json:"allowedHypervisorVersions,omitempty"`
 
-	// The list of NetworkRoles allowed for one user in this commercial range
+	// AllowedNetworkRoles The list of NetworkRoles allowed for one user in this commercial range
 	AllowedNetworkRoles []string `json:"allowedNetworkRoles,omitempty"`
 
-	// The name of this commercial range
+	// CommercialRangeName The name of this commercial range
 	CommercialRangeName string `json:"commercialRangeName,omitempty"`
 
-	// The name of the dedicated Cloud version associated to this commercial range
+	// DedicatedCloudVersion The name of the dedicated Cloud version associated to this commercial range
 	DedicatedCloudVersion string `json:"dedicatedCloudVersion,omitempty"`
 
-	// The range of this Datacenter in this Dedicated Cloud version
-	Range_ string `json:"range,omitempty"`
+	// TRange The range of this Datacenter in this Dedicated Cloud version
+	TRange string `json:"range,omitempty"`
 }

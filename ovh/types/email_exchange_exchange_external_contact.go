@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,39 +14,39 @@ import (
 	"time"
 )
 
-// External contact for this exchange service
-type EmailExchangeExchangeExternalContact struct {
+// EmailExchangeExternalContact External contact for this exchange service
+type EmailExchangeExternalContact struct {
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Contact display name
+	// DisplayName Contact display name
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Contact email
+	// ExternalEmailAddress Contact email
 	ExternalEmailAddress string `json:"externalEmailAddress,omitempty"`
 
-	// Contact first name
+	// FirstName Contact first name
 	FirstName string `json:"firstName,omitempty"`
 
-	// Hide the contact in Global Address List
+	// HiddenFromGAL Hide the contact in Global Address List
 	HiddenFromGAL bool `json:"hiddenFromGAL,omitempty"`
 
-	// Contact id
-	Id int64 `json:"id,omitempty"`
+	// ID Contact id
+	ID int64 `json:"id,omitempty"`
 
-	// Contact initals
+	// Initials Contact initals
 	Initials string `json:"initials,omitempty"`
 
-	// Contact last name
+	// LastName Contact last name
 	LastName string `json:"lastName,omitempty"`
 
-	// If specified, indicates to which organization this external contact belongs (Exchange 2010 only)
+	// Organization2010 If specified, indicates to which organization this external contact belongs (Exchange 2010 only)
 	Organization2010 string `json:"organization2010,omitempty"`
 
-	// Contact state
+	// State Contact state
 	State string `json:"state,omitempty"`
 
-	// Task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

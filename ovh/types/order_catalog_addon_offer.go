@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// Describes of Addon offer
+// OrderCatalogAddonOffer Describes of Addon offer
 type OrderCatalogAddonOffer struct {
 
-	// Name that appears on invoice
+	// InvoiceName Name that appears on invoice
 	InvoiceName string `json:"invoiceName,omitempty"`
 
-	Plan OrderCatalogProductPlan `json:"plan,omitempty"`
+	Plan *OrderCatalogProductPlan `json:"plan,omitempty"`
 }

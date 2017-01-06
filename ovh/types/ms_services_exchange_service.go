@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,35 +14,35 @@ import (
 	"time"
 )
 
-// Exchange service
+// MsServicesExchangeService Exchange service
 type MsServicesExchangeService struct {
 
-	// Service family name displayed
+	// DisplayName Service family name displayed
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Exchange service name
+	// Domain Exchange service name
 	Domain string `json:"domain,omitempty"`
 
-	// Exchange service URL
+	// Hostname Exchange service URL
 	Hostname string `json:"hostname,omitempty"`
 
-	// Maximum allowable size for received messages in MB
+	// MaxReceiveSize Maximum allowable size for received messages in MB
 	MaxReceiveSize int64 `json:"maxReceiveSize,omitempty"`
 
-	// Maximum allowable size of sent messages in MB
+	// MaxSendSize Maximum allowable size of sent messages in MB
 	MaxSendSize int64 `json:"maxSendSize,omitempty"`
 
-	// Exchange service offer
+	// Offer Exchange service offer
 	Offer string `json:"offer,omitempty"`
 
-	SpamAndVirusConfiguration MsServicesSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
+	SpamAndVirusConfiguration *MsServicesSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
 
-	// Expiration date of SSL certificate
-	SslExpirationDate time.Time `json:"sslExpirationDate,omitempty"`
+	// SSLExpirationDate Expiration date of SSL certificate
+	SSLExpirationDate *time.Time `json:"sslExpirationDate,omitempty"`
 
-	// Exchange service state
+	// State Exchange service state
 	State string `json:"state,omitempty"`
 
-	// Task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

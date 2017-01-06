@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// A structure describing informations about orderable IP address
-type DedicatedServerIpOrderableDetails struct {
+// DedicatedServerIPOrderableDetails A structure describing informations about orderable IP address
+type DedicatedServerIPOrderableDetails struct {
 
-	// Orderable IP blocks sizes
+	// BlockSizes Orderable IP blocks sizes
 	BlockSizes []int64 `json:"blockSizes,omitempty"`
 
-	// Are those IP included with your offer
+	// Included Are those IP included with your offer
 	Included bool `json:"included,omitempty"`
 
-	// Total number of IP that can be routed to this server
-	IpNumber int64 `json:"ipNumber,omitempty"`
+	// IPNumber Total number of IP that can be routed to this server
+	IPNumber int64 `json:"ipNumber,omitempty"`
 
-	// Total number of prefixes that can be routed to this server
+	// Number Total number of prefixes that can be routed to this server
 	Number int64 `json:"number,omitempty"`
 
-	// Which option is required to order this type of IP
+	// OptionRequired Which option is required to order this type of IP
 	OptionRequired string `json:"optionRequired,omitempty"`
 
-	// this IP type
-	Type_ string `json:"type,omitempty"`
+	// TType this IP type
+	TType string `json:"type,omitempty"`
 }

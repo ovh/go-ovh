@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Traffic on mitigation
-type IpMitigationTraffic struct {
+// IPMitigationTraffic Traffic on mitigation
+type IPMitigationTraffic struct {
 
-	// Bits per second
+	// Bps Bits per second
 	Bps int64 `json:"bps,omitempty"`
 
-	// Paquets per second
+	// Pps Paquets per second
 	Pps int64 `json:"pps,omitempty"`
 }

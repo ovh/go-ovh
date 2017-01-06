@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Task filter List
+// EmailDomainTaskFilter Task filter List
 type EmailDomainTaskFilter struct {
 
-	// Account name of task
+	// Account Account name of task
 	Account string `json:"account,omitempty"`
 
-	// Action of task
+	// Action Action of task
 	Action string `json:"action,omitempty"`
 
-	// Domain name of task
+	// Domain Domain name of task
 	Domain string `json:"domain,omitempty"`
 
-	// Id of task
-	Id int64 `json:"id,omitempty"`
+	// ID Id of task
+	ID int64 `json:"id,omitempty"`
 
-	// Creation date of task
-	Timestamp time.Time `json:"timestamp,omitempty"`
+	// Timestamp Creation date of task
+	Timestamp *time.Time `json:"timestamp,omitempty"`
 }

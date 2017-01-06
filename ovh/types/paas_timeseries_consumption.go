@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,20 @@ import (
 	"time"
 )
 
-// Consumption
+// PaasTimeseriesConsumption Consumption
 type PaasTimeseriesConsumption struct {
 
-	// Consumption start date
-	From time.Time `json:"from,omitempty"`
+	// From Consumption start date
+	From *time.Time `json:"from,omitempty"`
 
-	// Timestamp of consumption generation
-	Generated time.Time `json:"generated,omitempty"`
+	// Generated Timestamp of consumption generation
+	Generated *time.Time `json:"generated,omitempty"`
 
-	// List of consumption items
-	Items []PaasTimeseriesConsumptionItem `json:"items,omitempty"`
+	// Items List of consumption items
+	Items []*PaasTimeseriesConsumptionItem `json:"items,omitempty"`
 
-	// Consumption end date
-	To time.Time `json:"to,omitempty"`
+	// To Consumption end date
+	To *time.Time `json:"to,omitempty"`
 
-	Total OrderPrice `json:"total,omitempty"`
+	Total *OrderPrice `json:"total,omitempty"`
 }

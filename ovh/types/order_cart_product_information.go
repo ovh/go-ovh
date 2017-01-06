@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,29 +10,29 @@
 
 package types
 
-// Information about a product for Order/Cart
+// OrderCartProductInformation Information about a product for Order/Cart
 type OrderCartProductInformation struct {
 
-	// Informations about the configurations required
-	Configurations []OrderCartConfigurationRequirements `json:"configurations,omitempty"`
+	// Configurations Informations about the configurations required
+	Configurations []*OrderCartConfigurationRequirements `json:"configurations,omitempty"`
 
-	// Informations about the estimated delivery time for the product
+	// DeliveryTime Informations about the estimated delivery time for the product
 	DeliveryTime string `json:"deliveryTime,omitempty"`
 
-	// List all the duration allowed for the product
+	// Duration List all the duration allowed for the product
 	Duration []string `json:"duration,omitempty"`
 
-	// Indicates if the product is orderable or not
+	// Orderable Indicates if the product is orderable or not
 	Orderable bool `json:"orderable,omitempty"`
 
-	// Informations about the domain phase
+	// Phase Informations about the domain phase
 	Phase string `json:"phase,omitempty"`
 
-	Prices OrderCartPrice `json:"prices,omitempty"`
+	Prices *OrderCartPrice `json:"prices,omitempty"`
 
-	// Product identifier
-	ProductId string `json:"productId,omitempty"`
+	// ProductID Product identifier
+	ProductID string `json:"productId,omitempty"`
 
-	// Maximum quantity purchasable for this product
+	// QuantityMax Maximum quantity purchasable for this product
 	QuantityMax int64 `json:"quantityMax,omitempty"`
 }

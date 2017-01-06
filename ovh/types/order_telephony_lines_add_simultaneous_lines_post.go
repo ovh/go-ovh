@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderTelephonyLinesAddSimultaneousLinesPost ...
 type OrderTelephonyLinesAddSimultaneousLinesPost struct {
-
 	BillingAccount string `json:"billingAccount,omitempty"`
 
 	Quantity int64 `json:"quantity,omitempty"`

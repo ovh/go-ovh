@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// A structure describing informations about available nameserver for secondary dns 
-type SecondaryDnsSecondaryDnsNameServer struct {
+// SecondaryDNSNameServer A structure describing informations about available nameserver for secondary dns
+type SecondaryDNSNameServer struct {
 
-	// the name server
+	// Hostname the name server
 	Hostname string `json:"hostname,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
-	Ipv6 string `json:"ipv6,omitempty"`
+	IPv6 string `json:"ipv6,omitempty"`
 }

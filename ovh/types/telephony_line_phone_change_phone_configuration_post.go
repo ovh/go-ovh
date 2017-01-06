@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// TelephonyLinePhoneChangePhoneConfigurationPost ...
 type TelephonyLinePhoneChangePhoneConfigurationPost struct {
-
 	AutoReboot bool `json:"autoReboot,omitempty"`
 
-	NewConfigurations []ComplexTypeSafeKeyValueString `json:"newConfigurations,omitempty"`
+	NewConfigurations []*ComplexTypeSafeKeyValueString `json:"newConfigurations,omitempty"`
 }

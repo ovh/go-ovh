@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type VpsSecondaryDnsDomainsPost struct {
-
+// VpsSecondaryDNSDomainsPost ...
+type VpsSecondaryDNSDomainsPost struct {
 	Domain string `json:"domain,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 }

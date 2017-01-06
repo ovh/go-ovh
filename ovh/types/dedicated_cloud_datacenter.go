@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Dedicated Cloud Datacenter
+// DedicatedCloudDatacenter Dedicated Cloud Datacenter
 type DedicatedCloudDatacenter struct {
 
-	// The commercial range associated to this Datacenter
+	// CommercialRangeName The commercial range associated to this Datacenter
 	CommercialRangeName string `json:"commercialRangeName,omitempty"`
 
-	DatacenterId int64 `json:"datacenterId,omitempty"`
+	DatacenterID int64 `json:"datacenterId,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
-	// Check if this datacenter is removable (Need to be Empty)
+	// IsRemovable Check if this datacenter is removable (Need to be Empty)
 	IsRemovable bool `json:"isRemovable,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	// Os version installed on your Dedicated Cloud
+	// Version Os version installed on your Dedicated Cloud
 	Version string `json:"version,omitempty"`
 }

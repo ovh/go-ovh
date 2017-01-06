@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// The Dedicated Cloud vRealize Operations option
+// DedicatedCloudVrops The Dedicated Cloud vRealize Operations option
 type DedicatedCloudVrops struct {
 
-	// State of the option
+	// State State of the option
 	State string `json:"state,omitempty"`
 }

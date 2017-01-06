@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// HostingWebUserPost ...
 type HostingWebUserPost struct {
-
 	Home string `json:"home,omitempty"`
 
 	IisRemoteRights string `json:"iisRemoteRights,omitempty"`
@@ -20,7 +20,7 @@ type HostingWebUserPost struct {
 
 	Password string `json:"password,omitempty"`
 
-	SshState string `json:"sshState,omitempty"`
+	SSHState string `json:"sshState,omitempty"`
 
 	WebDavRights string `json:"webDavRights,omitempty"`
 }

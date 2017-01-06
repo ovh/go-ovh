@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,20 @@ import (
 	"time"
 )
 
-// Call delivery record
+// TelephonyVoiceConsumption Call delivery record
 type TelephonyVoiceConsumption struct {
-
 	Called string `json:"called,omitempty"`
 
 	Calling string `json:"calling,omitempty"`
 
-	ConsumptionId int64 `json:"consumptionId,omitempty"`
+	ConsumptionID int64 `json:"consumptionId,omitempty"`
 
-	// Country suffix destination
+	// CountrySuffix Country suffix destination
 	CountrySuffix string `json:"countrySuffix,omitempty"`
 
-	CreationDatetime time.Time `json:"creationDatetime,omitempty"`
+	CreationDatetime *time.Time `json:"creationDatetime,omitempty"`
 
-	// Description of the destination
+	// Designation Description of the destination
 	Designation string `json:"designation,omitempty"`
 
 	DestinationType string `json:"destinationType,omitempty"`
@@ -37,12 +36,12 @@ type TelephonyVoiceConsumption struct {
 
 	Duration int64 `json:"duration,omitempty"`
 
-	// Information about hangup cause
+	// HangupNature Information about hangup cause
 	HangupNature string `json:"hangupNature,omitempty"`
 
 	PlanType string `json:"planType,omitempty"`
 
-	PriceWithoutTax OrderPrice `json:"priceWithoutTax,omitempty"`
+	PriceWithoutTax *OrderPrice `json:"priceWithoutTax,omitempty"`
 
 	WayType string `json:"wayType,omitempty"`
 }

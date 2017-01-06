@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Describes a Catalog
-type OrderCatalogCatalog struct {
+// OrderCatalog Describes a Catalog
+type OrderCatalog struct {
 
-	// Identifier of the catalog
-	CatalogId int64 `json:"catalogId,omitempty"`
+	// CatalogID Identifier of the catalog
+	CatalogID int64 `json:"catalogId,omitempty"`
 
-	// OVH Subsidiary concerned by this catalog
+	// MerchantCode OVH Subsidiary concerned by this catalog
 	MerchantCode string `json:"merchantCode,omitempty"`
 
-	// List of plans of the catalog
-	PlansFamily []OrderCatalogPlansItem `json:"plansFamily,omitempty"`
+	// PlansFamily List of plans of the catalog
+	PlansFamily []*OrderCatalogPlansItem `json:"plansFamily,omitempty"`
 }

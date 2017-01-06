@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,29 +14,29 @@ import (
 	"time"
 )
 
-// Databases
+// PaasDatabaseInstanceDatabase Databases
 type PaasDatabaseInstanceDatabase struct {
 
-	// Time of the next backup ( every day )
+	// BackupTime Time of the next backup ( every day )
 	BackupTime string `json:"backupTime,omitempty"`
 
-	// Creation date of the database
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the database
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Database name
+	// DatabaseName Database name
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	// The number of available dumps associated to this database
+	// Dumps The number of available dumps associated to this database
 	Dumps int64 `json:"dumps,omitempty"`
 
-	QuotaUsed HostingPrivateDatabaseDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
+	QuotaUsed *HostingPrivateDatabaseDatabaseQuotaUsed `json:"quotaUsed,omitempty"`
 
-	// Database status
+	// Status Database status
 	Status string `json:"status,omitempty"`
 
-	// The id of the task working on this object
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID The id of the task working on this object
+	TaskID string `json:"taskId,omitempty"`
 
-	// Users granted to this database
-	Users []PaasDatabaseInstanceDatabaseUser `json:"users,omitempty"`
+	// Users Users granted to this database
+	Users []*PaasDatabaseInstanceDatabaseUser `json:"users,omitempty"`
 }

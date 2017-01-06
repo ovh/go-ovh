@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Tasks
+// HostingWebTask Tasks
 type HostingWebTask struct {
 
-	// Completion date
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate Completion date
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	// Function name
+	// Function Function name
 	Function string `json:"function,omitempty"`
 
-	// the id of the task
-	Id int64 `json:"id,omitempty"`
+	// ID the id of the task
+	ID int64 `json:"id,omitempty"`
 
-	// last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Task Creation date
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate Task Creation date
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// Task status
+	// Status Task status
 	Status string `json:"status,omitempty"`
 }

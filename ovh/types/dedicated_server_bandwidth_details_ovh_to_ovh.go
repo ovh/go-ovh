@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// bandwidth limitation OVH to OVH
+// DedicatedServerBandwidthDetailsOvhToOvh bandwidth limitation OVH to OVH
 type DedicatedServerBandwidthDetailsOvhToOvh struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

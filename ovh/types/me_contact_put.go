@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
+// MeContactPut ...
 type MeContactPut struct {
-
-	Address ContactAddress `json:"address,omitempty"`
+	Address *ContactAddress `json:"address,omitempty"`
 
 	BirthCity string `json:"birthCity,omitempty"`
 
 	BirthCountry string `json:"birthCountry,omitempty"`
 
-	BirthDay time.Time `json:"birthDay,omitempty"`
+	BirthDay *time.Time `json:"birthDay,omitempty"`
 
 	BirthZip string `json:"birthZip,omitempty"`
 
 	CellPhone string `json:"cellPhone,omitempty"`
 
-	CompanyNationalIdentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
+	CompanyNationalIDentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
 
 	Email string `json:"email,omitempty"`
 
@@ -44,7 +44,7 @@ type MeContactPut struct {
 
 	LegalForm string `json:"legalForm,omitempty"`
 
-	NationalIdentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
+	NationalIDentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
 
 	Nationality string `json:"nationality,omitempty"`
 

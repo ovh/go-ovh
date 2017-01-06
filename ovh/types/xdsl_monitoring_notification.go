@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Defines where and how the notifications will be sent
+// XdslMonitoringNotification Defines where and how the notifications will be sent
 type XdslMonitoringNotification struct {
 
-	// Whether or not to allow notifications for generic incidents
+	// AllowIncident Whether or not to allow notifications for generic incidents
 	AllowIncident bool `json:"allowIncident,omitempty"`
 
-	// The number of seconds the access has to be down to trigger an alert
+	// DownThreshold The number of seconds the access has to be down to trigger an alert
 	DownThreshold int64 `json:"downThreshold,omitempty"`
 
-	// The e-mail address, if type is mail
+	// Email The e-mail address, if type is mail
 	Email string `json:"email,omitempty"`
 
 	Enabled bool `json:"enabled,omitempty"`
 
-	// The frenquency to send reminders when the access is still down
+	// Frequency The frenquency to send reminders when the access is still down
 	Frequency string `json:"frequency,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// The phone number, if type is sms
+	// Phone The phone number, if type is sms
 	Phone string `json:"phone,omitempty"`
 
-	// The SMS account which will be debited for each sent SMS, if the type is sms
+	// SmsAccount The SMS account which will be debited for each sent SMS, if the type is sms
 	SmsAccount string `json:"smsAccount,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

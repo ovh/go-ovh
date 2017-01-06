@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderSaasCsp2NewPost ...
 type OrderSaasCsp2NewPost struct {
-
 	GiftCode string `json:"giftCode,omitempty"`
 
 	OfficeBusinessQuantity int64 `json:"officeBusinessQuantity,omitempty"`

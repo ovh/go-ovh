@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Regions
+// PaasDatabaseRegion Regions
 type PaasDatabaseRegion struct {
 
-	// Region continent code
+	// ContinentCode Region continent code
 	ContinentCode string `json:"continentCode,omitempty"`
 
-	// Region name
+	// RegionName Region name
 	RegionName string `json:"regionName,omitempty"`
 
-	// Region status
+	// Status Region status
 	Status string `json:"status,omitempty"`
 }

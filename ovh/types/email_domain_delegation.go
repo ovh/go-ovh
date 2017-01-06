@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Delegation List
+// EmailDomainDelegation Delegation List
 type EmailDomainDelegation struct {
 
-	// OVH customer unique identifier
-	AccountId string `json:"accountId,omitempty"`
+	// AccountID OVH customer unique identifier
+	AccountID string `json:"accountId,omitempty"`
 }

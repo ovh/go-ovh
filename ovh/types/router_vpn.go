@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Virtual Private Network
+// RouterVpn Virtual Private Network
 type RouterVpn struct {
 
-	// IP you will be connecting from / NULL (allow all)
-	ClientIp string `json:"clientIp,omitempty"`
+	// ClientIP IP you will be connecting from / NULL (allow all)
+	ClientIP string `json:"clientIp,omitempty"`
 
-	// Client's private network
+	// ClientPrivNet Client's private network
 	ClientPrivNet string `json:"clientPrivNet,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// Your VPN server IP
-	ServerIp string `json:"serverIp,omitempty"`
+	// ServerIP Your VPN server IP
+	ServerIP string `json:"serverIp,omitempty"`
 
-	// Server's private network
+	// ServerPrivNet Server's private network
 	ServerPrivNet string `json:"serverPrivNet,omitempty"`
 }

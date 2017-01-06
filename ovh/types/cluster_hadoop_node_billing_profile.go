@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,22 @@
 
 package types
 
-// Detailed information on a node billing profile
+// ClusterHadoopNodeBillingProfile Detailed information on a node billing profile
 type ClusterHadoopNodeBillingProfile struct {
+	CPUFrequency *ClusterHadoopNodeBillingProfileCPUFrequency `json:"CPUFrequency,omitempty"`
 
-	CPUFrequency ClusterHadoopNodeBillingProfileCpuFrequency `json:"CPUFrequency,omitempty"`
+	DiskCapacity *ClusterHadoopNodeBillingProfileDiskCapacity `json:"diskCapacity,omitempty"`
 
-	DiskCapacity ClusterHadoopNodeBillingProfileDiskCapacity `json:"diskCapacity,omitempty"`
-
-	// Total number of the CPU cores
+	// NbCPUCores Total number of the CPU cores
 	NbCPUCores int64 `json:"nbCPUCores,omitempty"`
 
-	// Total number of the CPU threads
+	// NbCPUThreads Total number of the CPU threads
 	NbCPUThreads int64 `json:"nbCPUThreads,omitempty"`
 
-	NetworkBandwidth ClusterHadoopNodeBillingProfileNetworkBandwidth `json:"networkBandwidth,omitempty"`
+	NetworkBandwidth *ClusterHadoopNodeBillingProfileNetworkBandwidth `json:"networkBandwidth,omitempty"`
 
-	// Name of the Node billing profile
+	// NodeProfile Name of the Node billing profile
 	NodeProfile string `json:"nodeProfile,omitempty"`
 
-	RamQuantity ClusterHadoopNodeBillingProfileRamQuantity `json:"ramQuantity,omitempty"`
+	RAMQuantity *ClusterHadoopNodeBillingProfileRAMQuantity `json:"ramQuantity,omitempty"`
 }

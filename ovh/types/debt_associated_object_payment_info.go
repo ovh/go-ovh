@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// The payment infos linked to this debt entry
+// DebtAssociatedObjectPaymentInfo The payment infos linked to this debt entry
 type DebtAssociatedObjectPaymentInfo struct {
 
-	// Optional customer description
+	// Description Optional customer description
 	Description string `json:"description,omitempty"`
 
-	// Payment mean used for this debt operation
+	// PaymentType Payment mean used for this debt operation
 	PaymentType string `json:"paymentType,omitempty"`
 
-	// Public payment mean label
+	// PublicLabel Public payment mean label
 	PublicLabel string `json:"publicLabel,omitempty"`
 }

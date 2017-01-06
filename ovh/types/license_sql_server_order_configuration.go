@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Allowed SQL Server versions and their compliant options per matching serviceTypes
-type LicenseSqlServerOrderConfiguration struct {
-
-	OrderableVersions []LicenseOrderableSqlServerCompatibilityInfos `json:"orderableVersions,omitempty"`
+// LicenseSQLServerOrderConfiguration Allowed SQL Server versions and their compliant options per matching serviceTypes
+type LicenseSQLServerOrderConfiguration struct {
+	OrderableVersions []*LicenseOrderableSQLServerCompatibilityInfos `json:"orderableVersions,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 }

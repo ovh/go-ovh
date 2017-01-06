@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// BandwidthStorage
+// CloudBillingViewBandwidthStorage BandwidthStorage
 type CloudBillingViewBandwidthStorage struct {
+	Quantity *CloudBillingViewQuantity `json:"quantity,omitempty"`
 
-	Quantity CloudBillingViewQuantity `json:"quantity,omitempty"`
-
-	// Total price
+	// TotalPrice Total price
 	TotalPrice float64 `json:"totalPrice,omitempty"`
 }

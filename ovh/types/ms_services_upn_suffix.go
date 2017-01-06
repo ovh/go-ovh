@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Active Directory UPN Suffix
+// MsServicesUpnSuffix Active Directory UPN Suffix
 type MsServicesUpnSuffix struct {
 
-	// Cname record used for UPN suffix verification
+	// CnameToCheck Cname record used for UPN suffix verification
 	CnameToCheck string `json:"cnameToCheck,omitempty"`
 
-	// Ownership for upn suffix confirmed
+	// OwnershipValidated Ownership for upn suffix confirmed
 	OwnershipValidated bool `json:"ownershipValidated,omitempty"`
 
-	// UPN suffix state
+	// State UPN suffix state
 	State string `json:"state,omitempty"`
 
-	// UPN suffix
+	// Suffix UPN suffix
 	Suffix string `json:"suffix,omitempty"`
 
-	// Pending task for this upnSuffix
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task for this upnSuffix
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

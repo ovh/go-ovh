@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Information about the reason for the resiliation
+// XdslResiliationSurvey Information about the reason for the resiliation
 type XdslResiliationSurvey struct {
 
-	// Comment about this resiliation
+	// Comment Comment about this resiliation
 	Comment string `json:"comment,omitempty"`
 
-	// Type of reason for the resiliation
-	Type_ string `json:"type,omitempty"`
+	// TType Type of reason for the resiliation
+	TType string `json:"type,omitempty"`
 }

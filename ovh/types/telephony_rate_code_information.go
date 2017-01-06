@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// Informations related to the rate code
+// TelephonyRateCodeInformation Informations related to the rate code
 type TelephonyRateCodeInformation struct {
 
-	// The Rsva rate code
+	// Code The Rsva rate code
 	Code string `json:"code,omitempty"`
 
-	PricePerCallWithoutTax OrderPrice `json:"pricePerCallWithoutTax,omitempty"`
+	PricePerCallWithoutTax *OrderPrice `json:"pricePerCallWithoutTax,omitempty"`
 
-	PricePerMinuteWithoutTax OrderPrice `json:"pricePerMinuteWithoutTax,omitempty"`
+	PricePerMinuteWithoutTax *OrderPrice `json:"pricePerMinuteWithoutTax,omitempty"`
 }

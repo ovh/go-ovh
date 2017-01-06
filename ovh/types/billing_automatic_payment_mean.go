@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Available automatic payment means
+// BillingAutomaticPaymentMean Available automatic payment means
 type BillingAutomaticPaymentMean struct {
 
-	// Bank Account
+	// BankAccount Bank Account
 	BankAccount bool `json:"bankAccount,omitempty"`
 
-	// Credit Card
+	// CreditCard Credit Card
 	CreditCard bool `json:"creditCard,omitempty"`
 
-	// Paypal account
+	// Paypal Paypal account
 	Paypal bool `json:"paypal,omitempty"`
 }

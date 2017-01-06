@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Usage information on your project
-type CloudProjectProjectUsage struct {
-
-	Current CloudProjectCurrentUsage `json:"current,omitempty"`
+// CloudProjectUsage Usage information on your project
+type CloudProjectUsage struct {
+	Current *CloudProjectCurrentUsage `json:"current,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Crons
+// HostingPrivateDatabaseCron Crons
 type HostingPrivateDatabaseCron struct {
 
-	// Command to execute
+	// Command Command to execute
 	Command string `json:"command,omitempty"`
 
-	// Database name where do an action
+	// DatabaseName Database name where do an action
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	// Description field for your usage
+	// Description Description field for your usage
 	Description string `json:"description,omitempty"`
 
-	// Email used to receive error log ( stderr )
+	// Email Email used to receive error log ( stderr )
 	Email string `json:"email,omitempty"`
 
-	// Frequency ( crontab format ) define for the script ( minutes are ignored )
+	// Frequency Frequency ( crontab format ) define for the script ( minutes are ignored )
 	Frequency string `json:"frequency,omitempty"`
 
-	// Cron's id
-	Id int64 `json:"id,omitempty"`
+	// ID Cron's id
+	ID int64 `json:"id,omitempty"`
 
-	// Cron status
+	// Status Cron status
 	Status string `json:"status,omitempty"`
 }

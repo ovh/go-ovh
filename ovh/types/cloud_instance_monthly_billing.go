@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// MonthlyBilling
+// CloudInstanceMonthlyBilling MonthlyBilling
 type CloudInstanceMonthlyBilling struct {
 
-	// Monthly billing activated since
-	Since time.Time `json:"since,omitempty"`
+	// Since Monthly billing activated since
+	Since *time.Time `json:"since,omitempty"`
 
-	// Monthly billing status
+	// Status Monthly billing status
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Traffic quota size for your hosting ( null for unlimited )
+// HostingWebCapabilitiesTraffic Traffic quota size for your hosting ( null for unlimited )
 type HostingWebCapabilitiesTraffic struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

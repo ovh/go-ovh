@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing the Bay`s link information
+// DedicatedHousingLinkInfo A structure describing the Bay`s link information
 type DedicatedHousingLinkInfo struct {
 
-	// Router port number
+	// Port Router port number
 	Port string `json:"port,omitempty"`
 
-	// Router in charge of your network
+	// Router Router in charge of your network
 	Router string `json:"router,omitempty"`
 }

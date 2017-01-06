@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Available boot options
+// DedicatedServerNetbootOption Available boot options
 type DedicatedServerNetbootOption struct {
 
-	// The option of this boot
+	// Option The option of this boot
 	Option string `json:"option,omitempty"`
 
-	// the value of this option
+	// Value the value of this option
 	Value string `json:"value,omitempty"`
 }

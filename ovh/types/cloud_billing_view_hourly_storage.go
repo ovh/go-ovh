@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,20 @@
 
 package types
 
-// HourlyStorage
+// CloudBillingViewHourlyStorage HourlyStorage
 type CloudBillingViewHourlyStorage struct {
+	IncomingBandwidth *CloudBillingViewBandwidthStorage `json:"incomingBandwidth,omitempty"`
 
-	IncomingBandwidth CloudBillingViewBandwidthStorage `json:"incomingBandwidth,omitempty"`
+	OutgoingBandwidth *CloudBillingViewBandwidthStorage `json:"outgoingBandwidth,omitempty"`
 
-	OutgoingBandwidth CloudBillingViewBandwidthStorage `json:"outgoingBandwidth,omitempty"`
-
-	// Region
+	// Region Region
 	Region string `json:"region,omitempty"`
 
-	Stored CloudBillingViewStoredStorage `json:"stored,omitempty"`
+	Stored *CloudBillingViewStoredStorage `json:"stored,omitempty"`
 
-	// Total price
+	// TotalPrice Total price
 	TotalPrice float64 `json:"totalPrice,omitempty"`
 
-	// Storage type
-	Type_ string `json:"type,omitempty"`
+	// TType Storage type
+	TType string `json:"type,omitempty"`
 }

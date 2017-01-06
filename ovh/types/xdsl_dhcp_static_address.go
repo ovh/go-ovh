@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// DHCP Static Address
+// XdslDhcpStaticAddress DHCP Static Address
 type XdslDhcpStaticAddress struct {
 
-	// The IP address of the device
+	// IPAddress The IP address of the device
 	IPAddress string `json:"IPAddress,omitempty"`
 
-	// The MAC address of the device
+	// MACAddress The MAC address of the device
 	MACAddress string `json:"MACAddress,omitempty"`
 
-	// Name of the DHCP Static lease
+	// Name Name of the DHCP Static lease
 	Name string `json:"name,omitempty"`
 
-	// ID of the ongoing todo (NULL if none)
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID ID of the ongoing todo (NULL if none)
+	TaskID int64 `json:"taskId,omitempty"`
 }

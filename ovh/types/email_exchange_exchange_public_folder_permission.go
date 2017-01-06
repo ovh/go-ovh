@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,20 @@ import (
 	"time"
 )
 
-// Exchange organization public folder permission
-type EmailExchangeExchangePublicFolderPermission struct {
+// EmailExchangePublicFolderPermission Exchange organization public folder permission
+type EmailExchangePublicFolderPermission struct {
 
-	// Access right set for the account
+	// AccessRights Access right set for the account
 	AccessRights string `json:"accessRights,omitempty"`
 
-	// Account id
-	AllowedAccountId int64 `json:"allowedAccountId,omitempty"`
+	// AllowedAccountID Account id
+	AllowedAccountID int64 `json:"allowedAccountId,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	// task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

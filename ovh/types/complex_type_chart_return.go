@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Chart
+// ComplexTypeChartReturn Chart
 type ComplexTypeChartReturn struct {
-
 	Unit string `json:"unit,omitempty"`
 
-	Values []ComplexTypeChartTimestampValue `json:"values,omitempty"`
+	Values []*ComplexTypeChartTimestampValue `json:"values,omitempty"`
 }

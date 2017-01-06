@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing informations about orderable IP address
-type DedicatedServerIpOrderable struct {
+// DedicatedServerIPOrderable A structure describing informations about orderable IP address
+type DedicatedServerIPOrderable struct {
 
-	// Orderable IP v4 details
-	Ipv4 []DedicatedServerIpOrderableDetails `json:"ipv4,omitempty"`
+	// IPv4 Orderable IP v4 details
+	IPv4 []*DedicatedServerIPOrderableDetails `json:"ipv4,omitempty"`
 
-	// Orderable IP v6 details
-	Ipv6 []DedicatedServerIpOrderableDetails `json:"ipv6,omitempty"`
+	// IPv6 Orderable IP v6 details
+	IPv6 []*DedicatedServerIPOrderableDetails `json:"ipv6,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// DedicatedServerVirtualMacPost ...
 type DedicatedServerVirtualMacPost struct {
+	IPAddress string `json:"ipAddress,omitempty"`
 
-	IpAddress string `json:"ipAddress,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
 	VirtualMachineName string `json:"virtualMachineName,omitempty"`
 }

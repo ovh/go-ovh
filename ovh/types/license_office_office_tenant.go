@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,29 +10,29 @@
 
 package types
 
-// Office tenant
-type LicenseOfficeOfficeTenant struct {
+// LicenseOfficeTenant Office tenant
+type LicenseOfficeTenant struct {
 
-	// Contact's address line
+	// Address Contact's address line
 	Address string `json:"address,omitempty"`
 
-	// Contact's city
+	// City Contact's city
 	City string `json:"city,omitempty"`
 
-	// Tenant's display name
+	// DisplayName Tenant's display name
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Contact's fisrt name
+	// FirstName Contact's fisrt name
 	FirstName string `json:"firstName,omitempty"`
 
-	// Contact's fisrt name
+	// LastName Contact's fisrt name
 	LastName string `json:"lastName,omitempty"`
 
-	// Primary phone number
+	// Phone Primary phone number
 	Phone string `json:"phone,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	// Contact's zip code
+	// ZipCode Contact's zip code
 	ZipCode string `json:"zipCode,omitempty"`
 }

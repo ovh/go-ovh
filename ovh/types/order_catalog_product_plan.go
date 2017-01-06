@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,23 @@
 
 package types
 
-// Describes of commercial offer of a product
+// OrderCatalogProductPlan Describes of commercial offer of a product
 type OrderCatalogProductPlan struct {
 
-	// List of addons
-	AddonsFamily []OrderCatalogAddonItem `json:"addonsFamily,omitempty"`
+	// AddonsFamily List of addons
+	AddonsFamily []*OrderCatalogAddonItem `json:"addonsFamily,omitempty"`
 
-	// Strategy that follow the pricing when product is in consumption mode
+	// ConsumptionBillingStrategy Strategy that follow the pricing when product is in consumption mode
 	ConsumptionBillingStrategy string `json:"consumptionBillingStrategy,omitempty"`
 
-	Details OrderCatalogProductOfferDetails `json:"details,omitempty"`
+	Details *OrderCatalogProductOfferDetails `json:"details,omitempty"`
 
-	// Name that appears on invoice
+	// InvoiceName Name that appears on invoice
 	InvoiceName string `json:"invoiceName,omitempty"`
 
-	// Plan code identifier
+	// PlanCode Plan code identifier
 	PlanCode string `json:"planCode,omitempty"`
 
-	// Main mode: rental, consumption
+	// PricingType Main mode: rental, consumption
 	PricingType string `json:"pricingType,omitempty"`
 }

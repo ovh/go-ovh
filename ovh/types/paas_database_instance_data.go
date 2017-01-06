@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// State of available php versions for this account
+// PaasDatabaseInstanceData State of available php versions for this account
 type PaasDatabaseInstanceData struct {
 
-	// Instance creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Instance creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Instance image
+	// ImageName Instance image
 	ImageName string `json:"imageName,omitempty"`
 
-	// Instance uuid
-	InstanceId string `json:"instanceId,omitempty"`
+	// InstanceID Instance uuid
+	InstanceID string `json:"instanceId,omitempty"`
 
-	// Instance last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Instance last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Instance name
+	// Name Instance name
 	Name string `json:"name,omitempty"`
 
-	// Instance offer
+	// OfferName Instance offer
 	OfferName string `json:"offerName,omitempty"`
 
-	// Instance region
+	// RegionName Instance region
 	RegionName string `json:"regionName,omitempty"`
 
-	// Instance status
+	// Status Instance status
 	Status string `json:"status,omitempty"`
 
-	// The task id working on this object
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID The task id working on this object
+	TaskID string `json:"taskId,omitempty"`
 }

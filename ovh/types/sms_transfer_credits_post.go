@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SmsTransferCreditsPost ...
 type SmsTransferCreditsPost struct {
-
 	Credits float64 `json:"credits,omitempty"`
 
 	SmsAccountTarget string `json:"smsAccountTarget,omitempty"`

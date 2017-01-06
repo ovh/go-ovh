@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// The serviceTypes allowed to Order a DirectAdmin version
+// LicenseDirectAdminOrderConfiguration The serviceTypes allowed to Order a DirectAdmin version
 type LicenseDirectAdminOrderConfiguration struct {
-
-	OrderableVersions []LicenseOrderableDirectAdminCompatibilityInfos `json:"orderableVersions,omitempty"`
+	OrderableVersions []*LicenseOrderableDirectAdminCompatibilityInfos `json:"orderableVersions,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 }

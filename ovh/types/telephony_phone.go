@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Plug & Phone
+// TelephonyPhone Plug & Phone
 type TelephonyPhone struct {
 
-	// Brand name
+	// Brand Brand name
 	Brand string `json:"brand,omitempty"`
 
-	// The phone description
+	// Description The phone description
 	Description string `json:"description,omitempty"`
 
-	// Mac Address
+	// MacAddress Mac Address
 	MacAddress string `json:"macAddress,omitempty"`
 
-	// Maximum number of lines managed by a phone
+	// Maxline Maximum number of lines managed by a phone
 	Maxline int64 `json:"maxline,omitempty"`
 
-	// The ip restriction of your MGCP phone
-	MgcpIpRestriction string `json:"mgcpIpRestriction,omitempty"`
+	// MgcpIPRestriction The ip restriction of your MGCP phone
+	MgcpIPRestriction string `json:"mgcpIpRestriction,omitempty"`
 
-	// Current phone properties
-	PhoneConfiguration []TelephonyPhoneConfigurationProperty `json:"phoneConfiguration,omitempty"`
+	// PhoneConfiguration Current phone properties
+	PhoneConfiguration []*TelephonyPhoneConfigurationProperty `json:"phoneConfiguration,omitempty"`
 
-	// Phone protocol
+	// Protocol Phone protocol
 	Protocol string `json:"protocol,omitempty"`
 }

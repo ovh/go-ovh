@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// TelephonyEasyHuntingHuntingQueueAgentPost ...
 type TelephonyEasyHuntingHuntingQueueAgentPost struct {
-
 	Position int64 `json:"position,omitempty"`
 
-	QueueId int64 `json:"queueId,omitempty"`
+	QueueID int64 `json:"queueId,omitempty"`
 }

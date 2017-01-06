@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// Received Private Link requests
+// RouterPrivateLinkRequest Received Private Link requests
 type RouterPrivateLinkRequest struct {
-
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
 	Status string `json:"status,omitempty"`
 }

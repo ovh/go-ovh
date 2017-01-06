@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,19 +14,19 @@ import (
 	"time"
 )
 
+// TelephonyFaxCampaignsPost ...
 type TelephonyFaxCampaignsPost struct {
-
-	DocumentId string `json:"documentId,omitempty"`
+	DocumentID string `json:"documentId,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	RecipientsDocId string `json:"recipientsDocId,omitempty"`
+	RecipientsDocID string `json:"recipientsDocId,omitempty"`
 
 	RecipientsList []string `json:"recipientsList,omitempty"`
 
 	RecipientsType string `json:"recipientsType,omitempty"`
 
-	SendDate time.Time `json:"sendDate,omitempty"`
+	SendDate *time.Time `json:"sendDate,omitempty"`
 
 	SendType string `json:"sendType,omitempty"`
 }

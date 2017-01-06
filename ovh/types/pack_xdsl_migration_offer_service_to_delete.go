@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Option of Offer
+// PackXdslMigrationOfferServiceToDelete Option of Offer
 type PackXdslMigrationOfferServiceToDelete struct {
 
-	// Type of the service
+	// Service Type of the service
 	Service string `json:"service,omitempty"`
 
-	// Type of the service to delete
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the service to delete
+	TType string `json:"type,omitempty"`
 }

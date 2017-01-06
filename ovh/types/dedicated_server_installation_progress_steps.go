@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing informations about this dedicated server installation steps
+// DedicatedServerInstallationProgressSteps A structure describing informations about this dedicated server installation steps
 type DedicatedServerInstallationProgressSteps struct {
 
-	// Informations about this installation step
+	// Comment Informations about this installation step
 	Comment string `json:"comment,omitempty"`
 
-	// Error details if state is error
-	Error_ string `json:"error,omitempty"`
+	// TError Error details if state is error
+	TError string `json:"error,omitempty"`
 
-	// Status of this installation step
+	// Status Status of this installation step
 	Status string `json:"status,omitempty"`
 }

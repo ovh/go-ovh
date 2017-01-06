@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,19 @@
 
 package types
 
-// All data needed to use a payment mean
+// BillingOrderPaymentMean All data needed to use a payment mean
 type BillingOrderPaymentMean struct {
-
 	Fee float64 `json:"fee,omitempty"`
 
-	HtmlForm string `json:"htmlForm,omitempty"`
+	HTMLForm string `json:"htmlForm,omitempty"`
 
-	HttpMethod string `json:"httpMethod,omitempty"`
+	HTTPMethod string `json:"httpMethod,omitempty"`
 
 	Logo string `json:"logo,omitempty"`
 
-	Parameters []BillingOrderPaymentMeanHttpParameter `json:"parameters,omitempty"`
+	Parameters []*BillingOrderPaymentMeanHTTPParameter `json:"parameters,omitempty"`
 
 	SubType string `json:"subType,omitempty"`
 
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

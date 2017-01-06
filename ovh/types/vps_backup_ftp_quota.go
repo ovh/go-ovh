@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// The disk space available on your backup FTP
+// VpsBackupFtpQuota The disk space available on your backup FTP
 type VpsBackupFtpQuota struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

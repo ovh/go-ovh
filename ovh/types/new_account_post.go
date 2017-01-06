@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// NewAccountPost ...
 type NewAccountPost struct {
-
 	Address string `json:"address,omitempty"`
 
 	Area string `json:"area,omitempty"`
@@ -22,7 +22,7 @@ type NewAccountPost struct {
 
 	City string `json:"city,omitempty"`
 
-	CompanyNationalIdentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
+	CompanyNationalIDentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
 
 	CorporationType string `json:"corporationType,omitempty"`
 
@@ -40,7 +40,7 @@ type NewAccountPost struct {
 
 	Name string `json:"name,omitempty"`
 
-	NationalIdentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
+	NationalIDentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
 
 	Organisation string `json:"organisation,omitempty"`
 

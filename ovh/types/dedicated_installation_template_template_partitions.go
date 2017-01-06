@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,25 +10,25 @@
 
 package types
 
-//  Partitions defined in this partitioning scheme
+// DedicatedInstallationTemplateTemplatePartitions  Partitions defined in this partitioning scheme
 type DedicatedInstallationTemplateTemplatePartitions struct {
 
-	// Partition filesytem
+	// Filesystem Partition filesytem
 	Filesystem string `json:"filesystem,omitempty"`
 
-	// partition mount point
+	// Mountpoint partition mount point
 	Mountpoint string `json:"mountpoint,omitempty"`
 
-	// specifies the creation order of the partition on the disk
+	// Order specifies the creation order of the partition on the disk
 	Order int64 `json:"order,omitempty"`
 
-	// raid partition type
+	// Raid raid partition type
 	Raid string `json:"raid,omitempty"`
 
-	Size DedicatedInstallationTemplateTemplatePartitionsSize `json:"size,omitempty"`
+	Size *DedicatedInstallationTemplateTemplatePartitionsSize `json:"size,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
-	// The volume name needed for proxmox distribution
+	// VolumeName The volume name needed for proxmox distribution
 	VolumeName string `json:"volumeName,omitempty"`
 }

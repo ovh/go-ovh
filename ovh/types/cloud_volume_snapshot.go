@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// Snapshot
+// CloudVolumeSnapshot Snapshot
 type CloudVolumeSnapshot struct {
 
-	// Snapshot creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Snapshot creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Snapshot description
+	// Description Snapshot description
 	Description string `json:"description,omitempty"`
 
-	// Snapshot id
-	Id string `json:"id,omitempty"`
+	// ID Snapshot id
+	ID string `json:"id,omitempty"`
 
-	// Snapshot name
+	// Name Snapshot name
 	Name string `json:"name,omitempty"`
 
-	// Snapshot region
+	// Region Snapshot region
 	Region string `json:"region,omitempty"`
 
-	// Snapshot size
+	// Size Snapshot size
 	Size int64 `json:"size,omitempty"`
 
-	// Snapshot status
+	// Status Snapshot status
 	Status string `json:"status,omitempty"`
 
-	// Volume source id
-	VolumeId string `json:"volumeId,omitempty"`
+	// VolumeID Volume source id
+	VolumeID string `json:"volumeId,omitempty"`
 }

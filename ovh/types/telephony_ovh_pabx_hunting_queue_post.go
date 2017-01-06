@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxHuntingQueuePost ...
 type TelephonyOvhPabxHuntingQueuePost struct {
-
 	ActionOnClosure string `json:"actionOnClosure,omitempty"`
 
 	ActionOnClosureParam string `json:"actionOnClosureParam,omitempty"`

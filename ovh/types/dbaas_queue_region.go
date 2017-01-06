@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Region
+// DbaasQueueRegion Region
 type DbaasQueueRegion struct {
 
-	// Region ID
-	Id string `json:"id,omitempty"`
+	// ID Region ID
+	ID string `json:"id,omitempty"`
 
-	// Region name
+	// Name Region name
 	Name string `json:"name,omitempty"`
 
-	// Region URL
-	Url string `json:"url,omitempty"`
+	// URL Region URL
+	URL string `json:"url,omitempty"`
 }

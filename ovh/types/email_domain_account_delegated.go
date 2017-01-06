@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Account List
+// EmailDomainAccountDelegated Account List
 type EmailDomainAccountDelegated struct {
 
-	// Name of account
+	// AccountName Name of account
 	AccountName string `json:"accountName,omitempty"`
 
-	// List of allowed sizes for this account in bytes
+	// AllowedAccountSize List of allowed sizes for this account in bytes
 	AllowedAccountSize []int64 `json:"allowedAccountSize,omitempty"`
 
-	// Account description
+	// Description Account description
 	Description string `json:"description,omitempty"`
 
-	// Name of domain
+	// Domain Name of domain
 	Domain string `json:"domain,omitempty"`
 
-	// Email
+	// Email Email
 	Email string `json:"email,omitempty"`
 
-	// If true your account is blocked
+	// IsBlocked If true your account is blocked
 	IsBlocked bool `json:"isBlocked,omitempty"`
 
-	// Size of your account in bytes
+	// Size Size of your account in bytes
 	Size int64 `json:"size,omitempty"`
 }

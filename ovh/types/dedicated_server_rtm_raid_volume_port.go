@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,26 +10,25 @@
 
 package types
 
-// Server raid volume port informations
+// DedicatedServerRtmRaidVolumePort Server raid volume port informations
 type DedicatedServerRtmRaidVolumePort struct {
+	Capacity *DedicatedServerRtmRaidVolumePortCapacity `json:"capacity,omitempty"`
 
-	Capacity DedicatedServerRtmRaidVolumePortCapacity `json:"capacity,omitempty"`
-
-	// Port disk
+	// Disk Port disk
 	Disk string `json:"disk,omitempty"`
 
-	// Port model name
+	// Model Port model name
 	Model string `json:"model,omitempty"`
 
-	// Raid volume port
+	// Port Raid volume port
 	Port string `json:"port,omitempty"`
 
-	// Serial of this port
+	// Serial Serial of this port
 	Serial string `json:"serial,omitempty"`
 
-	// Status of this port
+	// Status Status of this port
 	Status string `json:"status,omitempty"`
 
-	// Raid port synchronization progress
+	// Syncprogress Raid port synchronization progress
 	Syncprogress string `json:"syncprogress,omitempty"`
 }

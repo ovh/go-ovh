@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Detailed version
+// DedicatedCloudVersion Detailed version
 type DedicatedCloudVersion struct {
-
 	Build string `json:"build,omitempty"`
 
 	Major string `json:"major,omitempty"`

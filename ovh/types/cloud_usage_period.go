@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// Period
+// CloudUsagePeriod Period
 type CloudUsagePeriod struct {
 
-	// Usage from
-	From time.Time `json:"from,omitempty"`
+	// From Usage from
+	From *time.Time `json:"from,omitempty"`
 
-	// Usage to
-	To time.Time `json:"to,omitempty"`
+	// To Usage to
+	To *time.Time `json:"to,omitempty"`
 }

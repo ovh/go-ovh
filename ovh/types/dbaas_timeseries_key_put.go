@@ -10,10 +10,11 @@
 
 package types
 
+// DbaasTimeseriesKeyPut ...
 type DbaasTimeseriesKeyPut struct {
 	Description string `json:"description,omitempty"`
 
-	Permissions string `json:"permissions,omitempty"`
+	Permissions []string `json:"permissions,omitempty"`
 
-	Tags []PaasTimeseriesTag `json:"tags,omitempty"`
+	Tags []*PaasTimeseriesTag `json:"tags,omitempty"`
 }

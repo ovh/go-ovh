@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,20 +10,20 @@
 
 package types
 
-// Dialplan extension
+// TelephonyOvhPabxDialplanExtension Dialplan extension
 type TelephonyOvhPabxDialplanExtension struct {
 
-	// True if the extension is enabled
+	// Enabled True if the extension is enabled
 	Enabled bool `json:"enabled,omitempty"`
 
-	ExtensionId int64 `json:"extensionId,omitempty"`
+	ExtensionID int64 `json:"extensionId,omitempty"`
 
-	// The position of the extension in the dialplan (the extensions are executed following this order)
+	// Position The position of the extension in the dialplan (the extensions are executed following this order)
 	Position int64 `json:"position,omitempty"`
 
-	// Additionnal conditions are used from this chosen scheduler category
+	// SchedulerCategory Additionnal conditions are used from this chosen scheduler category
 	SchedulerCategory string `json:"schedulerCategory,omitempty"`
 
-	// The type of the screenlist
+	// ScreenListType The type of the screenlist
 	ScreenListType string `json:"screenListType,omitempty"`
 }

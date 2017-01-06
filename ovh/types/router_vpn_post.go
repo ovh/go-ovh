@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// RouterVpnPost ...
 type RouterVpnPost struct {
-
-	ClientIp string `json:"clientIp,omitempty"`
+	ClientIP string `json:"clientIp,omitempty"`
 
 	ClientPrivNet string `json:"clientPrivNet,omitempty"`
 

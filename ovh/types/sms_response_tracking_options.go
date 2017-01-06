@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// The tracking media response
+// SmsResponseTrackingOptions The tracking media response
 type SmsResponseTrackingOptions struct {
-
 	Media string `json:"media,omitempty"`
 
 	Sender string `json:"sender,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,29 +14,29 @@ import (
 	"time"
 )
 
-// Mailing List
+// EmailDomainMailingList Mailing List
 type EmailDomainMailingList struct {
 
-	// Id of mailing list
-	Id int64 `json:"id,omitempty"`
+	// ID Id of mailing list
+	ID int64 `json:"id,omitempty"`
 
-	// Language of mailing list
+	// Language Language of mailing list
 	Language string `json:"language,omitempty"`
 
-	// Name of mailing list
+	// Name Name of mailing list
 	Name string `json:"name,omitempty"`
 
-	// Subscribers number of mailing list
+	// NbSubscribers Subscribers number of mailing list
 	NbSubscribers int64 `json:"nbSubscribers,omitempty"`
 
-	// Last update subscribers
-	NbSubscribersUpdateDate time.Time `json:"nbSubscribersUpdateDate,omitempty"`
+	// NbSubscribersUpdateDate Last update subscribers
+	NbSubscribersUpdateDate *time.Time `json:"nbSubscribersUpdateDate,omitempty"`
 
-	Options DomainDomainMlOptionsStruct `json:"options,omitempty"`
+	Options *DomainMlOptionsStruct `json:"options,omitempty"`
 
-	// Owner email of mailing list
+	// OwnerEmail Owner email of mailing list
 	OwnerEmail string `json:"ownerEmail,omitempty"`
 
-	// Email to reply of mailing list
+	// ReplyTo Email to reply of mailing list
 	ReplyTo string `json:"replyTo,omitempty"`
 }

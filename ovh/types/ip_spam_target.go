@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Spam's target information
-type IpSpamTarget struct {
+// IPSpamTarget Spam's target information
+type IPSpamTarget struct {
 
-	// Timestamp when the email was sent
+	// Date Timestamp when the email was sent
 	Date int64 `json:"date,omitempty"`
 
-	// IP address of the target
-	DestinationIp string `json:"destinationIp,omitempty"`
+	// DestinationIP IP address of the target
+	DestinationIP string `json:"destinationIp,omitempty"`
 
-	// The message-id of the email
-	MessageId string `json:"messageId,omitempty"`
+	// MessageID The message-id of the email
+	MessageID string `json:"messageId,omitempty"`
 
-	// Spam score for the email
+	// Spamscore Spam score for the email
 	Spamscore int64 `json:"spamscore,omitempty"`
 }

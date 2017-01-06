@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Allowed WorkLight versions per matching serviceTypes
+// LicenseWorkLightOrderConfiguration Allowed WorkLight versions per matching serviceTypes
 type LicenseWorkLightOrderConfiguration struct {
-
-	OrderableVersions []LicenseOrderableWorkLightCompatibilityInfos `json:"orderableVersions,omitempty"`
+	OrderableVersions []*LicenseOrderableWorkLightCompatibilityInfos `json:"orderableVersions,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 }

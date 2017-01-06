@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// LicenseOfficeUserChangePasswordPost ...
 type LicenseOfficeUserChangePasswordPost struct {
-
 	NotifyEmail string `json:"notifyEmail,omitempty"`
 
 	Password string `json:"password,omitempty"`

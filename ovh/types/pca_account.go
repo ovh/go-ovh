@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Cloud Archives Account
+// PcaAccount Cloud Archives Account
 type PcaAccount struct {
 
-	// account domain
+	// Domain account domain
 	Domain string `json:"domain,omitempty"`
 
-	// host where to upload files to
+	// Host host where to upload files to
 	Host string `json:"host,omitempty"`
 
-	// login for cloud archives
+	// Login login for cloud archives
 	Login string `json:"login,omitempty"`
 
-	// encrypted password
+	// Password encrypted password
 	Password string `json:"password,omitempty"`
 
-	// ssh key to be used for upload and download
-	Sshkey string `json:"sshkey,omitempty"`
+	// SSHkey ssh key to be used for upload and download
+	SSHkey string `json:"sshkey,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,19 +14,18 @@ import (
 	"time"
 )
 
-// Operation that happend on a debt
+// DebtOperation Operation that happend on a debt
 type DebtOperation struct {
+	Amount *OrderPrice `json:"amount,omitempty"`
 
-	Amount OrderPrice `json:"amount,omitempty"`
+	// Date Date the operation took place on
+	Date *time.Time `json:"date,omitempty"`
 
-	// Date the operation took place on
-	Date time.Time `json:"date,omitempty"`
+	OperationID int64 `json:"operationId,omitempty"`
 
-	OperationId int64 `json:"operationId,omitempty"`
-
-	// Status of the operation
+	// Status Status of the operation
 	Status string `json:"status,omitempty"`
 
-	// Type of movement this operation represents
-	Type_ string `json:"type,omitempty"`
+	// TType Type of movement this operation represents
+	TType string `json:"type,omitempty"`
 }

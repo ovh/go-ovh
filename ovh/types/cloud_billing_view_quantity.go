@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Quantity
+// CloudBillingViewQuantity Quantity
 type CloudBillingViewQuantity struct {
 
-	// Quantity unit
+	// Unit Quantity unit
 	Unit string `json:"unit,omitempty"`
 
-	// Quantity value
+	// Value Quantity value
 	Value float64 `json:"value,omitempty"`
 }

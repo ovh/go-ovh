@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Stack MIS
+// StackMisProduct Stack MIS
 type StackMisProduct struct {
 
-	// Domain of the service
+	// Domain Domain of the service
 	Domain string `json:"domain,omitempty"`
 
-	// Type of the infrastructure
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the infrastructure
+	TType string `json:"type,omitempty"`
 }

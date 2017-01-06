@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Parameter to give to a payment page
-type BillingOrderPaymentMeanHttpParameter struct {
-
-	Choice []BillingOrderPaymentMeanHttpParameterChoice `json:"choice,omitempty"`
+// BillingOrderPaymentMeanHTTPParameter Parameter to give to a payment page
+type BillingOrderPaymentMeanHTTPParameter struct {
+	Choice []*BillingOrderPaymentMeanHTTPParameterChoice `json:"choice,omitempty"`
 
 	Name string `json:"name,omitempty"`
 

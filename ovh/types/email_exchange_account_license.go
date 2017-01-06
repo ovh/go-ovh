@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Exchange account license
+// EmailExchangeAccountLicense Exchange account license
 type EmailExchangeAccountLicense struct {
-
 	License string `json:"license,omitempty"`
 
 	LicenseQuantity int64 `json:"licenseQuantity,omitempty"`

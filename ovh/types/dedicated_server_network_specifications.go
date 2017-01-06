@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// A structure describing network informations about this dedicated server
+// DedicatedServerNetworkSpecifications A structure describing network informations about this dedicated server
 type DedicatedServerNetworkSpecifications struct {
+	Bandwidth *DedicatedServerBandwidthDetails `json:"bandwidth,omitempty"`
 
-	Bandwidth DedicatedServerBandwidthDetails `json:"bandwidth,omitempty"`
+	Connection *DedicatedServerNetworkSpecificationsConnection `json:"connection,omitempty"`
 
-	Connection DedicatedServerNetworkSpecificationsConnection `json:"connection,omitempty"`
-
-	Traffic DedicatedServerTrafficDetails `json:"traffic,omitempty"`
+	Traffic *DedicatedServerTrafficDetails `json:"traffic,omitempty"`
 }

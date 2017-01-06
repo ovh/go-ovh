@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Office user
-type LicenseOfficeOfficeUser struct {
+// LicenseOfficeUser Office user
+type LicenseOfficeUser struct {
 
-	// Email used to activate Microsoft Office
+	// ActivationEmail Email used to activate Microsoft Office
 	ActivationEmail string `json:"activationEmail,omitempty"`
 
-	// User's first name
+	// FirstName User's first name
 	FirstName string `json:"firstName,omitempty"`
 
-	// User's last name
+	// LastName User's last name
 	LastName string `json:"lastName,omitempty"`
 
-	// Licenses attributed to the user
+	// Licences Licenses attributed to the user
 	Licences []string `json:"licences,omitempty"`
 
-	// User state
+	// Status User state
 	Status string `json:"status,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

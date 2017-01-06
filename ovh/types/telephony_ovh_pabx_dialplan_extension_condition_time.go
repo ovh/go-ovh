@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,16 @@
 
 package types
 
-// Time condition
+// TelephonyOvhPabxDialplanExtensionConditionTime Time condition
 type TelephonyOvhPabxDialplanExtensionConditionTime struct {
+	ConditionID int64 `json:"conditionId,omitempty"`
 
-	ConditionId int64 `json:"conditionId,omitempty"`
-
-	// The time of the day when the extension will start to be executed
+	// TimeFrom The time of the day when the extension will start to be executed
 	TimeFrom string `json:"timeFrom,omitempty"`
 
-	// The time of the day when the extension will stop to be executed
+	// TimeTo The time of the day when the extension will stop to be executed
 	TimeTo string `json:"timeTo,omitempty"`
 
-	// The day of the week when the extension will be executed
+	// WeekDay The day of the week when the extension will be executed
 	WeekDay string `json:"weekDay,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Price with it's currency and textual representation
+// OrderPrice Price with it's currency and textual representation
 type OrderPrice struct {
-
 	CurrencyCode string `json:"currencyCode,omitempty"`
 
 	Text string `json:"text,omitempty"`

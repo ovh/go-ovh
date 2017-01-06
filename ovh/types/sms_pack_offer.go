@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A structure describing all information about an sms pack offer
+// SmsPackOffer A structure describing all information about an sms pack offer
 type SmsPackOffer struct {
-
 	CountryDestination string `json:"countryDestination,omitempty"`
 
 	GiftPrice float64 `json:"giftPrice,omitempty"`

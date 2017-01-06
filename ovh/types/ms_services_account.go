@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,51 +14,51 @@ import (
 	"time"
 )
 
-// Active Directory Account
+// MsServicesAccount Active Directory Account
 type MsServicesAccount struct {
 
-	// SAM account name
+	// SAMAccountName SAM account name
 	SAMAccountName string `json:"SAMAccountName,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Account display name
+	// DisplayName Account display name
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Account first name
+	// FirstName Account first name
 	FirstName string `json:"firstName,omitempty"`
 
-	// GUID for user in active directory
-	Guid string `json:"guid,omitempty"`
+	// GUID GUID for user in active directory
+	GUID string `json:"guid,omitempty"`
 
-	// Account id
-	Id int64 `json:"id,omitempty"`
+	// ID Account id
+	ID int64 `json:"id,omitempty"`
 
-	// Account initials
+	// Initials Account initials
 	Initials string `json:"initials,omitempty"`
 
-	// Last logoff
-	LastLogoffDate time.Time `json:"lastLogoffDate,omitempty"`
+	// LastLogoffDate Last logoff
+	LastLogoffDate *time.Time `json:"lastLogoffDate,omitempty"`
 
-	// Last logon
-	LastLogonDate time.Time `json:"lastLogonDate,omitempty"`
+	// LastLogonDate Last logon
+	LastLogonDate *time.Time `json:"lastLogonDate,omitempty"`
 
-	// Account last name
+	// LastName Account last name
 	LastName string `json:"lastName,omitempty"`
 
-	// Last update
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
+	// LastUpdateDate Last update
+	LastUpdateDate *time.Time `json:"lastUpdateDate,omitempty"`
 
-	// Time of account's password last update
-	PasswordLastUpdate time.Time `json:"passwordLastUpdate,omitempty"`
+	// PasswordLastUpdate Time of account's password last update
+	PasswordLastUpdate *time.Time `json:"passwordLastUpdate,omitempty"`
 
-	// Account state
+	// State Account state
 	State string `json:"state,omitempty"`
 
-	// Pending task for this account
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task for this account
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 
-	// User Principal Name
+	// UserPrincipalName User Principal Name
 	UserPrincipalName string `json:"userPrincipalName,omitempty"`
 }

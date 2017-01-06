@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SmsTemplatesControlPost ...
 type SmsTemplatesControlPost struct {
-
 	Activity string `json:"activity,omitempty"`
 
 	Description string `json:"description,omitempty"`

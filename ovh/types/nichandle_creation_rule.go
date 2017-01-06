@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Describe all rules for a given field
+// NichandleCreationRule Describe all rules for a given field
 type NichandleCreationRule struct {
-
 	Mandatory bool `json:"mandatory,omitempty"`
 
 	RegularExpression string `json:"regularExpression,omitempty"`

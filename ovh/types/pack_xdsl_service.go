@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// Service link to the pack
+// PackXdslService Service link to the pack
 type PackXdslService struct {
-
 	Domain string `json:"domain,omitempty"`
 
-	Id float64 `json:"id,omitempty"`
+	ID float64 `json:"id,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

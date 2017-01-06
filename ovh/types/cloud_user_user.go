@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// User
-type CloudUserUser struct {
+// CloudUser User
+type CloudUser struct {
 
-	// User creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate User creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// User description
+	// Description User description
 	Description string `json:"description,omitempty"`
 
-	// User id
-	Id int64 `json:"id,omitempty"`
+	// ID User id
+	ID int64 `json:"id,omitempty"`
 
-	// User status
+	// Status User status
 	Status string `json:"status,omitempty"`
 
-	// Username
+	// Username Username
 	Username string `json:"username,omitempty"`
 }

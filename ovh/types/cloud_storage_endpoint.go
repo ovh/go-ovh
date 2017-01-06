@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Endpoint
+// CloudStorageEndpoint Endpoint
 type CloudStorageEndpoint struct {
 
-	// Endpoint region
+	// Region Endpoint region
 	Region string `json:"region,omitempty"`
 
-	// Endpoint URL
-	Url string `json:"url,omitempty"`
+	// URL Endpoint URL
+	URL string `json:"url,omitempty"`
 }

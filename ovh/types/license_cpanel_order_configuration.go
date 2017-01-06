@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// The serviceTypes allowed to Order a CPanel version
+// LicenseCpanelOrderConfiguration The serviceTypes allowed to Order a CPanel version
 type LicenseCpanelOrderConfiguration struct {
-
-	OrderableVersions []LicenseOrderableCpanelCompatibilityInfos `json:"orderableVersions,omitempty"`
+	OrderableVersions []*LicenseOrderableCpanelCompatibilityInfos `json:"orderableVersions,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 }

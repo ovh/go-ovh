@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,17 @@ import (
 	"time"
 )
 
-// Task Mailing List
+// EmailDomainTaskMl Task Mailing List
 type EmailDomainTaskMl struct {
-
 	Account string `json:"account,omitempty"`
 
 	Action string `json:"action,omitempty"`
 
-	Date time.Time `json:"date,omitempty"`
+	Date *time.Time `json:"date,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Language string `json:"language,omitempty"`
 }

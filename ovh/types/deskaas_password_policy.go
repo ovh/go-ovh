@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// A structure describing the current password policy for your Dedicated Cloud
+// DeskaasPasswordPolicy A structure describing the current password policy for your Dedicated Cloud
 type DeskaasPasswordPolicy struct {
 
-	// List of denied characters in the password
+	// DeniedChars List of denied characters in the password
 	DeniedChars []string `json:"deniedChars,omitempty"`
 
-	// Whether or not a digit (0-9) is mandatory in the password
+	// DigitMandatory Whether or not a digit (0-9) is mandatory in the password
 	DigitMandatory bool `json:"digitMandatory,omitempty"`
 
-	// Whether or not a letter (a-z or A-Z) is mandatory in the password
+	// LetterMandatory Whether or not a letter (a-z or A-Z) is mandatory in the password
 	LetterMandatory bool `json:"letterMandatory,omitempty"`
 
-	// Whether or not a lowercase letter (a-z) is mandatory in the password
+	// LowercaseLetterMandatory Whether or not a lowercase letter (a-z) is mandatory in the password
 	LowercaseLetterMandatory bool `json:"lowercaseLetterMandatory,omitempty"`
 
-	// Maximum lenght of the password
+	// MaxLength Maximum lenght of the password
 	MaxLength int64 `json:"maxLength,omitempty"`
 
-	// Minimum lenght of the password
+	// MinLength Minimum lenght of the password
 	MinLength int64 `json:"minLength,omitempty"`
 
-	// Whether or not a special character (\\W or _) is mandatory in the password
+	// SpecialMandatory Whether or not a special character (\\W or _) is mandatory in the password
 	SpecialMandatory bool `json:"specialMandatory,omitempty"`
 
-	// Whether or not an uppercase letter (A-Z) is mandatory in the password
+	// UppercaseLetterMandatory Whether or not an uppercase letter (A-Z) is mandatory in the password
 	UppercaseLetterMandatory bool `json:"uppercaseLetterMandatory,omitempty"`
 }

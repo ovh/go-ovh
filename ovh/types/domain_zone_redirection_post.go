@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DomainZoneRedirectionPost ...
 type DomainZoneRedirectionPost struct {
-
 	Description string `json:"description,omitempty"`
 
 	Keywords string `json:"keywords,omitempty"`
@@ -22,5 +22,5 @@ type DomainZoneRedirectionPost struct {
 
 	Title string `json:"title,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

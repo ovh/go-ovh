@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type IpGameRulePost struct {
-
-	Ports ComplexTypeRangeLong `json:"ports,omitempty"`
+// IPGameRulePost ...
+type IPGameRulePost struct {
+	Ports *ComplexTypeRangeLong `json:"ports,omitempty"`
 
 	Protocol string `json:"protocol,omitempty"`
 }

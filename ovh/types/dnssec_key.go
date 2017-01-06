@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Key type
-type DnssecKey struct {
+// DNSsecKey Key type
+type DNSsecKey struct {
 
-	// Algorithm
+	// Algorithm Algorithm
 	Algorithm int64 `json:"algorithm,omitempty"`
 
-	// Flag of the dnssec key
+	// Flags Flag of the dnssec key
 	Flags int64 `json:"flags,omitempty"`
 
-	// Public key
+	// PublicKey Public key
 	PublicKey string `json:"publicKey,omitempty"`
 
-	// Key tag
+	// Tag Key tag
 	Tag int64 `json:"tag,omitempty"`
 }

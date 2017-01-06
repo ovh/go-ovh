@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Possible option for TCP
-type IpFirewallOptionTcp struct {
+// IPFirewallOptionTCP Possible option for TCP
+type IPFirewallOptionTCP struct {
 
-	// TCP fragments
+	// Fragments TCP fragments
 	Fragments bool `json:"fragments,omitempty"`
 
-	// TCP option
+	// Option TCP option
 	Option string `json:"option,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Your License options
+// LicenseOption Your License options
 type LicenseOption struct {
 
-	// Quantity or corresponding label of the designated option enabled on your license
+	// Amount Quantity or corresponding label of the designated option enabled on your license
 	Amount string `json:"amount,omitempty"`
 
-	// Specifies whether this option can be released or not
+	// CanBeDeleted Specifies whether this option can be released or not
 	CanBeDeleted bool `json:"canBeDeleted,omitempty"`
 
-	// This option expiration date
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
+	// ExpirationDate This option expiration date
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
-	// This option designation
+	// Label This option designation
 	Label string `json:"label,omitempty"`
 
-	// This option related version
+	// Version This option related version
 	Version string `json:"version,omitempty"`
 }

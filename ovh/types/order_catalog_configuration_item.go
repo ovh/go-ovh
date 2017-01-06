@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Composition of a configuration
+// OrderCatalogConfigurationItem Composition of a configuration
 type OrderCatalogConfigurationItem struct {
 
-	// Default value of the configuration if not provided
+	// DefaultValue Default value of the configuration if not provided
 	DefaultValue string `json:"defaultValue,omitempty"`
 
-	// Indicates if the configuration is free for writing (true) or have to follow an enum (false - have to follow values field)
+	// IsCustom Indicates if the configuration is free for writing (true) or have to follow an enum (false - have to follow values field)
 	IsCustom bool `json:"isCustom,omitempty"`
 
-	// Indicates if configuration is required
+	// IsMandatory Indicates if configuration is required
 	IsMandatory bool `json:"isMandatory,omitempty"`
 
-	// Label of the configuration
+	// Name Label of the configuration
 	Name string `json:"name,omitempty"`
 
-	// Values allowed if configuration isn't custom
+	// Values Values allowed if configuration isn't custom
 	Values []string `json:"values,omitempty"`
 }

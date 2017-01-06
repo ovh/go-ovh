@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type EmailDomainChangeDnsMxFilterPost struct {
-
+// EmailDomainChangeDNSMxFilterPost ...
+type EmailDomainChangeDNSMxFilterPost struct {
 	CustomTarget string `json:"customTarget,omitempty"`
 
 	MxFilter string `json:"mxFilter,omitempty"`

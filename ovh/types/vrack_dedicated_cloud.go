@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// vrack dedicated cloud interface
+// VrackDedicatedCloud vrack dedicated cloud interface
 type VrackDedicatedCloud struct {
 
-	// your dedicated cloud service
+	// DedicatedCloud your dedicated cloud service
 	DedicatedCloud string `json:"dedicatedCloud,omitempty"`
 
-	// Dedicated cloud vlanId used
-	VlanId int64 `json:"vlanId,omitempty"`
+	// VlanID Dedicated cloud vlanId used
+	VlanID int64 `json:"vlanId,omitempty"`
 
-	// vrack name
+	// Vrack vrack name
 	Vrack string `json:"vrack,omitempty"`
 }

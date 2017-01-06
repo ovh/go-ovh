@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// TelephonyMiniPabxTonesToneUploadPost ...
 type TelephonyMiniPabxTonesToneUploadPost struct {
+	TType string `json:"type,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
-
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

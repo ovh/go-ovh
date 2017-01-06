@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// Currently restored backup
+// VpsVeeamRestoredBackup Currently restored backup
 type VpsVeeamRestoredBackup struct {
+	AccessInfos *VpsVeeamInfos `json:"accessInfos,omitempty"`
 
-	AccessInfos VpsVeeamInfos `json:"accessInfos,omitempty"`
+	// RestorePointID The restore point id
+	RestorePointID int64 `json:"restorePointId,omitempty"`
 
-	// The restore point id
-	RestorePointId int64 `json:"restorePointId,omitempty"`
-
-	// The restored backup state
+	// State The restored backup state
 	State string `json:"state,omitempty"`
 }

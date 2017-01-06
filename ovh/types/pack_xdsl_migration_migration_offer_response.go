@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// List of available Migration offer
-type PackXdslMigrationMigrationOfferResponse struct {
+// PackXdslMigrationOfferResponse List of available Migration offer
+type PackXdslMigrationOfferResponse struct {
 
-	// Array of offers
-	Offers []PackXdslMigrationMigrationOffer `json:"offers,omitempty"`
+	// Offers Array of offers
+	Offers []*PackXdslMigrationOffer `json:"offers,omitempty"`
 }

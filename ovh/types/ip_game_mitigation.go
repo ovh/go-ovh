@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-// GAME Anti-DDoS
-type IpGameMitigation struct {
+// IPGameMitigation GAME Anti-DDoS
+type IPGameMitigation struct {
 
-	// Firewall mode : in UDP, only allow traffic matching your rules (as well as established traffic). If not enabled, traffic to ports not defined in your rules will be permited. TCP traffic is unaffected by this.
+	// FirewallModeEnabled Firewall mode : in UDP, only allow traffic matching your rules (as well as established traffic). If not enabled, traffic to ports not defined in your rules will be permited. TCP traffic is unaffected by this.
 	FirewallModeEnabled bool `json:"firewallModeEnabled,omitempty"`
 
-	IpOnGame string `json:"ipOnGame,omitempty"`
+	IPOnGame string `json:"ipOnGame,omitempty"`
 
 	State string `json:"state,omitempty"`
 }

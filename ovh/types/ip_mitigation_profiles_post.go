@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type IpMitigationProfilesPost struct {
-
+// IPMitigationProfilesPost ...
+type IPMitigationProfilesPost struct {
 	AutoMitigationTimeOut int64 `json:"autoMitigationTimeOut,omitempty"`
 
-	IpMitigationProfile string `json:"ipMitigationProfile,omitempty"`
+	IPMitigationProfile string `json:"ipMitigationProfile,omitempty"`
 }

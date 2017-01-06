@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// All versions available for CloudLinux products
+// LicenseOrderableCloudLinuxCompatibilityInfos All versions available for CloudLinux products
 type LicenseOrderableCloudLinuxCompatibilityInfos struct {
-
 	Version string `json:"version,omitempty"`
 }

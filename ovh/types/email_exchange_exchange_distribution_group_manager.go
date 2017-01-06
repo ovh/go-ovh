@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Mailing list managers
-type EmailExchangeExchangeDistributionGroupManager struct {
+// EmailExchangeDistributionGroupManager Mailing list managers
+type EmailExchangeDistributionGroupManager struct {
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Manager account id
-	ManagerAccountId int64 `json:"managerAccountId,omitempty"`
+	// ManagerAccountID Manager account id
+	ManagerAccountID int64 `json:"managerAccountId,omitempty"`
 
-	// Member account primaryEmailAddress
+	// ManagerEmailAddress Member account primaryEmailAddress
 	ManagerEmailAddress string `json:"managerEmailAddress,omitempty"`
 
-	// Pending task id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Pending task id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

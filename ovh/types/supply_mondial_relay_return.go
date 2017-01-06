@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Status and Mondial Relay Point Details
+// SupplyMondialRelayReturn Status and Mondial Relay Point Details
 type SupplyMondialRelayReturn struct {
 
-	// Error
-	Error_ string `json:"error,omitempty"`
+	// TError Error
+	TError string `json:"error,omitempty"`
 
-	Result SupplyMondialRelayResult `json:"result,omitempty"`
+	Result *SupplyMondialRelayResult `json:"result,omitempty"`
 
-	// Request status
+	// Status Request status
 	Status string `json:"status,omitempty"`
 }

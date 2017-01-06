@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// MeInstallationTemplatePartitionSchemePartitionPost ...
 type MeInstallationTemplatePartitionSchemePartitionPost struct {
-
 	Filesystem string `json:"filesystem,omitempty"`
 
 	Mountpoint string `json:"mountpoint,omitempty"`
@@ -22,7 +22,7 @@ type MeInstallationTemplatePartitionSchemePartitionPost struct {
 
 	Step int64 `json:"step,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
 	VolumeName string `json:"volumeName,omitempty"`
 }

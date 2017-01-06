@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// TelephonyLinePhonePhonebookImportPost ...
 type TelephonyLinePhonePhonebookImportPost struct {
-
-	DocumentId int64 `json:"documentId,omitempty"`
+	DocumentID int64 `json:"documentId,omitempty"`
 }

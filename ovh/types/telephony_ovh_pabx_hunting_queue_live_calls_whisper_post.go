@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxHuntingQueueLiveCallsWhisperPost ...
 type TelephonyOvhPabxHuntingQueueLiveCallsWhisperPost struct {
-
 	Number string `json:"number,omitempty"`
 
 	WhisperingMode string `json:"whisperingMode,omitempty"`

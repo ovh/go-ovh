@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// A backup attached to your VPS
+// VpsAutomatedBackupAttached A backup attached to your VPS
 type VpsAutomatedBackupAttached struct {
+	Access *VpsAutomatedBackupAttachedInfos `json:"access,omitempty"`
 
-	Access VpsAutomatedBackupAttachedInfos `json:"access,omitempty"`
-
-	RestorePoint time.Time `json:"restorePoint,omitempty"`
+	RestorePoint *time.Time `json:"restorePoint,omitempty"`
 }

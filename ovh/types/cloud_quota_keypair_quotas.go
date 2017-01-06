@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// KeypairQuotas
+// CloudQuotaKeypairQuotas KeypairQuotas
 type CloudQuotaKeypairQuotas struct {
 
-	// Maximum keypairs count allowed in your project
+	// MaxCount Maximum keypairs count allowed in your project
 	MaxCount int64 `json:"maxCount,omitempty"`
 }

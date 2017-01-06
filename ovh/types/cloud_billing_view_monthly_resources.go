@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// MonthlyResources
+// CloudBillingViewMonthlyResources MonthlyResources
 type CloudBillingViewMonthlyResources struct {
 
-	// Details about monthly instances
-	Instance []CloudBillingViewMonthlyInstance `json:"instance,omitempty"`
+	// Instance Details about monthly instances
+	Instance []*CloudBillingViewMonthlyInstance `json:"instance,omitempty"`
 }

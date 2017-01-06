@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Hosting indys
+// HostingWebIndy Hosting indys
 type HostingWebIndy struct {
 
-	// AttachedDomain IDs linked to this multidomain
+	// AttachedDomains AttachedDomain IDs linked to this multidomain
 	AttachedDomains []string `json:"attachedDomains,omitempty"`
 
-	// Home directory
+	// Home Home directory
 	Home string `json:"home,omitempty"`
 
-	// Login of the multidomain independent user
+	// Login Login of the multidomain independent user
 	Login string `json:"login,omitempty"`
 
-	// User status
+	// State User status
 	State string `json:"state,omitempty"`
 }

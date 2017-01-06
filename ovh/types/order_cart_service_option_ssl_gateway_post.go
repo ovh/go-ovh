@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type OrderCartServiceOptionSslGatewayPost struct {
-
-	CartId string `json:"cartId,omitempty"`
+// OrderCartServiceOptionSSLGatewayPost ...
+type OrderCartServiceOptionSSLGatewayPost struct {
+	CartID string `json:"cartId,omitempty"`
 
 	Duration string `json:"duration,omitempty"`
 

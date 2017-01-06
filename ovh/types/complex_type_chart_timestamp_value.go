@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A timestamp associated to a value
+// ComplexTypeChartTimestampValue A timestamp associated to a value
 type ComplexTypeChartTimestampValue struct {
-
 	Timestamp int64 `json:"timestamp,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

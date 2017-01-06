@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Backend on zone
-type CdnWebsiteBackend struct {
-
-	Ipv4 string `json:"ipv4,omitempty"`
+// CDNWebsiteBackend Backend on zone
+type CDNWebsiteBackend struct {
+	IPv4 string `json:"ipv4,omitempty"`
 
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Application deployed on the framework
+// StackFrameworkApplication Application deployed on the framework
 type StackFrameworkApplication struct {
 
-	// Application list
-	Apps []DockerSlaveFrameworkApp `json:"apps,omitempty"`
+	// Apps Application list
+	Apps []*DockerSLAveFrameworkApp `json:"apps,omitempty"`
 }

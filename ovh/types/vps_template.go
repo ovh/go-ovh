@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Installation template for a VPS Virtual Machine
+// VpsTemplate Installation template for a VPS Virtual Machine
 type VpsTemplate struct {
-
 	AvailableLanguage []string `json:"availableLanguage,omitempty"`
 
 	BitFormat int64 `json:"bitFormat,omitempty"`
 
 	Distribution string `json:"distribution,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Locale string `json:"locale,omitempty"`
 

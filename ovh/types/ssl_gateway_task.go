@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// SSL Gateway tasks
-type SslGatewayTask struct {
+// SSLGatewayTask SSL Gateway tasks
+type SSLGatewayTask struct {
 
-	// The action made
+	// Action The action made
 	Action string `json:"action,omitempty"`
 
-	// Creation date of your task
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of your task
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Id of the task
-	Id int64 `json:"id,omitempty"`
+	// ID Id of the task
+	ID int64 `json:"id,omitempty"`
 
-	// Task progress percentage
+	// Progress Task progress percentage
 	Progress int64 `json:"progress,omitempty"`
 
-	// Current status of your task
+	// Status Current status of your task
 	Status string `json:"status,omitempty"`
 }

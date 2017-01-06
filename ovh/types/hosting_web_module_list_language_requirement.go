@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Minimal language version required to run this module
+// HostingWebModuleListLanguageRequirement Minimal language version required to run this module
 type HostingWebModuleListLanguageRequirement struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value string `json:"value,omitempty"`

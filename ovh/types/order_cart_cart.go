@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// A shopping cart
-type OrderCartCart struct {
+// OrderCart A shopping cart
+type OrderCart struct {
 
-	// Cart identifier
-	CartId string `json:"cartId,omitempty"`
+	// CartID Cart identifier
+	CartID string `json:"cartId,omitempty"`
 
-	// Description of your cart
+	// Description Description of your cart
 	Description string `json:"description,omitempty"`
 
-	// Expiration time
-	Expire time.Time `json:"expire,omitempty"`
+	// Expire Expiration time
+	Expire *time.Time `json:"expire,omitempty"`
 
-	// Items of your cart
+	// Items Items of your cart
 	Items []int64 `json:"items,omitempty"`
 
-	// Indicates if the cart has already been validated
+	// ReadOnly Indicates if the cart has already been validated
 	ReadOnly bool `json:"readOnly,omitempty"`
 }

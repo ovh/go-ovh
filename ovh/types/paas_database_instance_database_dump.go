@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,36 +14,36 @@ import (
 	"time"
 )
 
-// Database Dumps
+// PaasDatabaseInstanceDatabaseDump Database Dumps
 type PaasDatabaseInstanceDatabaseDump struct {
 
-	// Creation date of the dump
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the dump
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Database name associated to this dump
+	// DatabaseName Database name associated to this dump
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	// Dump id
-	DumpId string `json:"dumpId,omitempty"`
+	// DumpID Dump id
+	DumpID string `json:"dumpId,omitempty"`
 
-	// email
+	// Email email
 	Email string `json:"email,omitempty"`
 
-	// Deletion date of the dump
-	ExpirationDate time.Time `json:"expirationDate,omitempty"`
+	// ExpirationDate Deletion date of the dump
+	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
 
-	// Instance id associated to this dump
-	InstanceId string `json:"instanceId,omitempty"`
+	// InstanceID Instance id associated to this dump
+	InstanceID string `json:"instanceId,omitempty"`
 
-	// Dump name
+	// Name Dump name
 	Name string `json:"name,omitempty"`
 
-	// Dump status
+	// Status Dump status
 	Status string `json:"status,omitempty"`
 
-	// The task id working on this object
-	TaskIds []string `json:"taskIds,omitempty"`
+	// TaskIDs The task id working on this object
+	TaskIDs []string `json:"taskIds,omitempty"`
 
-	// Dump url
-	Url string `json:"url,omitempty"`
+	// URL Dump url
+	URL string `json:"url,omitempty"`
 }

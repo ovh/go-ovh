@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// RAM allocated to desktop
-type DeskaasDeskaasRam struct {
-
+// DeskaasRAM RAM allocated to desktop
+type DeskaasRAM struct {
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

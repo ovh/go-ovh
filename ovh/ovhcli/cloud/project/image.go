@@ -24,13 +24,13 @@ var (
 		Use:   "list",
 		Short: "List images & snapshots",
 		Run: func(cmd *cobra.Command, args []string) {
-			client, err := ovh.NewDefaultClient()
-			common.Check(err)
+			client, errC := ovh.NewDefaultClient()
+			common.Check(errC)
 
 			if projectName != "" {
 				p, err := client.CloudProjectInfoByName(projectName)
 				common.Check(err)
-				projectID = p.ID
+				projectID = p.ProjectID
 			}
 
 			if projectID == "" {
@@ -57,13 +57,13 @@ var (
 				common.WrongUsage(cmd)
 			}
 
-			client, err := ovh.NewDefaultClient()
-			common.Check(err)
+			client, errC := ovh.NewDefaultClient()
+			common.Check(errC)
 
 			if projectName != "" {
 				p, err := client.CloudProjectInfoByName(projectName)
 				common.Check(err)
-				projectID = p.ID
+				projectID = p.ProjectID
 			}
 
 			if projectID == "" {

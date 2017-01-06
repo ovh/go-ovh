@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Graylog role permission
+// DBaaSLogsPermission Graylog role permission
 type DBaaSLogsPermission struct {
 
-	// Associated Elasticsearch alias
-	AliasId string `json:"aliasId,omitempty"`
+	// AliasID Associated Elasticsearch alias
+	AliasID string `json:"aliasId,omitempty"`
 
-	// Associated Graylog dashboard
-	DashboardId string `json:"dashboardId,omitempty"`
+	// DashboardID Associated Graylog dashboard
+	DashboardID string `json:"dashboardId,omitempty"`
 
-	// Associated Elasticsearch index
-	IndexId string `json:"indexId,omitempty"`
+	// IndexID Associated Elasticsearch index
+	IndexID string `json:"indexId,omitempty"`
 
-	// Permission UUID
-	PermissionId string `json:"permissionId,omitempty"`
+	// PermissionID Permission UUID
+	PermissionID string `json:"permissionId,omitempty"`
 
-	// Associated Graylog stream
-	StreamId string `json:"streamId,omitempty"`
+	// StreamID Associated Graylog stream
+	StreamID string `json:"streamId,omitempty"`
 }

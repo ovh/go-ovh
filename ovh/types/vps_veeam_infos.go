@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing a Veeam backup's access informations
+// VpsVeeamInfos A structure describing a Veeam backup's access informations
 type VpsVeeamInfos struct {
 
-	// NFS URL of the backup
+	// Nfs NFS URL of the backup
 	Nfs string `json:"nfs,omitempty"`
 
-	// SMB URL of the backup
+	// Smb SMB URL of the backup
 	Smb string `json:"smb,omitempty"`
 }

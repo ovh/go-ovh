@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// A VNC connection informations
+// VpsVnc A VNC connection informations
 type VpsVnc struct {
-
 	Host string `json:"host,omitempty"`
 
 	Password string `json:"password,omitempty"`

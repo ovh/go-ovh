@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// HourlyInstanceDetail
+// CloudBillingViewHourlyInstanceDetail HourlyInstanceDetail
 type CloudBillingViewHourlyInstanceDetail struct {
 
-	// Instance ID
-	InstanceId string `json:"instanceId,omitempty"`
+	// InstanceID Instance ID
+	InstanceID string `json:"instanceId,omitempty"`
 
-	Quantity CloudBillingViewQuantity `json:"quantity,omitempty"`
+	Quantity *CloudBillingViewQuantity `json:"quantity,omitempty"`
 
-	// Total price
+	// TotalPrice Total price
 	TotalPrice float64 `json:"totalPrice,omitempty"`
 }

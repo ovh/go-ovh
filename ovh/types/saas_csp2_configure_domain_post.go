@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SaasCsp2ConfigureDomainPost ...
 type SaasCsp2ConfigureDomainPost struct {
-
 	Domain string `json:"domain,omitempty"`
 
 	SupportedServices []string `json:"supportedServices,omitempty"`

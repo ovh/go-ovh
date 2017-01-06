@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,17 @@
 
 package types
 
-// A structure describing the backing network of a the virtual machine
-type DedicatedCloudVmNetworkBacking struct {
-
+// DedicatedCloudVMNetworkBacking A structure describing the backing network of a the virtual machine
+type DedicatedCloudVMNetworkBacking struct {
 	DeviceName string `json:"deviceName,omitempty"`
 
 	PortGroupKey string `json:"portGroupKey,omitempty"`
 
 	PortKey string `json:"portKey,omitempty"`
 
-	SwitchUuid string `json:"switchUuid,omitempty"`
+	SwitchUUID string `json:"switchUuid,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
 	UseAutoDetect bool `json:"useAutoDetect,omitempty"`
 

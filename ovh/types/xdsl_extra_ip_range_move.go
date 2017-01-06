@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Informations about the extra IP range during address move
-type XdslExtraIpRangeMove struct {
+// XdslExtraIPRangeMove Informations about the extra IP range during address move
+type XdslExtraIPRangeMove struct {
 
-	// Date of the migration
-	Date time.Time `json:"date,omitempty"`
+	// Date Date of the migration
+	Date *time.Time `json:"date,omitempty"`
 
-	// IP range to migrate
-	IpRange string `json:"ipRange,omitempty"`
+	// IPRange IP range to migrate
+	IPRange string `json:"ipRange,omitempty"`
 
-	// Access where the IP range will be moved to
+	// MoveTo Access where the IP range will be moved to
 	MoveTo string `json:"moveTo,omitempty"`
 }

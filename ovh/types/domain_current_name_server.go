@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// CurrentNameServer
+// DomainCurrentNameServer CurrentNameServer
 type DomainCurrentNameServer struct {
 
-	// Host of the name server
+	// Host Host of the name server
 	Host string `json:"host,omitempty"`
 
-	// Id of the name server
-	Id int64 `json:"id,omitempty"`
+	// ID Id of the name server
+	ID int64 `json:"id,omitempty"`
 
-	// Ip of the name server
-	Ip string `json:"ip,omitempty"`
+	// IP Ip of the name server
+	IP string `json:"ip,omitempty"`
 
-	// isUsed flag of the name server
+	// IsUsed isUsed flag of the name server
 	IsUsed bool `json:"isUsed,omitempty"`
 
-	// toDelete flag of the name server
+	// ToDelete toDelete flag of the name server
 	ToDelete bool `json:"toDelete,omitempty"`
 }

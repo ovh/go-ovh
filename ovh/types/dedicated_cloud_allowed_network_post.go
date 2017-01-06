@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedCloudAllowedNetworkPost ...
 type DedicatedCloudAllowedNetworkPost struct {
-
 	Description string `json:"description,omitempty"`
 
 	Network string `json:"network,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,29 +14,28 @@ import (
 	"time"
 )
 
-// Diagnostic of the access
+// XdslAccessDiagnostic Diagnostic of the access
 type XdslAccessDiagnostic struct {
+	Capabilities *XdslAccessDiagnosticCapabilities `json:"capabilities,omitempty"`
 
-	Capabilities XdslAccessDiagnosticCapabilities `json:"capabilities,omitempty"`
+	// DiagnosticTime Datime of the diagnostic
+	DiagnosticTime *time.Time `json:"diagnosticTime,omitempty"`
 
-	// Datime of the diagnostic
-	DiagnosticTime time.Time `json:"diagnosticTime,omitempty"`
-
-	// Is there an ongoing genericIncident on the access ?
+	// Incident Is there an ongoing genericIncident on the access ?
 	Incident bool `json:"incident,omitempty"`
 
-	// Is the access active on its primary or secondary LNS
+	// IsActiveOnLns Is the access active on its primary or secondary LNS
 	IsActiveOnLns bool `json:"isActiveOnLns,omitempty"`
 
-	// Is the modem connected ?
+	// IsModemConnected Is the modem connected ?
 	IsModemConnected bool `json:"isModemConnected,omitempty"`
 
-	// Test details by line
-	LineDetails []XdslLineDiagnostic `json:"lineDetails,omitempty"`
+	// LineDetails Test details by line
+	LineDetails []*XdslLineDiagnostic `json:"lineDetails,omitempty"`
 
-	// Does the access ping ?
+	// Ping Does the access ping ?
 	Ping bool `json:"ping,omitempty"`
 
-	// Remaining number of diagnostic for this access
+	// Remaining Remaining number of diagnostic for this access
 	Remaining int64 `json:"remaining,omitempty"`
 }

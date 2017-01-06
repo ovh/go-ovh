@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,16 @@
 
 package types
 
-// Domain on CDN
-type CdnanycastDomain struct {
-
+// CDNanycastDomain Domain on CDN
+type CDNanycastDomain struct {
 	CacheRuleUse int64 `json:"cacheRuleUse,omitempty"`
 
 	Cname string `json:"cname,omitempty"`
 
-	// Domain of this object
+	// Domain Domain of this object
 	Domain string `json:"domain,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

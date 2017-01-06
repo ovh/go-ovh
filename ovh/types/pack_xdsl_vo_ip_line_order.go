@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Represents an order of VoIP lines
-type PackXdslVoIpLineOrder struct {
+// PackXdslVoIPLineOrder Represents an order of VoIP lines
+type PackXdslVoIPLineOrder struct {
 
-	// Whether or not this order need to be payed manually
+	// NeedPayment Whether or not this order need to be payed manually
 	NeedPayment bool `json:"needPayment,omitempty"`
 
-	OrderId int64 `json:"orderId,omitempty"`
+	OrderID int64 `json:"orderId,omitempty"`
 
-	OrderUrl string `json:"orderUrl,omitempty"`
+	OrderURL string `json:"orderUrl,omitempty"`
 
-	TaskIds []int64 `json:"taskIds,omitempty"`
+	TaskIDs []int64 `json:"taskIds,omitempty"`
 }

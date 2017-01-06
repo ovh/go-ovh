@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Port and state of a service on an IP
-type VpsIpServiceStatusService struct {
-
+// VpsIPServiceStatusService Port and state of a service on an IP
+type VpsIPServiceStatusService struct {
 	Port int64 `json:"port,omitempty"`
 
 	State string `json:"state,omitempty"`

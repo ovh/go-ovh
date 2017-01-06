@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// RouterNetworkPost ...
 type RouterNetworkPost struct {
-
 	Description string `json:"description,omitempty"`
 
-	IpNet string `json:"ipNet,omitempty"`
+	IPNet string `json:"ipNet,omitempty"`
 
 	VlanTag int64 `json:"vlanTag,omitempty"`
 }

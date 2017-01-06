@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Servers statistics sent by RTM (Real Time Monitoring)
+// DedicatedServerRtm Servers statistics sent by RTM (Real Time Monitoring)
 type DedicatedServerRtm struct {
 
-	// RTM current version
+	// CurrentVersion RTM current version
 	CurrentVersion string `json:"currentVersion,omitempty"`
 
-	// RTM currently installed version
+	// InstalledVersion RTM currently installed version
 	InstalledVersion string `json:"installedVersion,omitempty"`
 
-	// You need to update RTM script on your server
+	// NeedsUpdate You need to update RTM script on your server
 	NeedsUpdate bool `json:"needsUpdate,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Default hardware raid size for this server
+// DedicatedServerHardwareSpecificationsDefaultHardwareRaidSize Default hardware raid size for this server
 type DedicatedServerHardwareSpecificationsDefaultHardwareRaidSize struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

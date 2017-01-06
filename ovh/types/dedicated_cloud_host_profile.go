@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,13 @@
 
 package types
 
-// A Host profile
+// DedicatedCloudHostProfile A Host profile
 type DedicatedCloudHostProfile struct {
-
 	Core string `json:"core,omitempty"`
 
-	Cpu DedicatedServerMrtgTimestampValueValue `json:"cpu,omitempty"`
+	CPU *DedicatedServerMrtgTimestampValueValue `json:"cpu,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	Ram DedicatedCloudFilerProfileSize `json:"ram,omitempty"`
+	RAM *DedicatedCloudFilerProfileSize `json:"ram,omitempty"`
 }

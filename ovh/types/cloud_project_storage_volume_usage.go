@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Storage volume used on your project
+// CloudProjectStorageVolumeUsage Storage volume used on your project
 type CloudProjectStorageVolumeUsage struct {
 
-	// Region
+	// Region Region
 	Region string `json:"region,omitempty"`
 
-	// Bytes stored in your containers
+	// StoredBytes Bytes stored in your containers
 	StoredBytes int64 `json:"storedBytes,omitempty"`
 
-	Total OrderPrice `json:"total,omitempty"`
+	Total *OrderPrice `json:"total,omitempty"`
 }

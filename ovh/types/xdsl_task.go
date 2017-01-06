@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,17 +14,16 @@ import (
 	"time"
 )
 
-// Describes the current status of a task
+// XdslTask Describes the current status of a task
 type XdslTask struct {
-
 	Function string `json:"function,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	// Date when the action will start
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	// TodoDate Date when the action will start
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 
-	UpdateDate time.Time `json:"updateDate,omitempty"`
+	UpdateDate *time.Time `json:"updateDate,omitempty"`
 }

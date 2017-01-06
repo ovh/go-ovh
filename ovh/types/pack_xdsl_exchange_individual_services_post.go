@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// PackXdslExchangeIndividualServicesPost ...
 type PackXdslExchangeIndividualServicesPost struct {
-
 	Email string `json:"email,omitempty"`
 
 	Password string `json:"password,omitempty"`

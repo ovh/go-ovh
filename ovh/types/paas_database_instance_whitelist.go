@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// IP whitelisting for your instance
+// PaasDatabaseInstanceWhitelist IP whitelisting for your instance
 type PaasDatabaseInstanceWhitelist struct {
 
-	// Creation date of this whitelist
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of this whitelist
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// The whitelisted IP in your instance
-	Ip string `json:"ip,omitempty"`
+	// IP The whitelisted IP in your instance
+	IP string `json:"ip,omitempty"`
 
-	// The last update date of this whitelist
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate The last update date of this whitelist
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Custom name for your Whitelisted IP
+	// Name Custom name for your Whitelisted IP
 	Name string `json:"name,omitempty"`
 
-	// Authorize this IP to access service port
+	// Service Authorize this IP to access service port
 	Service bool `json:"service,omitempty"`
 
-	// Authorize this IP to access sftp port
+	// Sftp Authorize this IP to access sftp port
 	Sftp bool `json:"sftp,omitempty"`
 
-	// Whitelist status
+	// Status Whitelist status
 	Status string `json:"status,omitempty"`
 
-	// The id of the task working on this object
-	TaskId string `json:"taskId,omitempty"`
+	// TaskID The id of the task working on this object
+	TaskID string `json:"taskId,omitempty"`
 }

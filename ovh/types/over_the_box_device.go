@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Device
+// OverTheBoxDevice Device
 type OverTheBoxDevice struct {
 
-	// Whether or not this device is associated to a service
+	// Activated Whether or not this device is associated to a service
 	Activated bool `json:"activated,omitempty"`
 
-	// The id of the device
-	DeviceId string `json:"deviceId,omitempty"`
+	// DeviceID The id of the device
+	DeviceID string `json:"deviceId,omitempty"`
 
-	// Last time the device has been seen on the provisionning servers
-	LastSeen time.Time `json:"lastSeen,omitempty"`
+	// LastSeen Last time the device has been seen on the provisionning servers
+	LastSeen *time.Time `json:"lastSeen,omitempty"`
 
-	// Network interfaces of the device
-	NetworkInterfaces []OverTheBoxDeviceInterface `json:"networkInterfaces,omitempty"`
+	// NetworkInterfaces Network interfaces of the device
+	NetworkInterfaces []*OverTheBoxDeviceInterface `json:"networkInterfaces,omitempty"`
 
-	// The public IP of the device
-	PublicIp string `json:"publicIp,omitempty"`
+	// PublicIP The public IP of the device
+	PublicIP string `json:"publicIp,omitempty"`
 }

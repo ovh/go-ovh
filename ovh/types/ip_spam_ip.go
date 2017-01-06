@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Your IP spam stats
-type IpSpamIp struct {
+// IPSpamIP Your IP spam stats
+type IPSpamIP struct {
 
-	// Last date the ip was blocked
-	Date time.Time `json:"date,omitempty"`
+	// Date Last date the ip was blocked
+	Date *time.Time `json:"date,omitempty"`
 
-	// IP address which is sending spam
-	IpSpamming string `json:"ipSpamming,omitempty"`
+	// IPSpamming IP address which is sending spam
+	IPSpamming string `json:"ipSpamming,omitempty"`
 
-	// Current state of the ip
+	// State Current state of the ip
 	State string `json:"state,omitempty"`
 
-	// Time (in seconds) while the IP will be blocked
+	// Time Time (in seconds) while the IP will be blocked
 	Time int64 `json:"time,omitempty"`
 }

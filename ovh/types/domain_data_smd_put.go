@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// DomainDataSmdPut ...
 type DomainDataSmdPut struct {
-
 	Data string `json:"data,omitempty"`
 }

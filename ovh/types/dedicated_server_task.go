@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,27 @@ import (
 	"time"
 )
 
-// Server tasks
+// DedicatedServerTask Server tasks
 type DedicatedServerTask struct {
 
-	// Details of this task
+	// Comment Details of this task
 	Comment string `json:"comment,omitempty"`
 
-	// Completion date
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate Completion date
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	// Function name
+	// Function Function name
 	Function string `json:"function,omitempty"`
 
-	// last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Task Creation date
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate Task Creation date
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// Task status
+	// Status Task status
 	Status string `json:"status,omitempty"`
 
-	// the id of the task
-	TaskId int64 `json:"taskId,omitempty"`
+	// TaskID the id of the task
+	TaskID int64 `json:"taskId,omitempty"`
 }

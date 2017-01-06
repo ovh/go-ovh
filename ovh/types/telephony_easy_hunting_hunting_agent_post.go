@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyEasyHuntingHuntingAgentPost ...
 type TelephonyEasyHuntingHuntingAgentPost struct {
-
 	Number string `json:"number,omitempty"`
 
 	SimultaneousLines int64 `json:"simultaneousLines,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Spam statistics about an IP address
-type IpSpamStats struct {
+// IPSpamStats Spam statistics about an IP address
+type IPSpamStats struct {
 
-	// Average spam score.
+	// AverageSpamscore Average spam score.
 	AverageSpamscore int64 `json:"averageSpamscore,omitempty"`
 
-	// Detailed list of the spams
-	DetectedSpams []IpSpamTarget `json:"detectedSpams,omitempty"`
+	// DetectedSpams Detailed list of the spams
+	DetectedSpams []*IPSpamTarget `json:"detectedSpams,omitempty"`
 
-	// Number of spams sent
+	// NumberOfSpams Number of spams sent
 	NumberOfSpams int64 `json:"numberOfSpams,omitempty"`
 
-	// Time when the IP address was blocked
+	// Timestamp Time when the IP address was blocked
 	Timestamp int64 `json:"timestamp,omitempty"`
 
-	// Number of emails sent
+	// Total Number of emails sent
 	Total int64 `json:"total,omitempty"`
 }

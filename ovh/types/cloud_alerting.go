@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,23 +14,23 @@ import (
 	"time"
 )
 
-// Cloud alerting consumption
+// CloudAlerting Cloud alerting consumption
 type CloudAlerting struct {
 
-	// Alerting creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Alerting creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Delay between alerts in seconds
+	// Delay Delay between alerts in seconds
 	Delay int64 `json:"delay,omitempty"`
 
-	// Email to contact
+	// Email Email to contact
 	Email string `json:"email,omitempty"`
 
-	FormattedMonthlyThreshold OrderPrice `json:"formattedMonthlyThreshold,omitempty"`
+	FormattedMonthlyThreshold *OrderPrice `json:"formattedMonthlyThreshold,omitempty"`
 
-	// Alerting unique UUID
-	Id string `json:"id,omitempty"`
+	// ID Alerting unique UUID
+	ID string `json:"id,omitempty"`
 
-	// Monthly threshold for this alerting
+	// MonthlyThreshold Monthly threshold for this alerting
 	MonthlyThreshold int64 `json:"monthlyThreshold,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type IplbChangeContactPost struct {
-
+// IPLBChangeContactPost ...
+type IPLBChangeContactPost struct {
 	ContactAdmin string `json:"contactAdmin,omitempty"`
 
 	ContactBilling string `json:"contactBilling,omitempty"`

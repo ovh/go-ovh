@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Describe the capabilities of the access diagnostic
+// XdslAccessDiagnosticCapabilities Describe the capabilities of the access diagnostic
 type XdslAccessDiagnosticCapabilities struct {
-
 	Incident bool `json:"incident,omitempty"`
 
 	IsActiveOnLns bool `json:"isActiveOnLns,omitempty"`
@@ -23,7 +22,7 @@ type XdslAccessDiagnosticCapabilities struct {
 
 	Ping bool `json:"ping,omitempty"`
 
-	ProposedProfileId bool `json:"proposedProfileId,omitempty"`
+	ProposedProfileID bool `json:"proposedProfileId,omitempty"`
 
 	Sync bool `json:"sync,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// DNS server status
-type DomainDomainNsStatus struct {
+// DomainNsStatus DNS server status
+type DomainNsStatus struct {
 
-	// Whether or not the DNS server is working
+	// State Whether or not the DNS server is working
 	State string `json:"state,omitempty"`
 
-	// Whether or not the DNS server is managed by OVH
-	Type_ string `json:"type,omitempty"`
+	// TType Whether or not the DNS server is managed by OVH
+	TType string `json:"type,omitempty"`
 
-	// Date from which the DNS server is used by the domain
-	UsedSince time.Time `json:"usedSince,omitempty"`
+	// UsedSince Date from which the DNS server is used by the domain
+	UsedSince *time.Time `json:"usedSince,omitempty"`
 }

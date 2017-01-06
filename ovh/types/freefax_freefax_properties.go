@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Freefax properties
-type FreefaxFreefaxProperties struct {
+// FreefaxProperties Freefax properties
+type FreefaxProperties struct {
 
-	// Number of max tentative of fax sending
+	// FaxMaxCall Number of max tentative of fax sending
 	FaxMaxCall int64 `json:"faxMaxCall,omitempty"`
 
-	// Quality of fax sending
+	// FaxQuality Quality of fax sending
 	FaxQuality string `json:"faxQuality,omitempty"`
 
-	// Customised freefax header
+	// FaxTagLine Customised freefax header
 	FaxTagLine string `json:"faxTagLine,omitempty"`
 
-	// FROM email header
+	// FromEmail FROM email header
 	FromEmail string `json:"fromEmail,omitempty"`
 
-	// Name of the sender of the email
+	// FromName Name of the sender of the email
 	FromName string `json:"fromName,omitempty"`
 
-	// Freefax number in international format
+	// Number Freefax number in international format
 	Number string `json:"number,omitempty"`
 
-	// Email address to redirect fax response.
+	// RedirectionEmail Email address to redirect fax response.
 	RedirectionEmail []string `json:"redirectionEmail,omitempty"`
 }

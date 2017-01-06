@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// Support ticket message
+// SupportMessage Support ticket message
 type SupportMessage struct {
 
-	// Message body
+	// Body Message body
 	Body string `json:"body,omitempty"`
 
-	// Message creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Message creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Message sender type
+	// From Message sender type
 	From string `json:"from,omitempty"`
 
-	// Message identifier
-	MessageId int64 `json:"messageId,omitempty"`
+	// MessageID Message identifier
+	MessageID int64 `json:"messageId,omitempty"`
 
-	// Ticket identifier
-	TicketId int64 `json:"ticketId,omitempty"`
+	// TicketID Ticket identifier
+	TicketID int64 `json:"ticketId,omitempty"`
 
-	// Message last update date
-	UpdateDate time.Time `json:"updateDate,omitempty"`
+	// UpdateDate Message last update date
+	UpdateDate *time.Time `json:"updateDate,omitempty"`
 }

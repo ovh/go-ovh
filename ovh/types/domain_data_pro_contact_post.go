@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// DomainDataProContactPost ...
 type DomainDataProContactPost struct {
-
 	Authority string `json:"authority,omitempty"`
 
 	AuthorityWebsite string `json:"authorityWebsite,omitempty"`
 
-	ContactId int64 `json:"contactId,omitempty"`
+	ContactID int64 `json:"contactId,omitempty"`
 
 	JobDescription string `json:"jobDescription,omitempty"`
 

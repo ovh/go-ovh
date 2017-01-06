@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// HostingWebAttachedDomainPost ...
 type HostingWebAttachedDomainPost struct {
-
-	Cdn string `json:"cdn,omitempty"`
+	CDN string `json:"cdn,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
@@ -22,5 +22,5 @@ type HostingWebAttachedDomainPost struct {
 
 	Path string `json:"path,omitempty"`
 
-	Ssl bool `json:"ssl,omitempty"`
+	SSL bool `json:"ssl,omitempty"`
 }

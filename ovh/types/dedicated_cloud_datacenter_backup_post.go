@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DedicatedCloudDatacenterBackupPost ...
 type DedicatedCloudDatacenterBackupPost struct {
-
 	BackupDurationInReport bool `json:"backupDurationInReport,omitempty"`
 
 	BackupOffer string `json:"backupOffer,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// An configuration attribute-value pair
+// MonitoringConfigPair An configuration attribute-value pair
 type MonitoringConfigPair struct {
 
-	// key
+	// Key key
 	Key string `json:"key,omitempty"`
 
-	// value
+	// Value value
 	Value string `json:"value,omitempty"`
 }

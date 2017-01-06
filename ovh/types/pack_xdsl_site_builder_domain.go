@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// SiteBuilder available domain infos
+// PackXdslSiteBuilderDomain SiteBuilder available domain infos
 type PackXdslSiteBuilderDomain struct {
-
 	DefaultSubDomain string `json:"defaultSubDomain,omitempty"`
 
 	Domain string `json:"domain,omitempty"`

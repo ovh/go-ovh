@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Describe default pricings
+// OrderCatalogPricingDefault Describe default pricings
 type OrderCatalogPricingDefault struct {
 
-	// Information about default pricing
-	Default_ []OrderCatalogPricing `json:"default,omitempty"`
+	// TDefault Information about default pricing
+	TDefault []*OrderCatalogPricing `json:"default,omitempty"`
 }

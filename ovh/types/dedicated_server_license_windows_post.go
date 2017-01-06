@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DedicatedServerLicenseWindowsPost ...
 type DedicatedServerLicenseWindowsPost struct {
-
-	LicenseId string `json:"licenseId,omitempty"`
+	LicenseID string `json:"licenseId,omitempty"`
 
 	Version string `json:"version,omitempty"`
 }

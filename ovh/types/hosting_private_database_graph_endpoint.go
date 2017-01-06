@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Parameters required to query metrics from OpenTSDB
+// HostingPrivateDatabaseGraphEndpoint Parameters required to query metrics from OpenTSDB
 type HostingPrivateDatabaseGraphEndpoint struct {
 
-	// The OpenTSDB host
+	// Host The OpenTSDB host
 	Host string `json:"host,omitempty"`
 
-	// A read-only token
+	// ReadToken A read-only token
 	ReadToken string `json:"readToken,omitempty"`
 
-	// A read-only token ID
-	ReadTokenId string `json:"readTokenId,omitempty"`
+	// ReadTokenID A read-only token ID
+	ReadTokenID string `json:"readTokenId,omitempty"`
 }

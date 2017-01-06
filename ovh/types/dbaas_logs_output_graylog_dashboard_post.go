@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// DbaasLogsOutputGraylogDashboardPost ...
 type DbaasLogsOutputGraylogDashboardPost struct {
-
 	Description string `json:"description,omitempty"`
 
-	OptionId string `json:"optionId,omitempty"`
+	OptionID string `json:"optionId,omitempty"`
 
 	Title string `json:"title,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Values of number account (account, mailing list, redirection and responder)
-type DomainDomainSummary struct {
+// DomainSummary Values of number account (account, mailing list, redirection and responder)
+type DomainSummary struct {
 
-	// Number of mailboxes
+	// Account Number of mailboxes
 	Account int64 `json:"account,omitempty"`
 
-	// Number of mailing lists
+	// MailingList Number of mailing lists
 	MailingList int64 `json:"mailingList,omitempty"`
 
-	// Number of redirections
+	// Redirection Number of redirections
 	Redirection int64 `json:"redirection,omitempty"`
 
-	// Number of responders
+	// Responder Number of responders
 	Responder int64 `json:"responder,omitempty"`
 }

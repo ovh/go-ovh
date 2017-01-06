@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// EmailExchangeServiceProtocolActiveSyncMailNotificationPost ...
 type EmailExchangeServiceProtocolActiveSyncMailNotificationPost struct {
-
-	NotifiedAccountId int64 `json:"notifiedAccountId,omitempty"`
+	NotifiedAccountID int64 `json:"notifiedAccountId,omitempty"`
 }

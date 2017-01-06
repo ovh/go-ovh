@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,33 +10,33 @@
 
 package types
 
-// FailoverIp
-type CloudIpFailoverIp struct {
+// CloudIPFailoverIP FailoverIp
+type CloudIPFailoverIP struct {
 
-	// IP block
+	// Block IP block
 	Block string `json:"block,omitempty"`
 
-	// Ip continent
+	// ContinentCode Ip continent
 	ContinentCode string `json:"continentCode,omitempty"`
 
-	// Ip location
+	// Geoloc Ip location
 	Geoloc string `json:"geoloc,omitempty"`
 
-	// Ip id
-	Id string `json:"id,omitempty"`
+	// ID Ip id
+	ID string `json:"id,omitempty"`
 
-	// Ip
-	Ip string `json:"ip,omitempty"`
+	// IP Ip
+	IP string `json:"ip,omitempty"`
 
-	// Current operation progress in percent
+	// Progress Current operation progress in percent
 	Progress int64 `json:"progress,omitempty"`
 
-	// Instance where ip is routed to
+	// RoutedTo Instance where ip is routed to
 	RoutedTo string `json:"routedTo,omitempty"`
 
-	// Ip status
+	// Status Ip status
 	Status string `json:"status,omitempty"`
 
-	// IP sub type
+	// SubType IP sub type
 	SubType string `json:"subType,omitempty"`
 }

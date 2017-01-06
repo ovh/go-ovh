@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Conference realtime informations structure
+// TelephonyConferenceInformations Conference realtime informations structure
 type TelephonyConferenceInformations struct {
 
-	// The date when the conference began
-	DateStart time.Time `json:"dateStart,omitempty"`
+	// DateStart The date when the conference began
+	DateStart *time.Time `json:"dateStart,omitempty"`
 
-	// Whether or not the conference room is locked
+	// Locked Whether or not the conference room is locked
 	Locked bool `json:"locked,omitempty"`
 
-	// The current participants count in your conference room
+	// MembersCount The current participants count in your conference room
 	MembersCount int64 `json:"membersCount,omitempty"`
 }

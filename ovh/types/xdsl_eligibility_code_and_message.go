@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A message and its code
+// XdslEligibilityCodeAndMessage A message and its code
 type XdslEligibilityCodeAndMessage struct {
 
-	// A code identifying the message
+	// Code A code identifying the message
 	Code string `json:"code,omitempty"`
 
-	// A message
+	// Message A message
 	Message string `json:"message,omitempty"`
 }

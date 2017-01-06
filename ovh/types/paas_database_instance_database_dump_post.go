@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// PaasDatabaseInstanceDatabaseDumpPost ...
 type PaasDatabaseInstanceDatabaseDumpPost struct {
-
 	Email string `json:"email,omitempty"`
 
 	Name string `json:"name,omitempty"`

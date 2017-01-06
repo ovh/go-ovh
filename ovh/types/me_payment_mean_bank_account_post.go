@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// MePaymentMeanBankAccountPost ...
 type MePaymentMeanBankAccountPost struct {
-
 	Bic string `json:"bic,omitempty"`
 
 	Description string `json:"description,omitempty"`

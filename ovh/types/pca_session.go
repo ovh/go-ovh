@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// cloud archives sessions
+// PcaSession cloud archives sessions
 type PcaSession struct {
 
-	// Session end date
-	EndDate time.Time `json:"endDate,omitempty"`
+	// EndDate Session end date
+	EndDate *time.Time `json:"endDate,omitempty"`
 
-	// Session ID
-	Id string `json:"id,omitempty"`
+	// ID Session ID
+	ID string `json:"id,omitempty"`
 
-	// This is your login
+	// Login This is your login
 	Login string `json:"login,omitempty"`
 
-	// Session friendly name
+	// Name Session friendly name
 	Name string `json:"name,omitempty"`
 
-	// Session size, in bytes
+	// Size Session size, in bytes
 	Size int64 `json:"size,omitempty"`
 
-	// IP session was made from
-	SrcIp string `json:"srcIp,omitempty"`
+	// SrcIP IP session was made from
+	SrcIP string `json:"srcIp,omitempty"`
 
-	// Session start date
-	StartDate time.Time `json:"startDate,omitempty"`
+	// StartDate Session start date
+	StartDate *time.Time `json:"startDate,omitempty"`
 
-	// Session state
+	// State Session state
 	State string `json:"state,omitempty"`
 }

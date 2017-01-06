@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// A structure describing informations about orderable USB keys
+// DedicatedServerUsbKeyOrderableDetails A structure describing informations about orderable USB keys
 type DedicatedServerUsbKeyOrderableDetails struct {
 
-	// Orderable USB keys capacity in gigabytes
+	// Capacity Orderable USB keys capacity in gigabytes
 	Capacity []int64 `json:"capacity,omitempty"`
 
-	// Number of USB keys that can be ordered for this server
+	// Number Number of USB keys that can be ordered for this server
 	Number int64 `json:"number,omitempty"`
 
-	// Which option is required to order an USB key
+	// OptionRequired Which option is required to order an USB key
 	OptionRequired string `json:"optionRequired,omitempty"`
 
-	// Is USB keys orderable for this server
+	// Orderable Is USB keys orderable for this server
 	Orderable bool `json:"orderable,omitempty"`
 }

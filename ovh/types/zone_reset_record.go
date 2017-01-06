@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// Resource record
+// ZoneResetRecord Resource record
 type ZoneResetRecord struct {
-
 	FieldType string `json:"fieldType,omitempty"`
 
-	// Resource record target
+	// Target Resource record target
 	Target string `json:"target,omitempty"`
 }

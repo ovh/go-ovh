@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderTelephonyNumberSpecialPost ...
 type OrderTelephonyNumberSpecialPost struct {
-
 	Ape string `json:"ape,omitempty"`
 
 	City string `json:"city,omitempty"`
@@ -34,7 +34,7 @@ type OrderTelephonyNumberSpecialPost struct {
 
 	Pool int64 `json:"pool,omitempty"`
 
-	Range_ string `json:"range,omitempty"`
+	TRange string `json:"range,omitempty"`
 
 	Retractation bool `json:"retractation,omitempty"`
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Advanced diagnostic of the voice call
+// TelephonyCallDiagnostics Advanced diagnostic of the voice call
 type TelephonyCallDiagnostics struct {
 
-	// The MOS call quality report
-	CallQuality []TelephonyCallDiagnosticCallQuality `json:"callQuality,omitempty"`
+	// CallQuality The MOS call quality report
+	CallQuality []*TelephonyCallDiagnosticCallQuality `json:"callQuality,omitempty"`
 
-	// The Call details records information
-	Cdrs []TelephonyCallDiagnosticCdrs `json:"cdrs,omitempty"`
+	// Cdrs The Call details records information
+	Cdrs []*TelephonyCallDiagnosticCdrs `json:"cdrs,omitempty"`
 
-	// The relevant informations in anormal behaviors
-	Reporting []TelephonyCallDiagnosticReporting `json:"reporting,omitempty"`
+	// Reporting The relevant informations in anormal behaviors
+	Reporting []*TelephonyCallDiagnosticReporting `json:"reporting,omitempty"`
 
-	// Sip signal packets during the call and last registers
-	Sip []TelephonyCallDiagnosticSip `json:"sip,omitempty"`
+	// Sip Sip signal packets during the call and last registers
+	Sip []*TelephonyCallDiagnosticSip `json:"sip,omitempty"`
 
-	// Todo if datas are being to be loaded in cache. done when datas are available
+	// Status Todo if datas are being to be loaded in cache. done when datas are available
 	Status string `json:"status,omitempty"`
 }

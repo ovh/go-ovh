@@ -14,38 +14,38 @@ import (
 	"time"
 )
 
-// Domain name administration
-type DomainDomain struct {
+// Domain Domain name administration
+type Domain struct {
 
-	// Is DNSSEC implemented for this domain name's tld
-	DnssecSupported bool `json:"dnssecSupported,omitempty"`
+	// DNSsecSupported Is DNSSEC implemented for this domain name's tld
+	DNSsecSupported bool `json:"dnssecSupported,omitempty"`
 
-	// Domain name
+	// Domain Domain name
 	Domain string `json:"domain,omitempty"`
 
-	// Does the registry support ipv6 glue record
-	GlueRecordIpv6Supported bool `json:"glueRecordIpv6Supported,omitempty"`
+	// GlueRecordIPv6Supported Does the registry support ipv6 glue record
+	GlueRecordIPv6Supported bool `json:"glueRecordIpv6Supported,omitempty"`
 
-	// Does the registry support multi ip glue record
-	GlueRecordMultiIpSupported bool `json:"glueRecordMultiIpSupported,omitempty"`
+	// GlueRecordMultiIPSupported Does the registry support multi ip glue record
+	GlueRecordMultiIPSupported bool `json:"glueRecordMultiIpSupported,omitempty"`
 
-	// Last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Name servers type
+	// NameServerType Name servers type
 	NameServerType string `json:"nameServerType,omitempty"`
 
-	// Domain's offer
+	// Offer Domain's offer
 	Offer string `json:"offer,omitempty"`
 
-	// Is whois obfuscation supported by this domain name's registry
+	// OwoSupported Is whois obfuscation supported by this domain name's registry
 	OwoSupported bool `json:"owoSupported,omitempty"`
 
-	ParentService DomainParentService `json:"parentService,omitempty"`
+	ParentService *DomainParentService `json:"parentService,omitempty"`
 
-	// Transfer lock status
+	// TransferLockStatus Transfer lock status
 	TransferLockStatus string `json:"transferLockStatus,omitempty"`
 
-	// Contact Owner (you can edit it via /me/contact/<ID>)
+	// WhoisOwner Contact Owner (you can edit it via /me/contact/<ID>)
 	WhoisOwner string `json:"whoisOwner,omitempty"`
 }

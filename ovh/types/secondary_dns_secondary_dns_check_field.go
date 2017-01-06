@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing informations about secondary dns check field
-type SecondaryDnsSecondaryDnsCheckField struct {
+// SecondaryDNSCheckField A structure describing informations about secondary dns check field
+type SecondaryDNSCheckField struct {
 
-	// The field type to add on your DNS zone for this subDomain
+	// FieldType The field type to add on your DNS zone for this subDomain
 	FieldType string `json:"fieldType,omitempty"`
 
-	// The field value to add on your DNS zone for this subDomain
+	// FieldValue The field value to add on your DNS zone for this subDomain
 	FieldValue string `json:"fieldValue,omitempty"`
 
-	// The subdomain to add on your DNS zone for the domain
+	// SubDomain The subdomain to add on your DNS zone for the domain
 	SubDomain string `json:"subDomain,omitempty"`
 }

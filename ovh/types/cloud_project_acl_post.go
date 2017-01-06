@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// CloudProjectAclPost ...
 type CloudProjectAclPost struct {
+	AccountID string `json:"accountId,omitempty"`
 
-	AccountId string `json:"accountId,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

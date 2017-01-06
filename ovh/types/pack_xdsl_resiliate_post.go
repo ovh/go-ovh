@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,11 @@ import (
 	"time"
 )
 
+// PackXdslResiliatePost ...
 type PackXdslResiliatePost struct {
+	ResiliationDate *time.Time `json:"resiliationDate,omitempty"`
 
-	ResiliationDate time.Time `json:"resiliationDate,omitempty"`
-
-	ResiliationSurvey PackXdslResiliationSurvey `json:"resiliationSurvey,omitempty"`
+	ResiliationSurvey *PackXdslResiliationSurvey `json:"resiliationSurvey,omitempty"`
 
 	ServicesToKeep []float64 `json:"servicesToKeep,omitempty"`
 }

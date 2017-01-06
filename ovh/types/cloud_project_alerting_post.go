@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// CloudProjectAlertingPost ...
 type CloudProjectAlertingPost struct {
-
 	Delay int64 `json:"delay,omitempty"`
 
 	Email string `json:"email,omitempty"`

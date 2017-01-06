@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,50 +10,50 @@
 
 package types
 
-// Calls queue
+// TelephonyOvhPabxHuntingQueue Calls queue
 type TelephonyOvhPabxHuntingQueue struct {
 
-	// Action executed when there is no member in queue
+	// ActionOnClosure Action executed when there is no member in queue
 	ActionOnClosure string `json:"actionOnClosure,omitempty"`
 
-	// The additionnal parameter of the on closure action
+	// ActionOnClosureParam The additionnal parameter of the on closure action
 	ActionOnClosureParam string `json:"actionOnClosureParam,omitempty"`
 
-	// Action executed when caller enters a full queue
+	// ActionOnOverflow Action executed when caller enters a full queue
 	ActionOnOverflow string `json:"actionOnOverflow,omitempty"`
 
-	// The additionnal parameter of the overflow action
+	// ActionOnOverflowParam The additionnal parameter of the overflow action
 	ActionOnOverflowParam string `json:"actionOnOverflowParam,omitempty"`
 
-	// Allow the caller to disable call record by pressing a key
+	// AskForRecordDisabling Allow the caller to disable call record by pressing a key
 	AskForRecordDisabling bool `json:"askForRecordDisabling,omitempty"`
 
-	// The name of the queue
+	// Description The name of the queue
 	Description string `json:"description,omitempty"`
 
-	// Follow the calls forwarding
+	// FollowCallForwards Follow the calls forwarding
 	FollowCallForwards bool `json:"followCallForwards,omitempty"`
 
-	// The maximum of people waiting in the queue
+	// MaxMember The maximum of people waiting in the queue
 	MaxMember int64 `json:"maxMember,omitempty"`
 
-	// The maximum waiting time (in seconds) in the queue
+	// MaxWaitTime The maximum waiting time (in seconds) in the queue
 	MaxWaitTime int64 `json:"maxWaitTime,omitempty"`
 
-	QueueId int64 `json:"queueId,omitempty"`
+	QueueID int64 `json:"queueId,omitempty"`
 
-	// Enable record on calls in queue
+	// Record Enable record on calls in queue
 	Record bool `json:"record,omitempty"`
 
-	// Key to press to disable record
+	// RecordDisablingDigit Key to press to disable record
 	RecordDisablingDigit int64 `json:"recordDisablingDigit,omitempty"`
 
-	// Language of the sound played to the caller to inform that he can disable record
+	// RecordDisablingLanguage Language of the sound played to the caller to inform that he can disable record
 	RecordDisablingLanguage string `json:"recordDisablingLanguage,omitempty"`
 
-	// The id of the OvhPabxSound played to caller when on hold
+	// SoundOnHold The id of the OvhPabxSound played to caller when on hold
 	SoundOnHold int64 `json:"soundOnHold,omitempty"`
 
-	// The calls dispatching strategy
+	// Strategy The calls dispatching strategy
 	Strategy string `json:"strategy,omitempty"`
 }

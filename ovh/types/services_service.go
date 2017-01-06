@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,10 @@ import (
 	"time"
 )
 
-// Details about a Service
+// ServicesService Details about a Service
 type ServicesService struct {
 
-	// Indicates that the service can be set up to be deleted at expiration
+	// CanDeleteAtExpiration Indicates that the service can be set up to be deleted at expiration
 	CanDeleteAtExpiration bool `json:"canDeleteAtExpiration,omitempty"`
 
 	ContactAdmin string `json:"contactAdmin,omitempty"`
@@ -26,18 +26,18 @@ type ServicesService struct {
 
 	ContactTech string `json:"contactTech,omitempty"`
 
-	Creation time.Time `json:"creation,omitempty"`
+	Creation *time.Time `json:"creation,omitempty"`
 
 	Domain string `json:"domain,omitempty"`
 
-	EngagedUpTo time.Time `json:"engagedUpTo,omitempty"`
+	EngagedUpTo *time.Time `json:"engagedUpTo,omitempty"`
 
-	Expiration time.Time `json:"expiration,omitempty"`
+	Expiration *time.Time `json:"expiration,omitempty"`
 
-	// All the possible renew period of your service in month
+	// PossibleRenewPeriod All the possible renew period of your service in month
 	PossibleRenewPeriod []int64 `json:"possibleRenewPeriod,omitempty"`
 
-	Renew ServiceRenewType `json:"renew,omitempty"`
+	Renew *ServiceRenewType `json:"renew,omitempty"`
 
 	RenewalType string `json:"renewalType,omitempty"`
 

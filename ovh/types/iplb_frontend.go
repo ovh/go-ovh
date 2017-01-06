@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,48 +10,48 @@
 
 package types
 
-// Frontend
-type IplbFrontend struct {
+// IPLBFrontend Frontend
+type IPLBFrontend struct {
 
-	// Restrict iplb access to these ip block. No restriction if null
+	// AllowedSource Restrict iplb access to these ip block. No restriction if null
 	AllowedSource []string `json:"allowedSource,omitempty"`
 
-	// Only attach frontend on these ip. No restriction if null
-	DedicatedIpfo []string `json:"dedicatedIpfo,omitempty"`
+	// DedicatedIPfo Only attach frontend on these ip. No restriction if null
+	DedicatedIPfo []string `json:"dedicatedIpfo,omitempty"`
 
-	// Default Backend of your frontend
-	DefaultBackendId int64 `json:"defaultBackendId,omitempty"`
+	// DefaultBackendID Default Backend of your frontend
+	DefaultBackendID int64 `json:"defaultBackendId,omitempty"`
 
-	// Default ssl served to your customer
-	DefaultSslId int64 `json:"defaultSslId,omitempty"`
+	// DefaultSSLID Default ssl served to your customer
+	DefaultSSLID int64 `json:"defaultSslId,omitempty"`
 
-	// Disable frontend
+	// Disabled Disable frontend
 	Disabled bool `json:"disabled,omitempty"`
 
-	// HTTP Strict Transport Security
+	// Hsts HTTP Strict Transport Security
 	Hsts bool `json:"hsts,omitempty"`
 
-	// Add header to your frontend. Useful variables admitted : %ci <=> client_ip, %cp <=> client_port
-	HttpHeader []string `json:"httpHeader,omitempty"`
+	// HTTPHeader Add header to your frontend. Useful variables admitted : %ci <=> client_ip, %cp <=> client_port
+	HTTPHeader []string `json:"httpHeader,omitempty"`
 
-	// Id of your frontend
-	Id int64 `json:"id,omitempty"`
+	// ID Id of your frontend
+	ID int64 `json:"id,omitempty"`
 
-	// Frontend name
+	// Name Frontend name
 	Name string `json:"name,omitempty"`
 
-	// Port(s) attached to your frontend
+	// Port Port(s) attached to your frontend
 	Port string `json:"port,omitempty"`
 
-	// HTTP redirection (Ex : http://www.ovh.com)
+	// RedirectLocation HTTP redirection (Ex : http://www.ovh.com)
 	RedirectLocation string `json:"redirectLocation,omitempty"`
 
-	// SSL deciphering
-	Ssl bool `json:"ssl,omitempty"`
+	// SSL SSL deciphering
+	SSL bool `json:"ssl,omitempty"`
 
-	// Type of your frontend
-	Type_ string `json:"type,omitempty"`
+	// TType Type of your frontend
+	TType string `json:"type,omitempty"`
 
-	// Zone of you frontend
+	// Zone Zone of you frontend
 	Zone string `json:"zone,omitempty"`
 }

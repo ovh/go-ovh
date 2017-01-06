@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,13 @@ import (
 	"time"
 )
 
-// Describes the current status of a task
+// PackXdslTask Describes the current status of a task
 type PackXdslTask struct {
-
 	Function string `json:"function,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	Status string `json:"status,omitempty"`
 
-	UpdateDate time.Time `json:"updateDate,omitempty"`
+	UpdateDate *time.Time `json:"updateDate,omitempty"`
 }

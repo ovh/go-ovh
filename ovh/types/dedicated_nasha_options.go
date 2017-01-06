@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Partition options
+// DedicatedNashaOptions Partition options
 type DedicatedNashaOptions struct {
 
-	// atime setting
+	// Atime atime setting
 	Atime string `json:"atime,omitempty"`
 
-	// ID
-	Id int64 `json:"id,omitempty"`
+	// ID ID
+	ID int64 `json:"id,omitempty"`
 
-	// ZFS recordsize
+	// Recordsize ZFS recordsize
 	Recordsize string `json:"recordsize,omitempty"`
 
-	// sync setting
+	// Sync sync setting
 	Sync string `json:"sync,omitempty"`
 }

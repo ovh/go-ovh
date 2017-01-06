@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// RescueAdminPassword
+// CloudInstanceRescueAdminPassword RescueAdminPassword
 type CloudInstanceRescueAdminPassword struct {
 
-	// Admin password to connect to your rescue server with
+	// AdminPassword Admin password to connect to your rescue server with
 	AdminPassword string `json:"adminPassword,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// Portability informations
+// TelephonyPortability Portability informations
 type TelephonyPortability struct {
 
-	// The billing account where the numbers will be inserted
+	// BillingAccount The billing account where the numbers will be inserted
 	BillingAccount string `json:"billingAccount,omitempty"`
 
-	// The portability's creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate The portability's creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// The date when the portability will be done and when numbers will be ported
-	DesiredExecutionDate time.Time `json:"desiredExecutionDate,omitempty"`
+	// DesiredExecutionDate The date when the portability will be done and when numbers will be ported
+	DesiredExecutionDate *time.Time `json:"desiredExecutionDate,omitempty"`
 
-	// The ID of the portability
-	Id int64 `json:"id,omitempty"`
+	// ID The ID of the portability
+	ID int64 `json:"id,omitempty"`
 
-	// The list of numbers that is going to be ported
+	// NumbersList The list of numbers that is going to be ported
 	NumbersList []string `json:"numbersList,omitempty"`
 
-	// The operator that currently holds the numbers
+	// Operator The operator that currently holds the numbers
 	Operator string `json:"operator,omitempty"`
 
-	// The ID of the portability order
-	OrderId int64 `json:"orderId,omitempty"`
+	// OrderID The ID of the portability order
+	OrderID int64 `json:"orderId,omitempty"`
 
-	// Country that defines the portability kind
+	// PortabilityCountry Country that defines the portability kind
 	PortabilityCountry string `json:"portabilityCountry,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// DbaasTimeseriesKeyPost ...
 type DbaasTimeseriesKeyPost struct {
-
 	Description string `json:"description,omitempty"`
 
 	Permissions []string `json:"permissions,omitempty"`
 
-	Tags []PaasTimeseriesTag `json:"tags,omitempty"`
+	Tags []*PaasTimeseriesTag `json:"tags,omitempty"`
 }

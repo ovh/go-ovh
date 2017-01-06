@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Your IP load balancing
-type IplbIp struct {
+// IPLBIP Your IP load balancing
+type IPLBIP struct {
 
-	// Set the name displayed in ManagerV6 for your iplb (max 50 chars)
+	// DisplayName Set the name displayed in ManagerV6 for your iplb (max 50 chars)
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Your IP load balancing
-	Iplb string `json:"iplb,omitempty"`
+	// IPLB Your IP load balancing
+	IPLB string `json:"iplb,omitempty"`
 
-	// The internal name of your IP load balancing
+	// ServiceName The internal name of your IP load balancing
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Modern oldest compatible clients : Firefox 27, Chrome 30, IE 11 on Windows 7, Edge, Opera 17, Safari 9, Android 5.0, and Java 8. Intermediate oldest compatible clients : Firefox 1, Chrome 1, IE 7, Opera 5, Safari 1, Windows XP IE8, Android 2.3, Java 7. Intermediate if null.
-	SslConfiguration string `json:"sslConfiguration,omitempty"`
+	// SSLConfiguration Modern oldest compatible clients : Firefox 27, Chrome 30, IE 11 on Windows 7, Edge, Opera 17, Safari 9, Android 5.0, and Java 8. Intermediate oldest compatible clients : Firefox 1, Chrome 1, IE 7, Opera 5, Safari 1, Windows XP IE8, Android 2.3, Java 7. Intermediate if null.
+	SSLConfiguration string `json:"sslConfiguration,omitempty"`
 
-	// Current state of your IP
+	// State Current state of your IP
 	State string `json:"state,omitempty"`
 
-	// Location where your service is
+	// Zone Location where your service is
 	Zone []string `json:"zone,omitempty"`
 }

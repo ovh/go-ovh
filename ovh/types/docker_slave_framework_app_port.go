@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Application ports
-type DockerSlaveFrameworkAppPort struct {
+// DockerSLAveFrameworkAppPort Application ports
+type DockerSLAveFrameworkAppPort struct {
 
-	// Container port
+	// ContainerPort Container port
 	ContainerPort int64 `json:"containerPort,omitempty"`
 
-	// Host port
+	// HostPort Host port
 	HostPort int64 `json:"hostPort,omitempty"`
 
-	// Port protocol
+	// Protocol Port protocol
 	Protocol string `json:"protocol,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// SaasCsp2SubscriptionPost ...
 type SaasCsp2SubscriptionPost struct {
-
-	LicenseId int64 `json:"licenseId,omitempty"`
+	LicenseID int64 `json:"licenseId,omitempty"`
 
 	Quantity int64 `json:"quantity,omitempty"`
 }

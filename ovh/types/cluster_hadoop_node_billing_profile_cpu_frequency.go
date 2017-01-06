@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Frequency of one CPU core
-type ClusterHadoopNodeBillingProfileCpuFrequency struct {
-
+// ClusterHadoopNodeBillingProfileCPUFrequency Frequency of one CPU core
+type ClusterHadoopNodeBillingProfileCPUFrequency struct {
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

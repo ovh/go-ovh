@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Network
-type CloudNetworkNetwork struct {
+// CloudNetwork Network
+type CloudNetwork struct {
 
-	// Network id
-	Id string `json:"id,omitempty"`
+	// ID Network id
+	ID string `json:"id,omitempty"`
 
-	// Network name
+	// Name Network name
 	Name string `json:"name,omitempty"`
 
-	// Details about private network in region
-	Regions []CloudNetworkNetworkRegion `json:"regions,omitempty"`
+	// Regions Details about private network in region
+	Regions []*CloudNetworkRegion `json:"regions,omitempty"`
 
-	// Network status
+	// Status Network status
 	Status string `json:"status,omitempty"`
 
-	// Network type
-	Type_ string `json:"type,omitempty"`
+	// TType Network type
+	TType string `json:"type,omitempty"`
 
-	// Network VLAN id
-	VlanId int64 `json:"vlanId,omitempty"`
+	// VlanID Network VLAN id
+	VlanID int64 `json:"vlanId,omitempty"`
 }

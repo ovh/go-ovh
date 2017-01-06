@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// List of all OVH things you can subscribe to
+// NichandleSubscription List of all OVH things you can subscribe to
 type NichandleSubscription struct {
 
-	// Determine whether you are registered or not
+	// Registered Determine whether you are registered or not
 	Registered bool `json:"registered,omitempty"`
 
-	// The type of subscription
-	Type_ string `json:"type,omitempty"`
+	// TType The type of subscription
+	TType string `json:"type,omitempty"`
 }

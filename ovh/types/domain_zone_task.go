@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,39 +14,39 @@ import (
 	"time"
 )
 
-// Tasks associated to a zone
+// DomainZoneTask Tasks associated to a zone
 type DomainZoneTask struct {
 
-	// Can accelerate the task
+	// CanAccelerate Can accelerate the task
 	CanAccelerate bool `json:"canAccelerate,omitempty"`
 
-	// Can cancel the task
+	// CanCancel Can cancel the task
 	CanCancel bool `json:"canCancel,omitempty"`
 
-	// Can relaunch the task
+	// CanRelaunch Can relaunch the task
 	CanRelaunch bool `json:"canRelaunch,omitempty"`
 
-	// Comment about the task
+	// Comment Comment about the task
 	Comment string `json:"comment,omitempty"`
 
-	// Creation date of the task
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date of the task
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Done date of the task
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	// DoneDate Done date of the task
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
-	// Function of the task
+	// Function Function of the task
 	Function string `json:"function,omitempty"`
 
-	// Id of the task
-	Id int64 `json:"id,omitempty"`
+	// ID Id of the task
+	ID int64 `json:"id,omitempty"`
 
-	// Last update date of the task
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date of the task
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Status of the task
+	// Status Status of the task
 	Status string `json:"status,omitempty"`
 
-	// Todo date of the task
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	// TodoDate Todo date of the task
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

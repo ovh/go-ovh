@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// ARP blocked IP information
-type IpArpBlockedIp struct {
+// IPArpBlockedIP ARP blocked IP information
+type IPArpBlockedIP struct {
 
-	// The last blocking date
-	BlockedSince time.Time `json:"blockedSince,omitempty"`
+	// BlockedSince The last blocking date
+	BlockedSince *time.Time `json:"blockedSince,omitempty"`
 
-	// your IP
-	IpBlocked string `json:"ipBlocked,omitempty"`
+	// IPBlocked your IP
+	IPBlocked string `json:"ipBlocked,omitempty"`
 
-	// ARP logs
+	// Logs ARP logs
 	Logs string `json:"logs,omitempty"`
 
-	// this IP address state
+	// State this IP address state
 	State string `json:"state,omitempty"`
 
-	// Time (in seconds) remaining before you can request your IP to be unblocked
+	// Time Time (in seconds) remaining before you can request your IP to be unblocked
 	Time int64 `json:"time,omitempty"`
 }

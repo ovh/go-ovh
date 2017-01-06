@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// A structure describing the network of a the virtual machine
-type DedicatedCloudVmNetwork struct {
-
+// DedicatedCloudVMNetwork A structure describing the network of a the virtual machine
+type DedicatedCloudVMNetwork struct {
 	AllowGuestControl bool `json:"allowGuestControl,omitempty"`
 
-	Backing DedicatedCloudVmNetworkBacking `json:"backing,omitempty"`
+	Backing *DedicatedCloudVMNetworkBacking `json:"backing,omitempty"`
 
 	Connected bool `json:"connected,omitempty"`
 

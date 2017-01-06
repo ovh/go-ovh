@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,29 +10,28 @@
 
 package types
 
-// Horizon View as a Service
+// HorizonViewDedicatedHorizon Horizon View as a Service
 type HorizonViewDedicatedHorizon struct {
+	NumberOfAvailableIP *HorizonViewDedicatedHorizonNumberOfAvailableIP `json:"numberOfAvailableIp,omitempty"`
 
-	NumberOfAvailableIp HorizonViewDedicatedHorizonNumberOfAvailableIp `json:"numberOfAvailableIp,omitempty"`
-
-	// Your Cloud Desktop Infrastructure pack
+	// Pack Your Cloud Desktop Infrastructure pack
 	Pack string `json:"pack,omitempty"`
 
-	// Your Horizon Private Cloud 
+	// PrivateCloudName Your Horizon Private Cloud
 	PrivateCloudName string `json:"privateCloudName,omitempty"`
 
-	// The location of your datacenter
+	// PrivateCloudZone The location of your datacenter
 	PrivateCloudZone string `json:"privateCloudZone,omitempty"`
 
-	// Url of your Dedicated Horizon
-	PublicUrl string `json:"publicUrl,omitempty"`
+	// PublicURL Url of your Dedicated Horizon
+	PublicURL string `json:"publicUrl,omitempty"`
 
-	// Domain of your Dedicated Horizon
+	// ServiceName Domain of your Dedicated Horizon
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Current state of your Dedicated Horizon
+	// State Current state of your Dedicated Horizon
 	State string `json:"state,omitempty"`
 
-	// Version of your Dedicated Horizon
+	// Version Version of your Dedicated Horizon
 	Version string `json:"version,omitempty"`
 }

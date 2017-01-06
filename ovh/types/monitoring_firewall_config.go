@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Configuration of the firewall
+// MonitoringFirewallConfig Configuration of the firewall
 type MonitoringFirewallConfig struct {
 
-	// List of allowed networks to the LiveStatus API
+	// Livestatus List of allowed networks to the LiveStatus API
 	Livestatus []string `json:"livestatus,omitempty"`
 
-	// List of allowed networks to the NSCA receiver
+	// Nsca List of allowed networks to the NSCA receiver
 	Nsca []string `json:"nsca,omitempty"`
 
-	// List of allowed networks to the Thruk web interface
+	// Thruk List of allowed networks to the Thruk web interface
 	Thruk []string `json:"thruk,omitempty"`
 }

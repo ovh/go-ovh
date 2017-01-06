@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DomainZoneDynHostRecordPost ...
 type DomainZoneDynHostRecordPost struct {
-
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
 	SubDomain string `json:"subDomain,omitempty"`
 }

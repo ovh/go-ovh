@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// EmailDomainAclPost ...
 type EmailDomainAclPost struct {
-
-	AccountId string `json:"accountId,omitempty"`
+	AccountID string `json:"accountId,omitempty"`
 }

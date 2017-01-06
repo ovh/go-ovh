@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Usage information for current month on your project
+// CloudProjectStorageUsage Usage information for current month on your project
 type CloudProjectStorageUsage struct {
 
-	// Storage bandwidth usage
-	Bandwidth []CloudProjectBandwidthStorageUsage `json:"bandwidth,omitempty"`
+	// Bandwidth Storage bandwidth usage
+	Bandwidth []*CloudProjectBandwidthStorageUsage `json:"bandwidth,omitempty"`
 
-	Total OrderPrice `json:"total,omitempty"`
+	Total *OrderPrice `json:"total,omitempty"`
 
-	// Storage volume usage
-	Volume []CloudProjectStorageVolumeUsage `json:"volume,omitempty"`
+	// Volume Storage volume usage
+	Volume []*CloudProjectStorageVolumeUsage `json:"volume,omitempty"`
 }

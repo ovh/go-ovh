@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Mysql configuration
+// HostingPrivateDatabaseConfigurationWhitelists Mysql configuration
 type HostingPrivateDatabaseConfigurationWhitelists struct {
 
-	// The comment for this whitelisting
+	// Comment The comment for this whitelisting
 	Comment string `json:"comment,omitempty"`
 
-	// The IP to whitelist on your private database
-	Ip string `json:"ip,omitempty"`
+	// IP The IP to whitelist on your private database
+	IP string `json:"ip,omitempty"`
 
-	// Last update date
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Authorize this IP to access service port
+	// Service Authorize this IP to access service port
 	Service bool `json:"service,omitempty"`
 
-	// Authorize this IP to access sftp port
+	// Sftp Authorize this IP to access sftp port
 	Sftp bool `json:"sftp,omitempty"`
 }

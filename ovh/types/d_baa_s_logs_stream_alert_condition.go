@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// Alert condition
+// DBaaSLogsStreamAlertCondition Alert condition
 type DBaaSLogsStreamAlertCondition struct {
 
-	// Stream alert condition UUID
-	AlertId string `json:"alertId,omitempty"`
+	// AlertID Stream alert condition UUID
+	AlertID string `json:"alertId,omitempty"`
 
-	// Backlog size
+	// Backlog Backlog size
 	Backlog int64 `json:"backlog,omitempty"`
 
-	// Alert condition type
+	// ConditionType Alert condition type
 	ConditionType string `json:"conditionType,omitempty"`
 
-	// Constraint type
+	// ConstraintType Constraint type
 	ConstraintType string `json:"constraintType,omitempty"`
 
-	// Field name
+	// Field Field name
 	Field string `json:"field,omitempty"`
 
-	// Grace period in minutes
+	// Grace Grace period in minutes
 	Grace int64 `json:"grace,omitempty"`
 
-	// Threshold
+	// Threshold Threshold
 	Threshold int64 `json:"threshold,omitempty"`
 
-	// Threshold condition
+	// ThresholdType Threshold condition
 	ThresholdType string `json:"thresholdType,omitempty"`
 
-	// Time lapse in minutes
+	// Time Time lapse in minutes
 	Time int64 `json:"time,omitempty"`
 
-	// Condition label
+	// Title Condition label
 	Title string `json:"title,omitempty"`
 
-	// Field value
+	// Value Field value
 	Value string `json:"value,omitempty"`
 }

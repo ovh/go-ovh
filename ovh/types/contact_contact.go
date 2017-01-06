@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,71 +14,70 @@ import (
 	"time"
 )
 
-// Representation of a Contact
-type ContactContact struct {
+// Contact Representation of a Contact
+type Contact struct {
+	Address *ContactAddress `json:"address,omitempty"`
 
-	Address ContactAddress `json:"address,omitempty"`
-
-	// Birth city
+	// BirthCity Birth city
 	BirthCity string `json:"birthCity,omitempty"`
 
-	// Birth Country
+	// BirthCountry Birth Country
 	BirthCountry string `json:"birthCountry,omitempty"`
 
-	// Birth date
-	BirthDay time.Time `json:"birthDay,omitempty"`
+	// BirthDay Birth date
+	BirthDay *time.Time `json:"birthDay,omitempty"`
 
-	// Birth Zipcode
+	// BirthZip Birth Zipcode
 	BirthZip string `json:"birthZip,omitempty"`
 
-	// Cellphone number
+	// CellPhone Cellphone number
 	CellPhone string `json:"cellPhone,omitempty"`
 
-	// National identification number of your company
-	CompanyNationalIdentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
+	// CompanyNationalIDentificationNumber National identification number of your company
+	CompanyNationalIDentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
 
-	// Email address
+	// Email Email address
 	Email string `json:"email,omitempty"`
 
-	// Fax number
+	// Fax Fax number
 	Fax string `json:"fax,omitempty"`
 
-	// First name
+	// FirstName First name
 	FirstName string `json:"firstName,omitempty"`
 
-	// Gender
+	// Gender Gender
 	Gender string `json:"gender,omitempty"`
 
-	// Contact Identifier
-	Id int64 `json:"id,omitempty"`
+	// ID Contact Identifier
+	ID int64 `json:"id,omitempty"`
 
-	// Language
+	// Language Language
 	Language string `json:"language,omitempty"`
 
-	// Last name
+	// LastName Last name
 	LastName string `json:"lastName,omitempty"`
 
-	// Legal form of the contact
+	// LegalForm Legal form of the contact
 	LegalForm string `json:"legalForm,omitempty"`
 
-	// National identification number of the contact
-	NationalIdentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
+	// NationalIDentificationNumber National identification number of the contact
+	NationalIDentificationNumber string `json:"nationalIdentificationNumber,omitempty"`
 
-	// Nationality
+	// Nationality Nationality
 	Nationality string `json:"nationality,omitempty"`
 
-	// Organisation name
+	// OrganisationName Organisation name
 	OrganisationName string `json:"organisationName,omitempty"`
 
-	// Organisation type
+	// OrganisationType Organisation type
 	OrganisationType string `json:"organisationType,omitempty"`
 
-	// Telephone number
+	// Phone Telephone number
 	Phone string `json:"phone,omitempty"`
 
-	// Spare email address
+	// SpareEmail Spare email address
 	SpareEmail string `json:"spareEmail,omitempty"`
 
-	// VAT number
+	// Vat VAT number
 	Vat string `json:"vat,omitempty"`
 }

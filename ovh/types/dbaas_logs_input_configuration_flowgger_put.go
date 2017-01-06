@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
+// DbaasLogsInputConfigurationFlowggerPut ...
 type DbaasLogsInputConfigurationFlowggerPut struct {
-
 	KafkaCoalesce int64 `json:"kafkaCoalesce,omitempty"`
 
 	LogFormat string `json:"logFormat,omitempty"`
 
 	LogFraming string `json:"logFraming,omitempty"`
 
-	TlsMethod string `json:"tlsMethod,omitempty"`
+	TLSMethod string `json:"tlsMethod,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

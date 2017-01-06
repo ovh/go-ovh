@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// A structure describing how to manage an sms Response
+// SmsResponse A structure describing how to manage an sms Response
 type SmsResponse struct {
 
-	// Default url callback used for a given response.
-	CgiUrl string `json:"cgiUrl,omitempty"`
+	// CgiURL Default url callback used for a given response.
+	CgiURL string `json:"cgiUrl,omitempty"`
 
 	ResponseType string `json:"responseType,omitempty"`
 
-	// Automatic notification sent by text in case of customer reply.
+	// Text Automatic notification sent by text in case of customer reply.
 	Text string `json:"text,omitempty"`
 
 	TrackingDefaultSmsSender string `json:"trackingDefaultSmsSender,omitempty"`
 
-	TrackingOptions []SmsResponseTrackingOptions `json:"trackingOptions,omitempty"`
+	TrackingOptions []*SmsResponseTrackingOptions `json:"trackingOptions,omitempty"`
 }

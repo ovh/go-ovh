@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Document
+// MarketPlaceDocument Document
 type MarketPlaceDocument struct {
 
-	// str
+	// CreationDate str
 	CreationDate string `json:"creationDate,omitempty"`
 
-	// str
-	GetUrl string `json:"getUrl,omitempty"`
+	// GetURL str
+	GetURL string `json:"getUrl,omitempty"`
 
-	// Unique identifier
-	Id string `json:"id,omitempty"`
+	// ID Unique identifier
+	ID string `json:"id,omitempty"`
 
-	// str
+	// Name str
 	Name string `json:"name,omitempty"`
 
-	// str
-	PutUrl string `json:"putUrl,omitempty"`
+	// PutURL str
+	PutURL string `json:"putUrl,omitempty"`
 
-	// str
+	// Size str
 	Size string `json:"size,omitempty"`
 
-	// Attached tags
-	Tags []ComplexTypeSafeKeyValueString `json:"tags,omitempty"`
+	// Tags Attached tags
+	Tags []*ComplexTypeSafeKeyValueString `json:"tags,omitempty"`
 }

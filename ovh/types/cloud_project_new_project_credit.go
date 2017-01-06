@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,19 @@
 
 package types
 
-// Credit details
+// CloudProjectNewProjectCredit Credit details
 type CloudProjectNewProjectCredit struct {
 
-	// Credit description
+	// Description Credit description
 	Description string `json:"description,omitempty"`
 
-	// Credit id
-	Id int64 `json:"id,omitempty"`
+	// ID Credit id
+	ID int64 `json:"id,omitempty"`
 
-	// Use credits on following products
+	// Products Use credits on following products
 	Products []string `json:"products,omitempty"`
 
-	TotalCredit OrderPrice `json:"total_credit,omitempty"`
+	TotalCredit *OrderPrice `json:"total_credit,omitempty"`
 
-	Validity CloudCommonVoucherValidity `json:"validity,omitempty"`
+	Validity *CloudCommonVoucherValidity `json:"validity,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// StorePartnerPost ...
 type StorePartnerPost struct {
-
 	Category string `json:"category,omitempty"`
 
 	City string `json:"city,omitempty"`
 
-	CompanyNationalIdentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
+	CompanyNationalIDentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
 
 	Contact string `json:"contact,omitempty"`
 
@@ -38,7 +38,7 @@ type StorePartnerPost struct {
 
 	Street string `json:"street,omitempty"`
 
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 
 	Vat string `json:"vat,omitempty"`
 

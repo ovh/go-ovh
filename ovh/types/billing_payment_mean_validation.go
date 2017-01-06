@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// A validation required to add a payment mean
+// BillingPaymentMeanValidation A validation required to add a payment mean
 type BillingPaymentMeanValidation struct {
-
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 
 	ValidationType string `json:"validationType,omitempty"`
 }

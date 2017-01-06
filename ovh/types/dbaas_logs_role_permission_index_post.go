@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// DbaasLogsRolePermissionIndexPost ...
 type DbaasLogsRolePermissionIndexPost struct {
-
-	IndexId string `json:"indexId,omitempty"`
+	IndexID string `json:"indexId,omitempty"`
 }

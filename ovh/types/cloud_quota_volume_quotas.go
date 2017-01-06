@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// VolumeQuotas
+// CloudQuotaVolumeQuotas VolumeQuotas
 type CloudQuotaVolumeQuotas struct {
 
-	// Maximum total volume capacity allowed in your project
+	// MaxGigabytes Maximum total volume capacity allowed in your project
 	MaxGigabytes int64 `json:"maxGigabytes,omitempty"`
 
-	// Current used volume gigabytes
+	// UsedGigabytes Current used volume gigabytes
 	UsedGigabytes int64 `json:"usedGigabytes,omitempty"`
 
-	// Current volumes count
+	// VolumeCount Current volumes count
 	VolumeCount int64 `json:"volumeCount,omitempty"`
 }

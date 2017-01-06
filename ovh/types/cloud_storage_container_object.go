@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,24 +14,24 @@ import (
 	"time"
 )
 
-// ContainerObject
+// CloudStorageContainerObject ContainerObject
 type CloudStorageContainerObject struct {
 
-	// Object content type
+	// ContentType Object content type
 	ContentType string `json:"contentType,omitempty"`
 
-	// Last modification date
-	LastModified time.Time `json:"lastModified,omitempty"`
+	// LastModified Last modification date
+	LastModified *time.Time `json:"lastModified,omitempty"`
 
-	// Object name
+	// Name Object name
 	Name string `json:"name,omitempty"`
 
-	// Object retrieval delay (when unsealing)
+	// RetrievalDelay Object retrieval delay (when unsealing)
 	RetrievalDelay int64 `json:"retrievalDelay,omitempty"`
 
-	// Object retrieval state
+	// RetrievalState Object retrieval state
 	RetrievalState string `json:"retrievalState,omitempty"`
 
-	// Object size
+	// Size Object size
 	Size int64 `json:"size,omitempty"`
 }

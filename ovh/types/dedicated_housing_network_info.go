@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// A structure describing the Bay`s network configuration
+// DedicatedHousingNetworkInfo A structure describing the Bay`s network configuration
 type DedicatedHousingNetworkInfo struct {
+	IPv4 *DedicatedHousingIPInfo `json:"ipv4,omitempty"`
 
-	Ipv4 DedicatedHousingIpInfo `json:"ipv4,omitempty"`
+	IPv6 *DedicatedHousingIPInfo `json:"ipv6,omitempty"`
 
-	Ipv6 DedicatedHousingIpInfo `json:"ipv6,omitempty"`
-
-	Link DedicatedHousingLinkInfo `json:"link,omitempty"`
+	Link *DedicatedHousingLinkInfo `json:"link,omitempty"`
 }

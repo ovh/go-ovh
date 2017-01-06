@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// A structure describing the Resource's new price
+// DedicatedCloudResourceNewPrices A structure describing the Resource's new price
 type DedicatedCloudResourceNewPrices struct {
-
-	Resources []DedicatedCloudResourceNewPricesEntry `json:"resources,omitempty"`
+	Resources []*DedicatedCloudResourceNewPricesEntry `json:"resources,omitempty"`
 }

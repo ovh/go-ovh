@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,35 +10,35 @@
 
 package types
 
-// Phone configuration property
+// TelephonyPhoneConfigurationProperty Phone configuration property
 type TelephonyPhoneConfigurationProperty struct {
 
-	// Default property value
-	Default_ string `json:"default,omitempty"`
+	// TDefault Default property value
+	TDefault string `json:"default,omitempty"`
 
-	// Property description
+	// Description Property description
 	Description string `json:"description,omitempty"`
 
-	// Property value possibilities
+	// Enum Property value possibilities
 	Enum []string `json:"enum,omitempty"`
 
-	// The property group
+	// Group The property group
 	Group string `json:"group,omitempty"`
 
-	// Provisioning level
+	// Level Provisioning level
 	Level string `json:"level,omitempty"`
 
-	// Max string chars
+	// Maxlength Max string chars
 	Maxlength int64 `json:"maxlength,omitempty"`
 
-	// The property name
+	// Name The property name
 	Name string `json:"name,omitempty"`
 
-	RangeValue TelephonyPhoneConfigurationPropertyRangeValue `json:"rangeValue,omitempty"`
+	RangeValue *TelephonyPhoneConfigurationPropertyRangeValue `json:"rangeValue,omitempty"`
 
-	// Provisioning type
-	Type_ string `json:"type,omitempty"`
+	// TType Provisioning type
+	TType string `json:"type,omitempty"`
 
-	// Current property value
+	// Value Current property value
 	Value string `json:"value,omitempty"`
 }

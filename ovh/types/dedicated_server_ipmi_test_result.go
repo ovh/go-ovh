@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// A structure describing IPMI test result
-type DedicatedServerIpmiTestResult struct {
+// DedicatedServerIPmiTestResult A structure describing IPMI test result
+type DedicatedServerIPmiTestResult struct {
 
-	// Test running date
-	Date time.Time `json:"date,omitempty"`
+	// Date Test running date
+	Date *time.Time `json:"date,omitempty"`
 
-	// Test result
+	// Status Test result
 	Status string `json:"status,omitempty"`
 }

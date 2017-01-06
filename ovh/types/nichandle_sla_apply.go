@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// SLA properties
-type NichandleSlaApply struct {
+// NichandleSLAApply SLA properties
+type NichandleSLAApply struct {
 
-	// Date of the event that led to SLA
-	Date time.Time `json:"date,omitempty"`
+	// Date Date of the event that led to SLA
+	Date *time.Time `json:"date,omitempty"`
 
-	// Description of the SLA operation for this incident
+	// Description Description of the SLA operation for this incident
 	Description string `json:"description,omitempty"`
 
-	// SLA identifier
-	Id int64 `json:"id,omitempty"`
+	// ID SLA identifier
+	ID int64 `json:"id,omitempty"`
 
-	// Sla operation name
+	// Name Sla operation name
 	Name string `json:"name,omitempty"`
 }

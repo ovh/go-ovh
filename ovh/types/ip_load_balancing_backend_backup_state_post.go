@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type IpLoadBalancingBackendBackupStatePost struct {
-
+// IPLoadBalancingBackendBackupStatePost ...
+type IPLoadBalancingBackendBackupStatePost struct {
 	BackupStateSet bool `json:"backupStateSet,omitempty"`
 
-	MainBackendIp string `json:"mainBackendIp,omitempty"`
+	MainBackendIP string `json:"mainBackendIp,omitempty"`
 }

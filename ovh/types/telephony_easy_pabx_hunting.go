@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,33 +10,33 @@
 
 package types
 
-// EasyPabx Hunting
+// TelephonyEasyPabxHunting EasyPabx Hunting
 type TelephonyEasyPabxHunting struct {
 
-	// Reject anonymous calls
+	// AnonymousCallRejection Reject anonymous calls
 	AnonymousCallRejection bool `json:"anonymousCallRejection,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	// The maximum no-reply time before forwarding the call to the voicemail
+	// NoReplyTimer The maximum no-reply time before forwarding the call to the voicemail
 	NoReplyTimer int64 `json:"noReplyTimer,omitempty"`
 
-	// Number of simultaneous calls
+	// NumberOfCalls Number of simultaneous calls
 	NumberOfCalls int64 `json:"numberOfCalls,omitempty"`
 
 	Pattern string `json:"pattern,omitempty"`
 
 	Strategy string `json:"strategy,omitempty"`
 
-	// True if the tone on closure is enabled
+	// ToneOnClosure True if the tone on closure is enabled
 	ToneOnClosure bool `json:"toneOnClosure,omitempty"`
 
-	// True if the tone on hold is enabled
+	// ToneOnHold True if the tone on hold is enabled
 	ToneOnHold bool `json:"toneOnHold,omitempty"`
 
-	// True if the ring back tone is enabled
+	// ToneRingback True if the ring back tone is enabled
 	ToneRingback bool `json:"toneRingback,omitempty"`
 
-	// The voicemail used by the EasyPABX
+	// Voicemail The voicemail used by the EasyPABX
 	Voicemail string `json:"voicemail,omitempty"`
 }

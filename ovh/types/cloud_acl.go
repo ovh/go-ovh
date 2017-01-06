@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Cloud ACL
+// CloudAcl Cloud ACL
 type CloudAcl struct {
 
-	// OVH customer unique identifier
-	AccountId string `json:"accountId,omitempty"`
+	// AccountID OVH customer unique identifier
+	AccountID string `json:"accountId,omitempty"`
 
-	// ACL type
-	Type_ string `json:"type,omitempty"`
+	// TType ACL type
+	TType string `json:"type,omitempty"`
 }

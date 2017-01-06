@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,10 @@ import (
 	"time"
 )
 
-// SMS blacklist
+// SmsBlacklist SMS blacklist
 type SmsBlacklist struct {
+	DateCreation *time.Time `json:"dateCreation,omitempty"`
 
-	DateCreation time.Time `json:"dateCreation,omitempty"`
-
-	// The sms number blacklisted
+	// Number The sms number blacklisted
 	Number string `json:"number,omitempty"`
 }

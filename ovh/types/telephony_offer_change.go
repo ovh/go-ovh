@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Offer change
+// TelephonyOfferChange Offer change
 type TelephonyOfferChange struct {
 
-	// The current offer will be replace by this one on the next renew.
+	// Offer The current offer will be replace by this one on the next renew.
 	Offer string `json:"offer,omitempty"`
 }

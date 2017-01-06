@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Subscribers List
+// EmailDomainSubscriber Subscribers List
 type EmailDomainSubscriber struct {
-
 	Domain string `json:"domain,omitempty"`
 
 	Email string `json:"email,omitempty"`

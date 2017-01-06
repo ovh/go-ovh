@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// CloudProjectNetworkPrivatePut ...
 type CloudProjectNetworkPrivatePut struct {
-
 	Name string `json:"name,omitempty"`
 }

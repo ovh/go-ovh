@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Detail of a fax campaign
+// TelephonyFaxCampaignDetail Detail of a fax campaign
 type TelephonyFaxCampaignDetail struct {
-
 	Failed []string `json:"failed,omitempty"`
 
 	Success []string `json:"success,omitempty"`

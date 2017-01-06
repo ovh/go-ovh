@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// Closing period for mondial relay point
+// SupplyMondialRelayClosingPeriod Closing period for mondial relay point
 type SupplyMondialRelayClosingPeriod struct {
 
-	// Ending of closing period
-	End time.Time `json:"end,omitempty"`
+	// End Ending of closing period
+	End *time.Time `json:"end,omitempty"`
 
-	// Beginning of closing period
-	Start time.Time `json:"start,omitempty"`
+	// Start Beginning of closing period
+	Start *time.Time `json:"start,omitempty"`
 }

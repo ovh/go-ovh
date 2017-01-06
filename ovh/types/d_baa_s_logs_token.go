@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Token
+// DBaaSLogsToken Token
 type DBaaSLogsToken struct {
 
-	// Token creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Token creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// Token name
+	// Name Token name
 	Name string `json:"name,omitempty"`
 
-	// Token UUID
-	TokenId string `json:"tokenId,omitempty"`
+	// TokenID Token UUID
+	TokenID string `json:"tokenId,omitempty"`
 
-	// Token last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Token last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 
-	// Token value
+	// Value Token value
 	Value string `json:"value,omitempty"`
 }

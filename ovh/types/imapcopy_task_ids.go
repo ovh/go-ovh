@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Ids of ImapCopy Task
-type ImapcopyTaskIds struct {
+// ImapcopyTaskIDs Ids of ImapCopy Task
+type ImapcopyTaskIDs struct {
 
-	// Id of task
-	Id int64 `json:"id,omitempty"`
+	// ID Id of task
+	ID int64 `json:"id,omitempty"`
 
-	// Secret key of task
+	// SecretKey Secret key of task
 	SecretKey string `json:"secretKey,omitempty"`
 }

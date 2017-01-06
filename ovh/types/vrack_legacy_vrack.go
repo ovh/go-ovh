@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// interface between legacy vrack (vrackXXXX) and vrack (pn-XXXX)
+// VrackLegacyVrack interface between legacy vrack (vrackXXXX) and vrack (pn-XXXX)
 type VrackLegacyVrack struct {
 
-	// your legacy vrack service
+	// LegacyVrack your legacy vrack service
 	LegacyVrack string `json:"legacyVrack,omitempty"`
 
-	// vlan to set on legacy vrack equipments
-	VlanId int64 `json:"vlanId,omitempty"`
+	// VlanID vlan to set on legacy vrack equipments
+	VlanID int64 `json:"vlanId,omitempty"`
 }

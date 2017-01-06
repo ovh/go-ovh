@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxMenuPost ...
 type TelephonyOvhPabxMenuPost struct {
-
 	GreetSound int64 `json:"greetSound,omitempty"`
 
 	GreetSoundTts int64 `json:"greetSoundTts,omitempty"`

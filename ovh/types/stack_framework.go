@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// A framework installed for a docker PaaS stack
+// StackFramework A framework installed for a docker PaaS stack
 type StackFramework struct {
 
-	// The framework name
-	AccessUrl string `json:"accessUrl,omitempty"`
+	// AccessURL The framework name
+	AccessURL string `json:"accessUrl,omitempty"`
 
-	// Date of the resource creation
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	// CreatedAt Date of the resource creation
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// The framework UUID
-	Id string `json:"id,omitempty"`
+	// ID The framework UUID
+	ID string `json:"id,omitempty"`
 
-	// The framework name
+	// Name The framework name
 	Name string `json:"name,omitempty"`
 
-	// Date of the resource last update
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	// UpdatedAt Date of the resource last update
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

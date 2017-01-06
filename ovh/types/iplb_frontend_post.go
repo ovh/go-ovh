@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-type IplbFrontendPost struct {
-
+// IPLBFrontendPost ...
+type IPLBFrontendPost struct {
 	AllowedSource []string `json:"allowedSource,omitempty"`
 
-	DedicatedIpfo []string `json:"dedicatedIpfo,omitempty"`
+	DedicatedIPfo []string `json:"dedicatedIpfo,omitempty"`
 
-	DefaultBackendId int64 `json:"defaultBackendId,omitempty"`
+	DefaultBackendID int64 `json:"defaultBackendId,omitempty"`
 
-	DefaultSslId int64 `json:"defaultSslId,omitempty"`
+	DefaultSSLID int64 `json:"defaultSslId,omitempty"`
 
 	Disabled bool `json:"disabled,omitempty"`
 
 	Hsts bool `json:"hsts,omitempty"`
 
-	HttpHeader []string `json:"httpHeader,omitempty"`
+	HTTPHeader []string `json:"httpHeader,omitempty"`
 
 	Port string `json:"port,omitempty"`
 
 	RedirectLocation string `json:"redirectLocation,omitempty"`
 
-	Ssl bool `json:"ssl,omitempty"`
+	SSL bool `json:"ssl,omitempty"`
 
 	Zone string `json:"zone,omitempty"`
 }

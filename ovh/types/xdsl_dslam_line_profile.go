@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Profile on the DSLAM
+// XdslDslamLineProfile Profile on the DSLAM
 type XdslDslamLineProfile struct {
-
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
 	IsCurrent bool `json:"isCurrent,omitempty"`
 

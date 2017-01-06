@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// DomainDataAfnicCorporationTrademarkInformationPost ...
 type DomainDataAfnicCorporationTrademarkInformationPost struct {
-
-	ContactId int64 `json:"contactId,omitempty"`
+	ContactID int64 `json:"contactId,omitempty"`
 
 	InpiNumber string `json:"inpiNumber,omitempty"`
 

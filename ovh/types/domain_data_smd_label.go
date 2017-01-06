@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Representation of a protected label
+// DomainDataSmdLabel Representation of a protected label
 type DomainDataSmdLabel struct {
 
-	// Label that is protected
+	// Label Label that is protected
 	Label string `json:"label,omitempty"`
 
-	// Trademark associated to the protected label
+	// Trademark Trademark associated to the protected label
 	Trademark string `json:"trademark,omitempty"`
 }

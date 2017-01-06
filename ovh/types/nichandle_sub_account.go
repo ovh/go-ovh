@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Sub Account
+// NichandleSubAccount Sub Account
 type NichandleSubAccount struct {
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// This sub-account description
+	// Description This sub-account description
 	Description string `json:"description,omitempty"`
 
-	// This sub-account id
-	Id int64 `json:"id,omitempty"`
+	// ID This sub-account id
+	ID int64 `json:"id,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// OrderOverTheBoxNewPost ...
 type OrderOverTheBoxNewPost struct {
-
-	DeviceId string `json:"deviceId,omitempty"`
+	DeviceID string `json:"deviceId,omitempty"`
 
 	Offer string `json:"offer,omitempty"`
 

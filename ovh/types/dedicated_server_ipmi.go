@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Server IPMI interface
-type DedicatedServerIpmi struct {
+// DedicatedServerIPmi Server IPMI interface
+type DedicatedServerIPmi struct {
 
-	// true, if IPMI is ivailable on this server
+	// Activated true, if IPMI is ivailable on this server
 	Activated bool `json:"activated,omitempty"`
 }

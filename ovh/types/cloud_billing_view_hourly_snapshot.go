@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// HourlySnapshot
+// CloudBillingViewHourlySnapshot HourlySnapshot
 type CloudBillingViewHourlySnapshot struct {
+	Instance *CloudBillingViewInstanceSnapshot `json:"instance,omitempty"`
 
-	Instance CloudBillingViewInstanceSnapshot `json:"instance,omitempty"`
-
-	// Region
+	// Region Region
 	Region string `json:"region,omitempty"`
 
-	// Total price
+	// TotalPrice Total price
 	TotalPrice float64 `json:"totalPrice,omitempty"`
 
-	Volume CloudBillingViewVolumeSnapshot `json:"volume,omitempty"`
+	Volume *CloudBillingViewVolumeSnapshot `json:"volume,omitempty"`
 }

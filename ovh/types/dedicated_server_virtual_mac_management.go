@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-//  ip address linked with this virtual mac address
+// DedicatedServerVirtualMacManagement  ip address linked with this virtual mac address
 type DedicatedServerVirtualMacManagement struct {
 
-	// IP address
-	IpAddress string `json:"ipAddress,omitempty"`
+	// IPAddress IP address
+	IPAddress string `json:"ipAddress,omitempty"`
 
-	// Friendly name of your Virtual Machine behind this IP/MAC
+	// VirtualMachineName Friendly name of your Virtual Machine behind this IP/MAC
 	VirtualMachineName string `json:"virtualMachineName,omitempty"`
 }

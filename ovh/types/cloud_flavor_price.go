@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,19 +10,19 @@
 
 package types
 
-// Details about flavor pricing
+// CloudFlavorPrice Details about flavor pricing
 type CloudFlavorPrice struct {
 
-	// Flavor id
-	FlavorId string `json:"flavorId,omitempty"`
+	// FlavorID Flavor id
+	FlavorID string `json:"flavorId,omitempty"`
 
-	// Flavor name
+	// FlavorName Flavor name
 	FlavorName string `json:"flavorName,omitempty"`
 
-	MonthlyPrice OrderPrice `json:"monthlyPrice,omitempty"`
+	MonthlyPrice *OrderPrice `json:"monthlyPrice,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	// Flavor region
+	// Region Flavor region
 	Region string `json:"region,omitempty"`
 }

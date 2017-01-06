@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// EmailExchangeServiceMailingListSendAsPost ...
 type EmailExchangeServiceMailingListSendAsPost struct {
-
-	AllowAccountId int64 `json:"allowAccountId,omitempty"`
+	AllowAccountID int64 `json:"allowAccountId,omitempty"`
 }

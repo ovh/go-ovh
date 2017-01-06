@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Size of the account you can create
+// EmailServiceCapabilitiesAccountSize Size of the account you can create
 type EmailServiceCapabilitiesAccountSize struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value int64 `json:"value,omitempty"`

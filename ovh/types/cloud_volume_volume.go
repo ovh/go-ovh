@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,36 +14,36 @@ import (
 	"time"
 )
 
-// Volume
-type CloudVolumeVolume struct {
+// CloudVolume Volume
+type CloudVolume struct {
 
-	// Volume attached to instances id
+	// AttachedTo Volume attached to instances id
 	AttachedTo []string `json:"attachedTo,omitempty"`
 
-	// Volume bootable
+	// Bootable Volume bootable
 	Bootable bool `json:"bootable,omitempty"`
 
-	// Volume creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Volume creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Volume description
+	// Description Volume description
 	Description string `json:"description,omitempty"`
 
-	// Volume id
-	Id string `json:"id,omitempty"`
+	// ID Volume id
+	ID string `json:"id,omitempty"`
 
-	// Volume name
+	// Name Volume name
 	Name string `json:"name,omitempty"`
 
-	// Volume region
+	// Region Volume region
 	Region string `json:"region,omitempty"`
 
-	// Volume size (in GB)
+	// Size Volume size (in GB)
 	Size int64 `json:"size,omitempty"`
 
-	// Volume status
+	// Status Volume status
 	Status string `json:"status,omitempty"`
 
-	// Volume type
-	Type_ string `json:"type,omitempty"`
+	// TType Volume type
+	TType string `json:"type,omitempty"`
 }

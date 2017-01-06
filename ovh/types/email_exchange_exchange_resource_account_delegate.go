@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Resource accounts delegates
-type EmailExchangeExchangeResourceAccountDelegate struct {
+// EmailExchangeResourceAccountDelegate Resource accounts delegates
+type EmailExchangeResourceAccountDelegate struct {
 
-	// delegate's account id
-	AllowedAccountId int64 `json:"allowedAccountId,omitempty"`
+	// AllowedAccountID delegate's account id
+	AllowedAccountID int64 `json:"allowedAccountId,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Delegate account primaryEmailAddress
+	// DelegateEmailAddress Delegate account primaryEmailAddress
 	DelegateEmailAddress string `json:"delegateEmailAddress,omitempty"`
 
-	// task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

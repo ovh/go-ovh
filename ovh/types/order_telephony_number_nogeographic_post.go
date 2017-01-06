@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderTelephonyNumberNogeographicPost ...
 type OrderTelephonyNumberNogeographicPost struct {
-
 	Ape string `json:"ape,omitempty"`
 
 	City string `json:"city,omitempty"`

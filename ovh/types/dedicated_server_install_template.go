@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// A structure describing informations about an Installation templates
+// DedicatedServerInstallTemplate A structure describing informations about an Installation templates
 type DedicatedServerInstallTemplate struct {
 
-	// Names list of ovh installationtemplates compatibles with this server
+	// Ovh Names list of ovh installationtemplates compatibles with this server
 	Ovh []string `json:"ovh,omitempty"`
 
-	// Names list of yours installation templates compatibles with this server
+	// Personal Names list of yours installation templates compatibles with this server
 	Personal []string `json:"personal,omitempty"`
 }

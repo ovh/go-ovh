@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Storage zpool partition
+// DedicatedNashaPartition Storage zpool partition
 type DedicatedNashaPartition struct {
 
-	// percentage of partition space used in %
+	// PartitionCapacity percentage of partition space used in %
 	PartitionCapacity int64 `json:"partitionCapacity,omitempty"`
 
-	// the given name of partition
+	// PartitionName the given name of partition
 	PartitionName string `json:"partitionName,omitempty"`
 
-	// must be nfs cifs or both
+	// Protocol must be nfs cifs or both
 	Protocol string `json:"protocol,omitempty"`
 
-	// Partition size
+	// Size Partition size
 	Size int64 `json:"size,omitempty"`
 
-	// percentage of partition space used by snapshots, in %
+	// UsedBySnapshots percentage of partition space used by snapshots, in %
 	UsedBySnapshots int64 `json:"usedBySnapshots,omitempty"`
 }

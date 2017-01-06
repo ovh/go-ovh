@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Contract of service
+// AgreementsContract Contract of service
 type AgreementsContract struct {
 
-	// Is this contract currently active or not ?
+	// Active Is this contract currently active or not ?
 	Active bool `json:"active,omitempty"`
 
-	// Date the contract was created on
-	Date time.Time `json:"date,omitempty"`
+	// Date Date the contract was created on
+	Date *time.Time `json:"date,omitempty"`
 
-	// Name of of the contract
+	// Name Name of of the contract
 	Name string `json:"name,omitempty"`
 
-	// URL you can download the contract at
+	// Pdf URL you can download the contract at
 	Pdf string `json:"pdf,omitempty"`
 
-	// Full text of the contract
+	// Text Full text of the contract
 	Text string `json:"text,omitempty"`
 }

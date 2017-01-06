@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,23 +14,22 @@ import (
 	"time"
 )
 
-// API Credential
-type ApiCredential struct {
+// APICredential API Credential
+type APICredential struct {
+	ApplicationID int64 `json:"applicationId,omitempty"`
 
-	ApplicationId int64 `json:"applicationId,omitempty"`
+	Creation *time.Time `json:"creation,omitempty"`
 
-	Creation time.Time `json:"creation,omitempty"`
+	CredentialID int64 `json:"credentialId,omitempty"`
 
-	CredentialId int64 `json:"credentialId,omitempty"`
+	Expiration *time.Time `json:"expiration,omitempty"`
 
-	Expiration time.Time `json:"expiration,omitempty"`
+	LastUse *time.Time `json:"lastUse,omitempty"`
 
-	LastUse time.Time `json:"lastUse,omitempty"`
-
-	// States whether this credential has been created by yourself or by the OVH support team
+	// OvhSupport States whether this credential has been created by yourself or by the OVH support team
 	OvhSupport bool `json:"ovhSupport,omitempty"`
 
-	Rules []AuthAccessRule `json:"rules,omitempty"`
+	Rules []*AuthAccessRule `json:"rules,omitempty"`
 
 	Status string `json:"status,omitempty"`
 }

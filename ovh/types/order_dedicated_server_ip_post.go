@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-type OrderDedicatedServerIpPost struct {
-
+// OrderDedicatedServerIPPost ...
+type OrderDedicatedServerIPPost struct {
 	BlockSize int64 `json:"blockSize,omitempty"`
 
 	Country string `json:"country,omitempty"`
 
-	OrganisationId string `json:"organisationId,omitempty"`
+	OrganisationID string `json:"organisationId,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

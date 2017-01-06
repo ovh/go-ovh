@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,54 +10,54 @@
 
 package types
 
-// partner
+// MarketPlacePartner partner
 type MarketPlacePartner struct {
 
-	// Category
+	// Category Category
 	Category string `json:"category,omitempty"`
 
-	// City
+	// City City
 	City string `json:"city,omitempty"`
 
-	// Company national identification number
-	CompanyNationalIdentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
+	// CompanyNationalIDentificationNumber Company national identification number
+	CompanyNationalIDentificationNumber string `json:"companyNationalIdentificationNumber,omitempty"`
 
-	// str
+	// Contact str
 	Contact string `json:"contact,omitempty"`
 
-	// Country
+	// Country Country
 	Country string `json:"country,omitempty"`
 
-	// Complete description
+	// Description Complete description
 	Description string `json:"description,omitempty"`
 
-	// Language
+	// Language Language
 	Language string `json:"language,omitempty"`
 
-	// Legal form
+	// LegalForm Legal form
 	LegalForm string `json:"legalForm,omitempty"`
 
-	// Organisation display name
+	// OrganisationDisplayName Organisation display name
 	OrganisationDisplayName string `json:"organisationDisplayName,omitempty"`
 
-	// Organisation name
+	// OrganisationName Organisation name
 	OrganisationName string `json:"organisationName,omitempty"`
 
-	// Complementary information
+	// OtherDetails Complementary information
 	OtherDetails string `json:"otherDetails,omitempty"`
 
-	// Province name
+	// Province Province name
 	Province string `json:"province,omitempty"`
 
-	// Street address
+	// Street Street address
 	Street string `json:"street,omitempty"`
 
-	// Website address
-	Url string `json:"url,omitempty"`
+	// URL Website address
+	URL string `json:"url,omitempty"`
 
-	// VAT number
+	// Vat VAT number
 	Vat string `json:"vat,omitempty"`
 
-	// ZipCode
+	// Zip ZipCode
 	Zip string `json:"zip,omitempty"`
 }

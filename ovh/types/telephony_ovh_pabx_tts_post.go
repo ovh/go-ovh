@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// TelephonyOvhPabxTtsPost ...
 type TelephonyOvhPabxTtsPost struct {
-
 	Text string `json:"text,omitempty"`
 
 	Voice string `json:"voice,omitempty"`

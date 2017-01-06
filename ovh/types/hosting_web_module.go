@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,36 +14,36 @@ import (
 	"time"
 )
 
-// Hosting modules installed
+// HostingWebModule Hosting modules installed
 type HostingWebModule struct {
 
-	// The admin folder, relative to the module's installation path
+	// AdminFolder The admin folder, relative to the module's installation path
 	AdminFolder string `json:"adminFolder,omitempty"`
 
-	// Login for the admin account
+	// AdminName Login for the admin account
 	AdminName string `json:"adminName,omitempty"`
 
-	// Date of the installation of the module
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Date of the installation of the module
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// The dependencies to which the module has access. A dependency can be a standard database (like MySQL or PostgreSQL) or a key-value store (like Redis or Memcached) for example
-	Dependencies []HostingWebModuleDependencyType `json:"dependencies,omitempty"`
+	// Dependencies The dependencies to which the module has access. A dependency can be a standard database (like MySQL or PostgreSQL) or a key-value store (like Redis or Memcached) for example
+	Dependencies []*HostingWebModuleDependencyType `json:"dependencies,omitempty"`
 
-	// Installation ID
-	Id int64 `json:"id,omitempty"`
+	// ID Installation ID
+	ID int64 `json:"id,omitempty"`
 
-	// The language of the module
+	// Language The language of the module
 	Language string `json:"language,omitempty"`
 
-	// Date of the last module's upgrade
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Date of the last module's upgrade
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// ID of the module associated with this installation
-	ModuleId int64 `json:"moduleId,omitempty"`
+	// ModuleID ID of the module associated with this installation
+	ModuleID int64 `json:"moduleId,omitempty"`
 
-	// Where the module is installed, relative to your home directory
+	// Path Where the module is installed, relative to your home directory
 	Path string `json:"path,omitempty"`
 
-	// The URL from where your module can be reached
-	TargetUrl string `json:"targetUrl,omitempty"`
+	// TargetURL The URL from where your module can be reached
+	TargetURL string `json:"targetUrl,omitempty"`
 }

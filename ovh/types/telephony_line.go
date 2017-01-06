@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,14 @@
 
 package types
 
-// Line service
+// TelephonyLine Line service
 type TelephonyLine struct {
-
 	Description string `json:"description,omitempty"`
 
-	// The infrastructure where is configured the line
+	// Infrastructure The infrastructure where is configured the line
 	Infrastructure string `json:"infrastructure,omitempty"`
 
-	Notifications TelephonyLineNotificationsOptions `json:"notifications,omitempty"`
+	Notifications *TelephonyLineNotificationsOptions `json:"notifications,omitempty"`
 
 	Offers []string `json:"offers,omitempty"`
 

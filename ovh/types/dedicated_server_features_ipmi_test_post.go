@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type DedicatedServerFeaturesIpmiTestPost struct {
+// DedicatedServerFeaturesIPmiTestPost ...
+type DedicatedServerFeaturesIPmiTestPost struct {
+	TTL int64 `json:"ttl,omitempty"`
 
-	Ttl int64 `json:"ttl,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

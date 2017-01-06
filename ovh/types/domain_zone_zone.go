@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Zone dns Management
-type DomainZoneZone struct {
+// DomainZone Zone dns Management
+type DomainZone struct {
 
-	// Is DNSSEC supported by this zone
-	DnssecSupported bool `json:"dnssecSupported,omitempty"`
+	// DNSsecSupported Is DNSSEC supported by this zone
+	DNSsecSupported bool `json:"dnssecSupported,omitempty"`
 
-	// hasDnsAnycast flag of the DNS zone
-	HasDnsAnycast bool `json:"hasDnsAnycast,omitempty"`
+	// HasDNSAnycast hasDnsAnycast flag of the DNS zone
+	HasDNSAnycast bool `json:"hasDnsAnycast,omitempty"`
 
-	// Last update date of the DNS zone
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update date of the DNS zone
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Name servers that host the DNS zone
+	// NameServers Name servers that host the DNS zone
 	NameServers []string `json:"nameServers,omitempty"`
 }

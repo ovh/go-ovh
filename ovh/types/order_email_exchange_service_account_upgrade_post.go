@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// OrderEmailExchangeServiceAccountUpgradePost ...
 type OrderEmailExchangeServiceAccountUpgradePost struct {
-
 	NewQuota int64 `json:"newQuota,omitempty"`
 
 	PrimaryEmailAddress string `json:"primaryEmailAddress,omitempty"`

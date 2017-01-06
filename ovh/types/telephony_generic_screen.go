@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Time conditions capable services
+// TelephonyGenericScreen Time conditions capable services
 type TelephonyGenericScreen struct {
-
 	ServiceName string `json:"serviceName,omitempty"`
 }

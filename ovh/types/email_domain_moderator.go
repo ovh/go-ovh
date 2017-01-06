@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Moderators List
+// EmailDomainModerator Moderators List
 type EmailDomainModerator struct {
-
 	Domain string `json:"domain,omitempty"`
 
 	Email string `json:"email,omitempty"`

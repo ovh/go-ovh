@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// PaasDatabaseInstanceConfigurationUpdatePost ...
 type PaasDatabaseInstanceConfigurationUpdatePost struct {
-
-	Parameters []ComplexTypeSafeKeyValueString `json:"parameters,omitempty"`
+	Parameters []*ComplexTypeSafeKeyValueString `json:"parameters,omitempty"`
 }

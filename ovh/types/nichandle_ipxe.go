@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Customer IPXE scripts
-type NichandleIpxe struct {
+// NichandleIPxe Customer IPXE scripts
+type NichandleIPxe struct {
 
-	// Name of this script
+	// Name Name of this script
 	Name string `json:"name,omitempty"`
 
-	// Content of your IPXE script
+	// Script Content of your IPXE script
 	Script string `json:"script,omitempty"`
 }

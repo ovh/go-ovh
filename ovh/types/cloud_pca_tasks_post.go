@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
+// CloudPcaTasksPost ...
 type CloudPcaTasksPost struct {
+	FileIDs []string `json:"fileIds,omitempty"`
 
-	FileIds []string `json:"fileIds,omitempty"`
-
-	SessionId string `json:"sessionId,omitempty"`
+	SessionID string `json:"sessionId,omitempty"`
 
 	TaskFunction string `json:"taskFunction,omitempty"`
 }

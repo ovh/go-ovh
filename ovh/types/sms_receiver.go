@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Sms receivers preloaded
+// SmsReceiver Sms receivers preloaded
 type SmsReceiver struct {
 
-	// Download file from URL before sending to contacts
+	// AutoUpdate Download file from URL before sending to contacts
 	AutoUpdate bool `json:"autoUpdate,omitempty"`
 
-	// Creation date of the document
-	Datetime time.Time `json:"datetime,omitempty"`
+	// Datetime Creation date of the document
+	Datetime *time.Time `json:"datetime,omitempty"`
 
-	// Description name of the document
+	// Description Description name of the document
 	Description string `json:"description,omitempty"`
 
-	// Number of receiver records in the document
+	// Records Number of receiver records in the document
 	Records int64 `json:"records,omitempty"`
 
-	// Slot number id
-	SlotId int64 `json:"slotId,omitempty"`
+	// SlotID Slot number id
+	SlotID int64 `json:"slotId,omitempty"`
 }

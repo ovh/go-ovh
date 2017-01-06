@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// PaasDatabaseDumpRestorePost ...
 type PaasDatabaseDumpRestorePost struct {
-
 	DatabaseName string `json:"databaseName,omitempty"`
 
-	InstanceId string `json:"instanceId,omitempty"`
+	InstanceID string `json:"instanceId,omitempty"`
 }

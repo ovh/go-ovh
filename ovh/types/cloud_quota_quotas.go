@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,14 @@
 
 package types
 
-// Quotas
-type CloudQuotaQuotas struct {
+// CloudQuotas Quotas
+type CloudQuotas struct {
+	Instance *CloudQuotaInstanceQuotas `json:"instance,omitempty"`
 
-	Instance CloudQuotaInstanceQuotas `json:"instance,omitempty"`
+	Keypair *CloudQuotaKeypairQuotas `json:"keypair,omitempty"`
 
-	Keypair CloudQuotaKeypairQuotas `json:"keypair,omitempty"`
-
-	// Region
+	// Region Region
 	Region string `json:"region,omitempty"`
 
-	Volume CloudQuotaVolumeQuotas `json:"volume,omitempty"`
+	Volume *CloudQuotaVolumeQuotas `json:"volume,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Relevant informations about reset code
+// TelephonyResetPhoneCodeInfo Relevant informations about reset code
 type TelephonyResetPhoneCodeInfo struct {
 
-	// Activation code
+	// ActivationCode Activation code
 	ActivationCode string `json:"activationCode,omitempty"`
 
-	// Key book url
+	// KeyBook Key book url
 	KeyBook string `json:"keyBook,omitempty"`
 
-	// Server url
+	// ServerURL Server url
 	ServerURL string `json:"serverURL,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Manage Dnssec for this zone
-type DomainZoneDnssec struct {
-
+// DomainZoneDNSsec Manage Dnssec for this zone
+type DomainZoneDNSsec struct {
 	Status string `json:"status,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Async task
+// XdslAsyncTaskPackXdslAddressMoveEligibility Async task
 type XdslAsyncTaskPackXdslAddressMoveEligibility struct {
 
-	// Error
-	Error_ string `json:"error,omitempty"`
+	// TError Error
+	TError string `json:"error,omitempty"`
 
-	Result PackXdslAddressMoveEligibility `json:"result,omitempty"`
+	Result *PackXdslAddressMoveEligibility `json:"result,omitempty"`
 
-	// Status of the call
+	// Status Status of the call
 	Status string `json:"status,omitempty"`
 }

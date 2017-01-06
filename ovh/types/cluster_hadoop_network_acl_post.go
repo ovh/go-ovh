@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// ClusterHadoopNetworkAclPost ...
 type ClusterHadoopNetworkAclPost struct {
-
 	Block string `json:"block,omitempty"`
 
 	Description string `json:"description,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-// Informations about a VPS Veeam restore points
+// VpsVeeamRestorePoint Informations about a VPS Veeam restore points
 type VpsVeeamRestorePoint struct {
 
-	// The restore point's creation time
-	CreationTime time.Time `json:"creationTime,omitempty"`
+	// CreationTime The restore point's creation time
+	CreationTime *time.Time `json:"creationTime,omitempty"`
 
-	// The restore point's id
-	Id int64 `json:"id,omitempty"`
+	// ID The restore point's id
+	ID int64 `json:"id,omitempty"`
 }

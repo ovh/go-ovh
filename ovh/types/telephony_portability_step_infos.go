@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Additional informations about the portability step
+// TelephonyPortabilityStepInfos Additional informations about the portability step
 type TelephonyPortabilityStepInfos struct {
 
-	// If the step status is \"error\", it is the reason
+	// Reason If the step status is \"error\", it is the reason
 	Reason string `json:"reason,omitempty"`
 }

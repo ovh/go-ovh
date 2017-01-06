@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Choice for an HTTP multi value parameter
-type BillingOrderPaymentMeanHttpParameterChoice struct {
-
+// BillingOrderPaymentMeanHTTPParameterChoice Choice for an HTTP multi value parameter
+type BillingOrderPaymentMeanHTTPParameterChoice struct {
 	Name string `json:"name,omitempty"`
 
 	Value string `json:"value,omitempty"`

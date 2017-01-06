@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// A structure describing all information about quota informations
-type SmsSmsSendingReport struct {
-
-	Ids []int64 `json:"ids,omitempty"`
+// SmsSendingReport A structure describing all information about quota informations
+type SmsSendingReport struct {
+	IDs []int64 `json:"ids,omitempty"`
 
 	InvalidReceivers []string `json:"invalidReceivers,omitempty"`
 

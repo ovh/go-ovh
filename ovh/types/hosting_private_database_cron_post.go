@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// HostingPrivateDatabaseCronPost ...
 type HostingPrivateDatabaseCronPost struct {
-
 	Command string `json:"command,omitempty"`
 
 	DatabaseName string `json:"databaseName,omitempty"`

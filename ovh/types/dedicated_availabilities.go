@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// A structure describing the availabilities of dedicated server
+// DedicatedAvailabilities A structure describing the availabilities of dedicated server
 type DedicatedAvailabilities struct {
 
-	// The hardware availability for each datacenter which composed a region
-	Datacenters []DedicatedAvailabilityDatacenter `json:"datacenters,omitempty"`
+	// Datacenters The hardware availability for each datacenter which composed a region
+	Datacenters []*DedicatedAvailabilityDatacenter `json:"datacenters,omitempty"`
 
-	// Name of the hardware
+	// Hardware Name of the hardware
 	Hardware string `json:"hardware,omitempty"`
 
-	// Region where is located the hardware
+	// Region Region where is located the hardware
 	Region string `json:"region,omitempty"`
 }

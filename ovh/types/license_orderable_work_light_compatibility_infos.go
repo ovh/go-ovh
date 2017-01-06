@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// All versions available for WorkLight products
+// LicenseOrderableWorkLightCompatibilityInfos All versions available for WorkLight products
 type LicenseOrderableWorkLightCompatibilityInfos struct {
-
 	Version string `json:"version,omitempty"`
 }

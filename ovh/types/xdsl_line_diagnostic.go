@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,16 +14,15 @@ import (
 	"time"
 )
 
-// Detailed line tests
+// XdslLineDiagnostic Detailed line tests
 type XdslLineDiagnostic struct {
-
 	LineTest string `json:"lineTest,omitempty"`
 
-	LineTestTime time.Time `json:"lineTestTime,omitempty"`
+	LineTestTime *time.Time `json:"lineTestTime,omitempty"`
 
 	Number string `json:"number,omitempty"`
 
-	ProposedProfileId int64 `json:"proposedProfileId,omitempty"`
+	ProposedProfileID int64 `json:"proposedProfileId,omitempty"`
 
 	Sync bool `json:"sync,omitempty"`
 }

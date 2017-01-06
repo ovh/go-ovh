@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// AllDom administration
-type AllDomAllDom struct {
+// AllDom AllDom administration
+type AllDom struct {
 
-	// Name of the allDom
+	// Name Name of the allDom
 	Name string `json:"name,omitempty"`
 
-	// Offer of the allDom
+	// Offer Offer of the allDom
 	Offer string `json:"offer,omitempty"`
 
-	// Type of the allDom
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the allDom
+	TType string `json:"type,omitempty"`
 }

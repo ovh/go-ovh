@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Volume usage
+// CloudProjectVolumeUsageDetail Volume usage
 type CloudProjectVolumeUsageDetail struct {
+	Price *OrderPrice `json:"price,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	VolumeCapacity *CloudProjectVolumeUsageDetailVolumeCapacity `json:"volumeCapacity,omitempty"`
 
-	VolumeCapacity CloudProjectVolumeUsageDetailVolumeCapacity `json:"volumeCapacity,omitempty"`
+	// VolumeID Volume id
+	VolumeID string `json:"volumeId,omitempty"`
 
-	// Volume id
-	VolumeId string `json:"volumeId,omitempty"`
-
-	// Volume type
+	// VolumeType Volume type
 	VolumeType string `json:"volumeType,omitempty"`
 }

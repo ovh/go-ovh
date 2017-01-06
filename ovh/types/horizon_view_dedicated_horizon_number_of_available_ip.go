@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Get the number of available public IPs
-type HorizonViewDedicatedHorizonNumberOfAvailableIp struct {
-
+// HorizonViewDedicatedHorizonNumberOfAvailableIP Get the number of available public IPs
+type HorizonViewDedicatedHorizonNumberOfAvailableIP struct {
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

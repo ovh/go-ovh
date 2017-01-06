@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,16 +14,15 @@ import (
 	"time"
 )
 
-// Balance of the fidelity account
+// BillingFidelityAccount Balance of the fidelity account
 type BillingFidelityAccount struct {
-
 	AlertThreshold int64 `json:"alertThreshold,omitempty"`
 
 	Balance int64 `json:"balance,omitempty"`
 
 	CanBeCredited bool `json:"canBeCredited,omitempty"`
 
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	OpenDate time.Time `json:"openDate,omitempty"`
+	OpenDate *time.Time `json:"openDate,omitempty"`
 }

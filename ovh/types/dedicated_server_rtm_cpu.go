@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// A structure describing informations about server cpu
-type DedicatedServerRtmCpu struct {
+// DedicatedServerRtmCPU A structure describing informations about server cpu
+type DedicatedServerRtmCPU struct {
+	Cache *DedicatedServerRtmCPUCache `json:"cache,omitempty"`
 
-	Cache DedicatedServerRtmCpuCache `json:"cache,omitempty"`
-
-	// CPU core number
+	// Core CPU core number
 	Core int64 `json:"core,omitempty"`
 
-	Freq DedicatedServerRtmCpuFreq `json:"freq,omitempty"`
+	Freq *DedicatedServerRtmCPUFreq `json:"freq,omitempty"`
 
-	// CPU  name
+	// Name CPU  name
 	Name string `json:"name,omitempty"`
 }

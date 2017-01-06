@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-type DedicatedServerFeaturesIpmiAccessPost struct {
+// DedicatedServerFeaturesIPmiAccessPost ...
+type DedicatedServerFeaturesIPmiAccessPost struct {
+	IPToAllow string `json:"ipToAllow,omitempty"`
 
-	IpToAllow string `json:"ipToAllow,omitempty"`
+	SSHKey string `json:"sshKey,omitempty"`
 
-	SshKey string `json:"sshKey,omitempty"`
+	TTL int64 `json:"ttl,omitempty"`
 
-	Ttl int64 `json:"ttl,omitempty"`
-
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

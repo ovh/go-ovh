@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Represent the delay between two portability steps
+// TelephonyPortabilityStepDuration Represent the delay between two portability steps
 type TelephonyPortabilityStepDuration struct {
 
-	// The quantity of delay
+	// Quantity The quantity of delay
 	Quantity int64 `json:"quantity,omitempty"`
 
-	// The delay's unit
+	// Unit The delay's unit
 	Unit string `json:"unit,omitempty"`
 }

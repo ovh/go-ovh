@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,13 @@ import (
 	"time"
 )
 
-// Previous billed consumptions
+// TelephonyHistoryConsumption Previous billed consumptions
 type TelephonyHistoryConsumption struct {
+	Date *time.Time `json:"date,omitempty"`
 
-	Date time.Time `json:"date,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
-
-	PriceOutplan OrderPrice `json:"priceOutplan,omitempty"`
+	PriceOutplan *OrderPrice `json:"priceOutplan,omitempty"`
 
 	Status string `json:"status,omitempty"`
 }

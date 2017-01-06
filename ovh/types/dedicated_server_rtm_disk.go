@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,16 +10,15 @@
 
 package types
 
-// Server disks informations
+// DedicatedServerRtmDisk Server disks informations
 type DedicatedServerRtmDisk struct {
+	Capacity *DedicatedServerHardwareRaidConfigurationDiskSize `json:"capacity,omitempty"`
 
-	Capacity DedicatedServerHardwareRaidConfigurationDiskSize `json:"capacity,omitempty"`
-
-	// Disk
+	// Disk Disk
 	Disk string `json:"disk,omitempty"`
 
-	// Disk model
+	// Model Disk model
 	Model string `json:"model,omitempty"`
 
-	Temperature DedicatedServerRtmDiskTemperature `json:"temperature,omitempty"`
+	Temperature *DedicatedServerRtmDiskTemperature `json:"temperature,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,16 +14,15 @@ import (
 	"time"
 )
 
-// vrack tasks
+// VrackTask vrack tasks
 type VrackTask struct {
-
 	Function string `json:"function,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	OrderId int64 `json:"orderId,omitempty"`
+	OrderID int64 `json:"orderId,omitempty"`
 
 	ServiceName string `json:"serviceName,omitempty"`
 
@@ -31,5 +30,5 @@ type VrackTask struct {
 
 	TargetDomain string `json:"targetDomain,omitempty"`
 
-	TodoDate time.Time `json:"todoDate,omitempty"`
+	TodoDate *time.Time `json:"todoDate,omitempty"`
 }

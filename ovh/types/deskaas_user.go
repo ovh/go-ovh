@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Desktop As A Service User
+// DeskaasUser Desktop As A Service User
 type DeskaasUser struct {
-
 	ActivationState string `json:"activationState,omitempty"`
 
 	Email string `json:"email,omitempty"`
@@ -21,5 +20,5 @@ type DeskaasUser struct {
 
 	State string `json:"state,omitempty"`
 
-	UserId int64 `json:"userId,omitempty"`
+	UserID int64 `json:"userId,omitempty"`
 }

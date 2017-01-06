@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,24 +10,24 @@
 
 package types
 
-// Your load balancing IP
-type IpLoadBalancingIp struct {
+// IPLoadBalancingIP Your load balancing IP
+type IPLoadBalancingIP struct {
 
-	// Your IP load balancing
-	IpLoadBalancing string `json:"ipLoadBalancing,omitempty"`
+	// IPLoadBalancing Your IP load balancing
+	IPLoadBalancing string `json:"ipLoadBalancing,omitempty"`
 
-	// The internal name of your IP load balancing
+	// ServiceName The internal name of your IP load balancing
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Ssl activation state
-	Ssl string `json:"ssl,omitempty"`
+	// SSL Ssl activation state
+	SSL string `json:"ssl,omitempty"`
 
-	// Current state of your IP
+	// State Current state of your IP
 	State string `json:"state,omitempty"`
 
-	// The type of stickiness currently in place on your Ip LoadBalancing
+	// Stickiness The type of stickiness currently in place on your Ip LoadBalancing
 	Stickiness string `json:"stickiness,omitempty"`
 
-	// Location where your service is
+	// Zone Location where your service is
 	Zone []string `json:"zone,omitempty"`
 }

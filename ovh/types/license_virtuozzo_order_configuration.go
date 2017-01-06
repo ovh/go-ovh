@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// The serviceTypes allowed to Order a Virtuozzo version
+// LicenseVirtuozzoOrderConfiguration The serviceTypes allowed to Order a Virtuozzo version
 type LicenseVirtuozzoOrderConfiguration struct {
-
-	OrderableVersions []LicenseOrderableVirtuozzoCompatibilityInfos `json:"orderableVersions,omitempty"`
+	OrderableVersions []*LicenseOrderableVirtuozzoCompatibilityInfos `json:"orderableVersions,omitempty"`
 
 	ServiceType string `json:"serviceType,omitempty"`
 }

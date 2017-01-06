@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,21 +10,21 @@
 
 package types
 
-// Stream rule
+// DBaaSLogsStreamRule Stream rule
 type DBaaSLogsStreamRule struct {
 
-	// Field name
+	// Field Field name
 	Field string `json:"field,omitempty"`
 
-	// Invert condition
+	// IsInverted Invert condition
 	IsInverted bool `json:"isInverted,omitempty"`
 
-	// Field operator
+	// Operator Field operator
 	Operator string `json:"operator,omitempty"`
 
-	// Stream rule UUID
-	RuleId string `json:"ruleId,omitempty"`
+	// RuleID Stream rule UUID
+	RuleID string `json:"ruleId,omitempty"`
 
-	// Field value
+	// Value Field value
 	Value string `json:"value,omitempty"`
 }

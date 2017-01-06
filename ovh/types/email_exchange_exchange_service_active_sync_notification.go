@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Get email addresses subscribed to ActiveSync quarantine notifications
-type EmailExchangeExchangeServiceActiveSyncNotification struct {
+// EmailExchangeServiceActiveSyncNotification Get email addresses subscribed to ActiveSync quarantine notifications
+type EmailExchangeServiceActiveSyncNotification struct {
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Notified Account Id
-	NotifiedAccountId int64 `json:"notifiedAccountId,omitempty"`
+	// NotifiedAccountID Notified Account Id
+	NotifiedAccountID int64 `json:"notifiedAccountId,omitempty"`
 
-	// Primary email address for notified account
+	// PrimaryEmailAddress Primary email address for notified account
 	PrimaryEmailAddress string `json:"primaryEmailAddress,omitempty"`
 
-	// Email state
+	// State Email state
 	State string `json:"state,omitempty"`
 }

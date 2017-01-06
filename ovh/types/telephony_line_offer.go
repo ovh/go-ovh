@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,14 +10,14 @@
 
 package types
 
-// Informations related to a line offer
+// TelephonyLineOffer Informations related to a line offer
 type TelephonyLineOffer struct {
 
-	// The offer description
+	// Description The offer description
 	Description string `json:"description,omitempty"`
 
-	// The offer name
+	// Name The offer name
 	Name string `json:"name,omitempty"`
 
-	Price OrderPrice `json:"price,omitempty"`
+	Price *OrderPrice `json:"price,omitempty"`
 }

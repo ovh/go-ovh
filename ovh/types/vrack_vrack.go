@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// vrack
-type VrackVrack struct {
+// Vrack vrack
+type Vrack struct {
 
-	// yourvrackdescription
+	// Description yourvrackdescription
 	Description string `json:"description,omitempty"`
 
-	// yourvrackname
+	// Name yourvrackname
 	Name string `json:"name,omitempty"`
 }

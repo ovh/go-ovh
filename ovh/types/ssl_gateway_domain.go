@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Domain attached to an SSL Gateway
-type SslGatewayDomain struct {
+// SSLGatewayDomain Domain attached to an SSL Gateway
+type SSLGatewayDomain struct {
 
-	// Domain name attached to your SSL Gateway
+	// Domain Domain name attached to your SSL Gateway
 	Domain string `json:"domain,omitempty"`
 
-	// Id of your domain
-	Id int64 `json:"id,omitempty"`
+	// ID Id of your domain
+	ID int64 `json:"id,omitempty"`
 
-	// Domain state
+	// State Domain state
 	State string `json:"state,omitempty"`
 }

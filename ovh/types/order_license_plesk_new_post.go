@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
+// OrderLicensePleskNewPost ...
 type OrderLicensePleskNewPost struct {
-
 	Antivirus string `json:"antivirus,omitempty"`
 
 	ApplicationSet string `json:"applicationSet,omitempty"`
 
 	DomainNumber string `json:"domainNumber,omitempty"`
 
-	Ip string `json:"ip,omitempty"`
+	IP string `json:"ip,omitempty"`
 
 	LanguagePackNumber string `json:"languagePackNumber,omitempty"`
 

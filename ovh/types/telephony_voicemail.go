@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Voicemail service
+// TelephonyVoicemail Voicemail service
 type TelephonyVoicemail struct {
-
 	Description string `json:"description,omitempty"`
 
 	Offers []string `json:"offers,omitempty"`

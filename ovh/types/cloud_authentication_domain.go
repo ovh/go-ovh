@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,7 @@
 
 package types
 
-// Domain
+// CloudAuthenticationDomain Domain
 type CloudAuthenticationDomain struct {
-
 	Name string `json:"name,omitempty"`
 }

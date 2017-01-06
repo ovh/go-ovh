@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// TelephonyLineClick2CallUserChangePasswordPost ...
 type TelephonyLineClick2CallUserChangePasswordPost struct {
-
 	Password string `json:"password,omitempty"`
 }

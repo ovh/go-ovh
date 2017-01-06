@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Day with schedule for mondial relay point opening
+// SupplyMondialRelayOpening Day with schedule for mondial relay point opening
 type SupplyMondialRelayOpening struct {
 
-	// Opening range
-	Friday []SupplyMondialRelayDayPeriod `json:"friday,omitempty"`
+	// Friday Opening range
+	Friday []*SupplyMondialRelayDayPeriod `json:"friday,omitempty"`
 
-	// Opening range
-	Monday []SupplyMondialRelayDayPeriod `json:"monday,omitempty"`
+	// Monday Opening range
+	Monday []*SupplyMondialRelayDayPeriod `json:"monday,omitempty"`
 
-	// Opening range
-	Saturday []SupplyMondialRelayDayPeriod `json:"saturday,omitempty"`
+	// Saturday Opening range
+	Saturday []*SupplyMondialRelayDayPeriod `json:"saturday,omitempty"`
 
-	// Opening range
-	Sunday []SupplyMondialRelayDayPeriod `json:"sunday,omitempty"`
+	// Sunday Opening range
+	Sunday []*SupplyMondialRelayDayPeriod `json:"sunday,omitempty"`
 
-	// Opening range
-	Thursday []SupplyMondialRelayDayPeriod `json:"thursday,omitempty"`
+	// Thursday Opening range
+	Thursday []*SupplyMondialRelayDayPeriod `json:"thursday,omitempty"`
 
-	// Opening range
-	Tuesday []SupplyMondialRelayDayPeriod `json:"tuesday,omitempty"`
+	// Tuesday Opening range
+	Tuesday []*SupplyMondialRelayDayPeriod `json:"tuesday,omitempty"`
 
-	// Opening range
-	Wednesday []SupplyMondialRelayDayPeriod `json:"wednesday,omitempty"`
+	// Wednesday Opening range
+	Wednesday []*SupplyMondialRelayDayPeriod `json:"wednesday,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
+// OrderTelephonyPortabilityPost ...
 type OrderTelephonyPortabilityPost struct {
-
 	Building string `json:"building,omitempty"`
 
 	CallNumber string `json:"callNumber,omitempty"`
@@ -30,7 +30,7 @@ type OrderTelephonyPortabilityPost struct {
 
 	Country string `json:"country,omitempty"`
 
-	DesireDate time.Time `json:"desireDate,omitempty"`
+	DesireDate *time.Time `json:"desireDate,omitempty"`
 
 	DisplayUniversalDirectory bool `json:"displayUniversalDirectory,omitempty"`
 
@@ -66,7 +66,7 @@ type OrderTelephonyPortabilityPost struct {
 
 	StreetType string `json:"streetType,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 
 	Zip string `json:"zip,omitempty"`
 }

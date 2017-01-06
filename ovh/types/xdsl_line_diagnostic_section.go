@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Cables section details
+// XdslLineDiagnosticSection Cables section details
 type XdslLineDiagnosticSection struct {
 
-	// cables length in meters
+	// Length cables length in meters
 	Length int64 `json:"length,omitempty"`
 
-	// cables section in millimeters
+	// Section cables section in millimeters
 	Section int64 `json:"section,omitempty"`
 }

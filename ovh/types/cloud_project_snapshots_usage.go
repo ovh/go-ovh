@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,11 @@
 
 package types
 
-// Snapshots usage for current month
+// CloudProjectSnapshotsUsage Snapshots usage for current month
 type CloudProjectSnapshotsUsage struct {
 
-	// Snapshots usage details
-	Detail []CloudProjectSnapshotUsageDetail `json:"detail,omitempty"`
+	// Detail Snapshots usage details
+	Detail []*CloudProjectSnapshotUsageDetail `json:"detail,omitempty"`
 
-	Total OrderPrice `json:"total,omitempty"`
+	Total *OrderPrice `json:"total,omitempty"`
 }

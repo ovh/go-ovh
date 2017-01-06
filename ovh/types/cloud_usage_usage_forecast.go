@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,17 +14,16 @@ import (
 	"time"
 )
 
-// UsageForecast
-type CloudUsageUsageForecast struct {
+// CloudUsageForecast UsageForecast
+type CloudUsageForecast struct {
+	HourlyUsage *CloudBillingViewHourlyResources `json:"hourlyUsage,omitempty"`
 
-	HourlyUsage CloudBillingViewHourlyResources `json:"hourlyUsage,omitempty"`
+	// LastUpdate Entry last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	// Entry last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	MonthlyUsage *CloudBillingViewMonthlyResources `json:"monthlyUsage,omitempty"`
 
-	MonthlyUsage CloudBillingViewMonthlyResources `json:"monthlyUsage,omitempty"`
+	Period *CloudUsagePeriod `json:"period,omitempty"`
 
-	Period CloudUsagePeriod `json:"period,omitempty"`
-
-	UsableCredits CloudBillingViewUsedCredits `json:"usableCredits,omitempty"`
+	UsableCredits *CloudBillingViewUsedCredits `json:"usableCredits,omitempty"`
 }

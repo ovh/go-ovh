@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,11 @@ import (
 	"time"
 )
 
-// A step of the order process
+// XdslOrderFollowupStep A step of the order process
 type XdslOrderFollowupStep struct {
-
 	Comments []string `json:"comments,omitempty"`
 
-	DoneDate time.Time `json:"doneDate,omitempty"`
+	DoneDate *time.Time `json:"doneDate,omitempty"`
 
 	DurationUnit string `json:"durationUnit,omitempty"`
 

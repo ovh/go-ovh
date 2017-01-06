@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Name server
-type DomainDomainNs struct {
+// DomainNs Name server
+type DomainNs struct {
 
-	// Host
+	// Host Host
 	Host string `json:"host,omitempty"`
 
-	// Ip
-	Ip string `json:"ip,omitempty"`
+	// IP Ip
+	IP string `json:"ip,omitempty"`
 }

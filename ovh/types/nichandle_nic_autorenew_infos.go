@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Auto renewal information
+// NichandleNicAutorenewInfos Auto renewal information
 type NichandleNicAutorenewInfos struct {
 
-	// Renewal active or not
+	// Active Renewal active or not
 	Active bool `json:"active,omitempty"`
 
-	// give the last renew
-	LastRenew time.Time `json:"lastRenew,omitempty"`
+	// LastRenew give the last renew
+	LastRenew *time.Time `json:"lastRenew,omitempty"`
 
-	// give the renewal day
+	// RenewDay give the renewal day
 	RenewDay int64 `json:"renewDay,omitempty"`
 }

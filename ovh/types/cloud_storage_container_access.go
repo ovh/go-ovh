@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// ContainerAccess
+// CloudStorageContainerAccess ContainerAccess
 type CloudStorageContainerAccess struct {
 
-	// Storage access endpoints
-	Endpoints []CloudStorageEndpoint `json:"endpoints,omitempty"`
+	// Endpoints Storage access endpoints
+	Endpoints []*CloudStorageEndpoint `json:"endpoints,omitempty"`
 
-	// Storage access token
+	// Token Storage access token
 	Token string `json:"token,omitempty"`
 }

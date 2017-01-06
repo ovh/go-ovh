@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// The parameters needed to create a new landline
+// PackXdslAddressMoveCreation The parameters needed to create a new landline
 type PackXdslAddressMoveCreation struct {
+	Address *XdslEligibilityAddress `json:"address,omitempty"`
 
-	Address XdslEligibilityAddress `json:"address,omitempty"`
-
-	Meeting XdslEligibilityBookMeetingSlot `json:"meeting,omitempty"`
+	Meeting *XdslEligibilityBookMeetingSlot `json:"meeting,omitempty"`
 }

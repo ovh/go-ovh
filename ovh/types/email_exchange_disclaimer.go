@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Exchange organization disclaimer
+// EmailExchangeDisclaimer Exchange organization disclaimer
 type EmailExchangeDisclaimer struct {
 
-	// Signature, added at the bottom of your organization emails
+	// Content Signature, added at the bottom of your organization emails
 	Content string `json:"content,omitempty"`
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Disclaimer name
+	// Name Disclaimer name
 	Name string `json:"name,omitempty"`
 
-	// Activate the disclaimer only for external emails
+	// OutsideOnly Activate the disclaimer only for external emails
 	OutsideOnly bool `json:"outsideOnly,omitempty"`
 
-	// task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

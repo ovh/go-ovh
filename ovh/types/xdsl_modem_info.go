@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Describe general information of a Modem
+// XdslModemInfo Describe general information of a Modem
 type XdslModemInfo struct {
+	Device *XdslDeviceModemInfo `json:"device,omitempty"`
 
-	Device XdslDeviceModemInfo `json:"device,omitempty"`
-
-	Statistics XdslStatsModemInfo `json:"statistics,omitempty"`
+	Statistics *XdslStatsModemInfo `json:"statistics,omitempty"`
 }

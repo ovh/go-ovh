@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Phishing URLs hosted on your IP
-type IpAntiphishing struct {
+// IPAntiphishing Phishing URLs hosted on your IP
+type IPAntiphishing struct {
 
-	// Date of the event
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Date of the event
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Internal ID of the phishing entry
-	Id int64 `json:"id,omitempty"`
+	// ID Internal ID of the phishing entry
+	ID int64 `json:"id,omitempty"`
 
-	// IP address hosting the phishing URL
-	IpOnAntiphishing string `json:"ipOnAntiphishing,omitempty"`
+	// IPOnAntiphishing IP address hosting the phishing URL
+	IPOnAntiphishing string `json:"ipOnAntiphishing,omitempty"`
 
-	// Current state of the phishing
+	// State Current state of the phishing
 	State string `json:"state,omitempty"`
 
-	// Phishing URL
-	UrlPhishing string `json:"urlPhishing,omitempty"`
+	// URLPhishing Phishing URL
+	URLPhishing string `json:"urlPhishing,omitempty"`
 }

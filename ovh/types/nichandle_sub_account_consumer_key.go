@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-// Credentials to interact with the api on behalf of the sub-account
+// NichandleSubAccountConsumerKey Credentials to interact with the api on behalf of the sub-account
 type NichandleSubAccountConsumerKey struct {
 
-	// The consumer key
+	// ConsumerKey The consumer key
 	ConsumerKey string `json:"consumerKey,omitempty"`
 }

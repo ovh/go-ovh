@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,35 +10,35 @@
 
 package types
 
-// Representation of a cart item
+// OrderCartItem Representation of a cart item
 type OrderCartItem struct {
 
-	// Cart identifier
-	CartId string `json:"cartId,omitempty"`
+	// CartID Cart identifier
+	CartID string `json:"cartId,omitempty"`
 
-	// Configuration set for this product
+	// Configurations Configuration set for this product
 	Configurations []int64 `json:"configurations,omitempty"`
 
-	// Duration for the service
+	// Duration Duration for the service
 	Duration string `json:"duration,omitempty"`
 
-	// Current product identifier
-	ItemId int64 `json:"itemId,omitempty"`
+	// ItemID Current product identifier
+	ItemID int64 `json:"itemId,omitempty"`
 
-	// Offer unique identifier of the product added
-	OfferId string `json:"offerId,omitempty"`
+	// OfferID Offer unique identifier of the product added
+	OfferID string `json:"offerId,omitempty"`
 
-	// Options item ID attached to this item
+	// Options Options item ID attached to this item
 	Options []int64 `json:"options,omitempty"`
 
-	// Id of parent item (if item is an option)
-	ParentItemId int64 `json:"parentItemId,omitempty"`
+	// ParentItemID Id of parent item (if item is an option)
+	ParentItemID int64 `json:"parentItemId,omitempty"`
 
-	// Price of the item
-	Prices []OrderCartPrice `json:"prices,omitempty"`
+	// Prices Price of the item
+	Prices []*OrderCartPrice `json:"prices,omitempty"`
 
-	// Type of the product added
-	ProductId string `json:"productId,omitempty"`
+	// ProductID Type of the product added
+	ProductID string `json:"productId,omitempty"`
 
-	Settings OrderCartDomainSettings `json:"settings,omitempty"`
+	Settings *OrderCartDomainSettings `json:"settings,omitempty"`
 }

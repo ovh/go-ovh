@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Map a possible renew for a specific service
+// ServiceRenewType Map a possible renew for a specific service
 type ServiceRenewType struct {
 
-	// The service is automatically renewed
+	// Automatic The service is automatically renewed
 	Automatic bool `json:"automatic,omitempty"`
 
-	// The service will be deleted at expiration
+	// DeleteAtExpiration The service will be deleted at expiration
 	DeleteAtExpiration bool `json:"deleteAtExpiration,omitempty"`
 
-	// The service forced to be renewed
+	// Forced The service forced to be renewed
 	Forced bool `json:"forced,omitempty"`
 
-	// period of renew in month
+	// Period period of renew in month
 	Period int64 `json:"period,omitempty"`
 }

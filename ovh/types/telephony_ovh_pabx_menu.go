@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,23 +10,23 @@
 
 package types
 
-// IVR Menu
+// TelephonyOvhPabxMenu IVR Menu
 type TelephonyOvhPabxMenu struct {
 
-	// The id of the OvhPabxSound played to greet
+	// GreetSound The id of the OvhPabxSound played to greet
 	GreetSound int64 `json:"greetSound,omitempty"`
 
-	// The text to speech sound played to greet
+	// GreetSoundTts The text to speech sound played to greet
 	GreetSoundTts int64 `json:"greetSoundTts,omitempty"`
 
-	// The id of the OvhPabxSound played when the caller uses an invalid DTMF
+	// InvalidSound The id of the OvhPabxSound played when the caller uses an invalid DTMF
 	InvalidSound int64 `json:"invalidSound,omitempty"`
 
-	// The text to speech sound played when the caller uses an invalid DTMF
+	// InvalidSoundTts The text to speech sound played when the caller uses an invalid DTMF
 	InvalidSoundTts int64 `json:"invalidSoundTts,omitempty"`
 
-	MenuId int64 `json:"menuId,omitempty"`
+	MenuID int64 `json:"menuId,omitempty"`
 
-	// The name of the menu
+	// Name The name of the menu
 	Name string `json:"name,omitempty"`
 }

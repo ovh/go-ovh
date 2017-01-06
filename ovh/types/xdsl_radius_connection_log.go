@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// Log entry of an auth attempt to the radius server
+// XdslRadiusConnectionLog Log entry of an auth attempt to the radius server
 type XdslRadiusConnectionLog struct {
-
-	Date time.Time `json:"date,omitempty"`
+	Date *time.Time `json:"date,omitempty"`
 
 	Login string `json:"login,omitempty"`
 

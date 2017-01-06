@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,11 +14,10 @@ import (
 	"time"
 )
 
-// Hourly consumption of a filer
+// DedicatedCloudFilerHourlyConsumption Hourly consumption of a filer
 type DedicatedCloudFilerHourlyConsumption struct {
+	Consumption *DedicatedCloudFilerHourlyConsumptionConsumption `json:"consumption,omitempty"`
 
-	Consumption DedicatedCloudFilerHourlyConsumptionConsumption `json:"consumption,omitempty"`
-
-	// Last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 }

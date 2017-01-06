@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// EmailExchangeServiceAccountChangePasswordPost ...
 type EmailExchangeServiceAccountChangePasswordPost struct {
-
 	Password string `json:"password,omitempty"`
 }

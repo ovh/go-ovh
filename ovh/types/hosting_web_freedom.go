@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// Freedoms linked to this hosting account
+// HostingWebFreedom Freedoms linked to this hosting account
 type HostingWebFreedom struct {
 
-	// Freedom domain
+	// Domain Freedom domain
 	Domain string `json:"domain,omitempty"`
 
-	// Available status for freedom
+	// Status Available status for freedom
 	Status string `json:"status,omitempty"`
 
-	// Freedom type
-	Type_ string `json:"type,omitempty"`
+	// TType Freedom type
+	TType string `json:"type,omitempty"`
 }

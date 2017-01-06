@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,32 +10,31 @@
 
 package types
 
-// VPS Virtual Machine
-type VpsVps struct {
-
+// Vps VPS Virtual Machine
+type Vps struct {
 	Cluster string `json:"cluster,omitempty"`
 
-	// Set the name displayed in ManagerV6 for your VPS (max 50 chars)
+	// DisplayName Set the name displayed in ManagerV6 for your VPS (max 50 chars)
 	DisplayName string `json:"displayName,omitempty"`
 
-	// Set KVM keyboard layout on VPS Cloud. Reboot your VPS after change
+	// Keymap Set KVM keyboard layout on VPS Cloud. Reboot your VPS after change
 	Keymap string `json:"keymap,omitempty"`
 
 	MemoryLimit int64 `json:"memoryLimit,omitempty"`
 
-	Model VpsModel `json:"model,omitempty"`
+	Model *VpsModel `json:"model,omitempty"`
 
-	// Ip blocks for OVH monitoring servers
-	MonitoringIpBlocks []string `json:"monitoringIpBlocks,omitempty"`
+	// MonitoringIPBlocks Ip blocks for OVH monitoring servers
+	MonitoringIPBlocks []string `json:"monitoringIpBlocks,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	// Reboot your VPS 'Cloud' after change, VPS 'Classic/LowLat' will reboot automatically. Credentials for rescue mode will be sent by mail
+	// NetbootMode Reboot your VPS 'Cloud' after change, VPS 'Classic/LowLat' will reboot automatically. Credentials for rescue mode will be sent by mail
 	NetbootMode string `json:"netbootMode,omitempty"`
 
 	OfferType string `json:"offerType,omitempty"`
 
-	SlaMonitoring bool `json:"slaMonitoring,omitempty"`
+	SLAMonitoring bool `json:"slaMonitoring,omitempty"`
 
 	State string `json:"state,omitempty"`
 

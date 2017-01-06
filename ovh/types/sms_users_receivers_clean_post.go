@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SmsUsersReceiversCleanPost ...
 type SmsUsersReceiversCleanPost struct {
-
 	Freemium bool `json:"freemium,omitempty"`
 
 	PriceOnly bool `json:"priceOnly,omitempty"`

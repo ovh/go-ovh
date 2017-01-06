@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Opening range for mondial relay point
+// SupplyMondialRelayDayPeriod Opening range for mondial relay point
 type SupplyMondialRelayDayPeriod struct {
 
-	// Ending time (00:00 format)
+	// End Ending time (00:00 format)
 	End string `json:"end,omitempty"`
 
-	// Starting time (00:00 format)
+	// Start Starting time (00:00 format)
 	Start string `json:"start,omitempty"`
 }

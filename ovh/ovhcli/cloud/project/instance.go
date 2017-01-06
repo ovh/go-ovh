@@ -5,6 +5,7 @@ import (
 
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 	"github.com/spf13/cobra"
 )
 
@@ -41,13 +42,13 @@ var (
 				common.WrongUsage(cmd)
 			}
 
-			client, err := ovh.NewDefaultClient()
-			common.Check(err)
+			client, errC := ovh.NewDefaultClient()
+			common.Check(errC)
 
 			if projectName != "" {
 				p, err := client.CloudProjectInfoByName(projectName)
 				common.Check(err)
-				projectID = p.ID
+				projectID = p.ProjectID
 			}
 
 			if projectID == "" || regionName == "" {
@@ -62,7 +63,7 @@ var (
 
 			imgs = append(imgs, snaps...)
 
-			var img *ovh.Image
+			var img *types.CloudImage
 			for i := range imgs {
 				if imgs[i].Name == instanceImage && imgs[i].Region == regionName {
 					img = &imgs[i]
@@ -77,7 +78,7 @@ var (
 			flavors, err := client.CloudProjectFlavorsList(projectID, regionName)
 			common.Check(err)
 
-			var f *ovh.Flavor
+			var f *types.CloudFlavor
 			for i := range flavors {
 				if flavors[i].Name == instanceFlavor && flavors[i].Region == regionName {
 					f = &flavors[i]
@@ -92,7 +93,7 @@ var (
 			sshkeys, err := client.CloudProjectSSHKeyList(projectID)
 			common.Check(err)
 
-			var k *ovh.SSHKey
+			var k *types.CloudSSHKey
 			for i := range sshkeys {
 				if sshkeys[i].Name == instanceSSHKey {
 					k = &sshkeys[i]

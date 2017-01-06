@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// TelephonyLinePhoneRmaPost ...
 type TelephonyLinePhoneRmaPost struct {
-
-	MondialRelayId string `json:"mondialRelayId,omitempty"`
+	MondialRelayID string `json:"mondialRelayId,omitempty"`
 
 	NewMerchandise string `json:"newMerchandise,omitempty"`
 
-	ShippingContactId int64 `json:"shippingContactId,omitempty"`
+	ShippingContactID int64 `json:"shippingContactId,omitempty"`
 
-	Type_ string `json:"type,omitempty"`
+	TType string `json:"type,omitempty"`
 }

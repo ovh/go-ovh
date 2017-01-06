@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Veeam Cloud Connect account
+// VeeamCloudConnectAccount Veeam Cloud Connect account
 type VeeamCloudConnectAccount struct {
 
-	// Datacenter where your Cloud is physically located
+	// Location Datacenter where your Cloud is physically located
 	Location string `json:"location,omitempty"`
 
-	// The commercial offer linked to your veeam cloud connect
+	// ProductOffer The commercial offer linked to your veeam cloud connect
 	ProductOffer string `json:"productOffer,omitempty"`
 
-	// Your login in the Veeam Cloud Connect interface
+	// ServiceName Your login in the Veeam Cloud Connect interface
 	ServiceName string `json:"serviceName,omitempty"`
 
-	// Backuped VMs quantity on your account
-	VmCount int64 `json:"vmCount,omitempty"`
+	// VMCount Backuped VMs quantity on your account
+	VMCount int64 `json:"vmCount,omitempty"`
 }

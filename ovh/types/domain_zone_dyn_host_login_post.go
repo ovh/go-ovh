@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// DomainZoneDynHostLoginPost ...
 type DomainZoneDynHostLoginPost struct {
-
 	LoginSuffix string `json:"loginSuffix,omitempty"`
 
 	Password string `json:"password,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Virtual service
+// HostingWebAttachedDomain Virtual service
 type HostingWebAttachedDomain struct {
 
-	// Is linked to the hosting cdn
-	Cdn string `json:"cdn,omitempty"`
+	// CDN Is linked to the hosting cdn
+	CDN string `json:"cdn,omitempty"`
 
-	// Domain linked (fqdn)
+	// Domain Domain linked (fqdn)
 	Domain string `json:"domain,omitempty"`
 
-	// Firewall state for this path
+	// Firewall Firewall state for this path
 	Firewall string `json:"firewall,omitempty"`
 
-	// IP location of the domain linked
-	IpLocation string `json:"ipLocation,omitempty"`
+	// IPLocation IP location of the domain linked
+	IPLocation string `json:"ipLocation,omitempty"`
 
-	// Put domain for separate the logs
+	// OwnLog Put domain for separate the logs
 	OwnLog string `json:"ownLog,omitempty"`
 
-	// Domain path, relative to your home directory
+	// Path Domain path, relative to your home directory
 	Path string `json:"path,omitempty"`
 
-	// Put domain in ssl certificate
-	Ssl bool `json:"ssl,omitempty"`
+	// SSL Put domain in ssl certificate
+	SSL bool `json:"ssl,omitempty"`
 }

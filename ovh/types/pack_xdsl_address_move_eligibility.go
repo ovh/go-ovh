@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,11 +10,10 @@
 
 package types
 
-// Eligibility
+// PackXdslAddressMoveEligibility Eligibility
 type PackXdslAddressMoveEligibility struct {
+	KeepCurrentPortability *XdslEligibilityPortability `json:"keepCurrentPortability,omitempty"`
 
-	KeepCurrentPortability XdslEligibilityPortability `json:"keepCurrentPortability,omitempty"`
-
-	// The available offers at this address
-	Offers []PackXdslAddressMoveOffer `json:"offers,omitempty"`
+	// Offers The available offers at this address
+	Offers []*PackXdslAddressMoveOffer `json:"offers,omitempty"`
 }

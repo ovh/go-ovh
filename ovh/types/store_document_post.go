@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
+// StoreDocumentPost ...
 type StoreDocumentPost struct {
-
 	Name string `json:"name,omitempty"`
 
-	Tags []ComplexTypeSafeKeyValueString `json:"tags,omitempty"`
+	Tags []*ComplexTypeSafeKeyValueString `json:"tags,omitempty"`
 }

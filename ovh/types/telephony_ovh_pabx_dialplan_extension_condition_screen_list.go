@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,17 +10,17 @@
 
 package types
 
-// Screenlist condition
+// TelephonyOvhPabxDialplanExtensionConditionScreenList Screenlist condition
 type TelephonyOvhPabxDialplanExtensionConditionScreenList struct {
 
-	// Screenlist based on the presented caller number
-	CallerIdNumber string `json:"callerIdNumber,omitempty"`
+	// CallerIDNumber Screenlist based on the presented caller number
+	CallerIDNumber string `json:"callerIdNumber,omitempty"`
 
-	ConditionId int64 `json:"conditionId,omitempty"`
+	ConditionID int64 `json:"conditionId,omitempty"`
 
-	// Screenlist based on the destination number
+	// DestinationNumber Screenlist based on the destination number
 	DestinationNumber string `json:"destinationNumber,omitempty"`
 
-	// Type of screenlist
+	// ScreenListType Type of screenlist
 	ScreenListType string `json:"screenListType,omitempty"`
 }

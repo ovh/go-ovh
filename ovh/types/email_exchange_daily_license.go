@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,12 +14,11 @@ import (
 	"time"
 )
 
-// Exchange account license per day
+// EmailExchangeDailyLicense Exchange account license per day
 type EmailExchangeDailyLicense struct {
+	AccountLicense []*EmailExchangeAccountLicense `json:"accountLicense,omitempty"`
 
-	AccountLicense []EmailExchangeAccountLicense `json:"accountLicense,omitempty"`
-
-	Date time.Time `json:"date,omitempty"`
+	Date *time.Time `json:"date,omitempty"`
 
 	OutlookQuantity int64 `json:"outlookQuantity,omitempty"`
 }

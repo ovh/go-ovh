@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,27 +10,27 @@
 
 package types
 
-// Zone Start Of Authority
+// DomainZoneSoa Zone Start Of Authority
 type DomainZoneSoa struct {
 
-	// Email address of the DNS Administrator
+	// Email Email address of the DNS Administrator
 	Email string `json:"email,omitempty"`
 
-	// When a zone transfer fails, a countdown clock begins. When the number of seconds set in the expire field elapses, the nameserver stops answering for that zone file
+	// Expire When a zone transfer fails, a countdown clock begins. When the number of seconds set in the expire field elapses, the nameserver stops answering for that zone file
 	Expire int64 `json:"expire,omitempty"`
 
-	// Non-Existent Domain TTL, if the name server returns a negative response, the remote server should wait the number of seconds set in the nxDomainTtl field before trying again
-	NxDomainTtl int64 `json:"nxDomainTtl,omitempty"`
+	// NxDomainTTL Non-Existent Domain TTL, if the name server returns a negative response, the remote server should wait the number of seconds set in the nxDomainTtl field before trying again
+	NxDomainTTL int64 `json:"nxDomainTtl,omitempty"`
 
-	// The refresh value determines the interval in seconds between successful zone transfers of the entire zone file from a nameserver to another.
+	// Refresh The refresh value determines the interval in seconds between successful zone transfers of the entire zone file from a nameserver to another.
 	Refresh int64 `json:"refresh,omitempty"`
 
-	// The serial number is used to indicate which copy of the zone file is the most current. When editing zone files, you must increment the serial number
+	// Serial The serial number is used to indicate which copy of the zone file is the most current. When editing zone files, you must increment the serial number
 	Serial int64 `json:"serial,omitempty"`
 
-	// Primary authoritative server
+	// Server Primary authoritative server
 	Server string `json:"server,omitempty"`
 
-	// Time To Live in seconds
-	Ttl int64 `json:"ttl,omitempty"`
+	// TTL Time To Live in seconds
+	TTL int64 `json:"ttl,omitempty"`
 }

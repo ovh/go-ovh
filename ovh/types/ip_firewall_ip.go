@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,12 @@
 
 package types
 
-// Your IP on firewall
-type IpFirewallIp struct {
-
+// IPFirewallIP Your IP on firewall
+type IPFirewallIP struct {
 	Enabled bool `json:"enabled,omitempty"`
 
-	IpOnFirewall string `json:"ipOnFirewall,omitempty"`
+	IPOnFirewall string `json:"ipOnFirewall,omitempty"`
 
-	// Current state of your ip on firewall
+	// State Current state of your ip on firewall
 	State string `json:"state,omitempty"`
 }

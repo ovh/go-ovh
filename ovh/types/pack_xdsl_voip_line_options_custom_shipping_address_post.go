@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type PackXdslVoipLineOptionsCustomShippingAddressPost struct {
-
+// PackXdslVOIPLineOptionsCustomShippingAddressPost ...
+type PackXdslVOIPLineOptionsCustomShippingAddressPost struct {
 	Address string `json:"address,omitempty"`
 
 	CityName string `json:"cityName,omitempty"`

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// HostingWebDatabaseRestorePost ...
 type HostingWebDatabaseRestorePost struct {
-
 	Date string `json:"date,omitempty"`
 
 	SendEmail bool `json:"sendEmail,omitempty"`

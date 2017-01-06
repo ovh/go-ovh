@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,9 @@
 
 package types
 
-type OrderLicenseSqlserverNewPost struct {
-
-	Ip string `json:"ip,omitempty"`
+// OrderLicenseSQLserverNewPost ...
+type OrderLicenseSQLserverNewPost struct {
+	IP string `json:"ip,omitempty"`
 
 	Version string `json:"version,omitempty"`
 }

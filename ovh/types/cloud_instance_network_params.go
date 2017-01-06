@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// NetworkParams
+// CloudInstanceNetworkParams NetworkParams
 type CloudInstanceNetworkParams struct {
 
-	// Static ip (Can only be defined for private networks)
-	Ip string `json:"ip,omitempty"`
+	// IP Static ip (Can only be defined for private networks)
+	IP string `json:"ip,omitempty"`
 
-	// Private or public network Id
-	NetworkId string `json:"networkId,omitempty"`
+	// NetworkID Private or public network Id
+	NetworkID string `json:"networkId,omitempty"`
 }

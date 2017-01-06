@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// DDI (direct dial-in) service
+// TelephonyDdi DDI (direct dial-in) service
 type TelephonyDdi struct {
-
 	Description string `json:"description,omitempty"`
 
 	Destination string `json:"destination,omitempty"`

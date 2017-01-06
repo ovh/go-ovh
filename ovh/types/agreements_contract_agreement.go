@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Contract agreement
+// AgreementsContractAgreement Contract agreement
 type AgreementsContractAgreement struct {
 
-	// State of the agreement
+	// Agreed State of the agreement
 	Agreed string `json:"agreed,omitempty"`
 
-	// Id of the agreed contract
-	ContractId int64 `json:"contractId,omitempty"`
+	// ContractID Id of the agreed contract
+	ContractID int64 `json:"contractId,omitempty"`
 
-	// Date the agreed contract was effective
-	Date time.Time `json:"date,omitempty"`
+	// Date Date the agreed contract was effective
+	Date *time.Time `json:"date,omitempty"`
 
-	// Id of the contract
-	Id int64 `json:"id,omitempty"`
+	// ID Id of the contract
+	ID int64 `json:"id,omitempty"`
 }

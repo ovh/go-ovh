@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
+// OrderCartDomainTransferPost ...
 type OrderCartDomainTransferPost struct {
-
 	Domain string `json:"domain,omitempty"`
 
 	Duration string `json:"duration,omitempty"`
 
-	OfferId string `json:"offerId,omitempty"`
+	OfferID string `json:"offerId,omitempty"`
 
 	Quantity int64 `json:"quantity,omitempty"`
 }

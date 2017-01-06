@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,48 +14,48 @@ import (
 	"time"
 )
 
-// Mailing list
+// EmailExchangeMailingList Mailing list
 type EmailExchangeMailingList struct {
 
-	// Creation date
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate Creation date
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	// Depart restriction policy
+	// DepartRestriction Depart restriction policy
 	DepartRestriction string `json:"departRestriction,omitempty"`
 
-	// Name displayed in Global Access List
+	// DisplayName Name displayed in Global Access List
 	DisplayName string `json:"displayName,omitempty"`
 
-	// If true mailing list is hiddend in Global Address List
+	// HiddenFromGAL If true mailing list is hiddend in Global Address List
 	HiddenFromGAL bool `json:"hiddenFromGAL,omitempty"`
 
-	// Join restriction policy
+	// JoinRestriction Join restriction policy
 	JoinRestriction string `json:"joinRestriction,omitempty"`
 
-	// Update date
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
+	// LastUpdateDate Update date
+	LastUpdateDate *time.Time `json:"lastUpdateDate,omitempty"`
 
-	// The mailing list address
+	// MailingListAddress The mailing list address
 	MailingListAddress string `json:"mailingListAddress,omitempty"`
 
-	// Maximum receive email size in MB
+	// MaxReceiveSize Maximum receive email size in MB
 	MaxReceiveSize int64 `json:"maxReceiveSize,omitempty"`
 
-	// Maximum send email size in MB
+	// MaxSendSize Maximum send email size in MB
 	MaxSendSize int64 `json:"maxSendSize,omitempty"`
 
-	// If true sender has to authenticate
+	// SenderAuthentification If true sender has to authenticate
 	SenderAuthentification bool `json:"senderAuthentification,omitempty"`
 
-	// Account was sending spam
+	// SpamDetected Account was sending spam
 	SpamDetected bool `json:"spamDetected,omitempty"`
 
-	// Ticket number of spam detection
+	// SpamTicketNumber Ticket number of spam detection
 	SpamTicketNumber int64 `json:"spamTicketNumber,omitempty"`
 
-	// Mailing list state
+	// State Mailing list state
 	State string `json:"state,omitempty"`
 
-	// Task pending id
-	TaskPendingId int64 `json:"taskPendingId,omitempty"`
+	// TaskPendingID Task pending id
+	TaskPendingID int64 `json:"taskPendingId,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type XdslIpv6Post struct {
-
+// XdslIPv6Post ...
+type XdslIPv6Post struct {
 	Enabled bool `json:"enabled,omitempty"`
 }

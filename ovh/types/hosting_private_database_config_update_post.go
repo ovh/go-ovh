@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
+// HostingPrivateDatabaseConfigUpdatePost ...
 type HostingPrivateDatabaseConfigUpdatePost struct {
-
-	Parameters []ComplexTypeSafeKeyValueString `json:"parameters,omitempty"`
+	Parameters []*ComplexTypeSafeKeyValueString `json:"parameters,omitempty"`
 }

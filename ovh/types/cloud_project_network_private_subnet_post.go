@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// CloudProjectNetworkPrivateSubnetPost ...
 type CloudProjectNetworkPrivateSubnetPost struct {
-
 	Dhcp bool `json:"dhcp,omitempty"`
 
 	End string `json:"end,omitempty"`

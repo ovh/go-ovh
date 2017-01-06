@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,14 @@ import (
 	"time"
 )
 
-// The web access for your cloudpabx
+// TelephonyBannerAccess The web access for your cloudpabx
 type TelephonyBannerAccess struct {
 
-	// The creation date of this access
-	CreationDate time.Time `json:"creationDate,omitempty"`
+	// CreationDate The creation date of this access
+	CreationDate *time.Time `json:"creationDate,omitempty"`
 
-	Id int64 `json:"id,omitempty"`
+	ID int64 `json:"id,omitempty"`
 
-	// The url of the web access
-	Url string `json:"url,omitempty"`
+	// URL The url of the web access
+	URL string `json:"url,omitempty"`
 }

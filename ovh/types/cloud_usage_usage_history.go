@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,14 +14,14 @@ import (
 	"time"
 )
 
-// UsageHistory
-type CloudUsageUsageHistory struct {
+// CloudUsageHistory UsageHistory
+type CloudUsageHistory struct {
 
-	// Usage id
-	Id string `json:"id,omitempty"`
+	// ID Usage id
+	ID string `json:"id,omitempty"`
 
-	// Entry last update
-	LastUpdate time.Time `json:"lastUpdate,omitempty"`
+	// LastUpdate Entry last update
+	LastUpdate *time.Time `json:"lastUpdate,omitempty"`
 
-	Period CloudUsagePeriod `json:"period,omitempty"`
+	Period *CloudUsagePeriod `json:"period,omitempty"`
 }

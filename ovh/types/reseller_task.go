@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,30 +14,30 @@ import (
 	"time"
 )
 
-// Reseller task
+// ResellerTask Reseller task
 type ResellerTask struct {
 
-	// Task current step
+	// CurrentStep Task current step
 	CurrentStep string `json:"currentStep,omitempty"`
 
-	// Task expected done date
-	ExpectedDoneDate time.Time `json:"expectedDoneDate,omitempty"`
+	// ExpectedDoneDate Task expected done date
+	ExpectedDoneDate *time.Time `json:"expectedDoneDate,omitempty"`
 
-	// Task id
-	Id string `json:"id,omitempty"`
+	// ID Task id
+	ID string `json:"id,omitempty"`
 
-	// Task last update date
-	LastUpdateDate time.Time `json:"lastUpdateDate,omitempty"`
+	// LastUpdateDate Task last update date
+	LastUpdateDate *time.Time `json:"lastUpdateDate,omitempty"`
 
-	// Linked product
+	// ProductDomain Linked product
 	ProductDomain string `json:"productDomain,omitempty"`
 
-	// Task percentage progression
+	// Progress Task percentage progression
 	Progress int64 `json:"progress,omitempty"`
 
-	// Task name
+	// TaskName Task name
 	TaskName string `json:"taskName,omitempty"`
 
-	// Task status
+	// TaskStatus Task status
 	TaskStatus string `json:"taskStatus,omitempty"`
 }

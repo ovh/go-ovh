@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,20 +14,19 @@ import (
 	"time"
 )
 
-// OpenstackToken
+// CloudAuthenticationOpenstackToken OpenstackToken
 type CloudAuthenticationOpenstackToken struct {
+	Catalog []*CloudAuthenticationCatalog `json:"catalog,omitempty"`
 
-	Catalog []CloudAuthenticationCatalog `json:"catalog,omitempty"`
+	ExpiresAt *time.Time `json:"expires_at,omitempty"`
 
-	ExpiresAt time.Time `json:"expires_at,omitempty"`
-
-	IssuedAt time.Time `json:"issued_at,omitempty"`
+	IssuedAt *time.Time `json:"issued_at,omitempty"`
 
 	Methods []string `json:"methods,omitempty"`
 
-	Project CloudAuthenticationTokenProject `json:"project,omitempty"`
+	Project *CloudAuthenticationTokenProject `json:"project,omitempty"`
 
-	Roles []CloudAuthenticationRole `json:"roles,omitempty"`
+	Roles []*CloudAuthenticationRole `json:"roles,omitempty"`
 
-	User CloudAuthenticationUserToken `json:"user,omitempty"`
+	User *CloudAuthenticationUserToken `json:"user,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,33 +14,33 @@ import (
 	"time"
 )
 
-// Home Location Register informations. Give informations about a given cellular phone.
+// SmsHlrLookupNumber Home Location Register informations. Give informations about a given cellular phone.
 type SmsHlrLookupNumber struct {
 
-	// HLR creation datetime
-	Datetime time.Time `json:"datetime,omitempty"`
+	// Datetime HLR creation datetime
+	Datetime *time.Time `json:"datetime,omitempty"`
 
-	// HLR id
-	Id int64 `json:"id,omitempty"`
+	// ID HLR id
+	ID int64 `json:"id,omitempty"`
 
-	// MSISDN
+	// Msisdn MSISDN
 	Msisdn string `json:"msisdn,omitempty"`
 
-	// The {Mobile Country Code, Mobile Network Code} unique identifier
+	// OperatorCode The {Mobile Country Code, Mobile Network Code} unique identifier
 	OperatorCode string `json:"operatorCode,omitempty"`
 
-	// Has the MSISDN been ported from its original network
+	// Ported Has the MSISDN been ported from its original network
 	Ported bool `json:"ported,omitempty"`
 
-	// Is the MSISDN currently reachable
+	// Reachable Is the MSISDN currently reachable
 	Reachable bool `json:"reachable,omitempty"`
 
-	// Is the MSISDN currently roaming outside its natinal network
+	// Roaming Is the MSISDN currently roaming outside its natinal network
 	Roaming bool `json:"roaming,omitempty"`
 
-	// Status of the HLR request
+	// Status Status of the HLR request
 	Status string `json:"status,omitempty"`
 
-	// Is the MSISDN valid
+	// Valid Is the MSISDN valid
 	Valid bool `json:"valid,omitempty"`
 }

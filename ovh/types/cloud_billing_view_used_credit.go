@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
-// UsedCredit
+// CloudBillingViewUsedCredit UsedCredit
 type CloudBillingViewUsedCredit struct {
 
-	// Credit description
+	// Description Credit description
 	Description string `json:"description,omitempty"`
 
-	// Credit ID
-	Id int64 `json:"id,omitempty"`
+	// ID Credit ID
+	ID int64 `json:"id,omitempty"`
 
-	// Total credit used
+	// UsedAmount Total credit used
 	UsedAmount float64 `json:"usedAmount,omitempty"`
 }

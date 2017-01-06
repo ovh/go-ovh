@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Quantity consumed in unit
+// PaasTimeseriesConsumptionItemQuantity Quantity consumed in unit
 type PaasTimeseriesConsumptionItemQuantity struct {
-
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

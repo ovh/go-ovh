@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,19 +14,19 @@ import (
 	"time"
 )
 
-// Backup Ftp assigned to this VPS
+// VpsBackupFtp Backup Ftp assigned to this VPS
 type VpsBackupFtp struct {
 
-	// The backup FTP server name
+	// FtpBackupName The backup FTP server name
 	FtpBackupName string `json:"ftpBackupName,omitempty"`
 
-	Quota VpsBackupFtpQuota `json:"quota,omitempty"`
+	Quota *VpsBackupFtpQuota `json:"quota,omitempty"`
 
-	// If not-null, gives the date since when your account was set in read-only mode because the quota was exceeded
-	ReadOnlyDate time.Time `json:"readOnlyDate,omitempty"`
+	// ReadOnlyDate If not-null, gives the date since when your account was set in read-only mode because the quota was exceeded
+	ReadOnlyDate *time.Time `json:"readOnlyDate,omitempty"`
 
-	// The backup FTP type
-	Type_ string `json:"type,omitempty"`
+	// TType The backup FTP type
+	TType string `json:"type,omitempty"`
 
-	Usage VpsBackupFtpUsage `json:"usage,omitempty"`
+	Usage *VpsBackupFtpUsage `json:"usage,omitempty"`
 }

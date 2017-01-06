@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Graylog role
+// DBaaSLogsRole Graylog role
 type DBaaSLogsRole struct {
 
-	// Role description
+	// Description Role description
 	Description string `json:"description,omitempty"`
 
-	// Role name
+	// Name Role name
 	Name string `json:"name,omitempty"`
 
-	// Associated DBaaS Logs option
-	OptionId string `json:"optionId,omitempty"`
+	// OptionID Associated DBaaS Logs option
+	OptionID string `json:"optionId,omitempty"`
 
-	// Role UUID
-	RoleId string `json:"roleId,omitempty"`
+	// RoleID Role UUID
+	RoleID string `json:"roleId,omitempty"`
 }

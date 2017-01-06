@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,17 +14,17 @@ import (
 	"time"
 )
 
+// TelephonySchedulerEventsPost ...
 type TelephonySchedulerEventsPost struct {
-
 	Category string `json:"category,omitempty"`
 
-	DateEnd time.Time `json:"dateEnd,omitempty"`
+	DateEnd *time.Time `json:"dateEnd,omitempty"`
 
-	DateStart time.Time `json:"dateStart,omitempty"`
+	DateStart *time.Time `json:"dateStart,omitempty"`
 
 	Description string `json:"description,omitempty"`
 
 	Title string `json:"title,omitempty"`
 
-	Uid string `json:"uid,omitempty"`
+	UID string `json:"uid,omitempty"`
 }

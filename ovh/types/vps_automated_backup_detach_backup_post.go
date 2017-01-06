@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
+// VpsAutomatedBackupDetachBackupPost ...
 type VpsAutomatedBackupDetachBackupPost struct {
-
-	RestorePoint time.Time `json:"restorePoint,omitempty"`
+	RestorePoint *time.Time `json:"restorePoint,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,26 +14,25 @@ import (
 	"time"
 )
 
-// Details about a Refund
+// BillingRefund Details about a Refund
 type BillingRefund struct {
+	Date *time.Time `json:"date,omitempty"`
 
-	Date time.Time `json:"date,omitempty"`
+	OrderID int64 `json:"orderId,omitempty"`
 
-	OrderId int64 `json:"orderId,omitempty"`
-
-	OriginalBillId string `json:"originalBillId,omitempty"`
+	OriginalBillID string `json:"originalBillId,omitempty"`
 
 	Password string `json:"password,omitempty"`
 
-	PdfUrl string `json:"pdfUrl,omitempty"`
+	PdfURL string `json:"pdfUrl,omitempty"`
 
-	PriceWithTax OrderPrice `json:"priceWithTax,omitempty"`
+	PriceWithTax *OrderPrice `json:"priceWithTax,omitempty"`
 
-	PriceWithoutTax OrderPrice `json:"priceWithoutTax,omitempty"`
+	PriceWithoutTax *OrderPrice `json:"priceWithoutTax,omitempty"`
 
-	RefundId string `json:"refundId,omitempty"`
+	RefundID string `json:"refundId,omitempty"`
 
-	Tax OrderPrice `json:"tax,omitempty"`
+	Tax *OrderPrice `json:"tax,omitempty"`
 
-	Url string `json:"url,omitempty"`
+	URL string `json:"url,omitempty"`
 }

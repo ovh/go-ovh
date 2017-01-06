@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Virtual numbers
+// SmsVirtualNumber Virtual numbers
 type SmsVirtualNumber struct {
 
-	// The ISO formated country code of the number
+	// CountryCode The ISO formated country code of the number
 	CountryCode string `json:"countryCode,omitempty"`
 
-	// The virtual number
+	// Number The virtual number
 	Number string `json:"number,omitempty"`
 }

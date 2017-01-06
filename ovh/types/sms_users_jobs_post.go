@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// SmsUsersJobsPost ...
 type SmsUsersJobsPost struct {
-
 	Charset string `json:"charset,omitempty"`
 
 	Class string `json:"class,omitempty"`
@@ -28,9 +28,9 @@ type SmsUsersJobsPost struct {
 
 	Receivers []string `json:"receivers,omitempty"`
 
-	ReceiversDocumentUrl string `json:"receiversDocumentUrl,omitempty"`
+	ReceiversDocumentURL string `json:"receiversDocumentUrl,omitempty"`
 
-	ReceiversSlotId string `json:"receiversSlotId,omitempty"`
+	ReceiversSlotID string `json:"receiversSlotId,omitempty"`
 
 	Sender string `json:"sender,omitempty"`
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// Representation of a generic product
+// OrderCartGenericProductDefinition Representation of a generic product
 type OrderCartGenericProductDefinition struct {
 
-	// Product offer identifier
+	// PlanCode Product offer identifier
 	PlanCode string `json:"planCode,omitempty"`
 
-	// Prices of the product offer
-	Prices []OrderCartGenericProductPricing `json:"prices,omitempty"`
+	// Prices Prices of the product offer
+	Prices []*OrderCartGenericProductPricing `json:"prices,omitempty"`
 
-	// Name of the product
+	// ProductName Name of the product
 	ProductName string `json:"productName,omitempty"`
 
-	// Product type
+	// ProductType Product type
 	ProductType string `json:"productType,omitempty"`
 }

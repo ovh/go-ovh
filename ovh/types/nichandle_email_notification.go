@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,18 +14,18 @@ import (
 	"time"
 )
 
-// Email notification
+// NichandleEmailNotification Email notification
 type NichandleEmailNotification struct {
 
-	// This email body
+	// Body This email body
 	Body string `json:"body,omitempty"`
 
-	// This email date
-	Date time.Time `json:"date,omitempty"`
+	// Date This email date
+	Date *time.Time `json:"date,omitempty"`
 
-	// This email Id
-	Id int64 `json:"id,omitempty"`
+	// ID This email Id
+	ID int64 `json:"id,omitempty"`
 
-	// This email subject
+	// Subject This email subject
 	Subject string `json:"subject,omitempty"`
 }

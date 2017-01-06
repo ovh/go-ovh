@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Cloud alert on your consumption
+// CloudAlertingAlert Cloud alert on your consumption
 type CloudAlertingAlert struct {
 
-	// Alert date
-	AlertDate time.Time `json:"alertDate,omitempty"`
+	// AlertDate Alert date
+	AlertDate *time.Time `json:"alertDate,omitempty"`
 
-	// Alert id
-	AlertId int64 `json:"alertId,omitempty"`
+	// AlertID Alert id
+	AlertID int64 `json:"alertId,omitempty"`
 
-	// Alert sent to
+	// Emails Alert sent to
 	Emails []string `json:"emails,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,10 +14,9 @@ import (
 	"time"
 )
 
-// A structure describing type of a stats hash
-type CdnWebstorageStatsDataType struct {
-
-	Date time.Time `json:"date,omitempty"`
+// CDNWebstorageStatsDataType A structure describing type of a stats hash
+type CDNWebstorageStatsDataType struct {
+	Date *time.Time `json:"date,omitempty"`
 
 	Value int64 `json:"value,omitempty"`
 }

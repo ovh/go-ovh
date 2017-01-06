@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,21 +14,21 @@ import (
 	"time"
 )
 
-// Informations about a SIP registration (i.e. IP, port, User-Agent...)
+// TelephonyRegistrationInformations Informations about a SIP registration (i.e. IP, port, User-Agent...)
 type TelephonyRegistrationInformations struct {
 
-	// SIP registration's date
-	Datetime time.Time `json:"datetime,omitempty"`
+	// Datetime SIP registration's date
+	Datetime *time.Time `json:"datetime,omitempty"`
 
-	// SIP registration's domain
+	// Domain SIP registration's domain
 	Domain string `json:"domain,omitempty"`
 
-	// SIP registration's IP
-	Ip string `json:"ip,omitempty"`
+	// IP SIP registration's IP
+	IP string `json:"ip,omitempty"`
 
-	// SIP registration's port
+	// Port SIP registration's port
 	Port int64 `json:"port,omitempty"`
 
-	// SIP registration's User-Agent
+	// UserAgent SIP registration's User-Agent
 	UserAgent string `json:"userAgent,omitempty"`
 }

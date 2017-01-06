@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,10 +10,9 @@
 
 package types
 
-// Metrics about slave usage
-type DockerSlaveMetrics struct {
+// DockerSLAveMetrics Metrics about slave usage
+type DockerSLAveMetrics struct {
+	Resources *DockerSLAveMetricsResources `json:"resources,omitempty"`
 
-	Resources DockerSlaveMetricsResources `json:"resources,omitempty"`
-
-	UsedResources DockerSlaveMetricsUsedResources `json:"usedResources,omitempty"`
+	UsedResources *DockerSLAveMetricsUsedResources `json:"usedResources,omitempty"`
 }

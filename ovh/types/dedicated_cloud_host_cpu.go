@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// CPU total frenquency
-type DedicatedCloudHostCpu struct {
-
+// DedicatedCloudHostCPU CPU total frenquency
+type DedicatedCloudHostCPU struct {
 	Unit string `json:"unit,omitempty"`
 
 	Value float64 `json:"value,omitempty"`

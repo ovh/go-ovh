@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,39 +10,39 @@
 
 package types
 
-// Domain operation argument
+// NichandleDomainTaskArgument Domain operation argument
 type NichandleDomainTaskArgument struct {
 
-	// List of accepted formats
+	// AcceptedFormats List of accepted formats
 	AcceptedFormats []string `json:"acceptedFormats,omitempty"`
 
-	// List of accepted values
+	// AcceptedValues List of accepted values
 	AcceptedValues []string `json:"acceptedValues,omitempty"`
 
-	// Description of the argument
+	// Description Description of the argument
 	Description string `json:"description,omitempty"`
 
-	// List of impacted field names
+	// Fields List of impacted field names
 	Fields []string `json:"fields,omitempty"`
 
-	// Key of the argument
+	// Key Key of the argument
 	Key string `json:"key,omitempty"`
 
-	// Maximum of the content length that you can send
+	// MaximumSize Maximum of the content length that you can send
 	MaximumSize int64 `json:"maximumSize,omitempty"`
 
-	// Minimum of the content length that you can send
+	// MinimumSize Minimum of the content length that you can send
 	MinimumSize int64 `json:"minimumSize,omitempty"`
 
-	// True if the argument is in read only
+	// ReadOnly True if the argument is in read only
 	ReadOnly bool `json:"readOnly,omitempty"`
 
-	// Template of the content
+	// Template Template of the content
 	Template string `json:"template,omitempty"`
 
-	// Type of the argument
-	Type_ string `json:"type,omitempty"`
+	// TType Type of the argument
+	TType string `json:"type,omitempty"`
 
-	// Value of the argument
+	// Value Value of the argument
 	Value string `json:"value,omitempty"`
 }

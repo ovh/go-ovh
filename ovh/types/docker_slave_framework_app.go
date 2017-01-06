@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,30 +10,30 @@
 
 package types
 
-// Application data
-type DockerSlaveFrameworkApp struct {
+// DockerSLAveFrameworkApp Application data
+type DockerSLAveFrameworkApp struct {
 
-	// Application CPU
-	Cpu int64 `json:"cpu,omitempty"`
+	// CPU Application CPU
+	CPU int64 `json:"cpu,omitempty"`
 
-	// Application environment
-	Env []DockerSlaveFrameworkAppEnvironment `json:"env,omitempty"`
+	// Env Application environment
+	Env []*DockerSLAveFrameworkAppEnvironment `json:"env,omitempty"`
 
-	// Application id
-	Id string `json:"id,omitempty"`
+	// ID Application id
+	ID string `json:"id,omitempty"`
 
-	// Application image
+	// Image Application image
 	Image string `json:"image,omitempty"`
 
-	// Application memory
+	// Mem Application memory
 	Mem int64 `json:"mem,omitempty"`
 
-	// Application ports
-	Ports []DockerSlaveFrameworkAppPort `json:"ports,omitempty"`
+	// Ports Application ports
+	Ports []*DockerSLAveFrameworkAppPort `json:"ports,omitempty"`
 
-	// Application status
+	// Status Application status
 	Status string `json:"status,omitempty"`
 
-	// Application volumes
-	Volumes []DockerSlaveFrameworkAppVolume `json:"volumes,omitempty"`
+	// Volumes Application volumes
+	Volumes []*DockerSLAveFrameworkAppVolume `json:"volumes,omitempty"`
 }

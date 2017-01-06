@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// vrack dedicated server interfaces
+// VrackDedicatedServerInterface vrack dedicated server interfaces
 type VrackDedicatedServerInterface struct {
 
-	// Dedicated Server Interface
+	// DedicatedServerInterface Dedicated Server Interface
 	DedicatedServerInterface string `json:"dedicatedServerInterface,omitempty"`
 
-	// vrack name
+	// Vrack vrack name
 	Vrack string `json:"vrack,omitempty"`
 }

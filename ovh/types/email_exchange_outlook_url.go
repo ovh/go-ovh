@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,15 +14,15 @@ import (
 	"time"
 )
 
-// Outlook url
-type EmailExchangeOutlookUrl struct {
+// EmailExchangeOutlookURL Outlook url
+type EmailExchangeOutlookURL struct {
 
-	// Url expiration date
-	Expiration time.Time `json:"expiration,omitempty"`
+	// Expiration Url expiration date
+	Expiration *time.Time `json:"expiration,omitempty"`
 
-	// Serial number
+	// Serial Serial number
 	Serial string `json:"serial,omitempty"`
 
-	// Outlook url
-	Url string `json:"url,omitempty"`
+	// URL Outlook url
+	URL string `json:"url,omitempty"`
 }

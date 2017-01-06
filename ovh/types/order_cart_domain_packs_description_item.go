@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,12 @@
 
 package types
 
-// Describe the eligibility of each domain in the packs
+// OrderCartDomainPacksDescriptionItem Describe the eligibility of each domain in the packs
 type OrderCartDomainPacksDescriptionItem struct {
 
-	// Indicates if domain is available and will be included in the pack
+	// Available Indicates if domain is available and will be included in the pack
 	Available bool `json:"available,omitempty"`
 
-	// Domain concerned by the availability
+	// Domain Domain concerned by the availability
 	Domain string `json:"domain,omitempty"`
 }

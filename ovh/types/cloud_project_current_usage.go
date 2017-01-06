@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,17 @@
 
 package types
 
-// Usage information for current month on your project
+// CloudProjectCurrentUsage Usage information for current month on your project
 type CloudProjectCurrentUsage struct {
+	Instances *CloudProjectInstancesUsage `json:"instances,omitempty"`
 
-	Instances CloudProjectInstancesUsage `json:"instances,omitempty"`
+	Snapshots *CloudProjectSnapshotsUsage `json:"snapshots,omitempty"`
 
-	Snapshots CloudProjectSnapshotsUsage `json:"snapshots,omitempty"`
+	Storage *CloudProjectStorageUsage `json:"storage,omitempty"`
 
-	Storage CloudProjectStorageUsage `json:"storage,omitempty"`
+	Total *OrderPrice `json:"total,omitempty"`
 
-	Total OrderPrice `json:"total,omitempty"`
+	VolumeSnapshots *CloudProjectSnapshotsUsage `json:"volumeSnapshots,omitempty"`
 
-	VolumeSnapshots CloudProjectSnapshotsUsage `json:"volumeSnapshots,omitempty"`
-
-	Volumes CloudProjectVolumesUsage `json:"volumes,omitempty"`
+	Volumes *CloudProjectVolumesUsage `json:"volumes,omitempty"`
 }

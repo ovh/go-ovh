@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,13 +10,13 @@
 
 package types
 
-type CdnDedicatedDomainsCacheRulesPost struct {
-
+// CDNDedicatedDomainsCacheRulesPost ...
+type CDNDedicatedDomainsCacheRulesPost struct {
 	CacheType string `json:"cacheType,omitempty"`
 
 	FileMatch string `json:"fileMatch,omitempty"`
 
 	FileType string `json:"fileType,omitempty"`
 
-	Ttl int64 `json:"ttl,omitempty"`
+	TTL int64 `json:"ttl,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -14,27 +14,26 @@ import (
 	"time"
 )
 
-// State of a debt
-type DebtDebt struct {
+// Debt State of a debt
+type Debt struct {
+	Amount *OrderPrice `json:"amount,omitempty"`
 
-	Amount OrderPrice `json:"amount,omitempty"`
+	// Date Date the debt was created on
+	Date *time.Time `json:"date,omitempty"`
 
-	// Date the debt was created on
-	Date time.Time `json:"date,omitempty"`
+	DebtID int64 `json:"debtId,omitempty"`
 
-	DebtId int64 `json:"debtId,omitempty"`
+	DueAmount *OrderPrice `json:"dueAmount,omitempty"`
 
-	DueAmount OrderPrice `json:"dueAmount,omitempty"`
+	// DueDate If specified, the debt will not be recovered before that date
+	DueDate *time.Time `json:"dueDate,omitempty"`
 
-	// If specified, the debt will not be recovered before that date
-	DueDate time.Time `json:"dueDate,omitempty"`
+	// OrderID The order the debt relates to
+	OrderID int64 `json:"orderId,omitempty"`
 
-	// The order the debt relates to
-	OrderId int64 `json:"orderId,omitempty"`
+	PendingAmount *OrderPrice `json:"pendingAmount,omitempty"`
 
-	PendingAmount OrderPrice `json:"pendingAmount,omitempty"`
+	TodoAmount *OrderPrice `json:"todoAmount,omitempty"`
 
-	TodoAmount OrderPrice `json:"todoAmount,omitempty"`
-
-	UnmaturedAmount OrderPrice `json:"unmaturedAmount,omitempty"`
+	UnmaturedAmount *OrderPrice `json:"unmaturedAmount,omitempty"`
 }

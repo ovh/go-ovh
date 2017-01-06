@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,7 +10,7 @@
 
 package types
 
-type LicenseCpanelChangeIpPost struct {
-
-	DestinationIp string `json:"destinationIp,omitempty"`
+// LicenseCpanelChangeIPPost ...
+type LicenseCpanelChangeIPPost struct {
+	DestinationIP string `json:"destinationIp,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// Credential request to get access to the API
+// AuthCredential Credential request to get access to the API
 type AuthCredential struct {
-
 	ConsumerKey string `json:"consumerKey,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	ValidationUrl string `json:"validationUrl,omitempty"`
+	ValidationURL string `json:"validationUrl,omitempty"`
 }

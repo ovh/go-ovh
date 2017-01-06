@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// A value set tagged with its unit and serie name
+// ComplexTypeChartSerieComplexTypeChartTimestampValue A value set tagged with its unit and serie name
 type ComplexTypeChartSerieComplexTypeChartTimestampValue struct {
-
 	SerieName string `json:"serieName,omitempty"`
 
 	Unit string `json:"unit,omitempty"`
 
-	Values []ComplexTypeChartTimestampValue `json:"values,omitempty"`
+	Values []*ComplexTypeChartTimestampValue `json:"values,omitempty"`
 }

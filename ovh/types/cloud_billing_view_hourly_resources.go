@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,18 +10,18 @@
 
 package types
 
-// HourlyResources
+// CloudBillingViewHourlyResources HourlyResources
 type CloudBillingViewHourlyResources struct {
 
-	// Details about hourly instances
-	Instance []CloudBillingViewHourlyInstance `json:"instance,omitempty"`
+	// Instance Details about hourly instances
+	Instance []*CloudBillingViewHourlyInstance `json:"instance,omitempty"`
 
-	// Details about hourly snapshots
-	Snapshot []CloudBillingViewHourlySnapshot `json:"snapshot,omitempty"`
+	// Snapshot Details about hourly snapshots
+	Snapshot []*CloudBillingViewHourlySnapshot `json:"snapshot,omitempty"`
 
-	// Details about hourly storage
-	Storage []CloudBillingViewHourlyStorage `json:"storage,omitempty"`
+	// Storage Details about hourly storage
+	Storage []*CloudBillingViewHourlyStorage `json:"storage,omitempty"`
 
-	// Details about hourly volumes
-	Volume []CloudBillingViewHourlyVolume `json:"volume,omitempty"`
+	// Volume Details about hourly volumes
+	Volume []*CloudBillingViewHourlyVolume `json:"volume,omitempty"`
 }

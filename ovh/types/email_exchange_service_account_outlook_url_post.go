@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
-type EmailExchangeServiceAccountOutlookUrlPost struct {
-
+// EmailExchangeServiceAccountOutlookURLPost ...
+type EmailExchangeServiceAccountOutlookURLPost struct {
 	Language string `json:"language,omitempty"`
 
 	Version string `json:"version,omitempty"`

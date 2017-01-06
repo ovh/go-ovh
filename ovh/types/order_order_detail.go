@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,9 +10,8 @@
 
 package types
 
-// Detail of an order
-type OrderOrderDetail struct {
-
+// OrderDetail Detail of an order
+type OrderDetail struct {
 	Description string `json:"description,omitempty"`
 
 	DetailType string `json:"detailType,omitempty"`
@@ -21,7 +20,7 @@ type OrderOrderDetail struct {
 
 	Quantity int64 `json:"quantity,omitempty"`
 
-	TotalPrice OrderPrice `json:"totalPrice,omitempty"`
+	TotalPrice *OrderPrice `json:"totalPrice,omitempty"`
 
-	UnitPrice OrderPrice `json:"unitPrice,omitempty"`
+	UnitPrice *OrderPrice `json:"unitPrice,omitempty"`
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,15 +10,15 @@
 
 package types
 
+// VpsReinstallPost ...
 type VpsReinstallPost struct {
-
 	DoNotSendPassword bool `json:"doNotSendPassword,omitempty"`
 
 	Language string `json:"language,omitempty"`
 
-	SoftwareId []int64 `json:"softwareId,omitempty"`
+	SoftwareID []int64 `json:"softwareId,omitempty"`
 
-	SshKey []string `json:"sshKey,omitempty"`
+	SSHKey []string `json:"sshKey,omitempty"`
 
-	TemplateId int64 `json:"templateId,omitempty"`
+	TemplateID int64 `json:"templateId,omitempty"`
 }

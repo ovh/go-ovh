@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,8 +10,8 @@
 
 package types
 
+// PaasDatabaseInstanceGrantPost ...
 type PaasDatabaseInstanceGrantPost struct {
-
 	DatabaseName string `json:"databaseName,omitempty"`
 
 	GrantType string `json:"grantType,omitempty"`

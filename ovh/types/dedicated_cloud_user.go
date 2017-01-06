@@ -1,4 +1,4 @@
-/* 
+/*
  * OVH API - EU
  *
  * Build your own OVH world.
@@ -10,12 +10,11 @@
 
 package types
 
-// Dedicated Cloud User
+// DedicatedCloudUser Dedicated Cloud User
 type DedicatedCloudUser struct {
-
 	ActivationState string `json:"activationState,omitempty"`
 
-	CanManageIpFailOvers bool `json:"canManageIpFailOvers,omitempty"`
+	CanManageIPFailOvers bool `json:"canManageIpFailOvers,omitempty"`
 
 	CanManageNetwork bool `json:"canManageNetwork,omitempty"`
 
@@ -23,12 +22,12 @@ type DedicatedCloudUser struct {
 
 	FullAdminRo bool `json:"fullAdminRo,omitempty"`
 
-	// Check if the given Dedicated Cloud user can be enabled or disabled ?
+	// IsEnableManageable Check if the given Dedicated Cloud user can be enabled or disabled ?
 	IsEnableManageable bool `json:"isEnableManageable,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
 	State string `json:"state,omitempty"`
 
-	UserId int64 `json:"userId,omitempty"`
+	UserID int64 `json:"userId,omitempty"`
 }
