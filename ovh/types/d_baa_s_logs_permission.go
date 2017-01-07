@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsPermission Graylog role permission
-type DBaaSLogsPermission struct {
+// DBaasLogsPermission Graylog role permission
+type DBaasLogsPermission struct {
 
 	// AliasID Associated Elasticsearch alias
 	AliasID string `json:"aliasId,omitempty"`

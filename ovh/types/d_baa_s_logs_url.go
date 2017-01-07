@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsURL Web address
-type DBaaSLogsURL struct {
+// DBaasLogsURL Web address
+type DBaasLogsURL struct {
 
 	// Address Web URI
 	Address string `json:"address,omitempty"`

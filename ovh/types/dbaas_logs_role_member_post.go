@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsRoleMemberPost ...
-type DbaasLogsRoleMemberPost struct {
+// DBaasLogsRoleMemberPost ...
+type DBaasLogsRoleMemberPost struct {
 	Username string `json:"username,omitempty"`
 }

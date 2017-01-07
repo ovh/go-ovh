@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsInputConfigurationFlowggerPut ...
-type DbaasLogsInputConfigurationFlowggerPut struct {
+// DBaasLogsInputConfigurationFlowggerPut ...
+type DBaasLogsInputConfigurationFlowggerPut struct {
 	KafkaCoalesce int64 `json:"kafkaCoalesce,omitempty"`
 
 	LogFormat string `json:"logFormat,omitempty"`

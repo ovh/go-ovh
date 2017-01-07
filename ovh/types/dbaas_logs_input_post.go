@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsInputPost ...
-type DbaasLogsInputPost struct {
+// DBaasLogsInputPost ...
+type DBaasLogsInputPost struct {
 	Description string `json:"description,omitempty"`
 
 	EngineID string `json:"engineId,omitempty"`

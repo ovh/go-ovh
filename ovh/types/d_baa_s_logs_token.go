@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsToken Token
-type DBaaSLogsToken struct {
+// DBaasLogsToken Token
+type DBaasLogsToken struct {
 
 	// CreatedAt Token creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

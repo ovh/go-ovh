@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsRolePermissionStreamPost ...
-type DbaasLogsRolePermissionStreamPost struct {
+// DBaasLogsRolePermissionStreamPost ...
+type DBaasLogsRolePermissionStreamPost struct {
 	StreamID string `json:"streamId,omitempty"`
 }

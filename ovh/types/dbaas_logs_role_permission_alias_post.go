@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsRolePermissionAliasPost ...
-type DbaasLogsRolePermissionAliasPost struct {
+// DBaasLogsRolePermissionAliasPost ...
+type DBaasLogsRolePermissionAliasPost struct {
 	AliasID string `json:"aliasId,omitempty"`
 }

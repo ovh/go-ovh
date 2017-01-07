@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsDashboard Graylog dashboard
-type DBaaSLogsDashboard struct {
+// DBaasLogsDashboard Graylog dashboard
+type DBaasLogsDashboard struct {
 
 	// CreatedAt Dashboard creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

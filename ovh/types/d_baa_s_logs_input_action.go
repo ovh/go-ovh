@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsInputAction Action on input
-type DBaaSLogsInputAction struct {
+// DBaasLogsInputAction Action on input
+type DBaasLogsInputAction struct {
 
 	// IsAllowed Indicates if action is allowed
 	IsAllowed bool `json:"isAllowed,omitempty"`

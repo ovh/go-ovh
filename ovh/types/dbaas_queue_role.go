@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueRole Role
-type DbaasQueueRole struct {
+// DBaasQueueRole Role
+type DBaasQueueRole struct {
 
 	// AutoCreateACL Automatically create non-existing topics on read & write operations
 	AutoCreateACL bool `json:"autoCreateACL,omitempty"`

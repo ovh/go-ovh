@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueChangeContactPost ...
-type DbaasQueueChangeContactPost struct {
+// DBaasQueueChangeContactPost ...
+type DBaasQueueChangeContactPost struct {
 	ContactAdmin string `json:"contactAdmin,omitempty"`
 
 	ContactBilling string `json:"contactBilling,omitempty"`

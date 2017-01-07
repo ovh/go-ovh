@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsTestResult Config test results
-type DBaaSLogsTestResult struct {
+// DBaasLogsTestResult Config test results
+type DBaasLogsTestResult struct {
 
 	// Stderr Standard error
 	Stderr string `json:"stderr,omitempty"`

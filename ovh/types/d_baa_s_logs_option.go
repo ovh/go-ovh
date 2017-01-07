@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsOption DBaaS Logs option
-type DBaaSLogsOption struct {
+// DBaasLogsOption DBaaS Logs option
+type DBaasLogsOption struct {
 
 	// CreatedAt Service creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

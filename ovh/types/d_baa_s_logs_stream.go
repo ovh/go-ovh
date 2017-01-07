@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsStream Graylog stream
-type DBaaSLogsStream struct {
+// DBaasLogsStream Graylog stream
+type DBaasLogsStream struct {
 
 	// CreatedAt Stream creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

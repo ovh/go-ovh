@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasTimeseriesTokenOpentsdbPost ...
-type DbaasTimeseriesTokenOpentsdbPost struct {
+// DBaasTimeseriesTokenOpentsdbPost ...
+type DBaasTimeseriesTokenOpentsdbPost struct {
 	Description string `json:"description,omitempty"`
 
 	Permission string `json:"permission,omitempty"`

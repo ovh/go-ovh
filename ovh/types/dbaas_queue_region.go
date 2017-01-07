@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueRegion Region
-type DbaasQueueRegion struct {
+// DBaasQueueRegion Region
+type DBaasQueueRegion struct {
 
 	// ID Region ID
 	ID string `json:"id,omitempty"`

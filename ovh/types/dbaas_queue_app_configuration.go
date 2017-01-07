@@ -10,15 +10,15 @@
 
 package types
 
-// DbaasQueueAppConfiguration AppConfiguration
-type DbaasQueueAppConfiguration struct {
-	App *DbaasQueueApp `json:"app,omitempty"`
+// DBaasQueueAppConfiguration AppConfiguration
+type DBaasQueueAppConfiguration struct {
+	App *DBaasQueueApp `json:"app,omitempty"`
 
-	MetricsAccount *DbaasQueueMetricsAccount `json:"metricsAccount,omitempty"`
+	MetricsAccount *DBaasQueueMetricsAccount `json:"metricsAccount,omitempty"`
 
 	// Roles List of created roles
-	Roles []*DbaasQueueRole `json:"roles,omitempty"`
+	Roles []*DBaasQueueRole `json:"roles,omitempty"`
 
 	// Users List of created users
-	Users []*DbaasQueueUserWithPassword `json:"users,omitempty"`
+	Users []*DBaasQueueUserWithPassword `json:"users,omitempty"`
 }

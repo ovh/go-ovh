@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsPut ...
-type DbaasLogsPut struct {
+// DBaasLogsPut ...
+type DBaasLogsPut struct {
 	ContactID int64 `json:"contactId,omitempty"`
 }

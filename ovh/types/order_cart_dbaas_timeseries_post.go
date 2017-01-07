@@ -10,8 +10,8 @@
 
 package types
 
-// OrderCartDbaasTimeseriesPost ...
-type OrderCartDbaasTimeseriesPost struct {
+// OrderCartDBaasTimeseriesPost ...
+type OrderCartDBaasTimeseriesPost struct {
 	Duration string `json:"duration,omitempty"`
 
 	PlanCode string `json:"planCode,omitempty"`

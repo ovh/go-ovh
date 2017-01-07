@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsOutputGraylogDashboardPut ...
-type DbaasLogsOutputGraylogDashboardPut struct {
+// DBaasLogsOutputGraylogDashboardPut ...
+type DBaasLogsOutputGraylogDashboardPut struct {
 	Description string `json:"description,omitempty"`
 
 	OptionID string `json:"optionId,omitempty"`

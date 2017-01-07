@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasQueueUserRolesPost ...
-type DbaasQueueUserRolesPost struct {
+// DBaasQueueUserRolesPost ...
+type DBaasQueueUserRolesPost struct {
 	RoleName string `json:"roleName,omitempty"`
 }

@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsAllowedNetwork Network allowed to join input
-type DBaaSLogsAllowedNetwork struct {
+// DBaasLogsAllowedNetwork Network allowed to join input
+type DBaasLogsAllowedNetwork struct {
 
 	// AllowedNetworkID Network UUID
 	AllowedNetworkID string `json:"allowedNetworkId,omitempty"`

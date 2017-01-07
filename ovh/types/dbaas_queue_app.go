@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueApp App
-type DbaasQueueApp struct {
+// DBaasQueueApp App
+type DBaasQueueApp struct {
 
 	// HumanID Human ID of the application
 	HumanID string `json:"humanId,omitempty"`

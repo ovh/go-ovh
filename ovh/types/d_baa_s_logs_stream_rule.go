@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsStreamRule Stream rule
-type DBaaSLogsStreamRule struct {
+// DBaasLogsStreamRule Stream rule
+type DBaasLogsStreamRule struct {
 
 	// Field Field name
 	Field string `json:"field,omitempty"`

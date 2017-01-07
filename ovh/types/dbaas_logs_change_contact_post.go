@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsChangeContactPost ...
-type DbaasLogsChangeContactPost struct {
+// DBaasLogsChangeContactPost ...
+type DBaasLogsChangeContactPost struct {
 	ContactAdmin string `json:"contactAdmin,omitempty"`
 
 	ContactBilling string `json:"contactBilling,omitempty"`

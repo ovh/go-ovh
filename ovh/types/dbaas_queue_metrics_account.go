@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueMetricsAccount MetricsAccount
-type DbaasQueueMetricsAccount struct {
+// DBaasQueueMetricsAccount MetricsAccount
+type DBaasQueueMetricsAccount struct {
 
 	// Host OpenTSDB host url
 	Host string `json:"host,omitempty"`

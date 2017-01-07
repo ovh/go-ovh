@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsInput Input
-type DBaaSLogsInput struct {
+// DBaasLogsInput Input
+type DBaasLogsInput struct {
 
 	// CreatedAt Input creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsOffer DBaaS Logs offer
-type DBaaSLogsOffer struct {
+// DBaasLogsOffer DBaaS Logs offer
+type DBaasLogsOffer struct {
 
 	// CurNbAlias Current number of alias booked
 	CurNbAlias int64 `json:"curNbAlias,omitempty"`

@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasQueueTopicPut ...
-type DbaasQueueTopicPut struct {
+// DBaasQueueTopicPut ...
+type DBaasQueueTopicPut struct {
 	Partitions int64 `json:"partitions,omitempty"`
 }

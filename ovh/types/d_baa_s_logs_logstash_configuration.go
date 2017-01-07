@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsLogstashConfiguration Logstash configuration
-type DBaaSLogsLogstashConfiguration struct {
+// DBaasLogsLogstashConfiguration Logstash configuration
+type DBaasLogsLogstashConfiguration struct {
 
 	// FilterSection The filter section of logstash.conf
 	FilterSection string `json:"filterSection,omitempty"`

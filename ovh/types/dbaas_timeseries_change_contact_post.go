@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasTimeseriesChangeContactPost ...
-type DbaasTimeseriesChangeContactPost struct {
+// DBaasTimeseriesChangeContactPost ...
+type DBaasTimeseriesChangeContactPost struct {
 	ContactAdmin string `json:"contactAdmin,omitempty"`
 
 	ContactBilling string `json:"contactBilling,omitempty"`

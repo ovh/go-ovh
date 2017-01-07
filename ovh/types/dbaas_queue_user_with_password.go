@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueUserWithPassword UserWithPassword
-type DbaasQueueUserWithPassword struct {
+// DBaasQueueUserWithPassword UserWithPassword
+type DBaasQueueUserWithPassword struct {
 
 	// ID User ID
 	ID string `json:"id,omitempty"`

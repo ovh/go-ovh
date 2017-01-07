@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasQueueKeyPost ...
-type DbaasQueueKeyPost struct {
+// DBaasQueueKeyPost ...
+type DBaasQueueKeyPost struct {
 	Name string `json:"name,omitempty"`
 }

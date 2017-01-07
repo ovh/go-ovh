@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueRolePost ...
-type DbaasQueueRolePost struct {
+// DBaasQueueRolePost ...
+type DBaasQueueRolePost struct {
 	AutoCreateAcl bool `json:"autoCreateAcl,omitempty"`
 
 	Name string `json:"name,omitempty"`

@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsOutputGraylogStreamAlertPut ...
-type DbaasLogsOutputGraylogStreamAlertPut struct {
+// DBaasLogsOutputGraylogStreamAlertPut ...
+type DBaasLogsOutputGraylogStreamAlertPut struct {
 	Backlog int64 `json:"backlog,omitempty"`
 
 	ConditionType string `json:"conditionType,omitempty"`

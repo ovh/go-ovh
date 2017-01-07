@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsRole Graylog role
-type DBaaSLogsRole struct {
+// DBaasLogsRole Graylog role
+type DBaasLogsRole struct {
 
 	// Description Role description
 	Description string `json:"description,omitempty"`

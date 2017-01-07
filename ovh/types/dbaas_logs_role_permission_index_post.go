@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsRolePermissionIndexPost ...
-type DbaasLogsRolePermissionIndexPost struct {
+// DBaasLogsRolePermissionIndexPost ...
+type DBaasLogsRolePermissionIndexPost struct {
 	IndexID string `json:"indexId,omitempty"`
 }

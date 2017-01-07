@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsInputAllowedNetworkPost ...
-type DbaasLogsInputAllowedNetworkPost struct {
+// DBaasLogsInputAllowedNetworkPost ...
+type DBaasLogsInputAllowedNetworkPost struct {
 	Network string `json:"network,omitempty"`
 }

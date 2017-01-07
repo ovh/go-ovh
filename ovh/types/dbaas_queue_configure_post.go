@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueConfigurePost ...
-type DbaasQueueConfigurePost struct {
+// DBaasQueueConfigurePost ...
+type DBaasQueueConfigurePost struct {
 	Name string `json:"name,omitempty"`
 
 	RegionID string `json:"regionId,omitempty"`

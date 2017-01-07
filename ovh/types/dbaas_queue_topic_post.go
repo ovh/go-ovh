@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueTopicPost ...
-type DbaasQueueTopicPost struct {
+// DBaasQueueTopicPost ...
+type DBaasQueueTopicPost struct {
 	ID string `json:"id,omitempty"`
 
 	Partitions int64 `json:"partitions,omitempty"`

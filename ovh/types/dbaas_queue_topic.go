@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueTopic Topic
-type DbaasQueueTopic struct {
+// DBaasQueueTopic Topic
+type DBaasQueueTopic struct {
 
 	// ID Topic ID
 	ID string `json:"id,omitempty"`

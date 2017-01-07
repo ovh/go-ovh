@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsOutputElasticsearchIndexPut ...
-type DbaasLogsOutputElasticsearchIndexPut struct {
+// DBaasLogsOutputElasticsearchIndexPut ...
+type DBaasLogsOutputElasticsearchIndexPut struct {
 	Description string `json:"description,omitempty"`
 
 	OptionID string `json:"optionId,omitempty"`

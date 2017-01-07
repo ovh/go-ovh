@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasQueueKeyWithSecret KeyWithSecret
-type DbaasQueueKeyWithSecret struct {
+// DBaasQueueKeyWithSecret KeyWithSecret
+type DBaasQueueKeyWithSecret struct {
 
 	// HumanAppID Human ID of the key's application
 	HumanAppID string `json:"humanAppId,omitempty"`

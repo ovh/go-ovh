@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsInputConfigurationLogstashPut ...
-type DbaasLogsInputConfigurationLogstashPut struct {
+// DBaasLogsInputConfigurationLogstashPut ...
+type DBaasLogsInputConfigurationLogstashPut struct {
 	FilterSection string `json:"filterSection,omitempty"`
 
 	InputSection string `json:"inputSection,omitempty"`

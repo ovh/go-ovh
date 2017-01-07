@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasTimeseriesSetupPost ...
-type DbaasTimeseriesSetupPost struct {
+// DBaasTimeseriesSetupPost ...
+type DBaasTimeseriesSetupPost struct {
 	Description string `json:"description,omitempty"`
 
 	DisplayName string `json:"displayName,omitempty"`

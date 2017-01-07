@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsServiceMetric ServiceMetric
-type DBaaSLogsServiceMetric struct {
+// DBaasLogsServiceMetric ServiceMetric
+type DBaasLogsServiceMetric struct {
 
 	// Host IOT server url
 	Host string `json:"host,omitempty"`

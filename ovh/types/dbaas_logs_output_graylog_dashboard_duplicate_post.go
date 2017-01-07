@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsOutputGraylogDashboardDuplicatePost ...
-type DbaasLogsOutputGraylogDashboardDuplicatePost struct {
+// DBaasLogsOutputGraylogDashboardDuplicatePost ...
+type DBaasLogsOutputGraylogDashboardDuplicatePost struct {
 	Description string `json:"description,omitempty"`
 
 	OptionID string `json:"optionId,omitempty"`

@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasTimeseriesKeyPost ...
-type DbaasTimeseriesKeyPost struct {
+// DBaasTimeseriesKeyPost ...
+type DBaasTimeseriesKeyPost struct {
 	Description string `json:"description,omitempty"`
 
 	Permissions []string `json:"permissions,omitempty"`

@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsAlias Elasticsearch alias
-type DBaaSLogsAlias struct {
+// DBaasLogsAlias Elasticsearch alias
+type DBaasLogsAlias struct {
 
 	// AliasID Alias UUID
 	AliasID string `json:"aliasId,omitempty"`

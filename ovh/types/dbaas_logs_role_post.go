@@ -10,8 +10,8 @@
 
 package types
 
-// DbaasLogsRolePost ...
-type DbaasLogsRolePost struct {
+// DBaasLogsRolePost ...
+type DBaasLogsRolePost struct {
 	Description string `json:"description,omitempty"`
 
 	Name string `json:"name,omitempty"`

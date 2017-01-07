@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsEngine Input engine
-type DBaaSLogsEngine struct {
+// DBaasLogsEngine Input engine
+type DBaasLogsEngine struct {
 
 	// EngineID Input engine UUID
 	EngineID string `json:"engineId,omitempty"`

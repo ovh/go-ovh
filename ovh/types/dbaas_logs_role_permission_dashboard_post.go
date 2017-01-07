@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsRolePermissionDashboardPost ...
-type DbaasLogsRolePermissionDashboardPost struct {
+// DBaasLogsRolePermissionDashboardPost ...
+type DBaasLogsRolePermissionDashboardPost struct {
 	DashboardID string `json:"dashboardId,omitempty"`
 }

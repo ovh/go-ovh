@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsService Service
-type DBaaSLogsService struct {
+// DBaasLogsService Service
+type DBaasLogsService struct {
 
 	// ContactID Contact ID to use
 	ContactID int64 `json:"contactId,omitempty"`

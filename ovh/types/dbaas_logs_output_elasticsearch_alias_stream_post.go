@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsOutputElasticsearchAliasStreamPost ...
-type DbaasLogsOutputElasticsearchAliasStreamPost struct {
+// DBaasLogsOutputElasticsearchAliasStreamPost ...
+type DBaasLogsOutputElasticsearchAliasStreamPost struct {
 	StreamID string `json:"streamId,omitempty"`
 }

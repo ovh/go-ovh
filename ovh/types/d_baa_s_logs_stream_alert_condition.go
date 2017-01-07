@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsStreamAlertCondition Alert condition
-type DBaaSLogsStreamAlertCondition struct {
+// DBaasLogsStreamAlertCondition Alert condition
+type DBaasLogsStreamAlertCondition struct {
 
 	// AlertID Stream alert condition UUID
 	AlertID string `json:"alertId,omitempty"`

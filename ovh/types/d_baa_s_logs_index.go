@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsIndex Elasticsearch index
-type DBaaSLogsIndex struct {
+// DBaasLogsIndex Elasticsearch index
+type DBaasLogsIndex struct {
 
 	// CreatedAt Index creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

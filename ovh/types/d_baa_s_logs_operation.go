@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-// DBaaSLogsOperation Input operation
-type DBaaSLogsOperation struct {
+// DBaasLogsOperation Input operation
+type DBaasLogsOperation struct {
 
 	// AliasID Alias used
 	AliasID string `json:"aliasId,omitempty"`

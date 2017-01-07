@@ -10,7 +10,7 @@
 
 package types
 
-// DbaasLogsTokenPost ...
-type DbaasLogsTokenPost struct {
+// DBaasLogsTokenPost ...
+type DBaasLogsTokenPost struct {
 	Name string `json:"name,omitempty"`
 }

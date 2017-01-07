@@ -10,8 +10,8 @@
 
 package types
 
-// DBaaSLogsFlowggerConfiguration Flowgger configuration
-type DBaaSLogsFlowggerConfiguration struct {
+// DBaasLogsFlowggerConfiguration Flowgger configuration
+type DBaasLogsFlowggerConfiguration struct {
 
 	// KafkaCoalesce Number of message to always waits for a full batch to be         buffered before sending it to Kafka
 	KafkaCoalesce int64 `json:"kafkaCoalesce,omitempty"`
