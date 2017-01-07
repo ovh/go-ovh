@@ -7,6 +7,7 @@ import (
 
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 
 	"github.com/spf13/cobra"
 )
@@ -59,7 +60,7 @@ var CmdCartInfoItem = &cobra.Command{
 			common.WrongUsage(cmd)
 		}
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(2)
@@ -82,7 +83,7 @@ var CmdCartUpdateItem = &cobra.Command{
 			common.WrongUsage(cmd)
 		}
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(2)
@@ -106,7 +107,7 @@ var CmdCartDeleteItem = &cobra.Command{
 			common.WrongUsage(cmd)
 		}
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(2)
@@ -121,11 +122,11 @@ var CmdCartDeleteItem = &cobra.Command{
 	},
 }
 
-func getDetailledItemList(client *ovh.Client, items []ovh.OrderCartItem) []ovh.OrderCartItem {
+func getDetailledItemList(client *ovh.Client, items []types.OrderCartItem) []types.OrderCartItem {
 
-	itemsChan, errChan := make(chan ovh.OrderCartItem), make(chan error)
+	itemsChan, errChan := make(chan types.OrderCartItem), make(chan error)
 	for _, item := range items {
-		go func(item ovh.OrderCartItem) {
+		go func(item types.OrderCartItem) {
 			i, err := client.OrderCartItemInfo(cartID, item.ItemID)
 			if err != nil {
 				errChan <- err
@@ -135,7 +136,7 @@ func getDetailledItemList(client *ovh.Client, items []ovh.OrderCartItem) []ovh.O
 		}(item)
 	}
 
-	itemsComplete := []ovh.OrderCartItem{}
+	itemsComplete := []types.OrderCartItem{}
 
 	for i := 0; i < len(items); i++ {
 		select {

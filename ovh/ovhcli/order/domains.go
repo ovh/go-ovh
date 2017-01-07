@@ -5,6 +5,7 @@ import (
 
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 	"github.com/spf13/cobra"
 )
 
@@ -12,10 +13,8 @@ var withOffer string
 var withConfigs string
 
 func init() {
-
 	CmdDomain.PersistentFlags().StringVarP(&withOffer, "withOffer", "", "gold", "offer on your domain (gold, diamond, platinium)")
 	CmdDomain.PersistentFlags().StringVarP(&withConfigs, "withConfigs", "", "", "configs file")
-
 }
 
 // CmdDomain order domain
@@ -31,17 +30,19 @@ var CmdDomain = &cobra.Command{
 		client, err := ovh.NewDefaultClient()
 		common.Check(err)
 
-		cart, err := client.OrderCreateCart(ovh.OrderCartCreateReq{OVHSubsidiary: "FR"})
+		cart, err := client.OrderCreateCart(types.OrderCartPost{OvhSubsidiary: "FR"})
 		common.Check(err)
 
 		err = client.OrderAssignCart(cart.CartID)
 		common.Check(err)
 
-		products, err := client.OrderGetProductsDomain(cart.CartID, domain)
+		// TODO products, err := client.OrderGetProductsDomain(cart.CartID, domain)
+		_, err = client.OrderGetProductsDomain(cart.CartID, domain)
 		common.Check(err)
 
-		var chooseProduct string
-		for _, product := range products {
+		// var chooseProduct string
+		common.Check(fmt.Errorf("product.Offer -> not in OrderCartProductInformation"))
+		/*for _, product := range products {
 			if product.Offer == withOffer {
 				chooseProduct = product.OfferID
 				break
@@ -51,7 +52,7 @@ var CmdDomain = &cobra.Command{
 			err = fmt.Errorf("Cannot find product for domain %s and this offer %s", domain, withOffer)
 			common.Check(err)
 		}
-		_, err = client.OrderAddProductDomain(cart.CartID, ovh.OrderPostDomainReq{
+		_, err = client.OrderAddProductDomain(cart.CartID, types.OrderCartDomainPost{
 			Domain:   domain,
 			Duration: "P1Y",
 			OfferID:  chooseProduct,
@@ -62,6 +63,7 @@ var CmdDomain = &cobra.Command{
 		order, err := client.OrderPostCheckoutCart(cart.CartID, false)
 		common.Check(err)
 		common.FormatOutputDef(order)
+		*/
 
 	},
 }

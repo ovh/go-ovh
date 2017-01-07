@@ -3,6 +3,7 @@ package cart
 import (
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 
 	"github.com/spf13/cobra"
 )
@@ -18,11 +19,11 @@ var cmdCartList = &cobra.Command{
 	Short: "List all carts: ovhcli cart list",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		client, err := ovh.NewDefaultClient()
-		common.Check(err)
+		client, errc := ovh.NewDefaultClient()
+		common.Check(errc)
 
-		carts, err := client.OrderCartList()
-		common.Check(err)
+		carts, errl := client.OrderCartList()
+		common.Check(errl)
 
 		if withDetails {
 			carts = getDetailledCartsList(client, carts)
@@ -32,11 +33,11 @@ var cmdCartList = &cobra.Command{
 	},
 }
 
-func getDetailledCartsList(client *ovh.Client, carts []ovh.OrderCart) []ovh.OrderCart {
+func getDetailledCartsList(client *ovh.Client, carts []types.OrderCart) []types.OrderCart {
 
-	cartsChan, errChan := make(chan ovh.OrderCart), make(chan error)
+	cartsChan, errChan := make(chan types.OrderCart), make(chan error)
 	for _, cart := range carts {
-		go func(cart ovh.OrderCart) {
+		go func(cart types.OrderCart) {
 			c, err := client.OrderCartInfo(cart.CartID)
 			if err != nil {
 				errChan <- err
@@ -46,7 +47,7 @@ func getDetailledCartsList(client *ovh.Client, carts []ovh.OrderCart) []ovh.Orde
 		}(cart)
 	}
 
-	cartsComplete := []ovh.OrderCart{}
+	cartsComplete := []types.OrderCart{}
 
 	for i := 0; i < len(carts); i++ {
 		select {

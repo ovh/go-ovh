@@ -3,6 +3,7 @@ package vrack
 import (
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 
 	"github.com/spf13/cobra"
 )
@@ -18,14 +19,14 @@ var cmdVrackList = &cobra.Command{
 	Short: "List all vrack: ovhcli vrack list",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		client, err := ovh.NewDefaultClient()
-		common.Check(err)
+		client, errc := ovh.NewDefaultClient()
+		common.Check(errc)
 
-		vracks, err := client.VrackList()
-		common.Check(err)
+		vracks, errl := client.VrackList()
+		common.Check(errl)
 
 		if withDetails {
-			vracksComplete := []ovh.Vrack{}
+			vracksComplete := []types.Vrack{}
 			for _, vrack := range vracks {
 				v, err := client.VrackInfo(vrack.Name)
 				common.Check(err)
