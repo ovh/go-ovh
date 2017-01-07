@@ -7,12 +7,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var agentID int
+var agentID int64
 
 func init() {
 	cmdEasyHuntingAgentInfo.PersistentFlags().StringVarP(&billingAccount, "billingAccount", "", "", "Billing Account")
 	cmdEasyHuntingAgentInfo.PersistentFlags().StringVarP(&serviceName, "serviceName", "", "", "Service Name")
-	cmdEasyHuntingAgentInfo.PersistentFlags().IntVarP(&agentID, "agentID", "", 0, "Agent ID")
+	cmdEasyHuntingAgentInfo.PersistentFlags().Int64VarP(&agentID, "agentID", "", 0, "Agent ID")
 }
 
 var cmdEasyHuntingAgentInfo = &cobra.Command{

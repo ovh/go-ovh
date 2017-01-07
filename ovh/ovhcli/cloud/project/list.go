@@ -3,6 +3,7 @@ package project
 import (
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 
 	"github.com/spf13/cobra"
 )
@@ -21,9 +22,9 @@ var cmdProjectList = &cobra.Command{
 		projects, err := client.CloudProjectsList()
 
 		if withDetails {
-			projectsComplete := []ovh.Project{}
+			projectsComplete := []types.CloudProject{}
 			for _, project := range projects {
-				p, e := client.CloudProjectInfoByID(project.ID)
+				p, e := client.CloudProjectInfoByID(project.ProjectID)
 				common.Check(e)
 				projectsComplete = append(projectsComplete, *p)
 			}

@@ -3,6 +3,7 @@ package project
 import (
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 
 	"github.com/spf13/cobra"
 )
@@ -25,13 +26,13 @@ var (
 		Use:   "list",
 		Short: "List all regions: ovhcli cloud region list",
 		Run: func(cmd *cobra.Command, args []string) {
-			client, err := ovh.NewDefaultClient()
-			common.Check(err)
+			client, errC := ovh.NewDefaultClient()
+			common.Check(errC)
 
 			if projectName != "" {
 				p, err := client.CloudProjectInfoByName(projectName)
 				common.Check(err)
-				projectID = p.ID
+				projectID = p.ProjectID
 			}
 
 			if projectID == "" {
@@ -42,9 +43,9 @@ var (
 			common.Check(err)
 
 			if withDetails {
-				regionsComplete := []ovh.Region{}
+				regionsComplete := []types.CloudRegionDetail{}
 				for _, region := range regions {
-					r, err := client.CloudInfoRegion(projectID, region.Region)
+					r, err := client.CloudInfoRegion(projectID, region.Name)
 					common.Check(err)
 					regionsComplete = append(regionsComplete, *r)
 				}
@@ -63,13 +64,13 @@ var (
 			if len(args) == 0 {
 				common.WrongUsage(cmd)
 			}
-			client, err := ovh.NewDefaultClient()
-			common.Check(err)
+			client, errC := ovh.NewDefaultClient()
+			common.Check(errC)
 
 			if projectName != "" {
 				p, err := client.CloudProjectInfoByName(projectName)
 				common.Check(err)
-				projectID = p.ID
+				projectID = p.ProjectID
 			}
 
 			if projectID == "" {

@@ -3,6 +3,7 @@ package sshkey
 import (
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 	"github.com/spf13/cobra"
 )
 
@@ -14,22 +15,19 @@ var cmdCloudSSHKeyList = &cobra.Command{
 	Use:   "list",
 	Short: "List all ssk keys: ovhcli cloud sshkey list",
 	Run: func(cmd *cobra.Command, args []string) {
-		client, err := ovh.NewDefaultClient()
-		common.Check(err)
+		client, errc := ovh.NewDefaultClient()
+		common.Check(errc)
 
-		sshkeys, err := client.CloudProjectSSHKeyList(projectID)
-		common.Check(err)
+		sshkeys, errl := client.CloudProjectSSHKeyList(projectID)
+		common.Check(errl)
 
-		sshkeysComplete := []ovh.SSHKey{}
+		sshkeysComplete := []types.CloudSSHKey{}
 		for _, sshkey := range sshkeys {
 			s, err := client.CloudProjectSSHKeyInfo(projectID, sshkey.ID)
 			common.Check(err)
 			sshkeysComplete = append(sshkeysComplete, *s)
 		}
-
 		sshkeys = sshkeysComplete
-
-		common.Check(err)
 		common.FormatOutputDef(sshkeys)
 	},
 }

@@ -3,19 +3,18 @@ package domain
 import (
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 	"github.com/spf13/cobra"
 )
 
 var duration string
 var offerID string
-var quantity int
+var quantity int64
 
 func init() {
-
 	cmdAddProductDomain.PersistentFlags().StringVarP(&duration, "duration", "d", "P1Y", "domain")
 	cmdAddProductDomain.PersistentFlags().StringVarP(&offerID, "offerID", "o", "", "domain")
-	cmdAddProductDomain.PersistentFlags().IntVarP(&quantity, "quantity", "q", 1, "domain")
-
+	cmdAddProductDomain.PersistentFlags().Int64VarP(&quantity, "quantity", "q", 1, "domain")
 }
 
 var cmdListProductsDomain = &cobra.Command{
@@ -48,7 +47,7 @@ var cmdAddProductDomain = &cobra.Command{
 		client, err := ovh.NewDefaultClient()
 		common.Check(err)
 
-		c, err := client.OrderAddProductDomain(cartID, ovh.OrderPostDomainReq{
+		c, err := client.OrderAddProductDomain(cartID, types.OrderCartDomainPost{
 			Domain:   domain,
 			Duration: duration,
 			OfferID:  offerID,

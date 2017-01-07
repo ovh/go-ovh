@@ -3,40 +3,41 @@ package agent
 import (
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 
 	"github.com/spf13/cobra"
 )
 
 var (
-	wrapUpTime        int
+	wrapUpTime        int64
 	number            string
-	timeout           int
+	timeout           int64
 	status            string
-	simultaneousLines int
-	breakStatus       int
+	simultaneousLines int64
+	breakStatus       int64
 )
 
 func init() {
 	cmdEasyHuntingAgentUpdate.PersistentFlags().StringVarP(&billingAccount, "billingAccount", "", "", "Billing Account")
 	cmdEasyHuntingAgentUpdate.PersistentFlags().StringVarP(&serviceName, "serviceName", "", "", "Service Name")
-	cmdEasyHuntingAgentUpdate.PersistentFlags().IntVarP(&agentID, "agentID", "", 0, "Agent ID")
+	cmdEasyHuntingAgentUpdate.PersistentFlags().Int64VarP(&agentID, "agentID", "", 0, "Agent ID")
 
-	cmdEasyHuntingAgentUpdate.PersistentFlags().IntVarP(&wrapUpTime, "wrapUpTime", "", 0, "The wrap up time (in seconds) after the calls")
+	cmdEasyHuntingAgentUpdate.PersistentFlags().Int64VarP(&wrapUpTime, "wrapUpTime", "", 0, "The wrap up time (in seconds) after the calls")
 	cmdEasyHuntingAgentUpdate.PersistentFlags().StringVarP(&number, "number", "", "", "The number of the agent")
-	cmdEasyHuntingAgentUpdate.PersistentFlags().IntVarP(&timeout, "timeout", "", 0, "The waiting timeout (in seconds) before hangup an assigned called")
+	cmdEasyHuntingAgentUpdate.PersistentFlags().Int64VarP(&timeout, "timeout", "", 0, "The waiting timeout (in seconds) before hangup an assigned called")
 	cmdEasyHuntingAgentUpdate.PersistentFlags().StringVarP(&status, "status", "", "", "The current status of the agent")
-	cmdEasyHuntingAgentUpdate.PersistentFlags().IntVarP(&simultaneousLines, "simultaneousLines", "", 0, "The maximum of simultaneous calls that the agent will receive from the hunting")
-	cmdEasyHuntingAgentUpdate.PersistentFlags().IntVarP(&breakStatus, "breakStatus", "", 0, "The id of the current break status of the agent")
+	cmdEasyHuntingAgentUpdate.PersistentFlags().Int64VarP(&simultaneousLines, "simultaneousLines", "", 0, "The maximum of simultaneous calls that the agent will receive from the hunting")
+	cmdEasyHuntingAgentUpdate.PersistentFlags().Int64VarP(&breakStatus, "breakStatus", "", 0, "The id of the current break status of the agent")
 }
 
 var cmdEasyHuntingAgentUpdate = &cobra.Command{
 	Use:   "update",
 	Short: "Get info on a easyhunting: ovhcli telephony easyhunting hunting agent info --billingAccount=aa --serviceName=bb --agentID=cc",
 	Run: func(cmd *cobra.Command, args []string) {
-		client, err := ovh.NewDefaultClient()
-		common.Check(err)
+		client, errc := ovh.NewDefaultClient()
+		common.Check(errc)
 
-		a := ovh.TelephonyOvhPabxHuntingAgent{
+		a := types.TelephonyOvhPabxHuntingAgent{
 			WrapUpTime:        wrapUpTime,
 			Number:            number,
 			Timeout:           timeout,

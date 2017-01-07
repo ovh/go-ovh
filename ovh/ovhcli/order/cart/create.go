@@ -5,6 +5,8 @@ import (
 
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
+
 	"github.com/spf13/cobra"
 )
 
@@ -33,7 +35,7 @@ var cmdCartCreate = &cobra.Command{
 			common.Check(err)
 		}
 
-		c, err := client.OrderCreateCart(ovh.OrderCartCreateReq{Description: description, Expire: expireTime, OVHSubsidiary: ovhSubsidiary})
+		c, err := client.OrderCreateCart(types.OrderCartPost{Description: description, Expire: expireTime, OvhSubsidiary: ovhSubsidiary})
 		common.Check(err)
 		common.FormatOutputDef(c)
 	},

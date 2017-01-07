@@ -7,6 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func init() {
+	cmdCartDelete.PersistentFlags().StringVarP(&cartID, "cartID", "", "", "id of your cart")
+}
+
 var cmdCartDelete = &cobra.Command{
 	Use:   "delete <cartID>",
 	Short: "Delete cart",
@@ -14,7 +18,6 @@ var cmdCartDelete = &cobra.Command{
 		if len(args) != 1 {
 			common.WrongUsage(cmd)
 		}
-		cartID := args[0]
 
 		client, err := ovh.NewDefaultClient()
 		common.Check(err)

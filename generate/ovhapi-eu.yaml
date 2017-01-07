@@ -1,0 +1,91 @@
+title: OVH API - EU
+description: Build your own OVH world.
+version: 1.0.0
+termsOfService: ""
+contact:
+  name: OVH API EU
+  URL: https://eu.api.ovh.com/
+  email: api-subscribe@ml.ovh.net
+license:
+  name: © OVH SAS
+  URL: https://eu.api.ovh.com/
+documentation:
+  description: Online version
+  URL: https://eu.api.ovh.com/
+api:
+  path: https://eu.api.ovh.com/1.0
+  routes:
+   - /allDom
+   - /auth
+   - /caas/containers
+   - /caas/registry
+   - /cdn/dedicated
+   - /cdn/website
+   - /cdn/webstorage
+   - /cloud
+   - /cluster/hadoop
+   - /dbaas/logs
+   - /dbaas/queue
+   - /dbaas/timeseries
+   - /dedicated/ceph
+   - /dedicated/housing
+   - /dedicated/installationTemplate
+   - /dedicated/nas
+   - /dedicated/nasha
+   - /dedicated/server
+   - /dedicatedCloud
+   - /deskaas
+   - /distribution/image
+   - /domain
+   - /email/domain
+   - /email/exchange
+   - /email/imapCopy
+   - /email/professional
+   - /email/service
+   - /freefax
+   - /horizonView
+   - /hosting/privateDatabase
+   - /hosting/reseller
+   - /hosting/web
+   - /hosting/windows
+   - /hpcspot
+   - /ip
+   - /ipLoadbalancing
+   - /license/cloudLinux
+   - /license/cpanel
+   - /license/directadmin
+   - /license/office
+   - /license/plesk
+   - /license/sqlserver
+   - /license/virtuozzo
+   - /license/windows
+   - /license/worklight
+   - /me
+   - /msServices
+   - /newAccount
+   - /order
+   - /overTheBox
+   - /paas/database
+   - /paas/timeseries
+   - /pack/xdsl
+   - /partner
+   - /price
+   - /router
+   - /saas/csp2
+   - /sms
+   - /ssl
+   - /sslGateway
+   - /stack/mis
+   - /store
+   - /supply/mondialRelay
+   - /support
+   - /telephony
+   - /veeamCloudConnect
+   - /vip
+   - /vps
+   - /vrack
+   - /xdsl
+  consumes:
+  - application/json
+  produces:
+  - application/json

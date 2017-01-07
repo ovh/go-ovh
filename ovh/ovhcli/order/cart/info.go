@@ -7,6 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func init() {
+	cmdCartInfo.PersistentFlags().StringVarP(&cartID, "cartID", "", "", "id of your cart")
+}
+
 var cmdCartInfo = &cobra.Command{
 	Use:   "info <cartID>",
 	Short: "Retrieve cart info",
@@ -14,7 +18,6 @@ var cmdCartInfo = &cobra.Command{
 		if len(args) != 1 {
 			common.WrongUsage(cmd)
 		}
-		cartID := args[0]
 
 		client, err := ovh.NewDefaultClient()
 		common.Check(err)

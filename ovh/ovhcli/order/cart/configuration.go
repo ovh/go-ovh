@@ -7,6 +7,7 @@ import (
 
 	"github.com/runabove/go-sdk/ovh"
 	"github.com/runabove/go-sdk/ovh/ovhcli/common"
+	"github.com/runabove/go-sdk/ovh/types"
 
 	"github.com/spf13/cobra"
 )
@@ -40,11 +41,11 @@ var CmdCartItemConfigurationsList = &cobra.Command{
 		if len(args) != 1 {
 			common.WrongUsage(cmd)
 		}
-		client, err := ovh.NewDefaultClient()
+		client, errc := ovh.NewDefaultClient()
+		common.Check(errc)
 
-		common.Check(err)
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		common.Check(err)
 
 		configs, err := client.OrderCartConfigurationsList(cartID, i)
@@ -67,11 +68,11 @@ var CmdCartItemConfigurationInfo = &cobra.Command{
 			common.WrongUsage(cmd)
 		}
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		common.Check(err)
 
 		configID := args[1]
-		c, err := strconv.Atoi(configID)
+		c, err := strconv.ParseInt(configID, 10, 64)
 		common.Check(err)
 
 		client, err := ovh.NewDefaultClient()
@@ -92,7 +93,7 @@ var CmdCartItemConfigurationAdd = &cobra.Command{
 			common.WrongUsage(cmd)
 		}
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(2)
@@ -116,11 +117,11 @@ var CmdCartItemConfigurationRemove = &cobra.Command{
 			common.WrongUsage(cmd)
 		}
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		common.Check(err)
 
 		configID := args[1]
-		c, err := strconv.Atoi(configID)
+		c, err := strconv.ParseInt(configID, 10, 64)
 		common.Check(err)
 
 		client, err := ovh.NewDefaultClient()
@@ -133,11 +134,11 @@ var CmdCartItemConfigurationRemove = &cobra.Command{
 	},
 }
 
-func getDetailledConfigurationsList(client *ovh.Client, itemID int, configs []ovh.OrderCartConfigurationItem) []ovh.OrderCartConfigurationItem {
+func getDetailledConfigurationsList(client *ovh.Client, itemID int64, configs []types.OrderCartConfigurationItem) []types.OrderCartConfigurationItem {
 
-	resChan, errChan := make(chan ovh.OrderCartConfigurationItem), make(chan error)
+	resChan, errChan := make(chan types.OrderCartConfigurationItem), make(chan error)
 	for _, config := range configs {
-		go func(config ovh.OrderCartConfigurationItem) {
+		go func(config types.OrderCartConfigurationItem) {
 			i, err := client.OrderCartConfigurationInfo(cartID, itemID, config.ID)
 			if err != nil {
 				errChan <- err
@@ -147,7 +148,7 @@ func getDetailledConfigurationsList(client *ovh.Client, itemID int, configs []ov
 		}(config)
 	}
 
-	itemsComplete := []ovh.OrderCartConfigurationItem{}
+	itemsComplete := []types.OrderCartConfigurationItem{}
 
 	for i := 0; i < len(configs); i++ {
 		select {
@@ -173,7 +174,7 @@ var CmdCartItemRequiredConfigurations = &cobra.Command{
 
 		common.Check(err)
 		itemID := args[0]
-		i, err := strconv.Atoi(itemID)
+		i, err := strconv.ParseInt(itemID, 10, 64)
 		common.Check(err)
 
 		configs, err := client.OrderCartRequiredConfigurations(cartID, i)
