@@ -1,46 +1,28 @@
 package ovh
 
-// ContainersService is a representation of a Containers Service
-type ContainersService struct {
-	Cluster      string   `json:"cluster,omitempty"`
-	CreatedAt    string   `json:"createdAt,omitempty"`
-	Frameworks   []string `json:"frameworks,omitempty"`
-	LoadBalancer string   `json:"loadBalancer,omitempty"`
-	Metrics      *struct {
-		Resources *struct {
-			CPU int `json:"cpu,omitempty"`
-			Mem int `json:"mem,omitempty"`
-		} `json:"resources,omitempty"`
-		UsedResources *struct {
-			CPU float64 `json:"cpu,omitempty"`
-			Mem int     `json:"mem,omitempty"`
-		} `json:"usedResources,omitempty"`
-	} `json:"metrics,omitempty"`
-	Name      string   `json:"name,omitempty"`
-	Slaves    []string `json:"slaves,omitempty"`
-	State     string   `json:"state,omitempty"`
-	UpdatedAt string   `json:"updatedAt,omitempty"`
-}
+import (
+	"github.com/runabove/go-sdk/ovh/types"
+)
 
 // ContainersServicesList list all your containers
-func (c *Client) ContainersServicesList(withDetails bool) ([]ContainersService, error) {
+func (c *Client) ContainersServicesList(withDetails bool) ([]types.DockerStack, error) {
 	var names []string
 	if err := c.Get("/caas/containers", &names); err != nil {
 		return nil, err
 	}
 
-	containers := []ContainersService{}
+	containers := []types.DockerStack{}
 	for _, name := range names {
-		containers = append(containers, ContainersService{Name: name})
+		containers = append(containers, types.DockerStack{Name: name})
 	}
 
 	if !withDetails {
 		return containers, nil
 	}
 
-	containersChan, errChan := make(chan ContainersService), make(chan error)
+	containersChan, errChan := make(chan types.DockerStack), make(chan error)
 	for _, container := range containers {
-		go func(container ContainersService) {
+		go func(container types.DockerStack) {
 			d, err := c.ContainersServiceInfo(container.Name)
 			if err != nil {
 				errChan <- err
@@ -50,7 +32,7 @@ func (c *Client) ContainersServicesList(withDetails bool) ([]ContainersService, 
 		}(container)
 	}
 
-	containersComplete := []ContainersService{}
+	containersComplete := []types.DockerStack{}
 
 	for i := 0; i < len(containers); i++ {
 		select {
@@ -65,8 +47,8 @@ func (c *Client) ContainersServicesList(withDetails bool) ([]ContainersService, 
 }
 
 // ContainersServiceInfo retrieve all infos of one of your containers
-func (c *Client) ContainersServiceInfo(containersName string) (*ContainersService, error) {
-	containers := &ContainersService{}
+func (c *Client) ContainersServiceInfo(containersName string) (*types.DockerStack, error) {
+	containers := &types.DockerStack{}
 	err := c.Get(queryEscape("/caas/containers/%s", containersName), containers)
 	return containers, err
 }
