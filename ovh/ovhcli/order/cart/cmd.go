@@ -34,6 +34,6 @@ func init() {
 // Cmd domain
 var Cmd = &cobra.Command{
 	Use:   "cart",
-	Short: "cart commands: ovhcli order cart --help",
-	Long:  `cart commands: ovhcli order cart <command>`,
+	Short: "Cart commands: ovhcli order cart --help",
+	Long:  `Cart commands: ovhcli order cart <command>`,
 }

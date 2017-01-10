@@ -9,7 +9,7 @@ import (
 
 var cmdCartCheckoutGet = &cobra.Command{
 	Use:   "GetCheckout <cartID>",
-	Short: "get checkout cart : ovhcli order cart getCheckout <cartID>",
+	Short: "Get checkout cart : ovhcli order cart getCheckout <cartID>",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) != 1 {
 			common.WrongUsage(cmd)
@@ -26,7 +26,7 @@ var cmdCartCheckoutGet = &cobra.Command{
 
 var cmdCartCheckoutPost = &cobra.Command{
 	Use:   "postCheckout <cartID>",
-	Short: "post checkout cart : ovhcli order cart postCheckout <cartID>",
+	Short: "Post checkout cart : ovhcli order cart postCheckout <cartID>",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) != 1 {
 			common.WrongUsage(cmd)

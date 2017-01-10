@@ -8,11 +8,13 @@ import (
 func init() {
 	Cmd.AddCommand(cart.Cmd)
 	Cmd.AddCommand(CmdDomain)
+	Cmd.AddCommand(CmdDomainTrade)
+
 }
 
 // Cmd domain
 var Cmd = &cobra.Command{
 	Use:   "order",
-	Short: "order commands: ovhcli order --help",
-	Long:  `order commands: ovhcli order <command>`,
+	Short: "Order commands: ovhcli order --help",
+	Long:  `Order commands: ovhcli order <command>`,
 }

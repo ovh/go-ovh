@@ -9,7 +9,7 @@ import (
 
 var cmdCartAssign = &cobra.Command{
 	Use:   "assign <cartID>",
-	Short: "assign cart to connected user",
+	Short: "Assign cart to connected user",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) != 1 {
 			common.WrongUsage(cmd)
