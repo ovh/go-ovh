@@ -76,7 +76,7 @@ func (c *Client) OrderGetProductDomainTransferOptions(cartID string, domain stri
 		return nil, errors.New("CartID parameter must not be empty")
 	}
 	options := []types.OrderCartGenericOptionDefinition{}
-	err := c.Get(queryEscape("/order/cart/%s/domainTransfer/options?domain=%s", cartID, domain), options)
+	err := c.Get(queryEscape("/order/cart/%s/domainTransfer/options?domain=%s", cartID, domain), &options)
 
 	return options, err
 }
