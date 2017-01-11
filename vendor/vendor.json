@@ -1,0 +1,49 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "vMT+piher66IruU9TZNbL/6dYJ8=",
+			"path": "github.com/ghodss/yaml",
+			"revision": "a54de18a07046d8c4b26e9327698a2ebb9285b36",
+			"revisionTime": "2016-11-23T02:24:14Z"
+		},
+		{
+			"checksumSHA1": "w4ksomRMCZjbwnPupNvmTt5E6v8=",
+			"path": "github.com/go-ini/ini",
+			"revision": "6f66b0e091edb3c7b380f7c4f0f884274d550b67",
+			"revisionTime": "2016-12-21T12:03:40Z"
+		},
+		{
+			"checksumSHA1": "40vJyUB4ezQSn/NSadsKEOrudMc=",
+			"path": "github.com/inconshreveable/mousetrap",
+			"revision": "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75",
+			"revisionTime": "2014-10-17T20:07:13Z"
+		},
+		{
+			"checksumSHA1": "BqUqNg3UuaPTse8Vg+xR/zW6tKw=",
+			"path": "github.com/spf13/cobra",
+			"revision": "ec2fe7859914a5106dcab4e7901633d959bfc2f4",
+			"revisionTime": "2016-10-10T15:14:18Z"
+		},
+		{
+			"checksumSHA1": "AxfxmmBpbjQoaQKXbERcEw9pv+U=",
+			"path": "github.com/spf13/pflag",
+			"revision": "25f8b5b07aece3207895bf19f7ab517eb3b22a40",
+			"revisionTime": "2016-12-14T04:49:49Z"
+		},
+		{
+			"checksumSHA1": "YRD335tkMvgHzkfbfveMUpsE3Bw=",
+			"path": "gopkg.in/ini.v1",
+			"revision": "6e4869b434bd001f6983749881c7ead3545887d8",
+			"revisionTime": "2016-08-27T06:11:18Z"
+		},
+		{
+			"checksumSHA1": "12GqsW8PiRPnezDDy0v4brZrndM=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "a5b47d31c556af34a302ce5d659e6fea44d90de0",
+			"revisionTime": "2016-09-28T15:37:09Z"
+		}
+	],
+	"rootPath": "github.com/runabove/go-sdk"
+}
