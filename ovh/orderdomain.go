@@ -61,12 +61,12 @@ func (c *Client) OrderGetProductDomainTransfer(cartID string, domain string) ([]
 }
 
 // OrderAddProductDomainTransfer post a new domain transfer in your cart
-func (c *Client) OrderAddProductDomainTransfer(cartID string, orderCartDomainPost types.OrderCartDomainPost) (*types.OrderCartItem, error) {
+func (c *Client) OrderAddProductDomainTransfer(cartID string, orderCartDomainTransferPost types.OrderCartDomainTransferPost) (*types.OrderCartItem, error) {
 	if cartID == "" {
 		return nil, errors.New("CartID parameter must not be empty")
 	}
 	domainTransferItem := &types.OrderCartItem{}
-	err := c.Post(queryEscape("/order/cart/%s/domainTransfer", cartID), orderCartDomainPost, domainTransferItem)
+	err := c.Post(queryEscape("/order/cart/%s/domainTransfer", cartID), orderCartDomainTransferPost, domainTransferItem)
 	return domainTransferItem, err
 }
 
@@ -82,12 +82,12 @@ func (c *Client) OrderGetProductDomainTransferOptions(cartID string, domain stri
 }
 
 // OrderAddProductDomainTransferOption post an option on a domain transfer item
-func (c *Client) OrderAddProductDomainTransferOption(cartID string, orderCartDomainPost types.OrderCartDomainPost) (*types.OrderCartItem, error) {
+func (c *Client) OrderAddProductDomainTransferOption(cartID string, orderCartDomainTransferOptionsPost types.OrderCartDomainTransferOptionsPost) (*types.OrderCartItem, error) {
 	if cartID == "" {
 		return nil, errors.New("CartID parameter must not be empty")
 	}
 	optionItem := &types.OrderCartItem{}
-	err := c.Post(queryEscape("/order/cart/%s/domainTransfer/options", cartID), orderCartDomainPost, optionItem)
+	err := c.Post(queryEscape("/order/cart/%s/domainTransfer/options", cartID), orderCartDomainTransferOptionsPost, optionItem)
 	return optionItem, err
 }
 
