@@ -10,7 +10,7 @@
 
 package types
 
-// PaasMonitoringResourceBatchPost ...
-type PaasMonitoringResourceBatchPost struct {
-	Config []*MonitoringConfig `json:"config,omitempty"`
+// OrderEmailProAccountPost ...
+type OrderEmailProAccountPost struct {
+	Number int64 `json:"number,omitempty"`
 }

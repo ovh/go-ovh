@@ -22,13 +22,17 @@ type OrderCartProductInformation struct {
 	// Duration List all the duration allowed for the product
 	Duration []string `json:"duration,omitempty"`
 
+	// Offer Informations about the domain's offer (gold|diamond|platinium)
+	Offer string `json:"offer,omitempty"`
+
 	// Orderable Indicates if the product is orderable or not
 	Orderable bool `json:"orderable,omitempty"`
 
 	// Phase Informations about the domain phase
 	Phase string `json:"phase,omitempty"`
 
-	Prices *OrderCartPrice `json:"prices,omitempty"`
+	// Prices Price details of the product
+	Prices []*OrderCartPrice `json:"prices,omitempty"`
 
 	// ProductID Product identifier
 	ProductID string `json:"productId,omitempty"`

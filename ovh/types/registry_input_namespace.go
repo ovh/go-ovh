@@ -10,7 +10,9 @@
 
 package types
 
-// OrderEmailProfessionalAccountPost ...
-type OrderEmailProfessionalAccountPost struct {
-	Number int64 `json:"number,omitempty"`
+// RegistryInputNamespace A namespace in which a user can either read, write or delete images
+type RegistryInputNamespace struct {
+
+	// Name The namespace name
+	Name string `json:"name,omitempty"`
 }

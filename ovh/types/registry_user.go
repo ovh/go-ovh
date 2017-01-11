@@ -14,30 +14,24 @@ import (
 	"time"
 )
 
-// MonitoringService A Shinken-based monitoring service
-type MonitoringService struct {
-
-	// BackendID backend id
-	BackendID string `json:"backendId,omitempty"`
+// RegistryUser A registry user account
+type RegistryUser struct {
 
 	// CreatedAt Date of the resource creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// FailoverBackendID failover backend id
-	FailoverBackendID string `json:"failoverBackendId,omitempty"`
+	// Description A general description of the user account
+	Description bool `json:"description,omitempty"`
 
-	// Hostname hostname
-	Hostname string `json:"hostname,omitempty"`
-
-	// ID Unique UUID of the resource
+	// ID The user id
 	ID string `json:"id,omitempty"`
 
-	// Name name
-	Name string `json:"name,omitempty"`
-
-	// Status status
+	// Status The status of the user
 	Status string `json:"status,omitempty"`
 
 	// UpdatedAt Date of the resource last update
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+
+	// Username The user name
+	Username string `json:"username,omitempty"`
 }
