@@ -14,17 +14,17 @@ import (
 	"time"
 )
 
-// MonitoringResource Shinken resource (e.g. Host, Service, Contact, etc)
-type MonitoringResource struct {
-
-	// Config Configuration
-	Config []*MonitoringConfigPair `json:"config,omitempty"`
+// RegistryTag An image tag
+type RegistryTag struct {
 
 	// CreatedAt Date of the resource creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// ID Unique UUID of the resource
+	// ID The tag id
 	ID string `json:"id,omitempty"`
+
+	// Name The tag name
+	Name string `json:"name,omitempty"`
 
 	// UpdatedAt Date of the resource last update
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`

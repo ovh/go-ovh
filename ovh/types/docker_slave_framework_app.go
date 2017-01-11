@@ -25,6 +25,9 @@ type DockerSLAveFrameworkApp struct {
 	// Image Application image
 	Image string `json:"image,omitempty"`
 
+	// Instances Number of running containers instances
+	Instances int64 `json:"instances,omitempty"`
+
 	// Mem Application memory
 	Mem int64 `json:"mem,omitempty"`
 

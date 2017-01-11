@@ -14,18 +14,21 @@ import (
 	"time"
 )
 
-// MonitoringBackend Shinken infrastructure hosting backend
-type MonitoringBackend struct {
+// RegistryNamespace A namespace in which a user can either read, write or delete images
+type RegistryNamespace struct {
 
-	// CreatedAt Date of the backend creation
+	// CreatedAt Date of the resource creation
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 
-	// ID Unique UUID of the backend
+	// ID The namespace id
 	ID string `json:"id,omitempty"`
 
-	// Name The name of the backend
+	// Name The namespace name
 	Name string `json:"name,omitempty"`
 
-	// UpdatedAt Date of the backend last update
+	// Status The status of the namespace
+	Status string `json:"status,omitempty"`
+
+	// UpdatedAt Date of the resource last update
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

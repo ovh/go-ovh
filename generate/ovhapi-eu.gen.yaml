@@ -524,22 +524,466 @@ paths:
           $ref: '#/responses/docker.Slave.Flavor'
         default:
           $ref: '#/responses/OVH.Error'
-  /caas/registry: {}
-  /caas/registry/{serviceName}: {}
-  /caas/registry/{serviceName}/changeContact: {}
-  /caas/registry/{serviceName}/namespaces: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/images: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/permissions: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/permissions/{permissionId}: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/tags: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/tags/{tagId}: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/permissions: {}
-  /caas/registry/{serviceName}/namespaces/{namespaceId}/permissions/{permissionId}: {}
-  /caas/registry/{serviceName}/serviceInfos: {}
-  /caas/registry/{serviceName}/users: {}
-  /caas/registry/{serviceName}/users/{userId}: {}
+  /caas/registry:
+    get:
+      summary: List available services
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Inspect service.
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/registry.Service'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/changeContact:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    post:
+      summary: Launch a contact change procedure
+      description: BETA - authentication required
+      parameters:
+      - name: caasRegistryChangeContactPost
+        in: body
+        schema:
+          type: object
+          properties:
+            contactAdmin:
+              type: string
+            contactBilling:
+              type: string
+            contactTech:
+              type: string
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: List namespace
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+    post:
+      summary: Create namespace
+      description: BETA - authentication required
+      parameters:
+      - name: caasRegistryNamespacesPost
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/registry.InputNamespace'
+      responses:
+        "200":
+          $ref: '#/responses/registry.Namespace'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}:
+    parameters:
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Inspect namespace
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/registry.Namespace'
+        default:
+          $ref: '#/responses/OVH.Error'
+    delete:
+      summary: Delete namespace
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return 'void'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/images:
+    parameters:
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: List all images in namespace
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}:
+    parameters:
+    - name: imageId
+      in: path
+      required: true
+      type: string
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Inspect image
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/registry.Image'
+        default:
+          $ref: '#/responses/OVH.Error'
+    put:
+      summary: Update image
+      description: BETA - authentication required
+      parameters:
+      - name: caasRegistryNamespacesImagesPut
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/registry.InputImage'
+      responses:
+        "200":
+          $ref: '#/responses/registry.Image'
+        default:
+          $ref: '#/responses/OVH.Error'
+    delete:
+      summary: Delete image
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return 'void'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/permissions:
+    parameters:
+    - name: imageId
+      in: path
+      required: true
+      type: string
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: List image permissions
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+    post:
+      summary: Create image permissions
+      description: BETA - authentication required
+      parameters:
+      - name: caasRegistryNamespacesImagesPermissionsPost
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/registry.InputPermissions'
+      responses:
+        "200":
+          $ref: '#/responses/registry.Permissions'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/permissions/{permissionId}:
+    parameters:
+    - name: imageId
+      in: path
+      required: true
+      type: string
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: permissionId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Inspect image permissions
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/registry.Permissions'
+        default:
+          $ref: '#/responses/OVH.Error'
+    delete:
+      summary: Delete image permissions.
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return 'void'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/tags:
+    parameters:
+    - name: imageId
+      in: path
+      required: true
+      type: string
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: List image tags
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/images/{imageId}/tags/{tagId}:
+    parameters:
+    - name: imageId
+      in: path
+      required: true
+      type: string
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    - name: tagId
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Inspect image tag
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/registry.Tag'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/permissions:
+    parameters:
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: List namespace permissions
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+    post:
+      summary: Create namespace permissions
+      description: BETA - authentication required
+      parameters:
+      - name: caasRegistryNamespacesPermissionsPost
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/registry.InputPermissions'
+      responses:
+        "200":
+          $ref: '#/responses/registry.Permissions'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/namespaces/{namespaceId}/permissions/{permissionId}:
+    parameters:
+    - name: namespaceId
+      in: path
+      required: true
+      type: string
+    - name: permissionId
+      in: path
+      required: true
+      type: string
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Inspect permission
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/registry.Permissions'
+        default:
+          $ref: '#/responses/OVH.Error'
+    delete:
+      summary: Delete namespace permissions
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return 'void'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/serviceInfos:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Get this object properties
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/services.Service'
+        default:
+          $ref: '#/responses/OVH.Error'
+    put:
+      summary: Alter this object properties
+      description: BETA - authentication required
+      parameters:
+      - name: caasRegistryServiceInfosPut
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/services.Service'
+      responses:
+        "200":
+          description: return 'void'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/users:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    get:
+      summary: List users
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+    post:
+      summary: Create user
+      description: BETA - authentication required
+      parameters:
+      - name: caasRegistryUsersPost
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/registry.InputUser'
+      responses:
+        "200":
+          $ref: '#/responses/registry.User'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /caas/registry/{serviceName}/users/{userId}:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    - name: userId
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Inspect user
+      description: BETA - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/registry.User'
+        default:
+          $ref: '#/responses/OVH.Error'
+    delete:
+      summary: Delete user
+      description: BETA - authentication required
+      responses:
+        "200":
+          description: return 'void'
+        default:
+          $ref: '#/responses/OVH.Error'
   /cdn/dedicated:
     get:
       summary: List available services
@@ -4097,7 +4541,38 @@ paths:
           description: return 'void'
         default:
           $ref: '#/responses/OVH.Error'
-  /cloud/project/{serviceName}/storage/{containerId}/publicUrl: {}
+  /cloud/project/{serviceName}/storage/{containerId}/publicUrl:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    - name: containerId
+      in: path
+      required: true
+      type: string
+    post:
+      summary: Get a public temporary URL to access to one of your object
+      description: PRODUCTION - authentication required
+      parameters:
+      - name: cloudProjectStoragePublicUrlPost
+        in: body
+        schema:
+          type: object
+          required:
+          - objectName
+          - expirationDate
+          properties:
+            expirationDate:
+              type: string
+              format: date-time
+            objectName:
+              type: string
+      responses:
+        "200":
+          $ref: '#/responses/cloud.Storage.ContainerObjectTempURL'
+        default:
+          $ref: '#/responses/OVH.Error'
   /cloud/project/{serviceName}/storage/{containerId}/static:
     parameters:
     - name: serviceName
@@ -10505,6 +10980,19 @@ paths:
         default:
           $ref: '#/responses/OVH.Error'
   /dedicated/nasha/{serviceName}/vrack/ip: {}
+  /dedicated/nasha/availabilities:
+    get:
+      summary: Get availabilities of nasha offer
+      description: PRODUCTION - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/dedicated.NasHAAvailabilities'
+        default:
+          $ref: '#/responses/OVH.Error'
   /dedicated/server:
     get:
       summary: List available services
@@ -23514,35 +24002,6 @@ paths:
           $ref: '#/responses/imapcopy.Task'
         default:
           $ref: '#/responses/OVH.Error'
-  /email/professional: {}
-  /email/professional/{service}: {}
-  /email/professional/{service}/account: {}
-  /email/professional/{service}/account/{email}: {}
-  /email/professional/{service}/account/{email}/alias: {}
-  /email/professional/{service}/account/{email}/alias/{alias}: {}
-  /email/professional/{service}/account/{email}/changePassword: {}
-  /email/professional/{service}/account/{email}/diagnostics: {}
-  /email/professional/{service}/account/{email}/fullAccess: {}
-  /email/professional/{service}/account/{email}/fullAccess/{allowedAccountId}: {}
-  /email/professional/{service}/account/{email}/sendAs: {}
-  /email/professional/{service}/account/{email}/sendAs/{allowedAccountId}: {}
-  /email/professional/{service}/account/{email}/sendOnBehalfTo: {}
-  /email/professional/{service}/account/{email}/sendOnBehalfTo/{allowedAccountId}: {}
-  /email/professional/{service}/account/{email}/tasks: {}
-  /email/professional/{service}/account/{email}/tasks/{id}: {}
-  /email/professional/{service}/account/{email}/terminate: {}
-  /email/professional/{service}/authorizedIp: {}
-  /email/professional/{service}/authorizedIp/{ip}: {}
-  /email/professional/{service}/domain: {}
-  /email/professional/{service}/domain/{domainName}: {}
-  /email/professional/{service}/domain/{domainName}/disclaimer: {}
-  /email/professional/{service}/domain/{domainName}/disclaimerAttribute: {}
-  /email/professional/{service}/externalContact: {}
-  /email/professional/{service}/externalContact/{externalEmailAddress}: {}
-  /email/professional/{service}/server: {}
-  /email/professional/{service}/task: {}
-  /email/professional/{service}/task/{id}: {}
-  /email/professional/{service}/updateFlagsOnAllAccounts: {}
   /email/service: {}
   /email/service/{serviceName}: {}
   /email/service/{serviceName}/convertEmailService: {}
@@ -42835,6 +43294,52 @@ paths:
           $ref: '#/responses/order.Cart.Item'
         default:
           $ref: '#/responses/OVH.Error'
+  /order/cart/{cartId}/registry:
+    parameters:
+    - name: cartId
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Get informations about CaaS Registry offers
+      description: BETA
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/order.Cart.GenericProductDefinition'
+        default:
+          $ref: '#/responses/OVH.Error'
+    post:
+      summary: Post a new CaaS Registry item in your cart
+      description: BETA
+      parameters:
+      - name: orderCartRegistryPost
+        in: body
+        schema:
+          type: object
+          required:
+          - planCode
+          - duration
+          - pricingMode
+          - quantity
+          properties:
+            duration:
+              type: string
+            planCode:
+              type: string
+            pricingMode:
+              type: string
+            quantity:
+              type: integer
+              format: int64
+      responses:
+        "200":
+          $ref: '#/responses/order.Cart.Item'
+        default:
+          $ref: '#/responses/OVH.Error'
   /order/cart/{cartId}/reseller:
     parameters:
     - name: cartId
@@ -47164,7 +47669,7 @@ paths:
           $ref: '#/responses/order.Order'
         default:
           $ref: '#/responses/OVH.Error'
-  /order/email/professional:
+  /order/email/pro:
     get:
       summary: List available services
       description: PRODUCTION - authentication required
@@ -47177,7 +47682,7 @@ paths:
               type: string
         default:
           $ref: '#/responses/OVH.Error'
-  /order/email/professional/{service}:
+  /order/email/pro/{service}:
     parameters:
     - name: service
       in: path
@@ -47195,7 +47700,7 @@ paths:
               type: string
         default:
           $ref: '#/responses/OVH.Error'
-  /order/email/professional/{service}/account:
+  /order/email/pro/{service}/account:
     parameters:
     - name: service
       in: path
@@ -47219,7 +47724,7 @@ paths:
               type: string
         default:
           $ref: '#/responses/OVH.Error'
-  /order/email/professional/{service}/account/{duration}:
+  /order/email/pro/{service}/account/{duration}:
     parameters:
     - name: service
       in: path
@@ -47247,7 +47752,7 @@ paths:
       summary: Create order
       description: PRODUCTION - authentication required
       parameters:
-      - name: orderEmailProfessionalAccountPost
+      - name: orderEmailProAccountPost
         in: body
         schema:
           type: object
@@ -55506,396 +56011,6 @@ paths:
           $ref: '#/responses/paas.Database.Region'
         default:
           $ref: '#/responses/OVH.Error'
-  /paas/monitoring:
-    get:
-      summary: List available services
-      description: BETA - authentication required
-      responses:
-        "200":
-          description: return value
-          schema:
-            type: array
-            items:
-              type: string
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get a specific monitoring service.
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.Service'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/backend:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get all backends.
-      description: BETA - authentication required
-      responses:
-        "200":
-          description: return value
-          schema:
-            type: array
-            items:
-              type: string
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/backend/{backendId}:
-    parameters:
-    - name: backendId
-      in: path
-      required: true
-      type: string
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get a specific backend.
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.Backend'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/changeContact:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    post:
-      summary: Launch a contact change procedure
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringChangeContactPost
-        in: body
-        schema:
-          type: object
-          properties:
-            contactAdmin:
-              type: string
-            contactBilling:
-              type: string
-            contactTech:
-              type: string
-      responses:
-        "200":
-          description: return value
-          schema:
-            type: array
-            items:
-              type: integer
-              format: int64
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/config/firewall:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get the firewall configuration of a monitoring service.
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.FirewallConfig'
-        default:
-          $ref: '#/responses/OVH.Error'
-    put:
-      summary: Update the NSCA configuration of a monitoring service.
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringConfigFirewallPut
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/monitoring.FirewallConfig'
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.FirewallConfig'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/config/nsca:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get the NSCA configuration of a monitoring service.
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.NscaConfig'
-        default:
-          $ref: '#/responses/OVH.Error'
-    put:
-      summary: Update the NSCA configuration of a monitoring service.
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringConfigNscaPut
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/monitoring.NscaConfig'
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.NscaConfig'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/config/timezone:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get the timezone configuration of a monitoring service.
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.TimezoneConfig'
-        default:
-          $ref: '#/responses/OVH.Error'
-    put:
-      summary: Update the NSCA configuration of a monitoring service.
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringConfigTimezonePut
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/monitoring.TimezoneConfig'
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.TimezoneConfig'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/deploy:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    post:
-      summary: Deploy a specific monitoring service.
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringDeployPost
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/monitoring.Service'
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.Service'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/resource:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get all resources of the specified type of resources.
-      description: BETA - authentication required
-      responses:
-        "200":
-          description: return value
-          schema:
-            type: array
-            items:
-              type: string
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/resource/{resourceType}:
-    parameters:
-    - name: resourceType
-      in: path
-      required: true
-      type: string
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get all resources of the specified type of resources.
-      description: BETA - authentication required
-      responses:
-        "200":
-          description: return value
-          schema:
-            type: array
-            items:
-              type: string
-        default:
-          $ref: '#/responses/OVH.Error'
-    post:
-      summary: Add a new resource to a monitoring service.
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringResourcePost
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/monitoring.Resource'
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.Resource'
-        default:
-          $ref: '#/responses/OVH.Error'
-    delete:
-      summary: Delete all resources of the specified type.
-      description: BETA - authentication required
-      responses:
-        "200":
-          description: return 'void'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/resource/{resourceType}/{resourceId}:
-    parameters:
-    - name: resourceType
-      in: path
-      required: true
-      type: string
-    - name: resourceId
-      in: path
-      required: true
-      type: string
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get a specific resource.
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.Resource'
-        default:
-          $ref: '#/responses/OVH.Error'
-    put:
-      summary: Update a resource of a monitoring service.
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringResourcePut
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/monitoring.Resource'
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.Resource'
-        default:
-          $ref: '#/responses/OVH.Error'
-    delete:
-      summary: Remove a resource of a monitoring service.
-      description: BETA - authentication required
-      responses:
-        "200":
-          description: return 'void'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/resource/{resourceType}/batch:
-    parameters:
-    - name: resourceType
-      in: path
-      required: true
-      type: string
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    post:
-      summary: Post at once all the resources of a type.
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringResourceBatchPost
-        in: body
-        schema:
-          type: object
-          required:
-          - ""
-          properties:
-            config:
-              type: array
-              items:
-                $ref: '#/definitions/monitoring.Config'
-      responses:
-        "200":
-          description: return 'void'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/resource/apply:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    post:
-      summary: Apply the resources of a monitoring service.
-      description: BETA - authentication required
-      responses:
-        "200":
-          description: return 'void'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/resource/test:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    post:
-      summary: Test the validity of a monitoring service resources.
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/monitoring.TestConfigResult'
-        default:
-          $ref: '#/responses/OVH.Error'
-  /paas/monitoring/{serviceName}/serviceInfos:
-    parameters:
-    - name: serviceName
-      in: path
-      required: true
-      type: string
-    get:
-      summary: Get this object properties
-      description: BETA - authentication required
-      responses:
-        "200":
-          $ref: '#/responses/services.Service'
-        default:
-          $ref: '#/responses/OVH.Error'
-    put:
-      summary: Alter this object properties
-      description: BETA - authentication required
-      parameters:
-      - name: paasMonitoringServiceInfosPut
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/services.Service'
-      responses:
-        "200":
-          description: return 'void'
-        default:
-          $ref: '#/responses/OVH.Error'
   /paas/timeseries:
     get:
       summary: List available services
@@ -63205,6 +63320,45 @@ paths:
           $ref: '#/responses/router.Router'
         default:
           $ref: '#/responses/OVH.Error'
+  /router/{serviceName}/confirmTermination:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    post:
+      summary: Confirm termination of your service
+      description: PRODUCTION - authentication required
+      parameters:
+      - name: routerConfirmTerminationPost
+        in: body
+        schema:
+          type: object
+          required:
+          - token
+          properties:
+            commentary:
+              type: string
+            reason:
+              type: string
+              enum:
+              - LACK_OF_PERFORMANCES
+              - MIGRATED_TO_ANOTHER_OVH_PRODUCT
+              - MIGRATED_TO_COMPETITOR
+              - NOT_NEEDED_ANYMORE
+              - NOT_RELIABLE
+              - OTHER
+              - TOO_EXPENSIVE
+              - TOO_HARD_TO_USE
+            token:
+              type: string
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: string
+        default:
+          $ref: '#/responses/OVH.Error'
   /router/{serviceName}/network:
     parameters:
     - name: serviceName
@@ -63598,6 +63752,22 @@ paths:
       responses:
         "200":
           $ref: '#/responses/router.Task'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /router/{serviceName}/terminate:
+    parameters:
+    - name: serviceName
+      in: path
+      required: true
+      type: string
+    post:
+      summary: Terminate your service
+      description: PRODUCTION - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: string
         default:
           $ref: '#/responses/OVH.Error'
   /router/{serviceName}/vpn:
@@ -66143,6 +66313,61 @@ paths:
       responses:
         "200":
           $ref: '#/responses/sms.PttDetails'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /sms/virtualNumbers:
+    get:
+      summary: List available services
+      description: PRODUCTION - authentication required
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          $ref: '#/responses/OVH.Error'
+  /sms/virtualNumbers/{number}:
+    parameters:
+    - name: number
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Get this object properties
+      description: PRODUCTION - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/sms.VirtualNumberGenericService'
+        default:
+          $ref: '#/responses/OVH.Error'
+  /sms/virtualNumbers/{number}/serviceInfos:
+    parameters:
+    - name: number
+      in: path
+      required: true
+      type: string
+    get:
+      summary: Get this object properties
+      description: PRODUCTION - authentication required
+      responses:
+        "200":
+          $ref: '#/responses/services.Service'
+        default:
+          $ref: '#/responses/OVH.Error'
+    put:
+      summary: Alter this object properties
+      description: PRODUCTION - authentication required
+      parameters:
+      - name: smsVirtualNumbersServiceInfosPut
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/services.Service'
+      responses:
+        "200":
+          description: return 'void'
         default:
           $ref: '#/responses/OVH.Error'
   /ssl:
@@ -78583,6 +78808,24 @@ paths:
               type: string
         default:
           $ref: '#/responses/OVH.Error'
+  /telephony/searchServices:
+    get:
+      summary: Search a service with its domain, to get its billing account and type
+      description: PRODUCTION - authentication required
+      parameters:
+      - name: axiom
+        in: query
+        required: true
+        type: string
+      responses:
+        "200":
+          description: return value
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/telephony.TelephonySearchService'
+        default:
+          $ref: '#/responses/OVH.Error'
   /telephony/setDefaultSipDomain:
     post:
       summary: Get all available SIP domains by country
@@ -83358,10 +83601,10 @@ definitions:
     description: Elasticsearch alias
     type: object
     required:
-    - aliasId
-    - name
     - createdAt
     - isEditable
+    - aliasId
+    - name
     properties:
       aliasId:
         description: Alias UUID
@@ -83405,9 +83648,9 @@ definitions:
     description: Graylog dashboard
     type: object
     required:
+    - isEditable
     - dashboardId
     - createdAt
-    - isEditable
     properties:
       createdAt:
         description: Dashboard creation
@@ -83508,10 +83751,10 @@ definitions:
     description: Elasticsearch index
     type: object
     required:
-    - name
-    - indexId
     - createdAt
     - isEditable
+    - name
+    - indexId
     properties:
       createdAt:
         description: Index creation
@@ -83545,13 +83788,13 @@ definitions:
     description: Input
     type: object
     required:
-    - publicAddress
-    - hostname
     - restartRequired
-    - status
-    - createdAt
-    - inputId
     - sslCertificate
+    - createdAt
+    - publicAddress
+    - inputId
+    - hostname
+    - status
     properties:
       createdAt:
         description: Input creation
@@ -83733,9 +83976,9 @@ definitions:
     description: Input operation
     type: object
     required:
+    - state
     - operationId
     - createdAt
-    - state
     properties:
       aliasId:
         description: Alias used
@@ -84109,9 +84352,9 @@ definitions:
     description: Token
     type: object
     required:
+    - tokenId
     - createdAt
     - value
-    - tokenId
     properties:
       createdAt:
         description: Token creation
@@ -84267,11 +84510,11 @@ definitions:
     description: Contract of service
     type: object
     required:
+    - text
+    - pdf
     - name
     - active
     - date
-    - text
-    - pdf
     properties:
       active:
         description: Is this contract currently active or not ?
@@ -84298,10 +84541,10 @@ definitions:
     description: Contract agreement
     type: object
     required:
-    - agreed
     - date
     - id
     - contractId
+    - agreed
     properties:
       agreed:
         description: State of the agreement
@@ -84369,11 +84612,11 @@ definitions:
     description: API Application
     type: object
     required:
-    - name
-    - applicationId
     - description
     - applicationKey
     - status
+    - name
+    - applicationId
     properties:
       applicationId:
         type: integer
@@ -84400,12 +84643,12 @@ definitions:
     description: API Credential
     type: object
     required:
-    - status
-    - applicationId
-    - credentialId
     - rules
     - creation
     - ovhSupport
+    - status
+    - applicationId
+    - credentialId
     properties:
       applicationId:
         type: integer
@@ -84490,15 +84733,15 @@ definitions:
     description: SEPA bank account info
     type: object
     required:
-    - creationDate
     - bic
+    - id
     - ownerAddress
     - ownerName
     - uniqueReference
-    - defaultPaymentMean
+    - creationDate
     - state
     - iban
-    - id
+    - defaultPaymentMean
     properties:
       bic:
         type: string
@@ -84547,15 +84790,15 @@ definitions:
     description: Details about a Bill
     type: object
     required:
-    - pdfUrl
-    - date
-    - tax
-    - billId
-    - password
-    - url
-    - priceWithTax
     - priceWithoutTax
     - orderId
+    - tax
+    - url
+    - priceWithTax
+    - password
+    - date
+    - pdfUrl
+    - billId
     properties:
       billId:
         type: string
@@ -84587,12 +84830,12 @@ definitions:
     description: Information about a Bill entry
     type: object
     required:
+    - quantity
+    - unitPrice
     - description
     - billDetailId
     - domain
     - totalPrice
-    - quantity
-    - unitPrice
     properties:
       billDetailId:
         type: string
@@ -84622,13 +84865,13 @@ definitions:
     description: Credit card informations
     type: object
     required:
+    - state
     - threeDsValidated
     - id
     - type
     - number
     - expirationDate
     - defaultPaymentMean
-    - state
     properties:
       defaultPaymentMean:
         type: boolean
@@ -84666,10 +84909,10 @@ definitions:
     description: Balance of the fidelity account
     type: object
     required:
+    - openDate
     - balance
     - lastUpdate
     - canBeCredited
-    - openDate
     properties:
       alertThreshold:
         type: integer
@@ -84693,14 +84936,14 @@ definitions:
     description: Details about a fidelity account
     type: object
     required:
-    - description
-    - amount
-    - balance
     - order
     - operation
     - previousBalance
     - movementId
     - date
+    - description
+    - amount
+    - balance
     properties:
       amount:
         type: integer
@@ -84746,7 +84989,6 @@ definitions:
     description: Details about an OVH account
     type: object
     required:
-    - balance
     - order
     - operation
     - previousBalance
@@ -84754,6 +84996,7 @@ definitions:
     - date
     - description
     - amount
+    - balance
     properties:
       amount:
         $ref: '#/definitions/order.Price'
@@ -84791,13 +85034,13 @@ definitions:
     description: Details about an Order
     type: object
     required:
-    - priceWithTax
-    - tax
-    - priceWithoutTax
-    - orderId
     - url
-    - pdfUrl
+    - priceWithoutTax
     - password
+    - priceWithTax
+    - pdfUrl
+    - tax
+    - orderId
     properties:
       date:
         type: string
@@ -84990,8 +85233,8 @@ definitions:
     description: Details about a payment
     type: object
     required:
-    - paymentDate
     - paymentType
+    - paymentDate
     properties:
       paymentDate:
         type: string
@@ -85030,6 +85273,9 @@ definitions:
     description: A validation required to add a payment mean
     type: object
     properties:
+      id:
+        type: integer
+        format: int64
       url:
         type: string
       validationType:
@@ -85042,12 +85288,12 @@ definitions:
     description: Paypal account info
     type: object
     required:
-    - agreementId
-    - creationDate
     - id
     - defaultPaymentMean
     - state
     - email
+    - agreementId
+    - creationDate
     properties:
       agreementId:
         type: string
@@ -85079,15 +85325,15 @@ definitions:
     description: Details about a Refund
     type: object
     required:
-    - priceWithTax
     - priceWithoutTax
-    - url
     - pdfUrl
+    - priceWithTax
+    - url
     - date
-    - tax
     - orderId
-    - refundId
     - password
+    - refundId
+    - tax
     properties:
       date:
         type: string
@@ -85122,7 +85368,6 @@ definitions:
     description: Information about a Bill entry
     type: object
     required:
-    - refundDetailId
     - refundId
     - totalPrice
     - quantity
@@ -85130,6 +85375,7 @@ definitions:
     - description
     - domain
     - reference
+    - refundDetailId
     properties:
       description:
         type: string
@@ -85202,9 +85448,9 @@ definitions:
     description: Task on CDN
     type: object
     required:
+    - taskId
     - function
     - status
-    - taskId
     properties:
       comment:
         type: string
@@ -85252,8 +85498,8 @@ definitions:
     description: Zone on CDN
     type: object
     required:
-    - zone
     - status
+    - zone
     properties:
       status:
         type: string
@@ -85269,10 +85515,10 @@ definitions:
     description: Static CDN
     type: object
     required:
-    - domain
-    - storageUsage
     - storageLimit
     - server
+    - domain
+    - storageUsage
     properties:
       domain:
         type: string
@@ -85317,13 +85563,13 @@ definitions:
     description: Anycast IP of a CDN customer
     type: object
     required:
+    - backendLimit
+    - service
+    - quota
+    - logUrl
     - anycast
     - cacheRuleLimitPerDomain
-    - backendLimit
-    - quota
     - backendUse
-    - service
-    - logUrl
     properties:
       anycast:
         type: string
@@ -85372,11 +85618,11 @@ definitions:
     description: CacheRules for a domain
     type: object
     required:
+    - fileType
+    - domain
     - cacheType
     - cacheRuleId
     - fileMatch
-    - fileType
-    - domain
     properties:
       cacheRuleId:
         description: Id for this cache rule
@@ -85418,10 +85664,10 @@ definitions:
     description: Domain on CDN
     type: object
     required:
-    - cname
     - cacheRuleUse
     - domain
     - type
+    - cname
     properties:
       cacheRuleUse:
         type: integer
@@ -85451,10 +85697,10 @@ definitions:
     description: CDN Pop
     type: object
     required:
-    - city
-    - comment
     - status
     - name
+    - city
+    - comment
     properties:
       city:
         type: string
@@ -85520,9 +85766,9 @@ definitions:
     description: Task on a CDN
     type: object
     required:
-    - status
     - taskId
     - function
+    - status
     properties:
       comment:
         type: string
@@ -85573,9 +85819,9 @@ definitions:
     description: Cloud alerting consumption
     type: object
     required:
-    - formattedMonthlyThreshold
     - creationDate
     - id
+    - formattedMonthlyThreshold
     properties:
       creationDate:
         description: Alerting creation date
@@ -85612,9 +85858,9 @@ definitions:
     description: Cloud alert on your consumption
     type: object
     required:
+    - alertDate
     - emails
     - alertId
-    - alertDate
     properties:
       alertDate:
         description: Alert date
@@ -85645,9 +85891,9 @@ definitions:
     description: Catalog
     type: object
     required:
+    - endpoints
     - id
     - type
-    - endpoints
     properties:
       endpoints:
         type: array
@@ -85673,12 +85919,12 @@ definitions:
     description: Endpoint
     type: object
     required:
+    - service_id
+    - region_id
     - interface
     - url
     - id
     - legacy_endpoint_id
-    - service_id
-    - region_id
     properties:
       id:
         type: string
@@ -85702,13 +85948,13 @@ definitions:
     description: OpenstackToken
     type: object
     required:
-    - user
     - roles
     - catalog
     - expires_at
     - project
     - issued_at
     - methods
+    - user
     properties:
       catalog:
         type: array
@@ -85741,8 +85987,8 @@ definitions:
     description: Role
     type: object
     required:
-    - name
     - id
+    - name
     properties:
       id:
         type: string
@@ -85754,8 +86000,8 @@ definitions:
     description: Token
     type: object
     required:
-    - token
     - X-Auth-Token
+    - token
     properties:
       X-Auth-Token:
         type: string
@@ -85766,9 +86012,9 @@ definitions:
     description: TokenProject
     type: object
     required:
-    - id
     - domain
     - name
+    - id
     properties:
       domain:
         $ref: '#/definitions/cloud.Authentication.Domain'
@@ -85782,9 +86028,9 @@ definitions:
     description: UserToken
     type: object
     required:
+    - id
     - domain
     - name
-    - id
     properties:
       domain:
         $ref: '#/definitions/cloud.Authentication.Domain'
@@ -85807,8 +86053,8 @@ definitions:
     description: BandwidthStorage
     type: object
     required:
-    - totalPrice
     - quantity
+    - totalPrice
     properties:
       quantity:
         $ref: '#/definitions/cloud.BillingView.Quantity'
@@ -85821,11 +86067,11 @@ definitions:
     description: HourlyInstance
     type: object
     required:
-    - quantity
     - region
     - details
     - reference
     - totalPrice
+    - quantity
     properties:
       details:
         description: Details about hourly instances
@@ -85852,9 +86098,9 @@ definitions:
     description: HourlyInstanceDetail
     type: object
     required:
+    - quantity
     - instanceId
     - totalPrice
-    - quantity
     properties:
       instanceId:
         description: Instance ID
@@ -85904,8 +86150,8 @@ definitions:
     description: HourlySnapshot
     type: object
     required:
-    - region
     - totalPrice
+    - region
     properties:
       instance:
         $ref: '#/definitions/cloud.BillingView.InstanceSnapshot'
@@ -85924,9 +86170,9 @@ definitions:
     description: HourlyStorage
     type: object
     required:
+    - region
     - type
     - totalPrice
-    - region
     properties:
       incomingBandwidth:
         $ref: '#/definitions/cloud.BillingView.BandwidthStorage'
@@ -85954,11 +86200,11 @@ definitions:
     description: HourlyVolume
     type: object
     required:
+    - details
     - totalPrice
     - quantity
     - region
     - type
-    - details
     properties:
       details:
         description: Detail about volume consumption
@@ -86004,8 +86250,8 @@ definitions:
     description: InstanceSnapshot
     type: object
     required:
-    - totalPrice
     - quantity
+    - totalPrice
     properties:
       quantity:
         $ref: '#/definitions/cloud.BillingView.Quantity'
@@ -86046,9 +86292,9 @@ definitions:
     description: MonthlyInstanceDetail
     type: object
     required:
-    - instanceId
     - totalPrice
     - activation
+    - instanceId
     properties:
       activation:
         description: Monthly instance activation
@@ -86136,8 +86382,8 @@ definitions:
     description: UsedCredits
     type: object
     required:
-    - details
     - totalCredit
+    - details
     properties:
       details:
         description: Details about credits that will be used
@@ -86154,8 +86400,8 @@ definitions:
     description: VolumeSnapshot
     type: object
     required:
-    - quantity
     - totalPrice
+    - quantity
     properties:
       quantity:
         $ref: '#/definitions/cloud.BillingView.Quantity'
@@ -86180,10 +86426,10 @@ definitions:
     description: Cloud credit
     type: object
     required:
-    - used_credit
-    - id
     - total_credit
+    - id
     - available_credit
+    - used_credit
     properties:
       available_credit:
         $ref: '#/definitions/order.Price'
@@ -86220,15 +86466,15 @@ definitions:
     description: Flavor
     type: object
     required:
+    - id
+    - disk
+    - ram
+    - vcpus
+    - type
+    - available
     - name
     - region
     - osType
-    - ram
-    - disk
-    - vcpus
-    - id
-    - type
-    - available
     properties:
       available:
         description: Available in stock
@@ -86314,17 +86560,17 @@ definitions:
     description: Image
     type: object
     required:
-    - minDisk
-    - id
-    - status
-    - name
+    - size
     - user
     - visibility
-    - size
-    - creationDate
-    - region
     - type
+    - region
+    - name
+    - id
     - minRam
+    - status
+    - minDisk
+    - creationDate
     properties:
       creationDate:
         description: Image creation date
@@ -86377,13 +86623,13 @@ definitions:
     description: Instance
     type: object
     required:
+    - imageId
+    - ipAddresses
+    - name
+    - flavorId
     - region
     - id
-    - flavorId
-    - name
-    - ipAddresses
     - status
-    - imageId
     - created
     properties:
       created:
@@ -86459,13 +86705,13 @@ definitions:
     description: InstanceDetail
     type: object
     required:
-    - name
-    - sshKey
-    - image
-    - created
     - flavor
-    - status
+    - name
     - region
+    - created
+    - status
+    - image
+    - sshKey
     - ipAddresses
     - id
     properties:
@@ -86602,10 +86848,10 @@ definitions:
     description: IpAddress
     type: object
     required:
+    - ip
     - version
     - type
     - networkId
-    - ip
     properties:
       ip:
         description: Instance IP address
@@ -86628,8 +86874,8 @@ definitions:
     description: MonthlyBilling
     type: object
     required:
-    - status
     - since
+    - status
     properties:
       since:
         description: Monthly billing activated since
@@ -86673,8 +86919,8 @@ definitions:
     description: FixedIp
     type: object
     required:
-    - subnetId
     - ip
+    - subnetId
     properties:
       ip:
         description: Ip
@@ -86750,11 +86996,11 @@ definitions:
     description: FailoverIp
     type: object
     required:
-    - id
-    - status
     - routedTo
     - progress
+    - status
     - subType
+    - id
     properties:
       block:
         description: IP block
@@ -86822,11 +87068,11 @@ definitions:
     description: Network
     type: object
     required:
+    - name
+    - id
     - vlanId
     - regions
     - status
-    - name
-    - id
     properties:
       id:
         description: Network id
@@ -86866,8 +87112,8 @@ definitions:
     description: NetworkRegion
     type: object
     required:
-    - status
     - region
+    - status
     properties:
       region:
         description: Network region
@@ -86884,9 +87130,9 @@ definitions:
     description: Subnet
     type: object
     required:
+    - id
     - cidr
     - ipPools
-    - id
     properties:
       cidr:
         description: Subnet CIDR
@@ -87297,10 +87543,10 @@ definitions:
     description: Quotas
     type: object
     required:
-    - keypair
     - volume
     - region
     - instance
+    - keypair
     properties:
       instance:
         $ref: '#/definitions/cloud.Quota.InstanceQuotas'
@@ -87316,9 +87562,9 @@ definitions:
     description: VolumeQuotas
     type: object
     required:
-    - maxGigabytes
     - volumeCount
     - usedGigabytes
+    - maxGigabytes
     properties:
       maxGigabytes:
         description: Maximum total volume capacity allowed in your project
@@ -87339,8 +87585,8 @@ definitions:
     description: OpenstackService
     type: object
     required:
-    - name
     - status
+    - name
     properties:
       name:
         description: Service name
@@ -87357,10 +87603,10 @@ definitions:
     description: RegionDetail
     type: object
     required:
-    - datacenterLocation
-    - name
     - continentCode
     - services
+    - datacenterLocation
+    - name
     properties:
       continentCode:
         description: Region continent code
@@ -87401,10 +87647,10 @@ definitions:
     description: Stock
     type: object
     required:
-    - quantity
     - flavorName
     - flavorId
     - error
+    - quantity
     properties:
       error:
         description: Error message, if any
@@ -87438,10 +87684,10 @@ definitions:
     description: SshKey
     type: object
     required:
-    - id
-    - publicKey
     - regions
     - name
+    - id
+    - publicKey
     properties:
       id:
         description: SSH key id
@@ -87465,11 +87711,11 @@ definitions:
     description: SshKeyDetail
     type: object
     required:
+    - fingerPrint
+    - regions
     - name
     - id
     - publicKey
-    - fingerPrint
-    - regions
     properties:
       fingerPrint:
         description: SSH key fingerprint
@@ -87497,11 +87743,11 @@ definitions:
     description: Container
     type: object
     required:
-    - storedObjects
     - storedBytes
     - name
     - region
     - id
+    - storedObjects
     properties:
       id:
         description: Storage id
@@ -87528,8 +87774,8 @@ definitions:
     description: ContainerAccess
     type: object
     required:
-    - token
     - endpoints
+    - token
     properties:
       endpoints:
         description: Storage access endpoints
@@ -87545,15 +87791,15 @@ definitions:
     description: ContainerDetail
     type: object
     required:
-    - storedBytes
+    - objects
     - storedObjects
+    - storedBytes
     - archive
+    - name
+    - region
     - staticUrl
     - cors
     - public
-    - name
-    - region
-    - objects
     properties:
       archive:
         description: Whether this is an archive container or not
@@ -87601,12 +87847,12 @@ definitions:
     description: ContainerObject
     type: object
     required:
-    - lastModified
-    - name
     - retrievalState
     - contentType
     - size
     - retrievalDelay
+    - lastModified
+    - name
     properties:
       contentType:
         description: Object content type
@@ -87638,6 +87884,22 @@ definitions:
         description: Object size
         type: integer
         format: int64
+        readOnly: true
+  cloud.Storage.ContainerObjectTempURL:
+    description: ContainerObjectTempURL
+    type: object
+    required:
+    - expirationDate
+    - getURL
+    properties:
+      expirationDate:
+        description: Temporary URL expiration date
+        type: string
+        format: date-time
+        readOnly: true
+      getURL:
+        description: Temporary URL to get object
+        type: string
         readOnly: true
   cloud.Storage.Endpoint:
     description: Endpoint
@@ -87723,8 +87985,8 @@ definitions:
     description: UsageCurrent
     type: object
     required:
-    - lastUpdate
     - period
+    - lastUpdate
     properties:
       hourlyUsage:
         $ref: '#/definitions/cloud.BillingView.HourlyResources'
@@ -87761,9 +88023,9 @@ definitions:
     description: UsageHistory
     type: object
     required:
+    - id
     - lastUpdate
     - period
-    - id
     properties:
       id:
         description: Usage id
@@ -87780,9 +88042,9 @@ definitions:
     description: UsageHistoryDetail
     type: object
     required:
+    - lastUpdate
     - period
     - id
-    - lastUpdate
     properties:
       hourlyUsage:
         $ref: '#/definitions/cloud.BillingView.HourlyResources'
@@ -87813,11 +88075,11 @@ definitions:
     description: User
     type: object
     required:
-    - status
-    - id
     - description
     - username
     - creationDate
+    - status
+    - id
     properties:
       creationDate:
         description: User creation date
@@ -87891,14 +88153,14 @@ definitions:
     description: Snapshot
     type: object
     required:
-    - creationDate
-    - id
     - volumeId
     - status
     - name
     - region
     - description
     - size
+    - creationDate
+    - id
     properties:
       creationDate:
         description: Snapshot creation date
@@ -87944,15 +88206,15 @@ definitions:
     description: Volume
     type: object
     required:
-    - description
-    - size
-    - attachedTo
-    - name
-    - creationDate
-    - id
-    - type
     - bootable
     - status
+    - size
+    - id
+    - attachedTo
+    - type
+    - name
+    - description
+    - creationDate
     - region
     properties:
       attachedTo:
@@ -88033,10 +88295,10 @@ definitions:
     description: Managed Hadoop Cluster
     type: object
     required:
-    - state
     - clouderaVersion
     - maxOrderableNodes
     - name
+    - state
     properties:
       clouderaVersion:
         description: CDH and Cloudera Manager version
@@ -88089,12 +88351,12 @@ definitions:
     description: Physical or Virtual Node
     type: object
     required:
+    - ip
+    - hostname
     - state
     - billingProfileName
     - softwareProfile
     - isRemovable
-    - ip
-    - hostname
     properties:
       billingProfileName:
         description: Name of the billing profile attached to the node
@@ -89338,10 +89600,10 @@ definitions:
     description: AppConfiguration
     type: object
     required:
-    - roles
-    - app
     - users
     - metricsAccount
+    - roles
+    - app
     properties:
       app:
         $ref: '#/definitions/dbaas.Queue.App'
@@ -89383,10 +89645,10 @@ definitions:
     description: KeyWithSecret
     type: object
     required:
-    - secret
-    - humanAppId
     - name
     - id
+    - secret
+    - humanAppId
     properties:
       humanAppId:
         description: Human ID of the key's application
@@ -89409,8 +89671,8 @@ definitions:
     description: MetricsAccount
     type: object
     required:
-    - host
     - token
+    - host
     properties:
       host:
         description: OpenTSDB host url
@@ -89424,9 +89686,9 @@ definitions:
     description: Region
     type: object
     required:
+    - name
     - url
     - id
-    - name
     properties:
       id:
         description: Region ID
@@ -89444,10 +89706,10 @@ definitions:
     description: Role
     type: object
     required:
-    - writeAcl
     - autoCreateACL
     - readAcl
     - name
+    - writeAcl
     properties:
       autoCreateACL:
         description: Automatically create non-existing topics on read & write operations
@@ -89517,10 +89779,10 @@ definitions:
     description: UserWithPassword
     type: object
     required:
-    - roles
-    - password
     - name
     - id
+    - roles
+    - password
     properties:
       id:
         description: User ID
@@ -89602,14 +89864,14 @@ definitions:
     description: State of a debt
     type: object
     required:
-    - date
-    - unmaturedAmount
-    - pendingAmount
-    - amount
-    - orderId
-    - todoAmount
-    - debtId
     - dueAmount
+    - date
+    - amount
+    - todoAmount
+    - pendingAmount
+    - orderId
+    - unmaturedAmount
+    - debtId
     properties:
       amount:
         $ref: '#/definitions/order.Price'
@@ -89664,10 +89926,10 @@ definitions:
     description: Operation that happend on a debt
     type: object
     required:
-    - date
-    - status
     - operationId
     - amount
+    - date
+    - status
     properties:
       amount:
         $ref: '#/definitions/order.Price'
@@ -89778,11 +90040,11 @@ definitions:
     description: Housing bay
     type: object
     required:
-    - options
-    - securityCode
     - rack
     - name
     - network
+    - options
+    - securityCode
     properties:
       datacenter:
         description: Housing bay datacenter
@@ -89864,10 +90126,10 @@ definitions:
     description: Housing tasks
     type: object
     required:
-    - taskId
-    - function
     - status
     - startDate
+    - taskId
+    - function
     properties:
       comment:
         description: Details of this task
@@ -90011,13 +90273,13 @@ definitions:
     description: Available installation templates
     type: object
     required:
-    - category
-    - family
-    - availableLanguages
     - distribution
-    - filesystems
+    - availableLanguages
+    - category
     - description
     - bitFormat
+    - family
+    - filesystems
     properties:
       availableLanguages:
         description: list of all language available for this template
@@ -90297,13 +90559,54 @@ definitions:
         type: integer
         format: int64
         readOnly: true
+  dedicated.NasHAAvailabilities:
+    description: ovh Nas HA offer availabilities
+    type: object
+    properties:
+      datacenters:
+        description: Zone of the DC
+        type: array
+        items:
+          $ref: '#/definitions/dedicated.NasHAAvailabilityDatacenter'
+      offer:
+        description: Name of the offer
+        type: string
+        enum:
+        - 1200g
+        - 13200g
+        - 19200g
+        - 2400g
+        - 26400g
+        - 3600g
+        - 7200g
+  dedicated.NasHAAvailabilityDatacenter:
+    description: A structure describing the availability of offer for each datacenter
+    type: object
+    properties:
+      availability:
+        description: The availability
+        type: string
+        enum:
+        - 1H
+        - 240H
+        - 24H
+        - 72H
+        - unknown
+      datacenter:
+        description: The code of the datacenter
+        type: string
+        enum:
+        - bhs
+        - gra
+        - rbx
+        - sbg
   dedicated.NasTask.Task:
     description: Storage task
     type: object
     required:
-    - operation
-    - taskId
     - status
+    - taskId
+    - operation
     properties:
       details:
         description: information about operation
@@ -90443,8 +90746,8 @@ definitions:
     description: Storage zpool partition
     type: object
     required:
-    - partitionName
     - protocol
+    - partitionName
     properties:
       partitionCapacity:
         description: percentage of partition space used in %
@@ -90510,10 +90813,10 @@ definitions:
     description: Storage nas HA
     type: object
     required:
-    - canCreatePartition
-    - zpoolCapacity
     - serviceName
     - zpoolSize
+    - canCreatePartition
+    - zpoolCapacity
     properties:
       canCreatePartition:
         description: True, if partition creation is allowed on this nas HA
@@ -90595,9 +90898,9 @@ definitions:
     description: Backup Ftp ACL for this server and Backup Ftp
     type: object
     required:
+    - isApplied
     - ipBlock
     - lastUpdate
-    - isApplied
     properties:
       cifs:
         description: Wether to allow the CIFS (SMB) protocol for this ACL
@@ -90727,10 +91030,10 @@ definitions:
     - rack
     - datacenter
     - professionalUse
-    - os
-    - name
     - ip
+    - name
     - supportLevel
+    - os
     properties:
       bootId:
         type: integer
@@ -91384,8 +91687,8 @@ definitions:
     description: Available boot options
     type: object
     required:
-    - option
     - value
+    - option
     properties:
       option:
         description: The option of this boot
@@ -91986,10 +92289,10 @@ definitions:
     description: SPLA licenses management
     type: object
     required:
-    - type
     - lastUpdate
     - status
     - id
+    - type
     properties:
       id:
         description: License id
@@ -92024,10 +92327,10 @@ definitions:
     description: Server tasks
     type: object
     required:
+    - function
     - status
     - startDate
     - taskId
-    - function
     properties:
       comment:
         description: Details of this task
@@ -92174,8 +92477,8 @@ definitions:
     description: A virtual MAC address associated to one or more IPs
     type: object
     required:
-    - macAddress
     - type
+    - macAddress
     properties:
       macAddress:
         description: Virtual MAC address in 00:00:00:00:00:00 format
@@ -92240,8 +92543,8 @@ definitions:
     description: Network allowed to connect to the Dedicated Cloud management interface
     type: object
     required:
-    - state
     - networkAccessId
+    - state
     properties:
       description:
         type: string
@@ -92504,10 +92807,10 @@ definitions:
     description: Dedicated Cloud Datacenter
     type: object
     required:
+    - datacenterId
     - commercialRangeName
     - isRemovable
     - version
-    - datacenterId
     properties:
       commercialRangeName:
         description: The commercial range associated to this Datacenter
@@ -92533,16 +92836,16 @@ definitions:
     description: Dedicated Cloud
     type: object
     required:
-    - managementInterface
-    - billingType
-    - spla
-    - commercialRange
     - bandwidth
-    - location
-    - state
+    - managementInterface
     - serviceName
+    - billingType
+    - commercialRange
+    - location
     - vScopeUrl
+    - state
     - version
+    - spla
     properties:
       bandwidth:
         description: The current bandwidth of your Dedicated Cloud
@@ -92639,13 +92942,13 @@ definitions:
     description: Dedicated Cloud Filer
     type: object
     required:
-    - profile
-    - name
-    - state
-    - filerId
-    - size
     - fullProfile
+    - size
+    - state
     - billingType
+    - name
+    - filerId
+    - profile
     properties:
       billingType:
         description: Billing type of this filer
@@ -92752,13 +93055,13 @@ definitions:
     description: Dedicated Cloud Host
     type: object
     required:
-    - profile
-    - state
     - billingType
+    - rack
     - name
+    - state
     - cpu
     - hostId
-    - rack
+    - profile
     - ram
     properties:
       billingType:
@@ -92920,12 +93223,12 @@ definitions:
     description: IP Blocks associated with a Dedicated Cloud
     type: object
     required:
-    - networkName
-    - country
     - register
     - network
     - vlanNumber
     - description
+    - networkName
+    - country
     properties:
       country:
         type: string
@@ -93052,9 +93355,9 @@ definitions:
     description: Private Cloud Restore Point
     type: object
     required:
-    - restorePointSize
     - restorePointId
     - isCorrupted
+    - restorePointSize
     properties:
       creationTime:
         description: Creation time of the restore point
@@ -93163,12 +93466,12 @@ definitions:
     description: Operation on a Dedicated Cloud component
     type: object
     required:
-    - state
+    - taskId
+    - executionDate
     - type
     - progress
+    - state
     - name
-    - executionDate
-    - taskId
     properties:
       createdBy:
         description: Creator of the task
@@ -93290,13 +93593,13 @@ definitions:
     description: Dedicated Cloud User
     type: object
     required:
-    - canManageNetwork
-    - userId
     - name
-    - isEnableManageable
-    - state
+    - userId
     - fullAdminRo
+    - isEnableManageable
+    - canManageNetwork
     - canManageIpFailOvers
+    - state
     properties:
       activationState:
         type: string
@@ -93661,15 +93964,15 @@ definitions:
     description: Desktop As A Service
     type: object
     required:
-    - state
     - ram
-    - dataDisk
-    - reference
-    - planCode
-    - os
     - vcpu
+    - planCode
+    - dataDisk
     - alias
     - serviceName
+    - os
+    - state
+    - reference
     properties:
       alias:
         description: Alias determined by the use
@@ -93773,10 +94076,10 @@ definitions:
     description: Operation on a Desktop As A Service component
     type: object
     required:
-    - state
-    - taskId
     - progress
     - name
+    - state
+    - taskId
     properties:
       description:
         description: Current progress description
@@ -93821,11 +94124,11 @@ definitions:
     description: Desktop As A Service User
     type: object
     required:
+    - userId
     - name
     - state
     - activationState
     - email
-    - userId
     properties:
       activationState:
         type: string
@@ -93859,10 +94162,10 @@ definitions:
     description: Information about installed package for a given image
     type: object
     required:
+    - properties
     - packages
     - name
     - service
-    - properties
     properties:
       name:
         description: The image name
@@ -93967,13 +94270,13 @@ definitions:
     required:
     - stack
     - flavorId
+    - id
     - metrics
-    - updatedAt
+    - name
     - region
     - state
-    - name
+    - updatedAt
     - createdAt
-    - id
     properties:
       createdAt:
         description: Date of the resource creation
@@ -94048,9 +94351,9 @@ definitions:
     description: Application data
     type: object
     required:
+    - env
     - ports
     - volumes
-    - env
     properties:
       cpu:
         description: Application CPU
@@ -94070,6 +94373,11 @@ definitions:
       image:
         description: Application image
         type: string
+        readOnly: true
+      instances:
+        description: Number of running containers instances
+        type: integer
+        format: int64
         readOnly: true
       mem:
         description: Application memory
@@ -94144,8 +94452,8 @@ definitions:
     description: Metrics about slave usage
     type: object
     required:
-    - usedResources
     - resources
+    - usedResources
     properties:
       resources:
         $ref: '#/definitions/docker.Slave.Metrics.Resources'
@@ -94183,11 +94491,11 @@ definitions:
     description: An isolated client Docker PaaS environment
     type: object
     required:
+    - updatedAt
+    - name
     - loadBalancer
     - metrics
     - createdAt
-    - updatedAt
-    - name
     properties:
       cluster:
         description: The cluster on which the stack is deployed
@@ -94222,8 +94530,8 @@ definitions:
     description: A custom SSL certificate associated to a Docker PaaS environment
     type: object
     required:
-    - createdAt
     - updatedAt
+    - createdAt
     properties:
       certificate:
         description: The custom SSL public certificate
@@ -94650,9 +94958,9 @@ definitions:
     description: Definition of claim notices applying to a domain name
     type: object
     required:
-    - endingDate
     - label
     - id
+    - endingDate
     properties:
       claims:
         description: Array of claim notice for the domain
@@ -94686,15 +94994,15 @@ definitions:
     description: Definition of a single claim notice
     type: object
     required:
-    - classifications
-    - jurisdiction
-    - jurisdictionCountryCode
-    - courtDecisions
-    - goodsAndServices
     - markName
-    - trademarkUDRP
-    - trademarkHolders
+    - jurisdiction
+    - courtDecisions
+    - jurisdictionCountryCode
+    - classifications
     - trademarkContacts
+    - trademarkHolders
+    - trademarkUDRP
+    - goodsAndServices
     properties:
       classifications:
         description: Classifications where trademark claim notice apply
@@ -94946,14 +95254,14 @@ definitions:
     description: Domain name administration
     type: object
     required:
-    - dnssecSupported
-    - domain
+    - lastUpdate
     - whoisOwner
+    - dnssecSupported
+    - glueRecordMultiIpSupported
     - owoSupported
     - glueRecordIpv6Supported
-    - lastUpdate
-    - glueRecordMultiIpSupported
     - offer
+    - domain
     properties:
       dnssecSupported:
         description: Is DNSSEC implemented for this domain name's tld
@@ -95193,15 +95501,15 @@ definitions:
     description: Tasks associated to domain
     type: object
     required:
-    - status
-    - canRelaunch
-    - function
-    - creationDate
-    - todoDate
-    - canCancel
-    - canAccelerate
     - lastUpdate
+    - creationDate
+    - canCancel
+    - canRelaunch
+    - todoDate
     - id
+    - function
+    - status
+    - canAccelerate
     properties:
       canAccelerate:
         description: Can accelerate the task
@@ -95439,15 +95747,15 @@ definitions:
     description: Tasks associated to a zone
     type: object
     required:
+    - canAccelerate
     - status
     - lastUpdate
     - id
     - canCancel
-    - canAccelerate
-    - creationDate
-    - canRelaunch
     - function
     - todoDate
+    - canRelaunch
+    - creationDate
     properties:
       canAccelerate:
         description: Can accelerate the task
@@ -95508,10 +95816,10 @@ definitions:
     description: Zone dns Management
     type: object
     required:
-    - hasDnsAnycast
     - nameServers
     - dnssecSupported
     - lastUpdate
+    - hasDnsAnycast
     properties:
       dnssecSupported:
         description: Is DNSSEC supported by this zone
@@ -95536,10 +95844,10 @@ definitions:
     description: Account List
     type: object
     required:
+    - accountName
     - isBlocked
     - email
     - domain
-    - accountName
     properties:
       accountName:
         description: Name of account
@@ -95568,10 +95876,10 @@ definitions:
     description: Account List
     type: object
     required:
-    - accountName
     - isBlocked
     - email
     - domain
+    - accountName
     properties:
       accountName:
         description: Name of account
@@ -95640,8 +95948,8 @@ definitions:
     description: Domain service
     type: object
     required:
-    - domain
     - status
+    - domain
     properties:
       allowedAccountSize:
         description: List of allowed sizes for this domain in bytes
@@ -95683,11 +95991,11 @@ definitions:
     description: Filter List
     type: object
     required:
+    - active
+    - name
     - pop
     - priority
     - domain
-    - active
-    - name
     properties:
       action:
         description: Action of filter
@@ -95727,9 +96035,9 @@ definitions:
     description: Mailing List
     type: object
     required:
-    - name
     - id
     - options
+    - name
     properties:
       id:
         description: Id of mailing list
@@ -95774,9 +96082,9 @@ definitions:
     description: Moderators List
     type: object
     required:
-    - mailinglist
     - email
     - domain
+    - mailinglist
     properties:
       domain:
         type: string
@@ -95791,9 +96099,9 @@ definitions:
     description: Global Redirection
     type: object
     required:
-    - id
     - to
     - from
+    - id
     properties:
       from:
         type: string
@@ -95808,8 +96116,8 @@ definitions:
     description: Responder
     type: object
     required:
-    - copy
     - account
+    - copy
     properties:
       account:
         description: Name of account
@@ -95838,8 +96146,8 @@ definitions:
     description: Responder of account
     type: object
     required:
-    - account
     - copy
+    - account
     properties:
       account:
         description: Name of account
@@ -95897,9 +96205,9 @@ definitions:
     description: Subscribers List
     type: object
     required:
+    - mailinglist
     - email
     - domain
-    - mailinglist
     properties:
       domain:
         type: string
@@ -95914,11 +96222,11 @@ definitions:
     description: Task filter List
     type: object
     required:
-    - domain
-    - timestamp
     - account
     - action
     - id
+    - domain
+    - timestamp
     properties:
       account:
         description: Account name of task
@@ -96023,12 +96331,12 @@ definitions:
     description: Task special account List
     type: object
     required:
-    - id
-    - type
     - domain
     - account
     - date
     - action
+    - id
+    - type
     properties:
       account:
         description: Account name of task
@@ -96071,12 +96379,12 @@ definitions:
     description: Exchange mailbox
     type: object
     required:
-    - spamDetected
     - taskPendingId
-    - state
-    - id
     - primaryEmailAddress
+    - id
+    - state
     - configured
+    - spamDetected
     properties:
       SAMAccountName:
         description: SAM account name
@@ -96261,9 +96569,9 @@ definitions:
     description: Exchange organization disclaimer
     type: object
     required:
+    - creationDate
     - name
     - taskPendingId
-    - creationDate
     properties:
       content:
         description: Signature, added at the bottom of your organization emails
@@ -96290,10 +96598,10 @@ definitions:
     type: object
     required:
     - domainValidated
-    - taskPendingId
     - mxIsValid
-    - name
     - srvIsValid
+    - taskPendingId
+    - name
     - state
     properties:
       cnameToCheck:
@@ -96388,15 +96696,15 @@ definitions:
     description: Exchange Account Diagnosis
     type: object
     required:
+    - isSrvValid
+    - lastCheck
+    - isMxValid
+    - connectiveOWA
+    - isSuspended
     - isSpammer
     - canReceiveEmail
-    - isSrvValid
-    - isMxValid
     - isLocked
-    - connectiveOWA
     - canSendEmail
-    - isSuspended
-    - lastCheck
     properties:
       canReceiveEmail:
         description: Determines if ingoing message has been received
@@ -96440,9 +96748,9 @@ definitions:
     description: Users having full access on this mailbox
     type: object
     required:
+    - creationDate
     - allowedAccountId
     - taskPendingId
-    - creationDate
     properties:
       allowedAccountId:
         description: Account id to give full access
@@ -96463,8 +96771,8 @@ definitions:
     description: Get protocol status on that mailbox
     type: object
     required:
-    - taskPendingId
     - creationDate
+    - taskPendingId
     properties:
       IMAP:
         description: IMAP protocol enabled on that mailbox
@@ -96520,9 +96828,9 @@ definitions:
     description: Get users authorized to Send On Behalf To mails from this mailbox
     type: object
     required:
-    - creationDate
     - allowedAccountId
     - taskPendingId
+    - creationDate
     properties:
       allowedAccountId:
         description: Account id to give send on behalf to
@@ -96543,10 +96851,10 @@ definitions:
     description: Mailing list managers
     type: object
     required:
+    - taskPendingId
     - creationDate
     - managerAccountId
     - managerEmailAddress
-    - taskPendingId
     properties:
       creationDate:
         description: Creation date
@@ -96571,9 +96879,9 @@ definitions:
     description: Mailing list members
     type: object
     required:
+    - creationDate
     - taskPendingId
     - memberEmailAddress
-    - creationDate
     properties:
       creationDate:
         description: Creation date
@@ -96603,9 +96911,9 @@ definitions:
     description: Get users authorized to Send On Behalf To mails from this mailbox
     type: object
     required:
+    - creationDate
     - allowedAccountId
     - taskPendingId
-    - creationDate
     properties:
       allowedAccountId:
         description: Account id to give send on behalf to
@@ -96650,10 +96958,10 @@ definitions:
     description: External contact for this exchange service
     type: object
     required:
-    - state
-    - id
-    - taskPendingId
     - creationDate
+    - taskPendingId
+    - id
+    - state
     properties:
       creationDate:
         description: Creation date
@@ -96730,10 +97038,10 @@ definitions:
     description: Exchange organization public folder permission
     type: object
     required:
-    - creationDate
-    - allowedAccountId
     - taskPendingId
     - state
+    - creationDate
+    - allowedAccountId
     properties:
       accessRights:
         description: Access right set for the account
@@ -96798,10 +97106,10 @@ definitions:
     description: Exchange service
     type: object
     required:
+    - taskPendingId
     - offer
     - domain
     - state
-    - taskPendingId
     properties:
       complexityEnabled:
         description: enable policy for strong and secure passwords
@@ -96915,13 +97223,13 @@ definitions:
       service
     type: object
     required:
-    - deviceId
     - IMEI
-    - identity
     - taskPendingId
+    - identity
     - deviceModel
-    - creationDate
     - guid
+    - deviceId
+    - creationDate
     properties:
       IMEI:
         description: International Mobile Equipment Identity
@@ -97034,9 +97342,9 @@ definitions:
     description: Users authorized to send mails from this shared mailbox
     type: object
     required:
-    - taskPendingId
     - creationDate
     - allowedAccountId
+    - taskPendingId
     properties:
       allowedAccountId:
         description: Account id to give send as
@@ -97081,9 +97389,9 @@ definitions:
     description: Export PST file request
     type: object
     required:
-    - creationDate
     - percentComplete
     - taskPendingId
+    - creationDate
     properties:
       creationDate:
         description: Creation date
@@ -97120,10 +97428,10 @@ definitions:
     description: Mailing list
     type: object
     required:
+    - taskPendingId
+    - creationDate
     - spamDetected
     - state
-    - creationDate
-    - taskPendingId
     properties:
       creationDate:
         description: Creation date
@@ -97197,9 +97505,9 @@ definitions:
     description: Outlook url
     type: object
     required:
-    - expiration
     - serial
     - url
+    - expiration
     properties:
       expiration:
         description: Url expiration date
@@ -97277,8 +97585,8 @@ definitions:
     type: object
     required:
     - path
-    - state
     - taskPendingId
+    - state
     - type
     properties:
       anonymousPermission:
@@ -97388,10 +97696,10 @@ definitions:
     description: Exchange resource account
     type: object
     required:
+    - resourceEmailAddress
     - state
     - type
     - taskPendingId
-    - resourceEmailAddress
     properties:
       allowConflict:
         description: resource can be scheduled by more than one person during the
@@ -97440,15 +97748,15 @@ definitions:
     description: Exchange server
     type: object
     required:
-    - isPtrValid
-    - isAValid
-    - isAaaaValid
-    - ip
-    - taskPendingId
-    - commercialVersion
     - isPtrV6Valid
-    - individual2010
+    - isAaaaValid
+    - isAValid
     - state
+    - individual2010
+    - ip
+    - isPtrValid
+    - commercialVersion
+    - taskPendingId
     properties:
       commercialVersion:
         description: Exchange commercial version
@@ -97648,10 +97956,10 @@ definitions:
     description: Exchange task details
     type: object
     required:
-    - todoDate
-    - id
     - function
     - status
+    - todoDate
+    - id
     properties:
       finishDate:
         description: Completion date
@@ -97784,32 +98092,6 @@ definitions:
         type: string
         format: date-time
         readOnly: true
-  email.Professional.SpamAndVirusConfiguration:
-    description: Spam and Antyvirus configuration
-    type: object
-    properties:
-      checkDKIM:
-        description: Check DKIM of message
-        type: boolean
-      checkSPF:
-        description: Check SPF of message
-        type: boolean
-      deleteSpam:
-        description: If message is a spam delete it
-        type: boolean
-      deleteVirus:
-        description: If message is a virus delete it
-        type: boolean
-      putInJunk:
-        description: If message is a spam or virus put in junk. Overridden by deleteSpam
-          or deleteVirus
-        type: boolean
-      tagSpam:
-        description: If message is a spam change its subject
-        type: boolean
-      tagVirus:
-        description: If message is a virus change its subject
-        type: boolean
   email.Service.Capabilities.Account:
     description: Struct which describes an account capabilities
     type: object
@@ -97905,8 +98187,8 @@ definitions:
     description: Horizon As A Service Customer  User
     type: object
     required:
-    - username
     - id
+    - username
     properties:
       email:
         description: Email of your HaaS User
@@ -97925,14 +98207,14 @@ definitions:
     description: Horizon View as a Service
     type: object
     required:
-    - version
-    - serviceName
-    - numberOfAvailableIp
-    - state
     - publicUrl
     - privateCloudName
     - privateCloudZone
     - pack
+    - version
+    - serviceName
+    - numberOfAvailableIp
+    - state
     properties:
       numberOfAvailableIp:
         description: Get the number of available public IPs
@@ -97991,13 +98273,13 @@ definitions:
     description: Cloud Desktop Infrastructure storages
     type: object
     required:
-    - profile
-    - cpu
-    - state
-    - name
     - rack
-    - ram
+    - state
+    - profile
+    - name
     - id
+    - ram
+    - cpu
     properties:
       clusterName:
         description: Cluster of the host
@@ -98103,12 +98385,12 @@ definitions:
     description: All informations about access point
     type: object
     required:
+    - dhcpNetmask
+    - accessPointId
     - portGroupId
     - dhcpNetwork
     - state
     - externalUrl
-    - dhcpNetmask
-    - accessPointId
     properties:
       accessPointId:
         description: Pool id
@@ -98147,11 +98429,11 @@ definitions:
     type: object
     required:
     - profile
-    - id
-    - name
     - state
     - fullProfile
+    - name
     - size
+    - id
     properties:
       fullProfile:
         description: Human-Readable profile name
@@ -98214,10 +98496,10 @@ definitions:
     description: Operation on a Horizon View component
     type: object
     required:
-    - state
-    - taskId
     - progress
     - name
+    - state
+    - taskId
     properties:
       description:
         description: Current progress description
@@ -98386,9 +98668,9 @@ definitions:
     description: Mysql configuration
     type: object
     required:
-    - sftp
     - ip
     - service
+    - sftp
     properties:
       comment:
         description: The comment for this whitelisting
@@ -98451,10 +98733,10 @@ definitions:
     description: Databases
     type: object
     required:
-    - databaseName
     - quotaUsed
     - creationDate
     - users
+    - databaseName
     properties:
       backupTime:
         description: Time of the next backup ( every day )
@@ -98489,11 +98771,11 @@ definitions:
     description: Dump
     type: object
     required:
+    - id
+    - deletionDate
     - databaseName
     - creationDate
     - url
-    - id
-    - deletionDate
     properties:
       creationDate:
         description: Creation date of the dump
@@ -98574,9 +98856,9 @@ definitions:
     description: Grants
     type: object
     required:
+    - grant
     - databaseName
     - creationDate
-    - grant
     properties:
       creationDate:
         description: Creation date of the grant
@@ -98613,18 +98895,18 @@ definitions:
     description: Private database
     type: object
     required:
-    - infrastructure
-    - version
     - quotaSize
     - type
-    - state
-    - cpu
-    - lastCheck
-    - datacenter
-    - serviceName
     - ram
-    - quotaUsed
+    - datacenter
+    - infrastructure
+    - serviceName
+    - cpu
+    - version
     - port
+    - lastCheck
+    - state
+    - quotaUsed
     properties:
       cpu:
         description: Number of cpu on your private database
@@ -98754,8 +99036,8 @@ definitions:
     type: object
     required:
     - id
-    - status
     - startDate
+    - status
     - function
     properties:
       databaseName:
@@ -98844,9 +99126,9 @@ definitions:
     description: Users
     type: object
     required:
-    - userName
     - creationDate
     - databases
+    - userName
     properties:
       creationDate:
         description: Creation date of the user
@@ -98886,9 +99168,9 @@ definitions:
     description: Reseller
     type: object
     required:
+    - status
     - type
     - typeDetail
-    - status
     properties:
       action:
         description: Current action done on the instance
@@ -99032,9 +99314,9 @@ definitions:
     description: History of your boost requests
     type: object
     required:
+    - date
     - accountId
     - offer
-    - date
     properties:
       accountId:
         description: Account who requested the change
@@ -99359,14 +99641,14 @@ definitions:
     type: object
     required:
     - user
+    - type
+    - mode
+    - port
+    - name
+    - state
     - quotaSize
     - quotaUsed
-    - name
     - version
-    - port
-    - mode
-    - type
-    - state
     properties:
       guiURL:
         description: URL for the graphical user interface
@@ -99498,11 +99780,11 @@ definitions:
     description: Dump
     type: object
     required:
-    - deletionDate
-    - creationDate
     - url
     - id
     - type
+    - deletionDate
+    - creationDate
     properties:
       creationDate:
         description: Creation date of the dump
@@ -99535,11 +99817,11 @@ definitions:
     description: Hosting automated emails
     type: object
     required:
-    - bounce
     - maxPerDay
     - sentToday
     - sent
     - state
+    - bounce
     properties:
       bounce:
         description: Bounce
@@ -99579,10 +99861,10 @@ definitions:
     description: Sqlperso service
     type: object
     required:
+    - size
     - database
     - status
     - name
-    - size
     properties:
       database:
         description: Number of database allowed by this option
@@ -99692,16 +99974,16 @@ definitions:
     description: Hosting modules installed
     type: object
     required:
+    - creationDate
+    - lastUpdate
+    - dependencies
+    - moduleId
+    - adminName
+    - id
     - adminFolder
     - language
     - path
     - targetUrl
-    - dependencies
-    - lastUpdate
-    - moduleId
-    - creationDate
-    - adminName
-    - id
     properties:
       adminFolder:
         description: The admin folder, relative to the module's installation path
@@ -99799,18 +100081,18 @@ definitions:
     type: object
     required:
     - branch
-    - size
+    - name
+    - adminNameType
+    - active
+    - keywords
     - author
     - upgradeFrom
     - languageRequirement
-    - version
-    - adminNameType
-    - keywords
-    - id
     - latest
-    - name
-    - active
+    - version
+    - id
     - language
+    - size
     properties:
       active:
         description: Is the module available?
@@ -99906,14 +100188,14 @@ definitions:
     description: Virtual service
     type: object
     required:
-    - httpFirewall
     - engineName
-    - container
-    - fileExist
-    - creationDate
     - engineVersion
-    - environment
+    - httpFirewall
     - id
+    - creationDate
+    - environment
+    - fileExist
+    - container
     properties:
       container:
         description: Container to run this website
@@ -99998,19 +100280,19 @@ definitions:
     description: Web Hosting
     type: object
     required:
-    - offer
-    - state
-    - serviceName
-    - resourceType
-    - filer
-    - cluster
-    - phpVersions
-    - quotaSize
-    - home
     - operatingSystem
     - datacenter
     - primaryLogin
+    - serviceName
+    - cluster
+    - filer
+    - state
     - availableBoostOffer
+    - phpVersions
+    - quotaSize
+    - offer
+    - home
+    - resourceType
     properties:
       availableBoostOffer:
         description: Available offers for boost option
@@ -100308,10 +100590,10 @@ definitions:
     description: Hostedssl
     type: object
     required:
+    - type
     - provider
     - status
     - regenerable
-    - type
     properties:
       provider:
         description: Provider of the HostedSsl
@@ -100333,10 +100615,10 @@ definitions:
     description: Tasks
     type: object
     required:
-    - startDate
     - function
     - status
     - id
+    - startDate
     properties:
       doneDate:
         description: Completion date
@@ -100377,8 +100659,8 @@ definitions:
     description: Hosting users
     type: object
     required:
-    - isPrimaryAccount
     - login
+    - isPrimaryAccount
     properties:
       home:
         description: Home directory
@@ -100441,10 +100723,10 @@ definitions:
     description: Windows web Hosting
     type: object
     required:
-    - serviceName
-    - operatingSystem
     - resourceType
     - offer
+    - serviceName
+    - operatingSystem
     properties:
       offer:
         description: Hosting offer
@@ -100547,11 +100829,11 @@ definitions:
     type: object
     required:
     - hpcspotItemEndDate
-    - hpcspotItemId
-    - reference
-    - id
-    - type
     - quantity
+    - id
+    - hpcspotItemId
+    - type
+    - reference
     properties:
       description:
         description: Description of the ressource
@@ -100713,10 +100995,10 @@ definitions:
     description: ARP blocked IP information
     type: object
     required:
-    - state
     - ipBlocked
     - blockedSince
     - time
+    - state
     properties:
       blockedSince:
         description: The last blocking date
@@ -100748,10 +101030,10 @@ definitions:
     description: Blocked IP information
     type: object
     required:
+    - ipBlocked
     - blockedSince
     - time
     - state
-    - ipBlocked
     properties:
       blockedSince:
         description: The last blocking date
@@ -100826,8 +101108,8 @@ definitions:
     description: Your IP on firewall
     type: object
     required:
-    - ipOnFirewall
     - state
+    - ipOnFirewall
     properties:
       enabled:
         type: boolean
@@ -100846,13 +101128,13 @@ definitions:
     description: Rule on ip
     type: object
     required:
-    - rule
-    - action
     - protocol
-    - destination
-    - state
     - sequence
+    - destination
     - creationDate
+    - action
+    - rule
+    - state
     - source
     properties:
       action:
@@ -100934,8 +101216,8 @@ definitions:
     description: GAME Anti-DDoS
     type: object
     required:
-    - ipOnGame
     - state
+    - ipOnGame
     properties:
       firewallModeEnabled:
         description: 'Firewall mode : in UDP, only allow traffic matching your rules
@@ -100956,10 +101238,10 @@ definitions:
     description: Rule on ip:ports
     type: object
     required:
-    - id
     - state
     - protocol
     - ports
+    - id
     properties:
       id:
         description: ID of the rule
@@ -101439,12 +101721,12 @@ definitions:
     description: Your load balancing IP
     type: object
     required:
-    - zone
-    - ipLoadBalancing
-    - serviceName
     - state
     - stickiness
     - ssl
+    - zone
+    - ipLoadBalancing
+    - serviceName
     properties:
       ipLoadBalancing:
         description: Your IP load balancing
@@ -101511,10 +101793,10 @@ definitions:
     description: List of tasks associated with your IP load balancing
     type: object
     required:
+    - action
     - id
     - creationDate
     - status
-    - action
     properties:
       action:
         description: The action made
@@ -101586,9 +101868,9 @@ definitions:
     description: Your IP on mitigation
     type: object
     required:
-    - state
     - ipOnMitigation
     - auto
+    - state
     properties:
       auto:
         description: Set on true if your ip is on auto-mitigation
@@ -101612,8 +101894,8 @@ definitions:
     description: Mitigation profile for your ip
     type: object
     required:
-    - ipMitigationProfile
     - state
+    - ipMitigationProfile
     properties:
       autoMitigationTimeOut:
         description: Delay to wait before remove ip from auto mitigation after an
@@ -102009,10 +102291,10 @@ definitions:
     description: Your IP spam stats
     type: object
     required:
+    - time
     - date
     - ipSpamming
     - state
-    - time
     properties:
       date:
         description: Last date the ip was blocked
@@ -102143,8 +102425,8 @@ definitions:
     type: object
     required:
     - serverId
-    - backendId
     - id
+    - backendId
     properties:
       backendId:
         description: Backend id
@@ -102198,9 +102480,9 @@ definitions:
     description: Server
     type: object
     required:
-    - type
     - id
     - address
+    - type
     properties:
       address:
         description: Address of your server
@@ -102232,11 +102514,11 @@ definitions:
     description: Frontend
     type: object
     required:
-    - zone
-    - type
     - name
-    - port
     - id
+    - type
+    - zone
+    - port
     properties:
       allowedSource:
         description: Restrict iplb access to these ip block. No restriction if null
@@ -102368,8 +102650,8 @@ definitions:
     description: Zone
     type: object
     required:
-    - state
     - name
+    - state
     properties:
       name:
         description: Name of your zone
@@ -102383,10 +102665,10 @@ definitions:
     description: Ssl
     type: object
     required:
-    - subject
-    - id
     - fingerprint
     - serial
+    - subject
+    - id
     properties:
       fingerprint:
         description: Fingerprint of your ssl
@@ -102416,11 +102698,11 @@ definitions:
     description: Task of your iplb
     type: object
     required:
-    - creationDate
     - status
     - progress
     - action
     - id
+    - creationDate
     properties:
       action:
         description: The action made
@@ -102479,12 +102761,12 @@ definitions:
     description: Your CloudLinux license
     type: object
     required:
+    - licenseId
     - ip
     - version
     - status
     - creation
     - domain
-    - licenseId
     properties:
       creation:
         description: This license creation date
@@ -102639,12 +102921,12 @@ definitions:
     type: object
     required:
     - ip
-    - status
-    - creation
     - clientId
     - domain
     - licenseId
+    - creation
     - version
+    - status
     properties:
       clientId:
         description: The client id on license provider side
@@ -102733,9 +103015,9 @@ definitions:
     description: Office task
     type: object
     required:
+    - todoDate
     - function
     - status
-    - todoDate
     properties:
       finishDate:
         description: Completion date
@@ -103209,13 +103491,13 @@ definitions:
     description: Your Plesk license
     type: object
     required:
-    - licenseId
     - ip
-    - key
-    - version
-    - domain
-    - creation
     - status
+    - domain
+    - licenseId
+    - version
+    - creation
+    - key
     properties:
       creation:
         description: This license creation date
@@ -103356,12 +103638,12 @@ definitions:
     description: Your SQL Server license
     type: object
     required:
+    - domain
     - licenseId
     - ip
     - version
     - status
     - creation
-    - domain
     properties:
       creation:
         description: This license creation date
@@ -103456,12 +103738,12 @@ definitions:
     description: licenses Todos
     type: object
     required:
-    - action
-    - name
     - taskId
     - lastUpdate
     - status
     - todoDate
+    - action
+    - name
     properties:
       action:
         description: This Task description
@@ -103513,13 +103795,13 @@ definitions:
     description: Your Virtuozzo license
     type: object
     required:
-    - containerNumber
     - licenseId
-    - creation
-    - domain
-    - ip
     - version
     - status
+    - creation
+    - domain
+    - containerNumber
+    - ip
     properties:
       containerNumber:
         description: The amount of containers this license can manage
@@ -103602,12 +103884,12 @@ definitions:
     description: Your Windows license
     type: object
     required:
+    - creation
     - domain
     - licenseId
     - ip
     - version
     - status
-    - creation
     properties:
       creation:
         description: This license creation date
@@ -103722,12 +104004,12 @@ definitions:
     description: Your WorkLight license
     type: object
     required:
+    - licenseId
     - ip
     - version
     - status
     - creation
     - domain
-    - licenseId
     properties:
       creation:
         description: This license creation date
@@ -103768,186 +104050,13 @@ definitions:
         - VERSION-6.2U.1CPU
         - VERSION-6.2U.2CPU
         - VERSION-6.EVALUATION
-  monitoring.Backend:
-    description: Shinken infrastructure hosting backend
-    type: object
-    required:
-    - name
-    - id
-    - createdAt
-    - updatedAt
-    properties:
-      createdAt:
-        description: Date of the backend creation
-        type: string
-        format: date-time
-        readOnly: true
-      id:
-        description: Unique UUID of the backend
-        type: string
-        readOnly: true
-      name:
-        description: The name of the backend
-        type: string
-        readOnly: true
-      updatedAt:
-        description: Date of the backend last update
-        type: string
-        format: date-time
-        readOnly: true
-  monitoring.Config:
-    description: A list of resource configuration sets
-    type: object
-    properties:
-      config:
-        description: The configuration attributes of the resource
-        type: array
-        items:
-          $ref: '#/definitions/monitoring.ConfigPair'
-  monitoring.ConfigPair:
-    description: An configuration attribute-value pair
-    type: object
-    properties:
-      key:
-        description: key
-        type: string
-      value:
-        description: value
-        type: string
-  monitoring.FirewallConfig:
-    description: Configuration of the firewall
-    type: object
-    properties:
-      livestatus:
-        description: List of allowed networks to the LiveStatus API
-        type: array
-        items:
-          type: string
-      nsca:
-        description: List of allowed networks to the NSCA receiver
-        type: array
-        items:
-          type: string
-      thruk:
-        description: List of allowed networks to the Thruk web interface
-        type: array
-        items:
-          type: string
-  monitoring.NscaConfig:
-    description: Configuration for the NSCA receiver
-    type: object
-    properties:
-      enabled:
-        description: true to enable the NSCA receiver (for passive checks)
-        type: boolean
-      encryption:
-        description: The kind of encryption (only kind 1 is supported, 0 is for no
-          encryption)
-        type: integer
-        format: int64
-      key:
-        description: The encryption key
-        type: string
-        format: password
-  monitoring.Resource:
-    description: Shinken resource (e.g. Host, Service, Contact, etc)
-    type: object
-    required:
-    - updatedAt
-    - id
-    - createdAt
-    properties:
-      config:
-        description: Configuration
-        type: array
-        items:
-          $ref: '#/definitions/monitoring.ConfigPair'
-      createdAt:
-        description: Date of the resource creation
-        type: string
-        format: date-time
-        readOnly: true
-      id:
-        description: Unique UUID of the resource
-        type: string
-        readOnly: true
-      updatedAt:
-        description: Date of the resource last update
-        type: string
-        format: date-time
-        readOnly: true
-  monitoring.Service:
-    description: A Shinken-based monitoring service
-    type: object
-    required:
-    - status
-    - createdAt
-    - id
-    - updatedAt
-    properties:
-      backendId:
-        description: backend id
-        type: string
-      createdAt:
-        description: Date of the resource creation
-        type: string
-        format: date-time
-        readOnly: true
-      failoverBackendId:
-        description: failover backend id
-        type: string
-      hostname:
-        description: hostname
-        type: string
-        readOnly: true
-      id:
-        description: Unique UUID of the resource
-        type: string
-        readOnly: true
-      name:
-        description: name
-        type: string
-      status:
-        description: status
-        type: string
-        readOnly: true
-        enum:
-        - NOT DEPLOYED
-        - DEPLOYING
-        - OK
-        - ERROR
-        - DELETING
-      updatedAt:
-        description: Date of the resource last update
-        type: string
-        format: date-time
-        readOnly: true
-  monitoring.TestConfigResult:
-    description: Result of a configuration test
-    type: object
-    properties:
-      errors:
-        description: errors
-        type: array
-        items:
-          type: string
-      valid:
-        description: valid
-        type: boolean
-  monitoring.TimezoneConfig:
-    description: Configuration of the timezone
-    type: object
-    properties:
-      timezone:
-        description: timezone label (e.g. Europe/Paris)
-        type: string
   msServices.Account:
     description: Active Directory Account
     type: object
     required:
+    - state
     - taskPendingId
     - id
-    - state
     properties:
       SAMAccountName:
         description: SAM account name
@@ -104022,9 +104131,9 @@ definitions:
     description: Active Directory organizational unit
     type: object
     required:
+    - taskPendingId
     - name
     - state
-    - taskPendingId
     properties:
       complexityEnabled:
         description: Flag indicating if passwords should be forced to follow Microsoft's
@@ -104079,11 +104188,11 @@ definitions:
     type: object
     required:
     - primaryEmailAddress
-    - state
-    - spamDetected
     - id
-    - configured
+    - state
     - taskPendingId
+    - configured
+    - spamDetected
     properties:
       accountLicense:
         description: Exchange account license
@@ -104195,10 +104304,10 @@ definitions:
     description: Exchange service
     type: object
     required:
-    - taskPendingId
-    - offer
     - state
     - domain
+    - offer
+    - taskPendingId
     properties:
       displayName:
         description: Service family name displayed
@@ -104253,10 +104362,10 @@ definitions:
     description: Exchange task details
     type: object
     required:
-    - function
-    - status
     - todoDate
     - id
+    - function
+    - status
     properties:
       finishDate:
         description: Completion date
@@ -104314,12 +104423,12 @@ definitions:
     description: Sharepoint account information
     type: object
     required:
+    - state
     - id
+    - activeDirectoryAccountId
     - quota
     - license
-    - state
     - taskPendingId
-    - activeDirectoryAccountId
     properties:
       accessRights:
         description: The rights assigned to the sharepoint account
@@ -104380,10 +104489,10 @@ definitions:
     description: Sharepoint service
     type: object
     required:
+    - taskPendingId
     - state
     - quota
     - domain
-    - taskPendingId
     properties:
       currentUsage:
         description: Shared space usage in byte
@@ -104485,10 +104594,10 @@ definitions:
     description: Active Directory task details
     type: object
     required:
+    - function
     - status
     - todoDate
     - id
-    - function
     properties:
       finishDate:
         description: Completion date
@@ -104534,10 +104643,10 @@ definitions:
     description: Active Directory UPN Suffix
     type: object
     required:
-    - taskPendingId
     - state
     - suffix
     - ownershipValidated
+    - taskPendingId
     properties:
       cnameToCheck:
         description: Cname record used for UPN suffix verification
@@ -104604,9 +104713,9 @@ definitions:
     description: Sms Two-Factor Authentication
     type: object
     required:
-    - id
     - phoneNumber
     - status
+    - id
     properties:
       id:
         description: The Id of the restriction
@@ -104680,12 +104789,12 @@ definitions:
     description: Task running a contact change on a service
     type: object
     required:
-    - id
     - dateRequest
     - contactTypes
-    - toAccount
     - state
     - fromAccount
+    - id
+    - toAccount
     properties:
       askingAccount:
         description: Account who asked the contact change
@@ -104813,13 +104922,13 @@ definitions:
     description: List of documents added on your account
     type: object
     required:
-    - id
     - name
+    - tags
+    - putUrl
     - creationDate
     - getUrl
-    - putUrl
+    - id
     - size
-    - tags
     properties:
       creationDate:
         description: Document creation
@@ -104866,16 +104975,16 @@ definitions:
     description: Domain tasks
     type: object
     required:
-    - domain
-    - lastUpdate
-    - creationDate
-    - id
-    - canAccelerate
     - function
-    - status
-    - canRelaunch
-    - canCancel
+    - lastUpdate
     - todoDate
+    - canCancel
+    - canRelaunch
+    - id
+    - status
+    - canAccelerate
+    - domain
+    - creationDate
     properties:
       canAccelerate:
         description: Can accelerate the task
@@ -104967,9 +105076,9 @@ definitions:
     description: Domain operation argument
     type: object
     required:
-    - readOnly
-    - type
     - key
+    - type
+    - readOnly
     properties:
       acceptedFormats:
         description: List of accepted formats
@@ -105097,10 +105206,10 @@ definitions:
     description: Email notification
     type: object
     required:
-    - body
     - subject
     - date
     - id
+    - body
     properties:
       body:
         description: This email body
@@ -105482,12 +105591,12 @@ definitions:
     description: Details about your OVH identifier
     type: object
     required:
+    - state
     - ovhCompany
     - email
-    - ovhSubsidiary
     - nichandle
+    - ovhSubsidiary
     - currency
-    - state
     properties:
       address:
         type: string
@@ -105923,8 +106032,8 @@ definitions:
     description: Sub Account
     type: object
     required:
-    - id
     - creationDate
+    - id
     properties:
       creationDate:
         description: Creation date
@@ -105986,9 +106095,9 @@ definitions:
     description: A shopping cart
     type: object
     required:
+    - cartId
     - readOnly
     - items
-    - cartId
     properties:
       cartId:
         description: Cart identifier
@@ -106030,9 +106139,9 @@ definitions:
     description: Information about a configuration
     type: object
     required:
+    - required
     - label
     - type
-    - required
     properties:
       fields:
         description: Indicates if some particular fields have to be inputed during
@@ -106208,12 +106317,12 @@ definitions:
     type: object
     required:
     - prices
+    - itemId
     - offerId
     - productId
+    - options
     - settings
     - cartId
-    - options
-    - itemId
     properties:
       cartId:
         description: Cart identifier
@@ -106267,8 +106376,8 @@ definitions:
     description: Price informations with label
     type: object
     required:
-    - price
     - label
+    - price
     properties:
       label:
         description: Label corresponding to a price
@@ -106286,11 +106395,11 @@ definitions:
     description: Information about a product for Order/Cart
     type: object
     required:
-    - duration
-    - configurations
-    - phase
-    - quantityMax
     - deliveryTime
+    - phase
+    - duration
+    - quantityMax
+    - configurations
     - productId
     properties:
       configurations:
@@ -106309,6 +106418,9 @@ definitions:
         readOnly: true
         items:
           type: string
+      offer:
+        description: Informations about the domain's offer (gold|diamond|platinium)
+        type: string
       orderable:
         description: Indicates if the product is orderable or not
         type: boolean
@@ -106317,7 +106429,11 @@ definitions:
         type: string
         readOnly: true
       prices:
-        $ref: '#/definitions/order.Cart.Price'
+        description: Price details of the product
+        type: array
+        readOnly: true
+        items:
+          $ref: '#/definitions/order.Cart.Price'
       productId:
         description: Product identifier
         type: string
@@ -106672,11 +106788,11 @@ definitions:
     description: Device
     type: object
     required:
-    - networkInterfaces
     - publicIp
     - activated
     - deviceId
     - lastSeen
+    - networkInterfaces
     properties:
       activated:
         description: Whether or not this device is associated to a service
@@ -106791,13 +106907,13 @@ definitions:
     type: object
     required:
     - exposedPort
-    - expirationDate
     - accepted
-    - askDate
-    - remoteUserInfos
+    - expirationDate
     - status
     - connectionInfos
     - remoteAccessId
+    - askDate
+    - remoteUserInfos
     properties:
       accepted:
         description: If the remote access was accepted by the remote user
@@ -106899,9 +107015,9 @@ definitions:
     description: Task
     type: object
     required:
-    - name
     - taskId
     - status
+    - name
     properties:
       name:
         description: The name of the task
@@ -106924,11 +107040,11 @@ definitions:
     description: Dumps
     type: object
     required:
+    - status
     - instanceId
     - creationDate
-    - status
-    - dumpId
     - databaseName
+    - dumpId
     properties:
       creationDate:
         description: Creation date of the dump
@@ -106982,10 +107098,10 @@ definitions:
     description: Images
     type: object
     required:
-    - imageName
     - version
     - status
     - type
+    - imageName
     properties:
       imageName:
         description: Image name
@@ -107014,14 +107130,14 @@ definitions:
     description: Instances
     type: object
     required:
-    - creationDate
-    - regionName
-    - status
     - imageName
-    - lastUpdate
     - instanceId
-    - offerName
+    - lastUpdate
+    - regionName
     - disk
+    - status
+    - offerName
+    - creationDate
     - ramSize
     properties:
       creationDate:
@@ -107221,13 +107337,13 @@ definitions:
     description: Databases
     type: object
     required:
-    - databaseName
     - creationDate
     - quotaUsed
     - status
     - dumps
     - users
     - backupTime
+    - databaseName
     properties:
       backupTime:
         description: Time of the next backup ( every day )
@@ -107282,10 +107398,10 @@ definitions:
     description: Database Dumps
     type: object
     required:
-    - databaseName
-    - creationDate
     - instanceId
+    - databaseName
     - dumpId
+    - creationDate
     - status
     properties:
       creationDate:
@@ -107543,10 +107659,10 @@ definitions:
     description: IP whitelisting for your instance
     type: object
     required:
-    - creationDate
-    - lastUpdate
     - ip
     - status
+    - creationDate
+    - lastUpdate
     properties:
       creationDate:
         description: Creation date of this whitelist
@@ -107629,9 +107745,9 @@ definitions:
     description: Regions
     type: object
     required:
+    - regionName
     - continentCode
     - status
-    - regionName
     properties:
       continentCode:
         description: Region continent code
@@ -107653,10 +107769,10 @@ definitions:
     description: PAAS Project
     type: object
     required:
-    - creationDate
     - lastUpdate
     - status
     - projectId
+    - creationDate
     properties:
       creationDate:
         description: Project creation date
@@ -107742,11 +107858,11 @@ definitions:
     description: Consumption
     type: object
     required:
-    - items
     - to
     - from
     - generated
     - total
+    - items
     properties:
       from:
         description: Consumption start date
@@ -107775,10 +107891,10 @@ definitions:
     description: ConsumptionItem
     type: object
     required:
-    - unitPrice
     - quantity
     - price
     - metricName
+    - unitPrice
     properties:
       metricName:
         $ref: '#/definitions/paas.Timeseries.Consumption.Item.MetricNameEnum'
@@ -107800,11 +107916,11 @@ definitions:
     description: Key
     type: object
     required:
+    - id
+    - secret
     - description
     - tags
     - permissions
-    - id
-    - secret
     properties:
       description:
         description: Description
@@ -107834,9 +107950,9 @@ definitions:
     description: Project
     type: object
     required:
+    - displayName
     - serviceName
     - region
-    - displayName
     properties:
       description:
         description: Description
@@ -107876,9 +107992,9 @@ definitions:
     description: Region
     type: object
     required:
+    - displayName
     - url
     - id
-    - displayName
     properties:
       displayName:
         description: Name
@@ -108025,9 +108141,9 @@ definitions:
     description: Exchange 2013 service
     type: object
     required:
+    - organizationName
     - domain
     - exchangeService
-    - organizationName
     properties:
       domain:
         type: string
@@ -108051,9 +108167,9 @@ definitions:
     description: Hubic service
     type: object
     required:
-    - size
     - domain
     - bytes
+    - size
     properties:
       bytes:
         description: Size of the hubic account in bytes
@@ -108469,10 +108585,10 @@ definitions:
     description: Describes the current status of a task
     type: object
     required:
-    - id
     - function
     - updateDate
     - status
+    - id
     properties:
       function:
         type: string
@@ -108550,8 +108666,8 @@ definitions:
     description: VOIP line services
     type: object
     required:
-    - domain
     - billingAccount
+    - domain
     properties:
       billingAccount:
         type: string
@@ -108563,9 +108679,9 @@ definitions:
     description: Cloud Archives Account
     type: object
     required:
+    - host
     - domain
     - login
-    - host
     properties:
       domain:
         description: account domain
@@ -108590,12 +108706,12 @@ definitions:
     description: cloud archives billing
     type: object
     required:
+    - date
     - quantity
     - id
     - total
     - billed
     - reference
-    - date
     properties:
       billed:
         description: Billing action is billed.
@@ -108633,7 +108749,6 @@ definitions:
     description: cloud archives files
     type: object
     required:
-    - id
     - type
     - MD5
     - SHA1
@@ -108641,6 +108756,7 @@ definitions:
     - state
     - size
     - SHA256
+    - id
     properties:
       MD5:
         description: File MD5 hash
@@ -108679,11 +108795,11 @@ definitions:
     description: cloud archives sessions
     type: object
     required:
+    - id
+    - startDate
     - login
     - size
     - state
-    - id
-    - startDate
     properties:
       endDate:
         description: Session end date
@@ -108737,11 +108853,11 @@ definitions:
     description: cloud archives tasks
     type: object
     required:
+    - id
+    - login
     - function
     - status
     - todoDate
-    - id
-    - login
     properties:
       comment:
         description: Task comments
@@ -108800,9 +108916,9 @@ definitions:
     description: PCS Infrastructure
     type: object
     required:
+    - userName
     - domain
     - creationDate
-    - userName
     properties:
       creationDate:
         type: string
@@ -108818,12 +108934,12 @@ definitions:
     description: cloud storage billing
     type: object
     required:
+    - date
+    - quantity
     - id
     - total
     - billed
     - reference
-    - date
-    - quantity
     properties:
       billed:
         description: Billing action is billed.
@@ -108861,10 +108977,10 @@ definitions:
     description: Operation on a Public Cloud Storage element
     type: object
     required:
-    - progress
     - id
     - type
     - state
+    - progress
     properties:
       id:
         type: integer
@@ -108889,14 +109005,294 @@ definitions:
       type:
         type: string
         readOnly: true
+  registry.Image:
+    description: An image stored in a namespace
+    type: object
+    required:
+    - createdAt
+    - updatedAt
+    - status
+    - name
+    - public
+    - id
+    properties:
+      createdAt:
+        description: Date of the resource creation
+        type: string
+        format: date-time
+        readOnly: true
+      id:
+        description: The image id
+        type: string
+        readOnly: true
+      name:
+        description: The image name
+        type: string
+        readOnly: true
+      public:
+        description: Whether is image is public or private
+        type: boolean
+        readOnly: true
+      status:
+        description: The status of the image
+        type: string
+        readOnly: true
+        enum:
+        - DELETING
+        - DEPLOYING
+        - ERROR
+        - OK
+      updatedAt:
+        description: Date of the resource last update
+        type: string
+        format: date-time
+        readOnly: true
+  registry.InputImage:
+    description: A container image
+    type: object
+    properties:
+      public:
+        description: image is public
+        type: boolean
+  registry.InputNamespace:
+    description: A namespace in which a user can either read, write or delete images
+    type: object
+    properties:
+      name:
+        description: The namespace name
+        type: string
+  registry.InputPermissions:
+    description: Permissions of a user over a namespace
+    type: object
+    required:
+    - status
+    properties:
+      canRead:
+        description: Whether a user can read images on the namespace
+        type: boolean
+      canWrite:
+        description: Whether a user can create images on the namespace
+        type: boolean
+      isAdmin:
+        description: Whether a user can delete images on the namespace
+        type: boolean
+      status:
+        description: The status of the permission
+        type: string
+        readOnly: true
+        enum:
+        - DELETING
+        - DEPLOYING
+        - ERROR
+        - OK
+      userId:
+        description: 'User Id '
+        type: string
+  registry.InputUser:
+    description: A registry user account
+    type: object
+    properties:
+      description:
+        description: A general description of the user account
+        type: string
+  registry.Namespace:
+    description: A namespace in which a user can either read, write or delete images
+    type: object
+    required:
+    - createdAt
+    - updatedAt
+    - status
+    - name
+    - id
+    properties:
+      createdAt:
+        description: Date of the resource creation
+        type: string
+        format: date-time
+        readOnly: true
+      id:
+        description: The namespace id
+        type: string
+        readOnly: true
+      name:
+        description: The namespace name
+        type: string
+        readOnly: true
+      status:
+        description: The status of the namespace
+        type: string
+        readOnly: true
+        enum:
+        - DELETING
+        - DEPLOYING
+        - ERROR
+        - OK
+      updatedAt:
+        description: Date of the resource last update
+        type: string
+        format: date-time
+        readOnly: true
+  registry.Permissions:
+    description: Permissions of a user over a namespace
+    type: object
+    required:
+    - updatedAt
+    - status
+    - createdAt
+    properties:
+      canRead:
+        description: Whether a user can read images on the namespace
+        type: boolean
+      canWrite:
+        description: Whether a user can create images on the namespace
+        type: boolean
+      createdAt:
+        description: Date of the resource creation
+        type: string
+        format: date-time
+        readOnly: true
+      id:
+        description: 'Permission Id '
+        type: string
+      isAdmin:
+        description: Whether a user can delete images on the namespace
+        type: boolean
+      status:
+        description: The status of the permission
+        type: string
+        readOnly: true
+        enum:
+        - DELETING
+        - DEPLOYING
+        - ERROR
+        - OK
+      updatedAt:
+        description: Date of the resource last update
+        type: string
+        format: date-time
+        readOnly: true
+      userId:
+        description: 'User Id '
+        type: string
+  registry.Service:
+    description: The client subscription to the registry service
+    type: object
+    required:
+    - zone
+    - id
+    - endpoint
+    - createdAt
+    - updatedAt
+    - maxNamespaces
+    - maxUsers
+    properties:
+      createdAt:
+        description: Date of the resource creation
+        type: string
+        format: date-time
+        readOnly: true
+      endpoint:
+        description: The endpoint used for docker login
+        type: string
+        readOnly: true
+      id:
+        description: The service id
+        type: string
+        readOnly: true
+      maxNamespaces:
+        description: Maximal number of registered namespaces in the service
+        type: integer
+        format: int64
+        readOnly: true
+      maxUsers:
+        description: Maximal number of registered users in the service
+        type: integer
+        format: int64
+        readOnly: true
+      updatedAt:
+        description: Date of the resource last update
+        type: string
+        format: date-time
+        readOnly: true
+      zone:
+        description: The name of the geographical zone the service is located in
+        type: string
+        readOnly: true
+  registry.Tag:
+    description: An image tag
+    type: object
+    required:
+    - createdAt
+    - updatedAt
+    - name
+    - id
+    properties:
+      createdAt:
+        description: Date of the resource creation
+        type: string
+        format: date-time
+        readOnly: true
+      id:
+        description: The tag id
+        type: string
+        readOnly: true
+      name:
+        description: The tag name
+        type: string
+        readOnly: true
+      updatedAt:
+        description: Date of the resource last update
+        type: string
+        format: date-time
+        readOnly: true
+  registry.User:
+    description: A registry user account
+    type: object
+    required:
+    - updatedAt
+    - status
+    - id
+    - username
+    - createdAt
+    properties:
+      createdAt:
+        description: Date of the resource creation
+        type: string
+        format: date-time
+        readOnly: true
+      description:
+        description: A general description of the user account
+        type: boolean
+      id:
+        description: The user id
+        type: string
+        readOnly: true
+      status:
+        description: The status of the user
+        type: string
+        readOnly: true
+        enum:
+        - DELETING
+        - DEPLOYING
+        - ERROR
+        - OK
+      updatedAt:
+        description: Date of the resource last update
+        type: string
+        format: date-time
+        readOnly: true
+      username:
+        description: The user name
+        type: string
+        readOnly: true
   reseller.Snapshot:
     description: Reseller snapshot
     type: object
     required:
-    - creationDate
     - snashotName
     - id
     - type
+    - creationDate
     properties:
       creationDate:
         description: Snapshot creation date
@@ -108974,10 +109370,10 @@ definitions:
     description: Network
     type: object
     required:
+    - ipNet
     - creationDate
     - status
     - id
-    - ipNet
     properties:
       creationDate:
         type: string
@@ -109013,10 +109409,10 @@ definitions:
     description: Private Link to another service
     type: object
     required:
+    - status
     - id
     - peerServiceName
     - creationDate
-    - status
     properties:
       creationDate:
         type: string
@@ -109067,10 +109463,10 @@ definitions:
     description: Outgoing routes configured inside a Private Link
     type: object
     required:
-    - network
-    - creationDate
     - status
     - id
+    - network
+    - creationDate
     properties:
       creationDate:
         type: string
@@ -109098,9 +109494,9 @@ definitions:
     description: Router
     type: object
     required:
-    - service
     - status
     - name
+    - service
     properties:
       name:
         type: string
@@ -109123,10 +109519,10 @@ definitions:
     description: Task
     type: object
     required:
-    - creationDate
-    - status
     - id
     - function
+    - creationDate
+    - status
     properties:
       creationDate:
         type: string
@@ -109239,8 +109635,8 @@ definitions:
     description: Office licence
     type: object
     required:
-    - id
     - name
+    - id
     properties:
       id:
         description: License unique identifier
@@ -109260,12 +109656,12 @@ definitions:
     description: Office subscription
     type: object
     required:
-    - status
-    - licenseId
     - quantity
     - id
     - taskPendingId
     - creationDate
+    - status
+    - licenseId
     properties:
       creationDate:
         description: Creation date
@@ -109305,10 +109701,10 @@ definitions:
     description: Office task
     type: object
     required:
-    - id
     - function
     - status
     - todoDate
+    - id
     properties:
       finishDate:
         description: Completion date
@@ -109343,9 +109739,9 @@ definitions:
     description: Office tenant
     type: object
     required:
-    - creationDate
     - serviceName
     - status
+    - creationDate
     properties:
       address:
         description: Contact's address line
@@ -109422,9 +109818,9 @@ definitions:
     description: Secondary dns infos
     type: object
     required:
-    - domain
     - dns
     - creationDate
+    - domain
     properties:
       creationDate:
         type: string
@@ -109503,14 +109899,14 @@ definitions:
     type: object
     required:
     - renewalType
-    - expiration
-    - status
     - contactBilling
-    - domain
     - contactTech
-    - creation
     - contactAdmin
+    - domain
     - canDeleteAtExpiration
+    - status
+    - expiration
+    - creation
     properties:
       canDeleteAtExpiration:
         description: Indicates that the service can be set up to be deleted at expiration
@@ -109572,11 +109968,11 @@ definitions:
     description: SMS details
     type: object
     required:
-    - name
     - status
+    - userQuantityWithQuota
     - creditsLeft
     - creditsHoldByQuota
-    - userQuantityWithQuota
+    - name
     properties:
       automaticRecreditAmount:
         type: integer
@@ -109661,10 +110057,10 @@ definitions:
     description: Sms reach list
     type: object
     required:
-    - restrictionCode
-    - operators
     - countrySuffixe
     - messages
+    - restrictionCode
+    - operators
     properties:
       countrySuffixe:
         description: The abreviated country code.
@@ -109731,15 +110127,15 @@ definitions:
       cellular phone.
     type: object
     required:
-    - roaming
-    - ported
-    - msisdn
-    - status
     - datetime
-    - id
-    - reachable
-    - valid
     - operatorCode
+    - ported
+    - reachable
+    - status
+    - valid
+    - id
+    - msisdn
+    - roaming
     properties:
       datetime:
         description: HLR creation datetime
@@ -109788,12 +110184,12 @@ definitions:
     description: Sms history of sms incoming received
     type: object
     required:
-    - tag
-    - message
-    - credits
     - sender
     - creationDatetime
     - id
+    - tag
+    - message
+    - credits
     properties:
       creationDatetime:
         type: string
@@ -109820,17 +110216,17 @@ definitions:
     description: Sms job
     type: object
     required:
-    - deliveryReceipt
-    - ptt
-    - creationDatetime
-    - credits
-    - message
+    - differedDelivery
     - sender
-    - numberOfSms
     - receiver
+    - credits
+    - numberOfSms
+    - creationDatetime
+    - deliveryReceipt
     - id
     - messageLength
-    - differedDelivery
+    - message
+    - ptt
     properties:
       creationDatetime:
         type: string
@@ -109877,19 +110273,19 @@ definitions:
     description: Sms history of sms outgoing sent
     type: object
     required:
-    - tag
     - deliveryReceipt
+    - ptt
+    - messageLength
     - credits
+    - message
     - sender
+    - receiver
+    - tariffCode
+    - numberOfSms
     - creationDatetime
     - id
-    - message
-    - ptt
-    - tariffCode
+    - tag
     - differedDelivery
-    - numberOfSms
-    - receiver
-    - messageLength
     properties:
       creationDatetime:
         type: string
@@ -110153,10 +110549,10 @@ definitions:
     description: Operation on a SMS service
     type: object
     required:
+    - step
     - taskId
     - function
     - status
-    - step
     properties:
       function:
         type: string
@@ -110274,8 +110670,30 @@ definitions:
     description: Virtual numbers
     type: object
     required:
-    - countryCode
     - number
+    - countryCode
+    properties:
+      countryCode:
+        description: The ISO formated country code of the number
+        type: string
+        readOnly: true
+        enum:
+        - be
+        - ch
+        - de
+        - es
+        - fr
+        - uk
+      number:
+        description: The virtual number
+        type: string
+        readOnly: true
+  sms.VirtualNumberGenericService:
+    description: Virtual numbers
+    type: object
+    required:
+    - number
+    - countryCode
     properties:
       countryCode:
         description: The ISO formated country code of the number
@@ -110296,16 +110714,16 @@ definitions:
     description: Sms job
     type: object
     required:
-    - id
+    - creationDatetime
     - differedDelivery
-    - credits
-    - deliveryReceipt
+    - id
+    - receiver
     - numberOfSms
     - messageLength
     - message
     - ptt
-    - creationDatetime
-    - receiver
+    - deliveryReceipt
+    - credits
     properties:
       creationDatetime:
         type: string
@@ -110349,9 +110767,9 @@ definitions:
     description: Spare properties
     type: object
     required:
-    - macAddress
     - brand
     - protocol
+    - macAddress
     properties:
       brand:
         description: Phone brand model
@@ -110372,8 +110790,8 @@ definitions:
     description: Spare properties
     type: object
     required:
-    - brand
     - macAddress
+    - brand
     properties:
       brand:
         description: Modem brand model
@@ -110387,13 +110805,13 @@ definitions:
     description: Certificate of an SSL customer
     type: object
     required:
+    - serviceName
     - commonName
+    - csr
     - type
     - status
-    - csr
-    - authority
     - subjectAltName
-    - serviceName
+    - authority
     properties:
       authority:
         description: The authority your certificate is issued from
@@ -110531,8 +110949,8 @@ definitions:
     description: Server attached to an SSL Gateway
     type: object
     required:
-    - state
     - id
+    - state
     properties:
       address:
         description: IP address of the server attached to your SSL Gateway
@@ -110561,10 +110979,10 @@ definitions:
     description: Your SSL Gateway
     type: object
     required:
-    - serviceName
+    - offer
     - ipv4
     - state
-    - offer
+    - serviceName
     properties:
       allowedSource:
         description: Restrict SSL Gateway access to these ip block. No restriction
@@ -110630,11 +111048,11 @@ definitions:
     description: SSL Gateway tasks
     type: object
     required:
-    - id
-    - creationDate
     - status
     - progress
     - action
+    - id
+    - creationDate
     properties:
       action:
         description: The action made
@@ -110681,10 +111099,10 @@ definitions:
     description: A framework installed for a docker PaaS stack
     type: object
     required:
+    - updatedAt
     - name
     - id
     - createdAt
-    - updatedAt
     properties:
       accessUrl:
         description: The framework name
@@ -110723,8 +111141,8 @@ definitions:
     description: Stack MIS
     type: object
     required:
-    - type
     - domain
+    - type
     properties:
       domain:
         description: Domain of the service
@@ -111317,9 +111735,9 @@ definitions:
     description: The web access for your cloudpabx
     type: object
     required:
-    - creationDate
     - url
     - id
+    - creationDate
     properties:
       creationDate:
         description: The creation date of this access
@@ -111338,11 +111756,11 @@ definitions:
     description: Billing Account
     type: object
     required:
-    - billingAccount
-    - securityDeposit
     - status
+    - securityDeposit
     - trusted
     - allowedOutplan
+    - billingAccount
     - currentOutplan
     properties:
       allowedOutplan:
@@ -111559,11 +111977,11 @@ definitions:
     description: Advanced diagnostic of the voice call
     type: object
     required:
-    - callQuality
-    - status
     - cdrs
     - sip
     - reporting
+    - callQuality
+    - status
     properties:
       callQuality:
         description: The MOS call quality report
@@ -111603,8 +112021,8 @@ definitions:
     description: Automatic Call made by Call Generator on this line
     type: object
     required:
-    - billingNumber
     - uuid
+    - billingNumber
     - identifier
     properties:
       answerDatetime:
@@ -111737,9 +112155,9 @@ definitions:
     description: User of the click 2 call
     type: object
     required:
+    - id
     - login
     - creationDateTime
-    - id
     properties:
       creationDateTime:
         description: Date when user was created
@@ -111785,13 +112203,13 @@ definitions:
     description: List past conferences on your number
     type: object
     required:
-    - countConnections
-    - dateBegin
-    - events
     - id
     - countParticipants
     - dateEnd
     - duration
+    - countConnections
+    - dateBegin
+    - events
     properties:
       countConnections:
         description: The count of connections to the conference
@@ -111866,14 +112284,14 @@ definitions:
     description: Conference service
     type: object
     required:
-    - speak
-    - callerNumber
-    - floor
-    - hear
     - callerName
     - id
     - energy
     - talking
+    - speak
+    - callerNumber
+    - floor
+    - hear
     properties:
       callerName:
         description: The caller name of the participant
@@ -112257,9 +112675,9 @@ definitions:
     description: DDI (direct dial-in) service
     type: object
     required:
-    - serviceName
     - serviceType
     - featureType
+    - serviceName
     properties:
       description:
         type: string
@@ -112390,11 +112808,11 @@ definitions:
     description: Directory Informations
     type: object
     required:
+    - directoryServiceDescription
     - apeCode
     - apeDescription
     - directoryServiceCode
     - notification
-    - directoryServiceDescription
     properties:
       apeCode:
         type: string
@@ -112416,13 +112834,13 @@ definitions:
     description: Directory Informations
     type: object
     required:
-    - inseeCode
-    - modificationDate
-    - number
-    - directoryServiceCode
-    - modificationType
     - areaCode
+    - number
+    - modificationType
+    - modificationDate
     - status
+    - inseeCode
+    - directoryServiceCode
     properties:
       PJSocialNomination:
         type: string
@@ -112522,9 +112940,9 @@ definitions:
     description: OVH easy calls queues
     type: object
     required:
-    - serviceType
     - featureType
     - serviceName
+    - serviceType
     properties:
       anonymousRejection:
         description: Reject (hangup) anonymous calls
@@ -112715,9 +113133,9 @@ definitions:
     description: EasyPabx
     type: object
     required:
-    - serviceType
     - featureType
     - serviceName
+    - serviceType
     properties:
       description:
         type: string
@@ -112757,10 +113175,10 @@ definitions:
     description: EasyPabx Hunting
     type: object
     required:
-    - toneOnHold
     - name
-    - toneOnClosure
     - toneRingback
+    - toneOnHold
+    - toneOnClosure
     properties:
       anonymousCallRejection:
         description: Reject anonymous calls
@@ -112820,9 +113238,9 @@ definitions:
     description: Fax service
     type: object
     required:
+    - serviceType
     - offers
     - serviceName
-    - serviceType
     properties:
       description:
         type: string
@@ -112844,9 +113262,9 @@ definitions:
     description: Fax campaigns
     type: object
     required:
-    - reference
-    - countTotal
     - countSuccess
+    - countTotal
+    - reference
     - status
     - name
     - countFailed
@@ -112914,11 +113332,11 @@ definitions:
     description: Fax delivery record
     type: object
     required:
-    - wayType
     - pages
     - consumptionId
     - creationDatetime
     - priceWithoutTax
+    - wayType
     properties:
       called:
         type: string
@@ -112950,8 +113368,8 @@ definitions:
     description: Fax properties
     type: object
     required:
-    - countryCode
     - callNumber
+    - countryCode
     properties:
       callNumber:
         type: string
@@ -112995,9 +113413,9 @@ definitions:
     description: Plug & Phone function key
     type: object
     required:
-    - label
     - type
     - keyNum
+    - label
     properties:
       default:
         description: The default function used by the key
@@ -113050,10 +113468,10 @@ definitions:
     description: Previous billed consumptions
     type: object
     required:
+    - price
     - priceOutplan
     - date
     - status
-    - price
     properties:
       date:
         type: string
@@ -113075,10 +113493,10 @@ definitions:
     description: Previous repayment bill
     type: object
     required:
-    - status
     - price
     - billingNumber
     - date
+    - status
     properties:
       billingNumber:
         description: the number of the bill
@@ -113128,11 +113546,11 @@ definitions:
     description: Line service
     type: object
     required:
+    - serviceType
     - infrastructure
     - offers
     - simultaneousLines
     - serviceName
-    - serviceType
     properties:
       description:
         type: string
@@ -113199,8 +113617,8 @@ definitions:
     description: Line options
     type: object
     required:
-    - voicemailExternalNumber
     - voicemailInternalNumber
+    - voicemailExternalNumber
     properties:
       absentSubscriber:
         type: boolean
@@ -113350,9 +113768,9 @@ definitions:
     description: MiniPabx
     type: object
     required:
+    - featureType
     - serviceName
     - serviceType
-    - featureType
     properties:
       description:
         type: string
@@ -113392,10 +113810,10 @@ definitions:
     description: MiniPabx Hunting
     type: object
     required:
+    - toneOnClosure
     - toneOnHold
     - name
     - toneRingback
-    - toneOnClosure
     properties:
       anonymousCallRejection:
         description: Reject anonymous calls
@@ -113557,11 +113975,11 @@ definitions:
     description: Operation on a telephony offer
     type: object
     required:
-    - type
     - taskId
     - executionDate
     - status
     - action
+    - type
     properties:
       action:
         description: Actual action that will be executed
@@ -113645,8 +114063,8 @@ definitions:
     description: Custom statuses of your callcenter agents
     type: object
     required:
-    - id
     - name
+    - id
     properties:
       color:
         description: The color (in hexadecimal) of the status that will be displayed
@@ -113669,8 +114087,8 @@ definitions:
     description: Dialplan
     type: object
     required:
-    - lastUpdate
     - dialplanId
+    - lastUpdate
     properties:
       anonymousRejection:
         description: Reject (hangup) anonymous calls
@@ -113879,10 +114297,10 @@ definitions:
     description: Live statistics of the queue
     type: object
     required:
+    - answeredCalls
     - status
     - totalCallDuration
     - lastStatusChange
-    - answeredCalls
     properties:
       answeredCalls:
         description: The number of calls this agent took on the current day
@@ -114018,14 +114436,14 @@ definitions:
     description: Live statistics of the queue
     type: object
     required:
-    - callerIdName
     - agent
-    - state
-    - id
-    - destinationNumber
-    - queue
     - callerIdNumber
+    - queue
+    - destinationNumber
+    - callerIdName
+    - state
     - begin
+    - id
     properties:
       agent:
         description: Name or number of the agent who answered the call
@@ -114081,12 +114499,12 @@ definitions:
     description: Live statistics of the queue
     type: object
     required:
-    - totalWaitingDuration
-    - callsTotal
-    - callsLost
     - callsAnswered
     - lastReset
     - totalCallDuration
+    - totalWaitingDuration
+    - callsTotal
+    - callsLost
     properties:
       callsAnswered:
         description: Total of calls answered
@@ -114187,12 +114605,12 @@ definitions:
     description: The PABX records
     type: object
     required:
-    - duration
-    - callerIdName
-    - callStart
-    - id
-    - fileUrl
     - callerIdNumber
+    - id
+    - duration
+    - callStart
+    - fileUrl
+    - callerIdName
     properties:
       agent:
         description: The agent number of the recorded call
@@ -114237,8 +114655,8 @@ definitions:
     description: The PABX sounds
     type: object
     required:
-    - name
     - soundId
+    - name
     properties:
       name:
         description: The sound filename
@@ -114271,10 +114689,10 @@ definitions:
     description: Telephony API related file hosted
     type: object
     required:
+    - urlExpirationDatetime
     - filename
     - status
     - url
-    - urlExpirationDatetime
     properties:
       filename:
         type: string
@@ -114298,12 +114716,12 @@ definitions:
     description: Plug & Phone
     type: object
     required:
-    - protocol
     - macAddress
     - maxline
     - brand
     - description
     - phoneConfiguration
+    - protocol
     properties:
       brand:
         description: Brand name
@@ -114398,8 +114816,8 @@ definitions:
     description: Phone book
     type: object
     required:
-    - bookKey
     - phoneKey
+    - bookKey
     properties:
       bookKey:
         description: Identifier of the phonebook
@@ -114464,13 +114882,13 @@ definitions:
     description: Portability informations
     type: object
     required:
+    - orderId
+    - creationDate
     - billingAccount
     - portabilityCountry
     - numbersList
     - id
     - operator
-    - orderId
-    - creationDate
     properties:
       billingAccount:
         description: The billing account where the numbers will be inserted
@@ -114579,15 +114997,15 @@ definitions:
     description: Call delivery record of the previous month
     type: object
     required:
-    - planType
-    - destinationType
-    - priceWithoutTax
-    - countrySuffix
-    - consumptionId
-    - duration
-    - creationDatetime
     - wayType
+    - duration
     - designation
+    - destinationType
+    - planType
+    - consumptionId
+    - countrySuffix
+    - creationDatetime
+    - priceWithoutTax
     properties:
       called:
         type: string
@@ -114783,12 +115201,12 @@ definitions:
     description: Current Return Merchandise Authorisation
     type: object
     required:
-    - equipmentReference
+    - offerTypeOld
     - type
+    - status
+    - equipmentReference
     - id
     - creationDatetime
-    - offerTypeOld
-    - status
     properties:
       creationDatetime:
         description: Creation datetime of the return merchandise authorisation ticket
@@ -115008,10 +115426,10 @@ definitions:
     description: Operation on a telephony service
     type: object
     required:
+    - serviceType
     - taskId
     - status
     - action
-    - serviceType
     properties:
       action:
         type: string
@@ -115044,19 +115462,35 @@ definitions:
       serviceName:
         type: string
         readOnly: true
+  telephony.TelephonySearchService:
+    description: Informations related to a telephony service
+    type: object
+    properties:
+      billingAccount:
+        description: The billing account of the service
+        type: string
+      domain:
+        description: The service domain
+        type: string
+      type:
+        description: The offer description
+        type: string
+        enum:
+        - alias
+        - line
   telephony.TelephonyService:
     description: Telephony service
     type: object
     required:
-    - serviceName
-    - serviceType
-    - properties
-    - simultaneousLines
     - offers
     - country
-    - featureType
+    - serviceName
     - countryCode
+    - featureType
+    - properties
+    - simultaneousLines
     - currentOutplan
+    - serviceType
     - rio
     properties:
       country:
@@ -115278,15 +115712,15 @@ definitions:
     description: Call delivery record
     type: object
     required:
-    - planType
-    - countrySuffix
-    - destinationType
-    - consumptionId
-    - duration
-    - priceWithoutTax
     - designation
+    - countrySuffix
     - creationDatetime
     - wayType
+    - duration
+    - consumptionId
+    - priceWithoutTax
+    - destinationType
+    - planType
     properties:
       called:
         type: string
@@ -115347,9 +115781,9 @@ definitions:
     description: Voicemail service
     type: object
     required:
-    - serviceType
     - offers
     - serviceName
+    - serviceType
     properties:
       description:
         type: string
@@ -115371,9 +115805,9 @@ definitions:
     description: Voicemail greeting
     type: object
     required:
-    - callee
     - id
     - dir
+    - callee
     properties:
       callee:
         description: Callee number in international format
@@ -115397,12 +115831,12 @@ definitions:
     description: Voicemail message
     type: object
     required:
-    - id
-    - caller
-    - duration
     - dir
     - callee
     - creationDatetime
+    - id
+    - caller
+    - duration
     properties:
       callee:
         description: Callee number in international format
@@ -115442,9 +115876,9 @@ definitions:
     description: Voicemail Properties
     type: object
     required:
-    - annouceMessage
     - unreadMessages
     - isNewVersion
+    - annouceMessage
     properties:
       annouceMessage:
         description: Name of the voicemail panel announce file
@@ -115493,10 +115927,10 @@ definitions:
     description: Vxml services
     type: object
     required:
-    - serviceType
-    - offers
     - serviceName
     - description
+    - serviceType
+    - offers
     properties:
       description:
         type: string
@@ -115560,10 +115994,10 @@ definitions:
     description: Veeam Cloud Connect account
     type: object
     required:
+    - productOffer
     - location
     - serviceName
     - vmCount
-    - productOffer
     properties:
       location:
         description: Datacenter where your Cloud is physically located
@@ -115624,10 +116058,10 @@ definitions:
     description: Operation with the Cloud Tenant Account
     type: object
     required:
-    - name
     - state
     - taskId
     - progress
+    - name
     properties:
       endDate:
         description: When was this Task done
@@ -115746,8 +116180,8 @@ definitions:
     description: Information about a datacenter of a VPS Virtual Machine
     type: object
     required:
-    - name
     - longName
+    - name
     properties:
       longName:
         type: string
@@ -115759,11 +116193,11 @@ definitions:
     description: Information about a disk of a VPS Virtual Machine
     type: object
     required:
+    - state
     - id
     - bandwidthLimit
     - type
     - size
-    - state
     properties:
       bandwidthLimit:
         type: integer
@@ -115801,10 +116235,10 @@ definitions:
     description: Information about an IP address for a VPS Virtual Machine
     type: object
     required:
+    - version
     - ipAddress
     - type
     - geolocation
-    - version
     properties:
       gateway:
         type: string
@@ -115971,10 +116405,10 @@ definitions:
     description: Available softwares on a Template
     type: object
     required:
+    - type
     - status
     - name
     - id
-    - type
     properties:
       id:
         type: integer
@@ -116001,10 +116435,10 @@ definitions:
     description: Operation on a VPS Virtual Machine
     type: object
     required:
-    - id
-    - type
     - state
     - progress
+    - id
+    - type
     properties:
       id:
         type: integer
@@ -116056,12 +116490,12 @@ definitions:
     description: Installation template for a VPS Virtual Machine
     type: object
     required:
-    - availableLanguage
-    - distribution
     - bitFormat
     - name
     - id
     - locale
+    - availableLanguage
+    - distribution
     properties:
       availableLanguage:
         type: array
@@ -116092,15 +116526,15 @@ definitions:
     description: VPS Virtual Machine
     type: object
     required:
-    - state
-    - memoryLimit
-    - offerType
-    - zone
-    - name
-    - cluster
     - model
-    - monitoringIpBlocks
     - vcore
+    - zone
+    - offerType
+    - name
+    - memoryLimit
+    - state
+    - cluster
+    - monitoringIpBlocks
     properties:
       cluster:
         type: string
@@ -116208,9 +116642,9 @@ definitions:
     description: Currently restored backup
     type: object
     required:
+    - state
     - accessInfos
     - restorePointId
-    - state
     properties:
       accessInfos:
         $ref: '#/definitions/vps.Veeam.Infos'
@@ -116329,8 +116763,8 @@ definitions:
     description: vrack dedicated cloud interface
     type: object
     required:
-    - vrack
     - dedicatedCloud
+    - vrack
     properties:
       dedicatedCloud:
         description: your dedicated cloud service
@@ -116356,8 +116790,8 @@ definitions:
     description: vrack dedicated server interfaces
     type: object
     required:
-    - vrack
     - dedicatedServer
+    - vrack
     properties:
       dedicatedServer:
         description: Dedicated Server
@@ -116371,8 +116805,8 @@ definitions:
     description: vrack dedicated server interfaces
     type: object
     required:
-    - vrack
     - dedicatedServerInterface
+    - vrack
     properties:
       dedicatedServerInterface:
         description: Dedicated Server Interface
@@ -116425,9 +116859,9 @@ definitions:
     description: vrack datacenter interface
     type: object
     required:
+    - dedicatedCloud
     - vrack
     - datacenter
-    - dedicatedCloud
     properties:
       datacenter:
         description: Your dedicatedCloud datacenter name
@@ -116445,9 +116879,9 @@ definitions:
     description: vrack tasks
     type: object
     required:
-    - status
     - id
     - function
+    - status
     properties:
       function:
         type: string
@@ -116491,15 +116925,15 @@ definitions:
     description: XDSL Access
     type: object
     required:
-    - ipv6Enabled
-    - pairsNumber
     - accessType
     - nra
-    - role
-    - status
-    - address
+    - ipv6Enabled
     - accessName
     - capabilities
+    - address
+    - status
+    - pairsNumber
+    - role
     properties:
       accessName:
         type: string
@@ -116574,9 +117008,9 @@ definitions:
     description: Diagnostic of the access
     type: object
     required:
-    - remaining
     - capabilities
     - diagnosticTime
+    - remaining
     properties:
       capabilities:
         $ref: '#/definitions/xdsl.AccessDiagnosticCapabilities'
@@ -116732,6 +117166,7 @@ definitions:
     description: Connected Device
     type: object
     required:
+    - informationDate
     - macAddress
     - ipAddress
     - active
@@ -116739,7 +117174,6 @@ definitions:
     - leaseTimeRemaining
     - interfaceType
     - addressSource
-    - informationDate
     properties:
       active:
         description: The state of this device on the modem
@@ -116931,10 +117365,10 @@ definitions:
     description: A message log from the DSLAM
     type: object
     required:
+    - message
     - numberOfOccurrences
     - lastOccurrenceDate
     - date
-    - message
     properties:
       date:
         type: string
@@ -117129,12 +117563,12 @@ definitions:
     description: Detected incident
     type: object
     required:
+    - operators
     - departments
     - creationDate
     - comment
     - id
     - nra
-    - operators
     properties:
       comment:
         type: string
@@ -117226,13 +117660,13 @@ definitions:
     description: Information about the physical copper line
     type: object
     required:
-    - distance
+    - number
+    - mitigation
     - lineSectionsLength
     - deconsolidation
-    - number
-    - faultRepairTime
-    - mitigation
     - portability
+    - distance
+    - faultRepairTime
     properties:
       concentrationPoint:
         $ref: '#/definitions/xdsl.LandlineConcentrationPoint'
@@ -117711,11 +118145,11 @@ definitions:
     description: Modem
     type: object
     required:
-    - model
-    - brandName
     - capabilities
-    - macAddress
+    - brandName
     - ipv6Support
+    - model
+    - macAddress
     properties:
       brandName:
         type: string
@@ -117809,8 +118243,8 @@ definitions:
     description: Defines where and how the notifications will be sent
     type: object
     required:
-    - id
     - type
+    - id
     properties:
       allowIncident:
         description: Whether or not to allow notifications for generic incidents
@@ -117906,8 +118340,8 @@ definitions:
     description: Scheduled action before the next renewal of the service
     type: object
     required:
-    - dateTodo
     - action
+    - dateTodo
     properties:
       action:
         type: string
@@ -117920,8 +118354,8 @@ definitions:
     description: Port Mappings
     type: object
     required:
-    - id
     - name
+    - id
     properties:
       allowedRemoteIp:
         description: 'An ip which will access to the defined rule. Default : no restriction
@@ -118102,11 +118536,11 @@ definitions:
     description: Describes the current status of a task
     type: object
     required:
+    - function
+    - updateDate
     - status
     - todoDate
     - id
-    - function
-    - updateDate
     properties:
       function:
         type: string
@@ -118581,6 +119015,10 @@ responses:
     description: description of 'cloud.Storage.ContainerDetail' response
     schema:
       $ref: '#/definitions/cloud.Storage.ContainerDetail'
+  cloud.Storage.ContainerObjectTempURL:
+    description: description of 'cloud.Storage.ContainerObjectTempURL' response
+    schema:
+      $ref: '#/definitions/cloud.Storage.ContainerObjectTempURL'
   cloud.Usage.UsageCurrent:
     description: description of 'cloud.Usage.UsageCurrent' response
     schema:
@@ -119807,34 +120245,6 @@ responses:
     description: description of 'license.Worklight.WorkLight' response
     schema:
       $ref: '#/definitions/license.Worklight.WorkLight'
-  monitoring.Backend:
-    description: description of 'monitoring.Backend' response
-    schema:
-      $ref: '#/definitions/monitoring.Backend'
-  monitoring.FirewallConfig:
-    description: description of 'monitoring.FirewallConfig' response
-    schema:
-      $ref: '#/definitions/monitoring.FirewallConfig'
-  monitoring.NscaConfig:
-    description: description of 'monitoring.NscaConfig' response
-    schema:
-      $ref: '#/definitions/monitoring.NscaConfig'
-  monitoring.Resource:
-    description: description of 'monitoring.Resource' response
-    schema:
-      $ref: '#/definitions/monitoring.Resource'
-  monitoring.Service:
-    description: description of 'monitoring.Service' response
-    schema:
-      $ref: '#/definitions/monitoring.Service'
-  monitoring.TestConfigResult:
-    description: description of 'monitoring.TestConfigResult' response
-    schema:
-      $ref: '#/definitions/monitoring.TestConfigResult'
-  monitoring.TimezoneConfig:
-    description: description of 'monitoring.TimezoneConfig' response
-    schema:
-      $ref: '#/definitions/monitoring.TimezoneConfig'
   msServices.Account:
     description: description of 'msServices.Account' response
     schema:
@@ -120183,6 +120593,30 @@ responses:
     description: description of 'pcs.Task' response
     schema:
       $ref: '#/definitions/pcs.Task'
+  registry.Image:
+    description: description of 'registry.Image' response
+    schema:
+      $ref: '#/definitions/registry.Image'
+  registry.Namespace:
+    description: description of 'registry.Namespace' response
+    schema:
+      $ref: '#/definitions/registry.Namespace'
+  registry.Permissions:
+    description: description of 'registry.Permissions' response
+    schema:
+      $ref: '#/definitions/registry.Permissions'
+  registry.Service:
+    description: description of 'registry.Service' response
+    schema:
+      $ref: '#/definitions/registry.Service'
+  registry.Tag:
+    description: description of 'registry.Tag' response
+    schema:
+      $ref: '#/definitions/registry.Tag'
+  registry.User:
+    description: description of 'registry.User' response
+    schema:
+      $ref: '#/definitions/registry.User'
   reseller.Snapshot:
     description: description of 'reseller.Snapshot' response
     schema:
@@ -120319,6 +120753,10 @@ responses:
     description: description of 'sms.VirtualNumber' response
     schema:
       $ref: '#/definitions/sms.VirtualNumber'
+  sms.VirtualNumberGenericService:
+    description: description of 'sms.VirtualNumberGenericService' response
+    schema:
+      $ref: '#/definitions/sms.VirtualNumberGenericService'
   sms.VirtualNumberJob:
     description: description of 'sms.VirtualNumberJob' response
     schema:

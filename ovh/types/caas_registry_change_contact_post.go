@@ -10,8 +10,8 @@
 
 package types
 
-// PaasMonitoringChangeContactPost ...
-type PaasMonitoringChangeContactPost struct {
+// CaasRegistryChangeContactPost ...
+type CaasRegistryChangeContactPost struct {
 	ContactAdmin string `json:"contactAdmin,omitempty"`
 
 	ContactBilling string `json:"contactBilling,omitempty"`

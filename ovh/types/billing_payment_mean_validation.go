@@ -12,6 +12,8 @@ package types
 
 // BillingPaymentMeanValidation A validation required to add a payment mean
 type BillingPaymentMeanValidation struct {
+	ID int64 `json:"id,omitempty"`
+
 	URL string `json:"url,omitempty"`
 
 	ValidationType string `json:"validationType,omitempty"`

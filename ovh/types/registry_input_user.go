@@ -10,9 +10,9 @@
 
 package types
 
-// MonitoringConfig A list of resource configuration sets
-type MonitoringConfig struct {
+// RegistryInputUser A registry user account
+type RegistryInputUser struct {
 
-	// Config The configuration attributes of the resource
-	Config []*MonitoringConfigPair `json:"config,omitempty"`
+	// Description A general description of the user account
+	Description string `json:"description,omitempty"`
 }

@@ -10,9 +10,9 @@
 
 package types
 
-// MonitoringTimezoneConfig Configuration of the timezone
-type MonitoringTimezoneConfig struct {
+// RegistryInputImage A container image
+type RegistryInputImage struct {
 
-	// Timezone timezone label (e.g. Europe/Paris)
-	Timezone string `json:"timezone,omitempty"`
+	// Public image is public
+	Public bool `json:"public,omitempty"`
 }

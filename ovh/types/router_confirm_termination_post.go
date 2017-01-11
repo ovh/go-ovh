@@ -10,12 +10,11 @@
 
 package types
 
-// MonitoringConfigPair An configuration attribute-value pair
-type MonitoringConfigPair struct {
+// RouterConfirmTerminationPost ...
+type RouterConfirmTerminationPost struct {
+	Commentary string `json:"commentary,omitempty"`
 
-	// Key key
-	Key string `json:"key,omitempty"`
+	Reason string `json:"reason,omitempty"`
 
-	// Value value
-	Value string `json:"value,omitempty"`
+	Token string `json:"token,omitempty"`
 }
