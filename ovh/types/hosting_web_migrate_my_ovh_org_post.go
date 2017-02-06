@@ -10,9 +10,7 @@
 
 package types
 
-// OrderHostingWebUpgradePost ...
-type OrderHostingWebUpgradePost struct {
-	Offer string `json:"offer,omitempty"`
-
-	WaiveRetractationPeriod bool `json:"waiveRetractationPeriod,omitempty"`
+// HostingWebMigrateMyOvhOrgPost ...
+type HostingWebMigrateMyOvhOrgPost struct {
+	DestinationServiceName string `json:"destinationServiceName,omitempty"`
 }

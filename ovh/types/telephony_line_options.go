@@ -17,6 +17,12 @@ type TelephonyLineOptions struct {
 	// AnonymousCallRejection Reject anonymous calls
 	AnonymousCallRejection bool `json:"anonymousCallRejection,omitempty"`
 
+	// CallRestrictionIncoming Whether or not the line has restriction on incoming calls
+	CallRestrictionIncoming bool `json:"callRestrictionIncoming,omitempty"`
+
+	// CallRestrictionOutgoing Whether or not the line has restriction on outgoing calls
+	CallRestrictionOutgoing bool `json:"callRestrictionOutgoing,omitempty"`
+
 	// CallWaiting If the line receives a new call and the line is already in communication, this new call is dispatched once the current call is completed
 	CallWaiting bool `json:"callWaiting,omitempty"`
 

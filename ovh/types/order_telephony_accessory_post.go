@@ -14,7 +14,7 @@ package types
 type OrderTelephonyAccessoryPost struct {
 	Accessory string `json:"accessory,omitempty"`
 
-	MondialRelayID int64 `json:"mondialRelayId,omitempty"`
+	MondialRelayID string `json:"mondialRelayId,omitempty"`
 
 	Quantity int64 `json:"quantity,omitempty"`
 

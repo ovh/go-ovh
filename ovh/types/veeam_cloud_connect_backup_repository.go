@@ -19,4 +19,7 @@ type VeeamCloudConnectBackupRepository struct {
 	Quota *VeeamCloudConnectBackupRepositoryQuota `json:"quota,omitempty"`
 
 	QuotaUsed *VeeamCloudConnectBackupRepositoryQuotaUsed `json:"quotaUsed,omitempty"`
+
+	// State The state of your backup repository
+	State string `json:"state,omitempty"`
 }

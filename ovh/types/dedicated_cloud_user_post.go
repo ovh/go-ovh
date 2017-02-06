@@ -16,13 +16,21 @@ type DedicatedCloudUserPost struct {
 
 	Email string `json:"email,omitempty"`
 
+	FirstName string `json:"firstName,omitempty"`
+
+	LastName string `json:"lastName,omitempty"`
+
 	Name string `json:"name,omitempty"`
 
 	NetworkRole string `json:"networkRole,omitempty"`
 
 	Password string `json:"password,omitempty"`
 
+	PhoneNumber string `json:"phoneNumber,omitempty"`
+
 	Right string `json:"right,omitempty"`
+
+	TokenValidator bool `json:"tokenValidator,omitempty"`
 
 	VMNetworkRole string `json:"vmNetworkRole,omitempty"`
 }

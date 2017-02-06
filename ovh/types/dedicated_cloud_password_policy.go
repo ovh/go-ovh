@@ -19,6 +19,9 @@ type DedicatedCloudPasswordPolicy struct {
 	// DigitMandatory Whether or not a digit (0-9) is mandatory in the password
 	DigitMandatory bool `json:"digitMandatory,omitempty"`
 
+	// HistoryCheck Number of previous passwords to keep
+	HistoryCheck int64 `json:"historyCheck,omitempty"`
+
 	// LetterMandatory Whether or not a letter (a-z or A-Z) is mandatory in the password
 	LetterMandatory bool `json:"letterMandatory,omitempty"`
 
@@ -36,4 +39,7 @@ type DedicatedCloudPasswordPolicy struct {
 
 	// UppercaseLetterMandatory Whether or not an uppercase letter (A-Z) is mandatory in the password
 	UppercaseLetterMandatory bool `json:"uppercaseLetterMandatory,omitempty"`
+
+	// ValidityPeriod Password validity period (in days)
+	ValidityPeriod int64 `json:"validityPeriod,omitempty"`
 }

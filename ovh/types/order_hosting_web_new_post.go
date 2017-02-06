@@ -19,4 +19,6 @@ type OrderHostingWebNewPost struct {
 	Module string `json:"module,omitempty"`
 
 	Offer string `json:"offer,omitempty"`
+
+	WaiveRetractationPeriod bool `json:"waiveRetractationPeriod,omitempty"`
 }

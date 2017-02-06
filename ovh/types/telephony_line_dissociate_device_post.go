@@ -10,7 +10,7 @@
 
 package types
 
-// HostingPrivateDatabaseChangeRootPasswordPost ...
-type HostingPrivateDatabaseChangeRootPasswordPost struct {
-	Password string `json:"password,omitempty"`
+// TelephonyLineDissociateDevicePost ...
+type TelephonyLineDissociateDevicePost struct {
+	MacAddress string `json:"macAddress,omitempty"`
 }

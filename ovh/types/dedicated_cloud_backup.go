@@ -34,6 +34,9 @@ type DedicatedCloudBackup struct {
 	// Hostname Name of the backup server virtual machine.
 	Hostname string `json:"hostname,omitempty"`
 
+	// MailAddress Unique additional email address for backup daily report
+	MailAddress string `json:"mailAddress,omitempty"`
+
 	// RestorePointInReport RestorePoint number on mail report
 	RestorePointInReport bool `json:"restorePointInReport,omitempty"`
 

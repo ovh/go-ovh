@@ -72,4 +72,7 @@ type HostingPrivateDatabaseService struct {
 
 	// Version Private database version
 	Version string `json:"version,omitempty"`
+
+	// VersionNumber Private database version number
+	VersionNumber float64 `json:"versionNumber,omitempty"`
 }

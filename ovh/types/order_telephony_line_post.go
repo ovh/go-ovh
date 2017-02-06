@@ -18,7 +18,7 @@ type OrderTelephonyLinePost struct {
 
 	ExtraSimultaneousLines []int64 `json:"extraSimultaneousLines,omitempty"`
 
-	MondialRelayID int64 `json:"mondialRelayId,omitempty"`
+	MondialRelayID string `json:"mondialRelayId,omitempty"`
 
 	Offers []string `json:"offers,omitempty"`
 

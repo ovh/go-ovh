@@ -13,6 +13,9 @@ package types
 // PaasDatabaseImage Images
 type PaasDatabaseImage struct {
 
+	// Capabilities Image capabilities
+	Capabilities []*PaasDatabaseImageCapabilities `json:"capabilities,omitempty"`
+
 	// ImageName Image name
 	ImageName string `json:"imageName,omitempty"`
 

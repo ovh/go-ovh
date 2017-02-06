@@ -18,5 +18,13 @@ type DedicatedCloudUserChangePropertiesPost struct {
 
 	Email string `json:"email,omitempty"`
 
+	FirstName string `json:"firstName,omitempty"`
+
 	FullAdminRo bool `json:"fullAdminRo,omitempty"`
+
+	LastName string `json:"lastName,omitempty"`
+
+	PhoneNumber string `json:"phoneNumber,omitempty"`
+
+	TokenValidator bool `json:"tokenValidator,omitempty"`
 }

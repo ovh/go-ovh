@@ -22,6 +22,8 @@ type DedicatedCloudDatacenterBackupPost struct {
 
 	FullDayInReport bool `json:"fullDayInReport,omitempty"`
 
+	MailAddress string `json:"mailAddress,omitempty"`
+
 	RestorePointInReport bool `json:"restorePointInReport,omitempty"`
 
 	ScheduleHour string `json:"scheduleHour,omitempty"`

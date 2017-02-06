@@ -27,6 +27,9 @@ type DedicatedServerHardwareSpecifications struct {
 	// DiskGroups details about the groups of disks in the server
 	DiskGroups []*DedicatedServerHardwareSpecificationsDisk `json:"diskGroups,omitempty"`
 
+	// FormFactor Server form factor
+	FormFactor string `json:"formFactor,omitempty"`
+
 	MemorySize *DedicatedServerHardwareSpecificationsMemorySize `json:"memorySize,omitempty"`
 
 	// Motherboard server motherboard

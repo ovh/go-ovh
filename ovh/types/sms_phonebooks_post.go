@@ -10,9 +10,7 @@
 
 package types
 
-// OrderHostingWebUpgradePost ...
-type OrderHostingWebUpgradePost struct {
-	Offer string `json:"offer,omitempty"`
-
-	WaiveRetractationPeriod bool `json:"waiveRetractationPeriod,omitempty"`
+// SmsPhonebooksPost ...
+type SmsPhonebooksPost struct {
+	Name string `json:"name,omitempty"`
 }

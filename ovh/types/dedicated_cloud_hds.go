@@ -10,9 +10,9 @@
 
 package types
 
-// OrderHostingWebUpgradePost ...
-type OrderHostingWebUpgradePost struct {
-	Offer string `json:"offer,omitempty"`
+// DedicatedCloudHds The Dedicated Cloud Hds option
+type DedicatedCloudHds struct {
 
-	WaiveRetractationPeriod bool `json:"waiveRetractationPeriod,omitempty"`
+	// State State of the option
+	State string `json:"state,omitempty"`
 }

@@ -12,21 +12,41 @@ package types
 
 // DedicatedCloudUser Dedicated Cloud User
 type DedicatedCloudUser struct {
+
+	// ActivationState Activation state of the user account
 	ActivationState string `json:"activationState,omitempty"`
 
+	// CanManageIPFailOvers Defines if the user can manage ip failovers
 	CanManageIPFailOvers bool `json:"canManageIpFailOvers,omitempty"`
 
+	// CanManageNetwork Defines if the user can manage the network
 	CanManageNetwork bool `json:"canManageNetwork,omitempty"`
 
+	// Email Email address of the user
 	Email string `json:"email,omitempty"`
 
+	// FirstName First name of the user
+	FirstName string `json:"firstName,omitempty"`
+
+	// FullAdminRo Defines if the user is a full admin in readonly
 	FullAdminRo bool `json:"fullAdminRo,omitempty"`
 
 	// IsEnableManageable Check if the given Dedicated Cloud user can be enabled or disabled ?
 	IsEnableManageable bool `json:"isEnableManageable,omitempty"`
 
+	// IsTokenValidator Defines if the user can confirm security tokens (if a compatible option is enabled)
+	IsTokenValidator bool `json:"isTokenValidator,omitempty"`
+
+	// LastName Last name of the user
+	LastName string `json:"lastName,omitempty"`
+
+	// Name Name of the user (login)
 	Name string `json:"name,omitempty"`
 
+	// PhoneNumber Mobile phone number of the user
+	PhoneNumber string `json:"phoneNumber,omitempty"`
+
+	// State State of the user account
 	State string `json:"state,omitempty"`
 
 	UserID int64 `json:"userId,omitempty"`

@@ -56,6 +56,9 @@ type EmailExchangeService struct {
 
 	Offer string `json:"offer,omitempty"`
 
+	// PasswordHistoryCount number of historical password that cannot be reused
+	PasswordHistoryCount int64 `json:"passwordHistoryCount,omitempty"`
+
 	SpamAndVirusConfiguration *EmailExchangeSpamAndVirusConfiguration `json:"spamAndVirusConfiguration,omitempty"`
 
 	SSLExpirationDate *time.Time `json:"sslExpirationDate,omitempty"`

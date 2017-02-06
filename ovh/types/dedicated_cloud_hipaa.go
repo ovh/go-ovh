@@ -10,9 +10,9 @@
 
 package types
 
-// OrderHostingWebUpgradePost ...
-type OrderHostingWebUpgradePost struct {
-	Offer string `json:"offer,omitempty"`
+// DedicatedCloudHipaa The Dedicated Cloud Hipaa option
+type DedicatedCloudHipaa struct {
 
-	WaiveRetractationPeriod bool `json:"waiveRetractationPeriod,omitempty"`
+	// State State of the option
+	State string `json:"state,omitempty"`
 }

@@ -10,9 +10,11 @@
 
 package types
 
-// OrderHostingWebUpgradePost ...
-type OrderHostingWebUpgradePost struct {
-	Offer string `json:"offer,omitempty"`
+// VpsConfirmTerminationPost ...
+type VpsConfirmTerminationPost struct {
+	Commentary string `json:"commentary,omitempty"`
 
-	WaiveRetractationPeriod bool `json:"waiveRetractationPeriod,omitempty"`
+	Reason string `json:"reason,omitempty"`
+
+	Token string `json:"token,omitempty"`
 }

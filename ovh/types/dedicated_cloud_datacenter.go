@@ -13,6 +13,9 @@ package types
 // DedicatedCloudDatacenter Dedicated Cloud Datacenter
 type DedicatedCloudDatacenter struct {
 
+	// CommercialName The commercial name of this Datacenter
+	CommercialName string `json:"commercialName,omitempty"`
+
 	// CommercialRangeName The commercial range associated to this Datacenter
 	CommercialRangeName string `json:"commercialRangeName,omitempty"`
 

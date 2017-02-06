@@ -14,7 +14,7 @@ package types
 type OrderTelephonyAccessoriesPost struct {
 	Accessories []string `json:"accessories,omitempty"`
 
-	MondialRelayID int64 `json:"mondialRelayId,omitempty"`
+	MondialRelayID string `json:"mondialRelayId,omitempty"`
 
 	Retractation bool `json:"retractation,omitempty"`
 
