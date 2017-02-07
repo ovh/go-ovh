@@ -1,4 +1,4 @@
-# Contributing to go-ovh
+# Contributing to go-sdk
 
 ## Submitting Modifications:
 
@@ -49,8 +49,8 @@ git rebase upstream/master
 
 ## Licensing for new files:
 
-go-ovh is licensed under a (modified) BSD license. Anything contributed to
-go-ovh must be released under this license.
+go-sdk is licensed under a (modified) BSD license. Anything contributed to
+go-sdk must be released under this license.
 
 When introducing a new file into the project, please make sure it has a
 copyright header making clear under which license it''s being released.
@@ -99,4 +99,3 @@ then you just add a line saying
 
 using your real name (sorry, no pseudonyms or anonymous contributions.)
 ```
-
