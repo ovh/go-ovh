@@ -61,7 +61,7 @@ func initMockServer(InputRequest **http.Request, status int, responseBody string
 		// Respond
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(status)
-		fmt.Fprintln(w, responseBody)
+		fmt.Fprint(w, responseBody)
 	}))
 
 	// Create client
@@ -128,6 +128,30 @@ func TestPing(t *testing.T) {
 	// Validate
 	if err != nil {
 		t.Fatalf("Unexpected error while pinging server: %v\n", err)
+	}
+}
+
+func TestError500HTML(t *testing.T) {
+	// Init test
+	var InputRequest *http.Request
+	errHTML := `<html><body><p>test</p></body></html>`
+	ts, client := initMockServer(&InputRequest, http.StatusServiceUnavailable, errHTML, nil)
+	defer ts.Close()
+
+	// Test
+	var res struct{}
+	err := client.CallAPI("GET", "/test", nil, &res, false)
+
+	// Validate
+	if err == nil {
+		t.Fatal("Expected error")
+	}
+	apiError := &APIError{
+		Code:    http.StatusServiceUnavailable,
+		Message: errHTML,
+	}
+	if err.Error() != apiError.Error() {
+		t.Fatalf("Missmatch errors : \n%s\n%s", err, apiError)
 	}
 }
 
