@@ -266,6 +266,35 @@ func (ErrorCloseReader) Close() error {
 	return nil
 }
 
+func TestCallWithHeader(t *testing.T) {
+	// Create a fake API server
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Save input parameters
+		if _, ok := r.Header["Foo"]; !ok {
+			t.Fatal("request must contains  Foo header")
+		}
+		if _, ok := r.Header["Beez"]; !ok {
+			t.Fatal("request must contains  Beez header")
+		}
+		if _, ok := r.Header["Booz"]; !ok {
+			t.Fatal("request must contains  Booz header")
+		}
+		if _, ok := r.Header["Biiz"]; ok {
+			t.Fatal("request must not contains Biiz header")
+		}
+		defer r.Body.Close()
+
+		// Respond
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(200)
+		fmt.Fprint(w, "ok")
+	}))
+
+	// Create client
+	client, _ := NewClient(ts.URL, MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	client.WithHeader("Foo", "bar").WithHeaders(map[string]string{"Beez": "buz", "Booz": "baa"}).Ping()
+}
+
 func TestWithContext(t *testing.T) {
 	c, err := NewClient("ovh-eu", "foo", "beez", "bar")
 	if err != nil {
@@ -285,6 +314,66 @@ func TestWithContext(t *testing.T) {
 
 	if c.Client == c2.Client {
 		t.Fatalf("After WithContext, Client of client result should have benn cloned")
+	}
+}
+
+func TestWithHeader(t *testing.T) {
+	c, err := NewClient("ovh-eu", "foo", "beez", "bar")
+	if err != nil {
+		t.Fatalf("Unable to instantiate ovh client. Got %v", err)
+	}
+
+	c2 := c.WithHeader("foo", "bar")
+	if c == c2 {
+		t.Fatalf("WithContext must returned a new instance of client")
+	}
+	if c.Client == c2.Client {
+		t.Fatalf("After WithContext, Client of client result should have benn cloned")
+	}
+
+	if c2.headers == nil {
+		t.Fatalf("After WithContext, context property should not be nil")
+	}
+
+	if _, ok := c.headers["foo"]; ok {
+		t.Fatalf("After WithHeader, initial client must not contains the added header")
+	}
+
+	if _, ok := c2.headers["foo"]; !ok {
+		t.Fatalf("After WithHeader, result client must contains the added header")
+	}
+}
+
+func TestWithHeaders(t *testing.T) {
+	c, err := NewClient("ovh-eu", "foo", "beez", "bar")
+	if err != nil {
+		t.Fatalf("Unable to instantiate ovh client. Got %v", err)
+	}
+
+	c2 := c.WithHeaders(map[string]string{"foo": "bar", "beez": "buuz"})
+	if c == c2 {
+		t.Fatalf("WithContext must returned a new instance of client")
+	}
+	if c.Client == c2.Client {
+		t.Fatalf("After WithContext, Client of client result should have benn cloned")
+	}
+
+	if c2.headers == nil {
+		t.Fatalf("After WithContext, context property should not be nil")
+	}
+
+	if _, ok := c.headers["foo"]; ok {
+		t.Fatalf("After WithHeader, initial client must not contains the added header")
+	}
+	if _, ok := c.headers["beez"]; ok {
+		t.Fatalf("After WithHeader, initial client must not contains the added header")
+	}
+
+	if _, ok := c2.headers["foo"]; !ok {
+		t.Fatalf("After WithHeader, result client must contains the added header")
+	}
+	if _, ok := c2.headers["beez"]; !ok {
+		t.Fatalf("After WithHeader, result client must contains the added header")
 	}
 }
 
@@ -316,7 +405,7 @@ func TestGetResponse(t *testing.T) {
 		StatusCode: 200,
 		Body:       ioutil.NopCloser(strings.NewReader(`{dddd`)),
 	}, &apiInt)
-	if err != nil {
+	if err == nil {
 		t.Fatalf("getResponse should return an error when failing to decode HTTP Response body. Got %v", err)
 	}
 

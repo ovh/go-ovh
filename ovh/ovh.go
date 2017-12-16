@@ -75,6 +75,8 @@ type Client struct {
 	Timeout        time.Duration
 
 	ctx context.Context
+
+	headers http.Header
 }
 
 // NewClient represents a new client to call the API
@@ -86,6 +88,7 @@ func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error)
 		Client:         &http.Client{},
 		timeDeltaMutex: &sync.Mutex{},
 		timeDeltaDone:  false,
+		headers:        make(http.Header),
 		Timeout:        time.Duration(DefaultTimeout),
 	}
 
@@ -109,26 +112,61 @@ func NewDefaultClient() (*Client, error) {
 	return NewClient("", "", "", "")
 }
 
-//WithContext return a new client instance with a context
-func (c *Client) WithContext(ctx context.Context) *Client {
-
-	if ctx == nil {
-		panic("nil context")
-	}
+func (c *Client) copy() *Client {
 	c2 := new(Client)
 	*c2 = *c
-	c2.ctx = ctx
 
 	if c.Client != nil {
 		c2Client := new(http.Client)
 		*c2Client = *c.Client
 		c2.Client = c2Client
 	}
+	if c.headers != nil {
+		c2.headers = make(http.Header)
+		for k := range c.headers {
+			c2.headers[k] = c.headers[k]
+		}
+	}
+	return c2
+}
 
-	if c.timeDeltaMutex != nil {
-		c2Mutext := new(sync.Mutex)
-		*c2Mutext = *c.timeDeltaMutex
-		c2.timeDeltaMutex = c2Mutext
+//WithContext return a new client instance with a context
+func (c *Client) WithContext(ctx context.Context) *Client {
+
+	if ctx == nil {
+		panic("nil context")
+	}
+	c2 := c.copy()
+	c2.ctx = ctx
+
+	return c2
+}
+
+//WithHeader return a new client which add header for next requests
+func (c *Client) WithHeader(key, value string) *Client {
+
+	c2 := c.copy()
+
+	if c2.headers == nil {
+		c2.headers = make(http.Header)
+	}
+
+	c2.headers[key] = append(c2.headers[key], value)
+
+	return c2
+}
+
+//WithHeaders return a new client which add headers for next requests
+func (c *Client) WithHeaders(headers map[string]string) *Client {
+
+	c2 := c.copy()
+
+	if c2.headers == nil {
+		c.headers = make(http.Header)
+	}
+
+	for k := range headers {
+		c2.headers[k] = append(c2.headers[k], headers[k])
 	}
 
 	return c2
@@ -329,6 +367,15 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 	}
 	req.Header.Add("X-Ovh-Application", c.AppKey)
 	req.Header.Add("Accept", "application/json")
+
+	//Add custom header
+	if c.headers != nil {
+		for k := range c.headers {
+			for i := range c.headers[k] {
+				req.Header.Add(k, c.headers[k][i])
+			}
+		}
+	}
 
 	// Inject signature. Some methods do not need authentication, especially /time,
 	// /auth and some /order methods are actually broken if authenticated.
