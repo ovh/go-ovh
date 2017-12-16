@@ -3,6 +3,7 @@ package ovh
 
 import (
 	"bytes"
+	"context"
 	"crypto/sha1"
 	"encoding/json"
 	"errors"
@@ -27,6 +28,8 @@ const (
 	SoyoustartCA = "https://ca.api.soyoustart.com/1.0"
 	RunaboveCA   = "https://api.runabove.com/1.0"
 )
+
+const requestIDKey = "X-Ovh-QueryID"
 
 // Endpoints conveniently maps endpoints names to their URI for external configuration
 var Endpoints = map[string]string{
@@ -70,6 +73,8 @@ type Client struct {
 	timeDeltaDone  bool
 	timeDelta      time.Duration
 	Timeout        time.Duration
+
+	ctx context.Context
 }
 
 // NewClient represents a new client to call the API
@@ -102,6 +107,31 @@ func NewEndpointClient(endpoint string) (*Client, error) {
 // or configuration files
 func NewDefaultClient() (*Client, error) {
 	return NewClient("", "", "", "")
+}
+
+//WithContext return a new client instance with a context
+func (c *Client) WithContext(ctx context.Context) *Client {
+
+	if ctx == nil {
+		panic("nil context")
+	}
+	c2 := new(Client)
+	*c2 = *c
+	c2.ctx = ctx
+
+	if c.Client != nil {
+		c2Client := new(http.Client)
+		*c2Client = *c.Client
+		c2.Client = c2Client
+	}
+
+	if c.timeDeltaMutex != nil {
+		c2Mutext := new(sync.Mutex)
+		*c2Mutext = *c.timeDeltaMutex
+		c2.timeDeltaMutex = c2Mutext
+	}
+
+	return c2
 }
 
 //
@@ -190,7 +220,7 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 		if err = json.Unmarshal(body, apiError); err != nil {
 			apiError.Message = string(body)
 		}
-		apiError.QueryID = response.Header.Get("X-Ovh-QueryID")
+		apiError.QueryID = response.Header.Get(requestIDKey)
 
 		return apiError
 	}
@@ -200,7 +230,14 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 		return nil
 	}
 
-	return json.Unmarshal(body, &resType)
+	if err := json.Unmarshal(body, &resType); err != nil {
+		return &APIError{
+			Code:    response.StatusCode,
+			Message: fmt.Sprintf("Unable to unmarshall response :%s - body : %s", err.Error(), string(body)),
+			QueryID: response.Header.Get(requestIDKey),
+		}
+	}
+	return nil
 }
 
 // timeDelta returns the time  delta between the host and the remote API
@@ -321,6 +358,11 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 
 	// Send the request with requested timeout
 	c.Client.Timeout = c.Timeout
+
+	if c.ctx != nil {
+		req = req.WithContext(c.ctx)
+	}
+
 	response, err := c.Client.Do(req)
 
 	if err != nil {

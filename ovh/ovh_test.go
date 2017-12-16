@@ -1,6 +1,7 @@
 package ovh
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"math"
@@ -265,6 +266,28 @@ func (ErrorCloseReader) Close() error {
 	return nil
 }
 
+func TestWithContext(t *testing.T) {
+	c, err := NewClient("ovh-eu", "foo", "beez", "bar")
+	if err != nil {
+		t.Fatalf("Unable to instantiate ovh client. Got %v", err)
+	}
+
+	c2 := c.WithContext(context.TODO())
+	if c2 == c {
+		t.Fatalf("WithContext must returned a new instance of client")
+	}
+	if c2.ctx == nil {
+		t.Fatalf("After WithContext, context property should not be nil")
+	}
+	if c.AppKey != c2.AppKey {
+		t.Fatalf("After WithContext, client result properties should have same values than initial client")
+	}
+
+	if c.Client == c2.Client {
+		t.Fatalf("After WithContext, Client of client result should have benn cloned")
+	}
+}
+
 func TestGetResponse(t *testing.T) {
 	var err error
 	var apiInt int
@@ -288,6 +311,15 @@ func TestGetResponse(t *testing.T) {
 		t.Fatalf("getResponse should not return an error when reponse is empty or target type is nil. Got %v", err)
 	}
 
+	// Nominal: broken json
+	err = mockClient.getResponse(&http.Response{
+		StatusCode: 200,
+		Body:       ioutil.NopCloser(strings.NewReader(`{dddd`)),
+	}, &apiInt)
+	if err != nil {
+		t.Fatalf("getResponse should return an error when failing to decode HTTP Response body. Got %v", err)
+	}
+
 	// Error
 	err = mockClient.getResponse(&http.Response{
 		StatusCode: 400,
@@ -304,6 +336,7 @@ func TestGetResponse(t *testing.T) {
 	err = mockClient.getResponse(&http.Response{
 		Body: ErrorCloseReader{},
 	}, nil)
+
 	if err == nil {
 		t.Fatalf("getResponse should return an error when failing to read HTTP Response body. %v", err)
 	}
@@ -314,7 +347,7 @@ func TestGetResponse(t *testing.T) {
 		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "mes`)),
 	}, nil)
 	if err == nil {
-		t.Fatalf("getResponse should return an error when failing to decode HTTP Response body. %v", err)
+		t.Fatalf("getResponse should return an error when  %v", err)
 	}
 
 	// Error with QueryID
