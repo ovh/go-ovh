@@ -3,6 +3,7 @@ package ovh
 
 import (
 	"bytes"
+	"context"
 	"crypto/sha1"
 	"encoding/json"
 	"errors"
@@ -27,6 +28,8 @@ const (
 	SoyoustartCA = "https://ca.api.soyoustart.com/1.0"
 	RunaboveCA   = "https://api.runabove.com/1.0"
 )
+
+const requestIDKey = "X-Ovh-QueryID"
 
 // Endpoints conveniently maps endpoints names to their URI for external configuration
 var Endpoints = map[string]string{
@@ -70,6 +73,10 @@ type Client struct {
 	timeDeltaDone  bool
 	timeDelta      time.Duration
 	Timeout        time.Duration
+
+	ctx context.Context
+
+	headers http.Header
 }
 
 // NewClient represents a new client to call the API
@@ -81,6 +88,7 @@ func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error)
 		Client:         &http.Client{},
 		timeDeltaMutex: &sync.Mutex{},
 		timeDeltaDone:  false,
+		headers:        make(http.Header),
 		Timeout:        time.Duration(DefaultTimeout),
 	}
 
@@ -102,6 +110,66 @@ func NewEndpointClient(endpoint string) (*Client, error) {
 // or configuration files
 func NewDefaultClient() (*Client, error) {
 	return NewClient("", "", "", "")
+}
+
+func (c *Client) copy() *Client {
+	c2 := new(Client)
+	*c2 = *c
+
+	if c.Client != nil {
+		c2Client := new(http.Client)
+		*c2Client = *c.Client
+		c2.Client = c2Client
+	}
+	if c.headers != nil {
+		c2.headers = make(http.Header)
+		for k := range c.headers {
+			c2.headers[k] = c.headers[k]
+		}
+	}
+	return c2
+}
+
+//WithContext return a new client instance with a context
+func (c *Client) WithContext(ctx context.Context) *Client {
+
+	if ctx == nil {
+		panic("nil context")
+	}
+	c2 := c.copy()
+	c2.ctx = ctx
+
+	return c2
+}
+
+//WithHeader return a new client which add header for next requests
+func (c *Client) WithHeader(key, value string) *Client {
+
+	c2 := c.copy()
+
+	if c2.headers == nil {
+		c2.headers = make(http.Header)
+	}
+
+	c2.headers[key] = append(c2.headers[key], value)
+
+	return c2
+}
+
+//WithHeaders return a new client which add headers for next requests
+func (c *Client) WithHeaders(headers map[string]string) *Client {
+
+	c2 := c.copy()
+
+	if c2.headers == nil {
+		c.headers = make(http.Header)
+	}
+
+	for k := range headers {
+		c2.headers[k] = append(c2.headers[k], headers[k])
+	}
+
+	return c2
 }
 
 //
@@ -190,7 +258,7 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 		if err = json.Unmarshal(body, apiError); err != nil {
 			apiError.Message = string(body)
 		}
-		apiError.QueryID = response.Header.Get("X-Ovh-QueryID")
+		apiError.QueryID = response.Header.Get(requestIDKey)
 
 		return apiError
 	}
@@ -200,7 +268,14 @@ func (c *Client) getResponse(response *http.Response, resType interface{}) error
 		return nil
 	}
 
-	return json.Unmarshal(body, &resType)
+	if err := json.Unmarshal(body, &resType); err != nil {
+		return &APIError{
+			Code:    response.StatusCode,
+			Message: fmt.Sprintf("Unable to unmarshall response :%s - body : %s", err.Error(), string(body)),
+			QueryID: response.Header.Get(requestIDKey),
+		}
+	}
+	return nil
 }
 
 // timeDelta returns the time  delta between the host and the remote API
@@ -293,6 +368,15 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 	req.Header.Add("X-Ovh-Application", c.AppKey)
 	req.Header.Add("Accept", "application/json")
 
+	//Add custom header
+	if c.headers != nil {
+		for k := range c.headers {
+			for i := range c.headers[k] {
+				req.Header.Add(k, c.headers[k][i])
+			}
+		}
+	}
+
 	// Inject signature. Some methods do not need authentication, especially /time,
 	// /auth and some /order methods are actually broken if authenticated.
 	if needAuth {
@@ -321,6 +405,11 @@ func (c *Client) CallAPI(method, path string, reqBody, resType interface{}, need
 
 	// Send the request with requested timeout
 	c.Client.Timeout = c.Timeout
+
+	if c.ctx != nil {
+		req = req.WithContext(c.ctx)
+	}
+
 	response, err := c.Client.Do(req)
 
 	if err != nil {
