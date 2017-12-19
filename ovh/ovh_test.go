@@ -271,63 +271,63 @@ func TestGetResponse(t *testing.T) {
 	mockClient := Client{}
 
 	// Nominal
-	err = mockClient.getResponse(&http.Response{
+	err = mockClient.UnmarshalResponse(&http.Response{
 		StatusCode: 200,
 		Body:       ioutil.NopCloser(strings.NewReader(`42`)),
 	}, &apiInt)
 	if err != nil {
-		t.Fatalf("Client.getResponse should be able to decode int when status is 200. Got %v", err)
+		t.Fatalf("Client.UnmarshalResponse should be able to decode int when status is 200. Got %v", err)
 	}
 
 	// Nominal: empty body
-	err = mockClient.getResponse(&http.Response{
+	err = mockClient.UnmarshalResponse(&http.Response{
 		StatusCode: 200,
 		Body:       ioutil.NopCloser(strings.NewReader(``)),
 	}, nil)
 	if err != nil {
-		t.Fatalf("getResponse should not return an error when reponse is empty or target type is nil. Got %v", err)
+		t.Fatalf("UnmarshalResponse should not return an error when reponse is empty or target type is nil. Got %v", err)
 	}
 
 	// Error
-	err = mockClient.getResponse(&http.Response{
+	err = mockClient.UnmarshalResponse(&http.Response{
 		StatusCode: 400,
 		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "message": "Ooops..."}`)),
 	}, &apiInt)
 	if err == nil {
-		t.Fatalf("Client.getResponse should be able to decode an error when status is 400")
+		t.Fatalf("Client.UnmarshalResponse should be able to decode an error when status is 400")
 	}
 	if _, ok := err.(*APIError); !ok {
-		t.Fatalf("Client.getResponse error should be an APIError when status is 400. Got '%s' of type %s", err, reflect.TypeOf(err))
+		t.Fatalf("Client.UnmarshalResponse error should be an APIError when status is 400. Got '%s' of type %s", err, reflect.TypeOf(err))
 	}
 
 	// Error: body read error
-	err = mockClient.getResponse(&http.Response{
+	err = mockClient.UnmarshalResponse(&http.Response{
 		Body: ErrorCloseReader{},
 	}, nil)
 	if err == nil {
-		t.Fatalf("getResponse should return an error when failing to read HTTP Response body. %v", err)
+		t.Fatalf("UnmarshalResponse should return an error when failing to read HTTP Response body. %v", err)
 	}
 
 	// Error: HTTP Error + broken json
-	err = mockClient.getResponse(&http.Response{
+	err = mockClient.UnmarshalResponse(&http.Response{
 		StatusCode: 400,
 		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "mes`)),
 	}, nil)
 	if err == nil {
-		t.Fatalf("getResponse should return an error when failing to decode HTTP Response body. %v", err)
+		t.Fatalf("UnmarshalResponse should return an error when failing to decode HTTP Response body. %v", err)
 	}
 
 	// Error with QueryID
 	responseHeaders := http.Header{}
 	responseHeaders.Add("X-Ovh-QueryID", "FR.ws-8.5860f657.4632.0180")
-	err = mockClient.getResponse(&http.Response{
+	err = mockClient.UnmarshalResponse(&http.Response{
 		StatusCode: 400,
 		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "message": "Ooops..."}`)),
 		Header:     responseHeaders,
 	}, &apiInt)
 	apiErr, ok := err.(*APIError)
 	if !ok {
-		t.Fatalf("Client.getResponse error should be an APIError when status is 400 and header QueryID is found. Got '%s' of type %s", err, reflect.TypeOf(err))
+		t.Fatalf("Client.UnmarshalResponse error should be an APIError when status is 400 and header QueryID is found. Got '%s' of type %s", err, reflect.TypeOf(err))
 	}
 	if apiErr.QueryID != "FR.ws-8.5860f657.4632.0180" {
 		t.Fatalf("APIError should be filled with a correct QueryID. Got '%s' instead of '%s'", apiErr.QueryID, "FR.ws-8.5860f657.4632.0180")
