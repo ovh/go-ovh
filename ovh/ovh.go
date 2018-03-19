@@ -417,5 +417,7 @@ func (c *Client) UnmarshalResponse(response *http.Response, resType interface{})
 		return nil
 	}
 
-	return json.Unmarshal(body, &resType)
+	d := json.NewDecoder(bytes.NewReader(body))
+	d.UseNumber()
+	return d.Decode(&resType)
 }
