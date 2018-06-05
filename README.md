@@ -455,11 +455,10 @@ go vet ./...
 
 ### OVH US
 
-- **Documentation**: https://api.ovh.us/
-- **Community support**: api-subscribe@ml.ovh.net
-- **Console**: https://api.ovh.us/console/
-- **Create application credentials**: https://api.ovh.us/createApp/
-- **Create script credentials** (all keys at once): https://api.ovh.us/createToken/
+- **Documentation**: https://api.ovhcloud.com/
+- **Console**: https://api.ovhcloud.com/console/
+- **Create application credentials**: https://api.ovhcloud.com/createApp/
+- **Create script credentials** (all keys at once): https://api.ovhcloud.com/createToken/
 
 ### OVH Canada
 
