@@ -1,6 +1,7 @@
 package ovh
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"math"
@@ -34,7 +35,7 @@ type SomeData struct {
 // Utils
 //
 
-func initMockServer(InputRequest **http.Request, status int, responseBody string, requestBody *string) (*httptest.Server, *Client) {
+func initMockServer(InputRequest **http.Request, status int, responseBody string, requestBody *string, handlerSleep time.Duration) (*httptest.Server, *Client) {
 	// Mock time
 	getLocalTime = func() time.Time {
 		return time.Unix(MockTime, 0)
@@ -56,6 +57,10 @@ func initMockServer(InputRequest **http.Request, status int, responseBody string
 			if err == nil {
 				*requestBody = string(reqBody[:])
 			}
+		}
+
+		if handlerSleep != 0 {
+			time.Sleep(handlerSleep)
 		}
 
 		// Respond
@@ -98,7 +103,7 @@ func Capitalize(s string) string {
 func TestTime(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", MockTime), nil)
+	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", MockTime), nil, time.Duration(0))
 	defer ts.Close()
 
 	// Test
@@ -119,7 +124,7 @@ func TestTime(t *testing.T) {
 func TestPing(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, `0`, nil)
+	ts, client := initMockServer(&InputRequest, 200, `0`, nil, time.Duration(0))
 	defer ts.Close()
 
 	// Test
@@ -135,7 +140,7 @@ func TestError500HTML(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
 	errHTML := `<html><body><p>test</p></body></html>`
-	ts, client := initMockServer(&InputRequest, http.StatusServiceUnavailable, errHTML, nil)
+	ts, client := initMockServer(&InputRequest, http.StatusServiceUnavailable, errHTML, nil, time.Duration(0))
 	defer ts.Close()
 
 	// Test
@@ -158,7 +163,7 @@ func TestError500HTML(t *testing.T) {
 func TestPingUnreachable(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, `0`, nil)
+	ts, client := initMockServer(&InputRequest, 200, `0`, nil, time.Duration(0))
 	defer ts.Close()
 
 	// Test
@@ -173,11 +178,17 @@ func TestPingUnreachable(t *testing.T) {
 
 // APIMethodTester applies the same sanity checks to all main Client method. It checks the
 // request method, path, body and headers for both authenticated and unauthenticated variants
-func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expectedBody string, expectedSignature string) {
+func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expectedBody string, expectedSignature string, cancel bool, contextTimeout bool) {
 	// Init test
 	var InputRequest *http.Request
 	var InputRequestBody string
-	ts, client := initMockServer(&InputRequest, 200, `"success"`, &InputRequestBody)
+	sleep := time.Duration(0)
+	var failureExpected bool
+	if cancel || contextTimeout {
+		sleep = time.Duration(2) * time.Second
+		failureExpected = true
+	}
+	ts, client := initMockServer(&InputRequest, 200, `"success"`, &InputRequestBody, sleep)
 	defer ts.Close()
 
 	// Prepare method name
@@ -187,10 +198,27 @@ func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expected
 	if !needAuth {
 		methodName += "UnAuth"
 	}
+	if failureExpected {
+		methodName += "WithContext"
+	}
 
 	// Prepare method arguments
 	var res interface{}
 	var arguments []reflect.Value
+	var ctx context.Context
+	var cancelFunc context.CancelFunc
+	cancelFunc = func() { t.Log("context cancelFunc called") }
+
+	if cancel {
+		ctx, cancelFunc = context.WithCancel(context.Background())
+	} else if contextTimeout {
+		ctx, cancelFunc = context.WithTimeout(context.Background(), time.Duration(200)*time.Millisecond)
+	}
+	defer cancelFunc()
+
+	if failureExpected {
+		arguments = append(arguments, reflect.ValueOf(ctx))
+	}
 	arguments = append(arguments, reflect.ValueOf("/some/resource"))
 	if body != nil {
 		arguments = append(arguments, reflect.ValueOf(body))
@@ -202,8 +230,17 @@ func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expected
 	if !method.IsValid() {
 		t.Fatalf("Client should suport %s method\n", methodName)
 	}
+
+	if cancel {
+		go func() {
+			time.Sleep(100 * time.Millisecond)
+			cancelFunc()
+		}()
+	}
 	ret := method.Call(arguments)
-	if !ret[0].IsNil() {
+	if failureExpected && ret[0].IsNil() {
+		t.Fatal("Should have a context cancelation error, got nil")
+	} else if !failureExpected && !ret[0].IsNil() {
 		t.Fatalf("Unexpected error while retrieving server time: %v\n", ret[0])
 	}
 
@@ -245,14 +282,32 @@ func TestAllAPIMethods(t *testing.T) {
 		StringValue: "Hello World!",
 	}
 
-	APIMethodTester(t, "GET", nil, "", "$1$8a21169b341aa23e82192e07457ca978006b1ba9")
-	APIMethodTester(t, "GET", nil, "", "")
-	APIMethodTester(t, "DELETE", nil, "", "$1$f4571312a04a4c75188509e75c40581ca6bb6d7a")
-	APIMethodTester(t, "DELETE", nil, "", "")
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$6549d84e65be72f4ec0d7b6d7eaa19554a265990")
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "")
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$983e2a9a213c99211edd0b32715ac1ace1a6a0ea")
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "")
+	APIMethodTester(t, "GET", nil, "", "$1$8a21169b341aa23e82192e07457ca978006b1ba9", false, false)
+	APIMethodTester(t, "GET", nil, "", "", false, false)
+	APIMethodTester(t, "DELETE", nil, "", "$1$f4571312a04a4c75188509e75c40581ca6bb6d7a", false, false)
+	APIMethodTester(t, "DELETE", nil, "", "", false, false)
+	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$6549d84e65be72f4ec0d7b6d7eaa19554a265990", false, false)
+	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, false)
+	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$983e2a9a213c99211edd0b32715ac1ace1a6a0ea", false, false)
+	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, false)
+
+	APIMethodTester(t, "GET", nil, "", "$1$8a21169b341aa23e82192e07457ca978006b1ba9", true, false)
+	APIMethodTester(t, "GET", nil, "", "", true, false)
+	APIMethodTester(t, "DELETE", nil, "", "$1$f4571312a04a4c75188509e75c40581ca6bb6d7a", true, false)
+	APIMethodTester(t, "DELETE", nil, "", "", true, false)
+	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$6549d84e65be72f4ec0d7b6d7eaa19554a265990", true, false)
+	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "", true, false)
+	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$983e2a9a213c99211edd0b32715ac1ace1a6a0ea", true, false)
+	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "", true, false)
+
+	APIMethodTester(t, "GET", nil, "", "$1$8a21169b341aa23e82192e07457ca978006b1ba9", false, true)
+	APIMethodTester(t, "GET", nil, "", "", false, true)
+	APIMethodTester(t, "DELETE", nil, "", "$1$f4571312a04a4c75188509e75c40581ca6bb6d7a", false, true)
+	APIMethodTester(t, "DELETE", nil, "", "", false, true)
+	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$6549d84e65be72f4ec0d7b6d7eaa19554a265990", false, true)
+	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, true)
+	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$983e2a9a213c99211edd0b32715ac1ace1a6a0ea", false, true)
+	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, true)
 }
 
 // Mock ReadCloser, always failing
@@ -417,7 +472,7 @@ func TestGetTimeDelta(t *testing.T) {
 
 	// Init test
 	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", int(time.Now().Unix())-MockDelta), nil)
+	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", int(time.Now().Unix())-MockDelta), nil, time.Duration(0))
 	defer ts.Close()
 
 	// Test

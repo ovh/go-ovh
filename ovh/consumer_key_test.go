@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"reflect"
 	"testing"
+	"time"
 )
 
 // Common helpers are in ovh_test.go
@@ -19,7 +20,7 @@ func TestNewCkRequest(t *testing.T) {
 		"validationUrl":"https://validation.url",
 		"ConsumerKey":"`+MockConsumerKey+`",
 		"state":"pendingValidation"
-	}`, &InputRequestBody)
+	}`, &InputRequestBody, time.Duration(0))
 	client.ConsumerKey = ""
 	defer ts.Close()
 
@@ -54,7 +55,7 @@ func TestInvalidCkRequest(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
 	var InputRequestBody string
-	ts, client := initMockServer(&InputRequest, http.StatusForbidden, `{"message":"Invalid application key"}`, &InputRequestBody)
+	ts, client := initMockServer(&InputRequest, http.StatusForbidden, `{"message":"Invalid application key"}`, &InputRequestBody, time.Duration(0))
 	client.ConsumerKey = ""
 	defer ts.Close()
 
@@ -85,7 +86,7 @@ func TestAddRules(t *testing.T) {
 	// Init test
 	var InputRequest *http.Request
 	var InputRequestBody string
-	ts, client := initMockServer(&InputRequest, http.StatusForbidden, `{"message":"Invalid application key"}`, &InputRequestBody)
+	ts, client := initMockServer(&InputRequest, http.StatusForbidden, `{"message":"Invalid application key"}`, &InputRequestBody, time.Duration(0))
 	client.ConsumerKey = ""
 	defer ts.Close()
 
