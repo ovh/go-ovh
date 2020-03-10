@@ -87,7 +87,6 @@ Depending on the API you want to use, you may set the ``endpoint`` to:
 * ``soyoustart-ca`` for So you Start Canada API
 * ``kimsufi-eu`` for Kimsufi Europe API
 * ``kimsufi-ca`` for Kimsufi Canada API
-* ``runabove-ca`` for RunAbove API
 * Or any arbitrary URL to use in a test for example
 
 The client will successively attempt to locate this configuration file in
@@ -500,14 +499,6 @@ go vet ./...
 - **Create application credentials**: https://ca.api.kimsufi.com/createApp/
 - **Create script credentials** (all keys at once): https://ca.api.kimsufi.com/createToken/
 
-### Runabove
-
-- **Community support**: https://community.runabove.com/
-- **Console**: https://api.runabove.com/console/
-- **Create application credentials**: https://api.runabove.com/createApp/
-- **High level SDK**: https://github.com/runabove/python-runabove
-
 ## License
 
 3-Clause BSD
-

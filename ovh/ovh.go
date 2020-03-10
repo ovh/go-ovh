@@ -27,7 +27,6 @@ const (
 	KimsufiCA    = "https://ca.api.kimsufi.com/1.0"
 	SoyoustartEU = "https://eu.api.soyoustart.com/1.0"
 	SoyoustartCA = "https://ca.api.soyoustart.com/1.0"
-	RunaboveCA   = "https://api.runabove.com/1.0"
 )
 
 // Endpoints conveniently maps endpoints names to their URI for external configuration
@@ -39,7 +38,6 @@ var Endpoints = map[string]string{
 	"kimsufi-ca":    KimsufiCA,
 	"soyoustart-eu": SoyoustartEU,
 	"soyoustart-ca": SoyoustartCA,
-	"runabove-ca":   RunaboveCA,
 }
 
 // Errors
