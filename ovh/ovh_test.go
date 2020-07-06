@@ -389,6 +389,52 @@ func TestGetResponse(t *testing.T) {
 	}
 }
 
+func TestGetResponseUnmarshalNumber(t *testing.T) {
+	var err error
+	var output map[string]interface{}
+	mockClient := Client{}
+
+	// with map[string]interface{} as output
+	err = mockClient.UnmarshalResponse(&http.Response{
+		StatusCode: 200,
+		Body:       ioutil.NopCloser(strings.NewReader(`{"orderId": 1234567890}`)),
+	}, &output)
+	if err != nil {
+		t.Fatalf("Client.UnmarshalResponse should be able to decode the body")
+	}
+	if "1234567890" != fmt.Sprint(output["orderId"]) {
+		t.Fatalf("Client.UnmarshalResponse should unmarshal long integer as json.Number instead of float64, stringified incorrectly")
+	}
+
+	var outputInt map[string]int64
+
+	// with map[string]int64 as output
+	err = mockClient.UnmarshalResponse(&http.Response{
+		StatusCode: 200,
+		Body:       ioutil.NopCloser(strings.NewReader(`{"orderId": 1234567890}`)),
+	}, &outputInt)
+	if err != nil {
+		t.Fatalf("Client.UnmarshalResponse should be able to decode the body")
+	}
+	if int64(1234567890) != outputInt["orderId"] {
+		t.Fatalf("Client.UnmarshalResponse should unmarshal long integer as json.Number instead of float64, incorrectly casted as int64")
+	}
+
+	var outputFloat map[string]float64
+
+	// with map[string]int64 as output
+	err = mockClient.UnmarshalResponse(&http.Response{
+		StatusCode: 200,
+		Body:       ioutil.NopCloser(strings.NewReader(`{"orderId": 1234567890}`)),
+	}, &outputFloat)
+	if err != nil {
+		t.Fatalf("Client.UnmarshalResponse should be able to decode the body")
+	}
+	if float64(1234567890) != outputFloat["orderId"] {
+		t.Fatalf("Client.UnmarshalResponse should unmarshal long integer as json.Number instead of float64, incorrectly casted as float64")
+	}
+}
+
 func TestConstructors(t *testing.T) {
 	// Nominal: full constructor
 	client, err := NewClient("ovh-eu", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
