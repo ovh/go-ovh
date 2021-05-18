@@ -288,6 +288,7 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 	}
 	req.Header.Add("X-Ovh-Application", c.AppKey)
 	req.Header.Add("Accept", "application/json")
+	req.Header.Add("Accept-Encoding", "gzip, deflate, br")
 
 	// Inject signature. Some methods do not need authentication, especially /time,
 	// /auth and some /order methods are actually broken if authenticated.
