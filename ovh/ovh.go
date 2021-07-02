@@ -20,6 +20,7 @@ const DefaultTimeout = 180 * time.Second
 
 // Endpoints
 const (
+	Ovh          = "https://api.ovh.com/1.0"
 	OvhEU        = "https://eu.api.ovh.com/1.0"
 	OvhCA        = "https://ca.api.ovh.com/1.0"
 	OvhUS        = "https://api.us.ovhcloud.com/1.0"
@@ -31,6 +32,7 @@ const (
 
 // Endpoints conveniently maps endpoints names to their URI for external configuration
 var Endpoints = map[string]string{
+	"ovh":           Ovh,
 	"ovh-eu":        OvhEU,
 	"ovh-ca":        OvhCA,
 	"ovh-us":        OvhUS,
