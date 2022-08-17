@@ -42,7 +42,7 @@ var Endpoints = map[string]string{
 
 // Errors
 var (
-	ErrAPIDown = errors.New("go-vh: the OVH API is down, it does't respond to /time anymore")
+	ErrAPIDown = errors.New("go-ovh: the OVH API is not reachable: failed to get /auth/time response")
 )
 
 // Client represents a client to call the OVH API
