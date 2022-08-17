@@ -11,6 +11,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"sync/atomic"
 	"testing"
 	"time"
 	"unicode"
@@ -71,7 +72,7 @@ func initMockServer(InputRequest **http.Request, status int, responseBody string
 
 	// Create client
 	client, _ := NewClient(ts.URL, MockApplicationKey, MockApplicationSecret, MockConsumerKey)
-	client.timeDeltaDone = true
+	client.timeDelta.Store(time.Duration(0))
 
 	return ts, client
 }
@@ -522,7 +523,7 @@ func TestGetTimeDelta(t *testing.T) {
 	defer ts.Close()
 
 	// Test
-	client.timeDeltaDone = false
+	client.timeDelta = atomic.Value{}
 	delta, err := client.getTimeDelta()
 
 	if err != nil {
