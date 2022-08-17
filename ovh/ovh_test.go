@@ -403,7 +403,7 @@ func TestGetResponseUnmarshalNumber(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Client.UnmarshalResponse should be able to decode the body")
 	}
-	if "1234567890" != fmt.Sprint(output["orderId"]) {
+	if fmt.Sprint(output["orderId"]) != "1234567890" {
 		t.Fatalf("Client.UnmarshalResponse should unmarshal long integer as json.Number instead of float64, stringified incorrectly")
 	}
 

@@ -137,8 +137,8 @@ func TestCkRequestString(t *testing.T) {
 		ValidationURL: "fakeURL",
 	}
 
-	expected := fmt.Sprintf("CK: \"ck\"\nStatus: \"pending\"\nValidation URL: \"fakeURL\"\n")
-	got := fmt.Sprintf("%s", ckValidationState)
+	expected := "CK: \"ck\"\nStatus: \"pending\"\nValidation URL: \"fakeURL\"\n"
+	got := fmt.Sprint(ckValidationState)
 
 	if got != expected {
 		t.Errorf("expected %q, got %q", expected, got)
