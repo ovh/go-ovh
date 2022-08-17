@@ -17,5 +17,9 @@ type APIError struct {
 }
 
 func (err *APIError) Error() string {
-	return fmt.Sprintf("Error %d: %q", err.Code, err.Message)
+	if err.Class == "" {
+		return fmt.Sprintf("HTTP Error %d: %q", err.Code, err.Message)
+	}
+
+	return fmt.Sprintf("HTTP Error %d: %s: %q (X-OVH-Query-Id: %s)", err.Code, err.Class, err.Message, err.QueryID)
 }
