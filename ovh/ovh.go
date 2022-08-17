@@ -309,6 +309,8 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 	// Send the request with requested timeout
 	c.Client.Timeout = c.Timeout
 
+	req.Header.Set("User-Agent", "github.com/ovh/go-ovh")
+
 	return req, nil
 }
 
