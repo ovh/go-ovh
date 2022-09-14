@@ -74,6 +74,9 @@ type Client struct {
 
 	// Timeout configures the maximum duration to wait for an API requests to complete
 	Timeout time.Duration
+
+	// UserAgent configures the user-agent indication that will be sent in the requests to OVHcloud API
+	UserAgent string
 }
 
 // NewClient represents a new client to call the API
@@ -309,7 +312,11 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 	// Send the request with requested timeout
 	c.Client.Timeout = c.Timeout
 
-	req.Header.Set("User-Agent", "github.com/ovh/go-ovh")
+	if c.UserAgent != "" {
+		req.Header.Set("User-Agent", "github.com/ovh/go-ovh ("+c.UserAgent+")")
+	} else {
+		req.Header.Set("User-Agent", "github.com/ovh/go-ovh")
+	}
 
 	return req, nil
 }
