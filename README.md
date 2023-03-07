@@ -4,7 +4,7 @@ go-ovh
 Lightweight Go wrapper around OVH's APIs. Handles all the hard work including credential creation and requests signing.
 
 [![GoDoc](https://godoc.org/github.com/ovh/go-ovh/go-ovh?status.svg)](http://godoc.org/github.com/ovh/go-ovh/ovh)
-[![Build Status](https://travis-ci.org/ovh/go-ovh.svg?branch=master)](https://travis-ci.org/ovh/go-ovh)
+[![Build Status](https://github.com/ovh/go-ovh/actions/workflows/golang-build.yaml/badge.svg?branch=master)](https://github.com/ovh/go-ovh/actions?query=workflow:golang-build)
 [![Coverage Status](https://coveralls.io/repos/github/ovh/go-ovh/badge.svg?branch=master)](https://coveralls.io/github/ovh/go-ovh?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/ovh/go-ovh)](http://goreportcard.com/report/ovh/go-ovh)
 
@@ -40,7 +40,7 @@ func main() {
 
 ## Installation
 
-The Golang wrapper has been tested with Golang 1.5+. It may worker with older versions although it has not been tested.
+The Golang wrapper has been tested with Golang 1.18+. It may worker with older versions although it has not been tested.
 
 To use it, just include it to your ``import`` and run ``go get``:
 
