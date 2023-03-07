@@ -186,7 +186,7 @@ func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expected
 	sleep := time.Duration(0)
 	var failureExpected bool
 	if cancel || contextTimeout {
-		sleep = time.Duration(2) * time.Second
+		sleep = 300 * time.Millisecond
 		failureExpected = true
 	}
 	ts, client := initMockServer(&InputRequest, 200, `"success"`, &InputRequestBody, sleep)
