@@ -34,28 +34,30 @@ func TestConfigFromFiles(t *testing.T) {
 	// This is a simple way to test precedence
 
 	// Prepare
-	ioutil.WriteFile(systemConfigPath, []byte(`
+	_ = ioutil.WriteFile(systemConfigPath, []byte(`
 [ovh-eu]
 application_key=system
 application_secret=system
 consumer_key=system
 `), 0660)
 
-	ioutil.WriteFile(home+userConfigPath, []byte(`
+	_ = ioutil.WriteFile(home+userConfigPath, []byte(`
 [ovh-eu]
 application_secret=user
 consumer_key=user
 `), 0660)
 
-	ioutil.WriteFile(localConfigPath, []byte(`
+	_ = ioutil.WriteFile(localConfigPath, []byte(`
 [ovh-eu]
 consumer_key=local
 `), 0660)
 
 	// Clear
-	defer ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-	defer ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
-	defer ioutil.WriteFile(localConfigPath, []byte(``), 0660)
+	t.Cleanup(func() {
+		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
+		_ = ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
+		_ = ioutil.WriteFile(localConfigPath, []byte(``), 0660)
+	})
 
 	// Test
 	client := Client{}
@@ -82,7 +84,7 @@ func TestConfigFromOnlyOneFile(t *testing.T) {
 
 	// Prepare
 	os.Remove(systemConfigPath)
-	ioutil.WriteFile(home+userConfigPath, []byte(`
+	_ = ioutil.WriteFile(home+userConfigPath, []byte(`
 [ovh-eu]
 application_key=user
 application_secret=user
@@ -90,7 +92,9 @@ consumer_key=user
 `), 0660)
 
 	// Clear
-	defer ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
+	t.Cleanup(func() {
+		_ = ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
+	})
 
 	// Test
 	client := Client{}
@@ -113,24 +117,21 @@ consumer_key=user
 
 func TestConfigFromEnv(t *testing.T) {
 	// Prepare
-	ioutil.WriteFile(systemConfigPath, []byte(`
+	_ = ioutil.WriteFile(systemConfigPath, []byte(`
 [ovh-eu]
 application_key=fail
 application_secret=fail
 consumer_key=fail
 `), 0660)
 
-	defer ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-	os.Setenv("OVH_ENDPOINT", "ovh-eu")
-	os.Setenv("OVH_APPLICATION_KEY", "env")
-	os.Setenv("OVH_APPLICATION_SECRET", "env")
-	os.Setenv("OVH_CONSUMER_KEY", "env")
+	t.Cleanup(func() {
+		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
+	})
 
-	// Clear
-	defer os.Unsetenv("OVH_ENDPOINT")
-	defer os.Unsetenv("OVH_APPLICATION_KEY")
-	defer os.Unsetenv("OVH_APPLICATION_SECRET")
-	defer os.Unsetenv("OVH_CONSUMER_KEY")
+	t.Setenv("OVH_ENDPOINT", "ovh-eu")
+	t.Setenv("OVH_APPLICATION_KEY", "env")
+	t.Setenv("OVH_APPLICATION_SECRET", "env")
+	t.Setenv("OVH_CONSUMER_KEY", "env")
 
 	// Test
 	client := Client{}
@@ -183,7 +184,7 @@ func TestConfigFromArgs(t *testing.T) {
 
 func TestEndpoint(t *testing.T) {
 	// Prepare
-	ioutil.WriteFile(systemConfigPath, []byte(`
+	_ = ioutil.WriteFile(systemConfigPath, []byte(`
 [ovh-eu]
 application_key=ovh
 application_secret=ovh
@@ -196,7 +197,9 @@ consumer_key=example.com
 `), 0660)
 
 	// Clear
-	defer ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
+	t.Cleanup(func() {
+		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
+	})
 
 	// Test: by name
 	client := Client{}

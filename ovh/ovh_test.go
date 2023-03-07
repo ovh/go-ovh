@@ -341,7 +341,7 @@ func TestGetResponse(t *testing.T) {
 		Body:       ioutil.NopCloser(strings.NewReader(``)),
 	}, nil)
 	if err != nil {
-		t.Fatalf("UnmarshalResponse should not return an error when reponse is empty or target type is nil. Got %v", err)
+		t.Fatalf("UnmarshalResponse should not return an error when response is empty or target type is nil. Got %v", err)
 	}
 
 	// Error
