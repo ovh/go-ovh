@@ -1,9 +1,7 @@
 module github.com/ovh/go-ovh
 
-go 1.12
+go 1.18
 
-require (
-	// required by gopkg.in/ini.v1 unit tests...
-	github.com/smartystreets/goconvey v1.6.4 // indirect
-	gopkg.in/ini.v1 v1.57.0
-)
+require gopkg.in/ini.v1 v1.67.0
+
+require github.com/stretchr/testify v1.8.2 // indirect
