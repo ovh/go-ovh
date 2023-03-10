@@ -19,18 +19,16 @@ var (
 
 // currentUserHome attempts to get current user's home directory
 func currentUserHome() (string, error) {
-	userHome := ""
 	usr, err := user.Current()
 	if err != nil {
 		// Fallback by trying to read $HOME
-		userHome = os.Getenv("HOME")
-		if userHome != "" {
-			err = nil
+		if userHome := os.Getenv("HOME"); userHome != "" {
+			return userHome, nil
 		}
-	} else {
-		userHome = usr.HomeDir
+		return "", err
 	}
-	return userHome, nil
+
+	return usr.HomeDir, nil
 }
 
 // appendConfigurationFile only if it exists. We need to do this because
@@ -38,8 +36,8 @@ func currentUserHome() (string, error) {
 // file is missing. This is racy, but better than always failing.
 func appendConfigurationFile(cfg *ini.File, path string) {
 	if file, err := os.Open(path); err == nil {
-		file.Close()
-		cfg.Append(path)
+		defer file.Close()
+		_ = cfg.Append(path)
 	}
 }
 
@@ -57,7 +55,6 @@ func appendConfigurationFile(cfg *ini.File, path string) {
 // - ./ovh.conf
 // - $HOME/.ovh.conf
 // - /etc/ovh.conf
-//
 func (c *Client) loadConfig(endpointName string) error {
 	// Load configuration files by order of increasing priority. All configuration
 	// files are optional. Only load file from user home if home could be resolve
@@ -107,7 +104,7 @@ func (c *Client) loadConfig(endpointName string) error {
 	return nil
 }
 
-// getConfigValue returns the value of OVH_<NAME> or ``name`` value from ``section``. If
+// getConfigValue returns the value of OVH_<NAME> or "name" value from "section". If
 // the value could not be read from either env or any configuration files, return 'def'
 func getConfigValue(cfg *ini.File, section, name, def string) string {
 	// Attempt to load from environment

@@ -186,7 +186,7 @@ func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expected
 	sleep := time.Duration(0)
 	var failureExpected bool
 	if cancel || contextTimeout {
-		sleep = time.Duration(2) * time.Second
+		sleep = 300 * time.Millisecond
 		failureExpected = true
 	}
 	ts, client := initMockServer(&InputRequest, 200, `"success"`, &InputRequestBody, sleep)
@@ -341,7 +341,7 @@ func TestGetResponse(t *testing.T) {
 		Body:       ioutil.NopCloser(strings.NewReader(``)),
 	}, nil)
 	if err != nil {
-		t.Fatalf("UnmarshalResponse should not return an error when reponse is empty or target type is nil. Got %v", err)
+		t.Fatalf("UnmarshalResponse should not return an error when response is empty or target type is nil. Got %v", err)
 	}
 
 	// Error
