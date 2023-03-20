@@ -4,20 +4,21 @@ import (
 	"fmt"
 	"os"
 	"os/user"
-	"path/filepath"
 	"strings"
 
 	"gopkg.in/ini.v1"
 )
 
-// Use variables for easier test overload
-var (
-	systemConfigPath = "/etc/ovh.conf"
-	userConfigPath   = "/.ovh.conf" // prefixed with homeDir
-	localConfigPath  = "./ovh.conf"
-)
+var configPaths = []string{
+	// System wide configuration
+	"/etc/ovh.com",
+	// Configuration in user's home
+	"~/.ovh.conf",
+	// Configuration in local folder
+	"./ovh.conf",
+}
 
-// currentUserHome attempts to get current user's home directory
+// currentUserHome attempts to get current user's home directory.
 func currentUserHome() (string, error) {
 	usr, err := user.Current()
 	if err != nil {
@@ -31,14 +32,43 @@ func currentUserHome() (string, error) {
 	return usr.HomeDir, nil
 }
 
-// appendConfigurationFile only if it exists. We need to do this because
-// ini package will fail to load configuration at all if a configuration
-// file is missing. This is racy, but better than always failing.
-func appendConfigurationFile(cfg *ini.File, path string) {
-	if file, err := os.Open(path); err == nil {
-		defer file.Close()
-		_ = cfg.Append(path)
+// configPaths returns configPaths, with ~/ prefix expanded.
+func expandConfigPaths() []interface{} {
+	paths := []interface{}{}
+
+	// Will be initialized on first use
+	var home string
+	var homeErr error
+
+	for _, path := range configPaths {
+		if strings.HasPrefix(path, "~/") {
+			// Find home if needed
+			if home == "" && homeErr == nil {
+				home, homeErr = currentUserHome()
+			}
+			// Ignore file in HOME if we cannot find it
+			if homeErr != nil {
+				continue
+			}
+
+			path = home + path[1:]
+		}
+
+		paths = append(paths, path)
 	}
+
+	return paths
+}
+
+// loadINI builds a ini.File from the configuration paths provided in configPaths.
+// It's a helper for loadConfig.
+func loadINI() (*ini.File, error) {
+	paths := expandConfigPaths()
+	if len(paths) == 0 {
+		return ini.Empty(), nil
+	}
+
+	return ini.LooseLoad(paths[0], paths[1:]...)
 }
 
 // loadConfig loads client configuration from params, environments or configuration
@@ -58,13 +88,10 @@ func appendConfigurationFile(cfg *ini.File, path string) {
 func (c *Client) loadConfig(endpointName string) error {
 	// Load configuration files by order of increasing priority. All configuration
 	// files are optional. Only load file from user home if home could be resolve
-	cfg := ini.Empty()
-	appendConfigurationFile(cfg, systemConfigPath)
-	if home, err := currentUserHome(); err == nil {
-		userConfigFullPath := filepath.Join(home, userConfigPath)
-		appendConfigurationFile(cfg, userConfigFullPath)
+	cfg, err := loadINI()
+	if err != nil {
+		return fmt.Errorf("cannot load configuration: %w", err)
 	}
-	appendConfigurationFile(cfg, localConfigPath)
 
 	// Canonicalize configuration
 	if endpointName == "" {

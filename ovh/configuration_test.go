@@ -1,75 +1,35 @@
 package ovh
 
 import (
-	"io/ioutil"
-	"os"
 	"testing"
 
 	"github.com/maxatome/go-testdeep/td"
 )
 
-//
-// Utils
-//
+const (
+	systemConf       = "testdata/system.ini"
+	userPartialConf  = "testdata/userPartial.ini"
+	userConf         = "testdata/user.ini"
+	localPartialConf = "testdata/localPartial.ini"
+	localWithURLConf = "testdata/localWithURL.ini"
+	doesNotExistConf = "testdata/doesNotExist.ini"
+	invalidINIConf   = "testdata/invalid.ini"
+	errorConf        = "testdata"
+)
 
-var home string
-
-func setup() {
-	systemConfigPath = "./ovh.unittest.global.conf"
-	userConfigPath = "/.ovh.unittest.user.conf"
-	localConfigPath = "./ovh.unittest.local.conf"
-	home, _ = currentUserHome()
+func setConfigPaths(t testing.TB, paths ...string) {
+	old := configPaths
+	configPaths = paths
+	t.Cleanup(func() { configPaths = old })
 }
-
-func teardown() {
-	os.Remove(systemConfigPath)
-	os.Remove(home + userConfigPath)
-	os.Remove(localConfigPath)
-}
-
-//
-// Tests
-//
 
 func TestConfigFromFiles(t *testing.T) {
-	assert, require := td.AssertRequire(t)
-
-	// Write each parameter to one different configuration file
-	// This is a simple way to test precedence
-
-	// Prepare
-	err := ioutil.WriteFile(systemConfigPath, []byte(`
-[ovh-eu]
-application_key=system
-application_secret=system
-consumer_key=system
-`), 0660)
-	require.CmpNoError(err)
-
-	err = ioutil.WriteFile(home+userConfigPath, []byte(`
-[ovh-eu]
-application_secret=user
-consumer_key=user
-`), 0660)
-	require.CmpNoError(err)
-
-	err = ioutil.WriteFile(localConfigPath, []byte(`
-[ovh-eu]
-consumer_key=local
-`), 0660)
-	require.CmpNoError(err)
-
-	// Clear
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-		_ = ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
-		_ = ioutil.WriteFile(localConfigPath, []byte(``), 0660)
-	})
+	setConfigPaths(t, systemConf, userPartialConf, localPartialConf)
 
 	client := Client{}
-	err = client.loadConfig("ovh-eu")
-	require.CmpNoError(err)
-	assert.Cmp(client, td.Struct(Client{
+	err := client.loadConfig("ovh-eu")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
 		AppKey:      "system",
 		AppSecret:   "user",
 		ConsumerKey: "local",
@@ -77,63 +37,54 @@ consumer_key=local
 }
 
 func TestConfigFromOnlyOneFile(t *testing.T) {
-	assert, require := td.AssertRequire(t)
-
-	// ini package has a bug causing it to ignore all subsequent configuration
-	// files if any could not be loaded. Make sure that workaround... works.
-
-	// Prepare
-	err := os.Remove(systemConfigPath)
-	require.CmpNoError(err)
-
-	err = ioutil.WriteFile(home+userConfigPath, []byte(`
-[ovh-eu]
-application_key=user
-application_secret=user
-consumer_key=user
-`), 0660)
-	require.CmpNoError(err)
-
-	// Clear
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
-	})
+	setConfigPaths(t, userConf)
 
 	client := Client{}
-	err = client.loadConfig("ovh-eu")
-	require.CmpNoError(err)
-	assert.Cmp(client, td.Struct(Client{
+	err := client.loadConfig("ovh-eu")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
 		AppKey:      "user",
 		AppSecret:   "user",
 		ConsumerKey: "user",
 	}))
 }
 
+func TestConfigFromNonExistingFile(t *testing.T) {
+	setConfigPaths(t, doesNotExistConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, `missing application key, please check your configuration or consult the documentation to create one`)
+}
+
+func TestConfigFromInvalidINIFile(t *testing.T) {
+	setConfigPaths(t, invalidINIConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, "cannot load configuration: unclosed section: [ovh\n")
+}
+
+func TestConfigFromInvalidFile(t *testing.T) {
+	setConfigPaths(t, errorConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, "cannot load configuration: BOM: read testdata: is a directory")
+}
+
 func TestConfigFromEnv(t *testing.T) {
-	assert, require := td.AssertRequire(t)
-
-	err := ioutil.WriteFile(systemConfigPath, []byte(`
-[ovh-eu]
-application_key=fail
-application_secret=fail
-consumer_key=fail
-`), 0660)
-	require.CmpNoError(err)
-
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-	})
+	setConfigPaths(t, userConf)
 
 	t.Setenv("OVH_ENDPOINT", "ovh-eu")
 	t.Setenv("OVH_APPLICATION_KEY", "env")
 	t.Setenv("OVH_APPLICATION_SECRET", "env")
 	t.Setenv("OVH_CONSUMER_KEY", "env")
 
-	// Test
 	client := Client{}
-	err = client.loadConfig("")
-	require.CmpNoError(err)
-	assert.Cmp(client, td.Struct(Client{
+	err := client.loadConfig("")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
 		AppKey:      "env",
 		AppSecret:   "env",
 		ConsumerKey: "env",
@@ -142,12 +93,12 @@ consumer_key=fail
 }
 
 func TestConfigFromArgs(t *testing.T) {
-	assert, require := td.AssertRequire(t)
+	setConfigPaths(t, userConf)
 
 	client := Client{AppKey: "param", AppSecret: "param", ConsumerKey: "param"}
 	err := client.loadConfig("ovh-eu")
-	require.CmpNoError(err)
-	assert.Cmp(client, td.Struct(Client{
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
 		AppKey:      "param",
 		AppSecret:   "param",
 		ConsumerKey: "param",
@@ -158,27 +109,11 @@ func TestConfigFromArgs(t *testing.T) {
 func TestEndpoint(t *testing.T) {
 	assert, require := td.AssertRequire(t)
 
-	err := ioutil.WriteFile(systemConfigPath, []byte(`
-[ovh-eu]
-application_key=ovh
-application_secret=ovh
-consumer_key=ovh
-
-[https://api.example.com:4242]
-application_key=example.com
-application_secret=example.com
-consumer_key=example.com
-`), 0660)
-	require.CmpNoError(err)
-
-	// Clear
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-	})
+	setConfigPaths(t, localWithURLConf)
 
 	// Test: by name
 	client := Client{}
-	err = client.loadConfig("ovh-eu")
+	err := client.loadConfig("ovh-eu")
 	require.CmpNoError(err)
 	assert.Cmp(client, td.Struct(Client{
 		AppKey: "ovh",
@@ -210,16 +145,15 @@ func TestMissingParam(t *testing.T) {
 	td.CmpString(t, err, `missing application secret, please check your configuration or consult the documentation to create one`)
 }
 
-//
-// Main
-//
+func TestConfigPaths(t *testing.T) {
+	home, err := currentUserHome()
+	td.Require(t).CmpNoError(err)
 
-// TestMain changes the location of configuration files. We need
-// this to avoid any interference with existing configuration
-// and non-root users
-func TestMain(m *testing.M) {
-	setup()
-	code := m.Run()
-	teardown()
-	os.Exit(code)
+	setConfigPaths(t, "", "file", "file.ini", "dir/file.ini", "~/file.ini", "~typo.ini")
+
+	td.Cmp(t, home, td.Not(td.HasSuffix("/")))
+	td.Cmp(t,
+		expandConfigPaths(),
+		[]interface{}{"", "file", "file.ini", "dir/file.ini", home + "/file.ini", "~typo.ini"},
+	)
 }
