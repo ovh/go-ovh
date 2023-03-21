@@ -23,6 +23,12 @@ func setConfigPaths(t testing.TB, paths ...string) {
 	t.Cleanup(func() { configPaths = old })
 }
 
+func TestConfigForbidsTrailingSlash(t *testing.T) {
+	client := Client{}
+	err := client.loadConfig("https://example.org/")
+	td.Require(t).String(err, "endpoint name cannot have a tailing slash")
+}
+
 func TestConfigFromFiles(t *testing.T) {
 	setConfigPaths(t, systemConf, userPartialConf, localPartialConf)
 
