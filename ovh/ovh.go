@@ -15,6 +15,10 @@ import (
 	"time"
 )
 
+// getLocalTime is a function to be overwritten during the tests, it returns the time
+// on the the local machine
+var getLocalTime = time.Now
+
 // DefaultTimeout api requests after 180s
 const DefaultTimeout = 180 * time.Second
 
@@ -227,7 +231,7 @@ func (c *Client) getTimeDelta() (time.Duration, error) {
 		return 0, err
 	}
 
-	d = time.Since(*ovhTime)
+	d = getLocalTime().Sub(*ovhTime)
 	c.timeDelta.Store(d)
 
 	return d, nil
@@ -244,18 +248,6 @@ func (c *Client) getTime() (*time.Time, error) {
 
 	serverTime := time.Unix(timestamp, 0)
 	return &serverTime, nil
-}
-
-// getLocalTime is a function to be overwritten during the tests, it return the time
-// on the the local machine
-var getLocalTime = func() time.Time {
-	return time.Now()
-}
-
-// getEndpointForSignature is a function to be overwritten during the tests, it returns a
-// the endpoint
-var getEndpointForSignature = func(c *Client) string {
-	return c.endpoint
 }
 
 // NewRequest returns a new HTTP request
@@ -301,7 +293,7 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 			c.AppSecret,
 			c.ConsumerKey,
 			method,
-			getEndpointForSignature(c),
+			c.endpoint,
 			path,
 			body,
 			timestamp,

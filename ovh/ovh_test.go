@@ -2,20 +2,19 @@ package ovh
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
-	"math"
 	"net/http"
-	"net/http/httptest"
-	"os"
-	"reflect"
 	"strconv"
 	"strings"
-	"sync/atomic"
 	"testing"
 	"time"
-	"unicode"
-	"unicode/utf8"
+
+	"github.com/jarcoal/httpmock"
+	"github.com/maxatome/go-testdeep/helpers/tdsuite"
+	"github.com/maxatome/go-testdeep/td"
 )
 
 const (
@@ -27,510 +26,406 @@ const (
 	MockTime = 1457018875
 )
 
-type SomeData struct {
-	IntValue    int    `json:"i_val,omitempty"`
-	StringValue string `json:"s_val,omitempty"`
-}
-
 //
 // Utils
 //
 
-func initMockServer(InputRequest **http.Request, status int, responseBody string, requestBody *string, handlerSleep time.Duration) (*httptest.Server, *Client) {
-	// Mock time
-	getLocalTime = func() time.Time {
-		return time.Unix(MockTime, 0)
-	}
-
-	// Mock hostname, in signature only
-	getEndpointForSignature = func(c *Client) string {
-		return "http://localhost"
-	}
-
-	// Create a fake API server
-	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Save input parameters
-		*InputRequest = r
-		defer r.Body.Close()
-
-		if requestBody != nil {
-			reqBody, err := ioutil.ReadAll(r.Body)
-			if err == nil {
-				*requestBody = string(reqBody[:])
-			}
-		}
-
-		if handlerSleep != 0 {
-			time.Sleep(handlerSleep)
-		}
-
-		// Respond
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(status)
-		fmt.Fprint(w, responseBody)
-	}))
-
-	// Create client
-	client, _ := NewClient(ts.URL, MockApplicationKey, MockApplicationSecret, MockConsumerKey)
-	client.timeDelta.Store(time.Duration(0))
-
-	return ts, client
-}
-
-func ensureHeaderPresent(t *testing.T, r *http.Request, name, value string) {
-	val, present := r.Header[name]
-
-	if !present {
-		t.Fatalf("%s requests should include a %s header with %s value.", r.Method, name, value)
-	}
-
-	if val[0] != value {
-		t.Fatalf("%s requests should include a %s header with %s value. Got %s", r.Method, name, value, val[0])
-	}
-}
-
-func Capitalize(s string) string {
-	if s == "" {
-		return ""
-	}
-	r, n := utf8.DecodeRuneInString(s)
-	return string(unicode.ToUpper(r)) + strings.ToLower(s[n:])
+func sbody(s string) io.ReadCloser {
+	return ioutil.NopCloser(strings.NewReader(s))
 }
 
 //
 // Tests
 //
 
-func TestTime(t *testing.T) {
-	// Init test
-	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", MockTime), nil, time.Duration(0))
-	defer ts.Close()
-
-	// Test
-	serverTime, err := client.Time()
-	if err != nil {
-		t.Fatalf("Unexpected error while retrieving server time: %v\n", err)
-	}
-
-	// Validate
-	if InputRequest.Method != "GET" || InputRequest.URL.String() != "/auth/time" {
-		t.Fatalf("Time should be retrieved using GET /auth/time. Got %s %s", InputRequest.Method, InputRequest.URL.String())
-	}
-	if serverTime.Unix() != MockTime {
-		t.Fatalf("Server time should be %d. Got %d", MockTime, serverTime.Unix())
-	}
+type MockSuite struct {
+	client *Client
 }
 
-func TestPing(t *testing.T) {
-	// Init test
-	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, `0`, nil, time.Duration(0))
-	defer ts.Close()
-
-	// Test
-	err := client.Ping()
-
-	// Validate
-	if err != nil {
-		t.Fatalf("Unexpected error while pinging server: %v\n", err)
-	}
-}
-
-func TestError500HTML(t *testing.T) {
-	// Init test
-	var InputRequest *http.Request
-	errHTML := `<html><body><p>test</p></body></html>`
-	ts, client := initMockServer(&InputRequest, http.StatusServiceUnavailable, errHTML, nil, time.Duration(0))
-	defer ts.Close()
-
-	// Test
-	var res struct{}
-	err := client.CallAPI("GET", "/test", nil, &res, false)
-
-	// Validate
-	if err == nil {
-		t.Fatal("Expected error")
-	}
-	apiError := &APIError{
-		Code:    http.StatusServiceUnavailable,
-		Message: errHTML,
-	}
-	if err.Error() != apiError.Error() {
-		t.Fatalf("Missmatch errors : \n%s\n%s", err, apiError)
-	}
-}
-
-func TestPingUnreachable(t *testing.T) {
-	// Init test
-	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, `0`, nil, time.Duration(0))
-	defer ts.Close()
-
-	// Test
-	client.endpoint = "https://localhost:1/does not exist"
-	err := client.Ping()
-
-	// Validate
-	if err == nil {
-		t.Fatalf("Unexpected success while pinging server\n")
-	}
-}
-
-// APIMethodTester applies the same sanity checks to all main Client method. It checks the
-// request method, path, body and headers for both authenticated and unauthenticated variants
-func APIMethodTester(t *testing.T, HTTPmethod string, body interface{}, expectedBody string, expectedSignature string, cancel bool, contextTimeout bool) {
-	// Init test
-	var InputRequest *http.Request
-	var InputRequestBody string
-	sleep := time.Duration(0)
-	var failureExpected bool
-	if cancel || contextTimeout {
-		sleep = 300 * time.Millisecond
-		failureExpected = true
-	}
-	ts, client := initMockServer(&InputRequest, 200, `"success"`, &InputRequestBody, sleep)
-	defer ts.Close()
-
-	// Prepare method name
-	needAuth := expectedSignature != ""
-	HTTPmethod = strings.ToUpper(HTTPmethod)
-	methodName := Capitalize(HTTPmethod)
-	if !needAuth {
-		methodName += "UnAuth"
-	}
-	if failureExpected {
-		methodName += "WithContext"
-	}
-
-	// Prepare method arguments
-	var res interface{}
-	var arguments []reflect.Value
-	var ctx context.Context
-	var cancelFunc context.CancelFunc
-	cancelFunc = func() { t.Log("context cancelFunc called") }
-
-	if cancel {
-		ctx, cancelFunc = context.WithCancel(context.Background())
-	} else if contextTimeout {
-		ctx, cancelFunc = context.WithTimeout(context.Background(), time.Duration(200)*time.Millisecond)
-	}
-	defer cancelFunc()
-
-	if failureExpected {
-		arguments = append(arguments, reflect.ValueOf(ctx))
-	}
-	arguments = append(arguments, reflect.ValueOf("/some/resource"))
-	if body != nil {
-		arguments = append(arguments, reflect.ValueOf(body))
-	}
-	arguments = append(arguments, reflect.ValueOf(&res))
-
-	// Get method to test
-	method := reflect.ValueOf(client).MethodByName(methodName)
-	if !method.IsValid() {
-		t.Fatalf("Client should suport %s method\n", methodName)
-	}
-
-	if cancel {
-		go func() {
-			time.Sleep(100 * time.Millisecond)
-			cancelFunc()
-		}()
-	}
-	ret := method.Call(arguments)
-	if failureExpected && ret[0].IsNil() {
-		t.Fatal("Should have a context cancelation error, got nil")
-	} else if !failureExpected && !ret[0].IsNil() {
-		t.Fatalf("Unexpected error while retrieving server time: %v\n", ret[0])
-	}
-
-	// Log request details to help debugging
-	t.Logf("Request: %s %s. Authenticated=%v", InputRequest.Method, InputRequest.URL.String(), needAuth)
-	for key, value := range InputRequest.Header {
-		t.Logf("\tHEADER: key=%v, value=%v\n", key, value)
-	}
-
-	// Validate Method
-	if InputRequest.Method != HTTPmethod || InputRequest.URL.String() != "/some/resource" {
-		t.Fatalf("%s should trigger a %s /some/resource request. Got %s %s", methodName, HTTPmethod, InputRequest.Method, InputRequest.URL.String())
-	}
-
-	// Validate Body
-	if body != nil && expectedBody != InputRequestBody {
-		t.Fatalf("%s /some/resource should have '%s' body. Got '%s'", methodName, expectedBody, InputRequestBody)
-	}
-
-	// Validate Headers
-	ensureHeaderPresent(t, InputRequest, "Accept", "application/json")
-	ensureHeaderPresent(t, InputRequest, "X-Ovh-Application", MockApplicationKey)
-
-	if body != nil {
-		ensureHeaderPresent(t, InputRequest, "Content-Type", "application/json;charset=utf-8")
-	}
-
-	if needAuth {
-		ensureHeaderPresent(t, InputRequest, "X-Ovh-Timestamp", strconv.Itoa(MockTime))
-		ensureHeaderPresent(t, InputRequest, "X-Ovh-Consumer", MockConsumerKey)
-		ensureHeaderPresent(t, InputRequest, "X-Ovh-Signature", expectedSignature)
-	}
-
-}
-
-func TestAllAPIMethods(t *testing.T) {
-	body := SomeData{
-		IntValue:    42,
-		StringValue: "Hello World!",
-	}
-
-	APIMethodTester(t, "GET", nil, "", "$1$8a21169b341aa23e82192e07457ca978006b1ba9", false, false)
-	APIMethodTester(t, "GET", nil, "", "", false, false)
-	APIMethodTester(t, "DELETE", nil, "", "$1$f4571312a04a4c75188509e75c40581ca6bb6d7a", false, false)
-	APIMethodTester(t, "DELETE", nil, "", "", false, false)
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$6549d84e65be72f4ec0d7b6d7eaa19554a265990", false, false)
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, false)
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$983e2a9a213c99211edd0b32715ac1ace1a6a0ea", false, false)
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, false)
-
-	APIMethodTester(t, "GET", nil, "", "$1$8a21169b341aa23e82192e07457ca978006b1ba9", true, false)
-	APIMethodTester(t, "GET", nil, "", "", true, false)
-	APIMethodTester(t, "DELETE", nil, "", "$1$f4571312a04a4c75188509e75c40581ca6bb6d7a", true, false)
-	APIMethodTester(t, "DELETE", nil, "", "", true, false)
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$6549d84e65be72f4ec0d7b6d7eaa19554a265990", true, false)
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "", true, false)
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$983e2a9a213c99211edd0b32715ac1ace1a6a0ea", true, false)
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "", true, false)
-
-	APIMethodTester(t, "GET", nil, "", "$1$8a21169b341aa23e82192e07457ca978006b1ba9", false, true)
-	APIMethodTester(t, "GET", nil, "", "", false, true)
-	APIMethodTester(t, "DELETE", nil, "", "$1$f4571312a04a4c75188509e75c40581ca6bb6d7a", false, true)
-	APIMethodTester(t, "DELETE", nil, "", "", false, true)
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$6549d84e65be72f4ec0d7b6d7eaa19554a265990", false, true)
-	APIMethodTester(t, "POST", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, true)
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "$1$983e2a9a213c99211edd0b32715ac1ace1a6a0ea", false, true)
-	APIMethodTester(t, "PUT", body, `{"i_val":42,"s_val":"Hello World!"}`, "", false, true)
-}
-
-// Mock ReadCloser, always failing
-type ErrorCloseReader struct{}
-
-func (ErrorCloseReader) Read(p []byte) (int, error) {
-	return 0, fmt.Errorf("ErrorReader")
-}
-func (ErrorCloseReader) Close() error {
+func (ms *MockSuite) Setup(t *td.T) error {
+	httpmock.Activate()
 	return nil
 }
 
+func (ms *MockSuite) PreTest(t *td.T, testName string) error {
+	client, err := NewClient("ovh-eu", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	if err != nil {
+		return err
+	}
+	ms.client = client
+	return nil
+}
+
+func (ms *MockSuite) PostTest(t *td.T, testName string) error {
+	httpmock.Reset()
+	return nil
+}
+
+func (ms *MockSuite) Destroy(t *td.T) error {
+	httpmock.DeactivateAndReset()
+	return nil
+}
+
+func TestMockSuite(t *testing.T) {
+	tdsuite.Run(t, &MockSuite{})
+}
+
+func (ms *MockSuite) TestPing(assert *td.T) {
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+		httpmock.NewStringResponder(200, "0"))
+
+	assert.CmpNoError(ms.client.Ping())
+	assert.Cmp(httpmock.GetCallCountInfo()["GET https://eu.api.ovh.com/1.0/auth/time"], 1)
+}
+
+func (ms *MockSuite) TestTime(assert, require *td.T) {
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+		httpmock.NewStringResponder(200, strconv.Itoa(MockTime)))
+
+	serverTime, err := ms.client.Time()
+	require.CmpNoError(err)
+	assert.CmpLax(serverTime.Unix(), MockTime)
+	assert.Cmp(httpmock.GetCallCountInfo()["GET https://eu.api.ovh.com/1.0/auth/time"], 1)
+}
+
+func (ms *MockSuite) TestGetTimeDelta(assert, require *td.T) {
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+		httpmock.NewStringResponder(200, strconv.FormatInt(time.Now().Unix()-10, 10)))
+
+	delta, err := ms.client.TimeDelta()
+	require.CmpNoError(err)
+	assert.Between(delta.Seconds(), 9.0, 11.0, td.BoundsInIn)
+	assert.Cmp(httpmock.GetCallCountInfo()["GET https://eu.api.ovh.com/1.0/auth/time"], 1)
+}
+
+func (ms *MockSuite) TestError500HTML(assert, require *td.T) {
+	errHTML := `<html><body><p>test</p></body></html>`
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/test",
+		httpmock.NewStringResponder(http.StatusServiceUnavailable, errHTML))
+
+	err := ms.client.CallAPI("GET", "/test", nil, nil, false)
+	assert.Cmp(err, &APIError{
+		Code:    http.StatusServiceUnavailable,
+		Message: errHTML,
+	})
+}
+
+func (ms *MockSuite) TestAllAPIMethods(assert, require *td.T) {
+	const payloadAuth = `{"call":"auth"}`
+	const payloadUnAuth = `{"call":"unauth"}`
+	var body = json.RawMessage(`{"a":"b","c":"d"}`)
+
+	previous := getLocalTime
+	getLocalTime = func() time.Time {
+		return time.Unix(MockTime, 0)
+	}
+	assert.Cleanup(func() { getLocalTime = previous })
+
+	checkAuthHeaders := func(assert *td.T, req *http.Request, signature string) {
+		assert.Helper()
+		if signature == "" {
+			assert.Cmp(req.Header, td.Not(td.ContainsKey("X-Ovh-Timestamp")), "No X-Ovh-Timestamp for %s unauth call", req.Method)
+			assert.Cmp(req.Header, td.Not(td.ContainsKey("X-Ovh-Consumer")), "No X-Ovh-Consumer for %s unauth call", req.Method)
+			assert.Cmp(req.Header, td.Not(td.ContainsKey("X-Ovh-Signature")), "No X-Ovh-Signature for %s unauth call", req.Method)
+		} else {
+			assert.Cmp(req.Header["X-Ovh-Timestamp"], []string{strconv.Itoa(MockTime)}, "Right X-Ovh-Timestamp for %s auth call", req.Method)
+			assert.Cmp(req.Header["X-Ovh-Consumer"], []string{MockConsumerKey}, "Right X-Ovh-Consumer for %s auth call", req.Method)
+			assert.Cmp(req.Header["X-Ovh-Signature"], []string{signature}, "Right X-Ovh-Signature for %s auth call", req.Method)
+		}
+	}
+	checkBody := func(assert *td.T, req *http.Request) {
+		assert.Helper()
+		if req.Method != "POST" && req.Method != "PUT" {
+			assert.Cmp(req.Body, td.Smuggle(io.ReadAll, td.Empty()), "Body is empty for %s call", req.Method)
+		} else {
+			assert.Cmp(req.Body, td.Smuggle(json.RawMessage{}, td.JSON(`{"a":"b","c":"d"}`)), "Right body for %s call", req.Method)
+		}
+	}
+
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+		httpmock.NewStringResponder(200, strconv.Itoa(MockTime)))
+
+	mockSignatures := map[string]struct{ authSig, timeoutSig string }{
+		"GET":    {authSig: "$1$e9556054b6309771395efa467c22e627407461ad", timeoutSig: "$1$1f0958be70f095ddaba525778a9ac1dcffac89f3"},
+		"POST":   {authSig: "$1$ec2fb5c7a81f64723c77d2e5b609ae6f58a84fc1", timeoutSig: "$1$b592effcb3bc2d37860eceb06a1b17670fbe49c6"},
+		"PUT":    {authSig: "$1$8a75a9e7c8e7296c9dbeda6a2a735eb6bd58ec4b", timeoutSig: "$1$6b27c2a693a0eb4980217046b2fe10d74ba796f0"},
+		"DELETE": {authSig: "$1$a1eecd00b3b02b6cf5708b84b9ff42059a950d85", timeoutSig: "$1$bd59b15361548c388058009e00c508081e991e8b"},
+	}
+	buildMock := func(assert *td.T, method string) {
+		method = strings.ToUpper(method)
+		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/auth", func(req *http.Request) (*http.Response, error) {
+			checkAuthHeaders(assert, req, mockSignatures[method].authSig)
+			checkBody(assert, req)
+			return httpmock.NewStringResponse(200, payloadAuth), nil
+		})
+		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/unauth", func(req *http.Request) (*http.Response, error) {
+			checkAuthHeaders(assert, req, "")
+			checkBody(assert, req)
+			return httpmock.NewStringResponse(200, payloadUnAuth), nil
+		})
+		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/authTO", func(req *http.Request) (*http.Response, error) {
+			checkAuthHeaders(assert, req, mockSignatures[method].timeoutSig)
+			checkBody(assert, req)
+			time.Sleep(200 * time.Millisecond)
+			return httpmock.NewStringResponse(200, `{"call":"authTO"}`), nil
+		})
+		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/unauthTO", func(req *http.Request) (*http.Response, error) {
+			checkAuthHeaders(assert, req, "")
+			checkBody(assert, req)
+			time.Sleep(200 * time.Millisecond)
+			return httpmock.NewStringResponse(200, `{"call":"unauthTO"}`), nil
+		})
+	}
+
+	// Tests without body: GET and DELETE
+	for _, test := range []struct {
+		method                                 string
+		call, callUnAuth                       func(string, interface{}) error
+		callWithContext, callUnAuthWithContext func(context.Context, string, interface{}) error
+	}{
+		{"Get", ms.client.Get, ms.client.GetUnAuth, ms.client.GetWithContext, ms.client.GetUnAuthWithContext},
+		{"Delete", ms.client.Delete, ms.client.DeleteUnAuth, ms.client.DeleteWithContext, ms.client.DeleteUnAuthWithContext},
+	} {
+		assert.RunAssertRequire(test.method+" method", func(assert, require *td.T) {
+			buildMock(assert, test.method)
+
+			var res json.RawMessage
+			err := test.call("/auth", &res)
+			require.CmpNoError(err, "No errors for method %s with auth", test.method)
+			assert.Cmp(res, td.JSON(payloadAuth), "Got expected payload for method %s with auth", test.method)
+
+			res = json.RawMessage{}
+			err = test.callWithContext(context.Background(), "/auth", &res)
+			require.CmpNoError(err, "No errors for method %s with auth and context", test.method)
+			assert.Cmp(res, td.JSON(payloadAuth), "Got expected payload for method %s with auth and context", test.method)
+
+			res = json.RawMessage{}
+			err = test.callUnAuth("/unauth", &res)
+			require.CmpNoError(err, "No errors for method %s without auth", test.method)
+			assert.Cmp(res, td.JSON(payloadUnAuth), "Got expected payload for method %s without auth", test.method)
+
+			res = json.RawMessage{}
+			err = test.callUnAuthWithContext(context.Background(), "/unauth", &res)
+			require.CmpNoError(err, "No errors for method %s without auth and with context", test.method)
+			assert.Cmp(res, td.JSON(payloadUnAuth), "Got expected payload for method %s without auth and with context", test.method)
+
+			res = json.RawMessage{}
+			ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+			assert.Cleanup(cancel)
+			err = test.callWithContext(ctx, "/authTO", &res)
+			assert.Empty(res, "Empty result after timeout for method %s with auth", test.method)
+			assert.String(err,
+				test.method+` "https://eu.api.ovh.com/1.0/authTO": context deadline exceeded`,
+				"Timeout messsage for method %s with auth", test.method,
+			)
+
+			res = json.RawMessage{}
+			ctx, cancel = context.WithTimeout(context.Background(), 100*time.Millisecond)
+			assert.Cleanup(cancel)
+			err = test.callUnAuthWithContext(ctx, "/unauthTO", &res)
+			assert.Empty(res, "Empty result after timeout for method %s without auth", test.method)
+			assert.String(err,
+				test.method+` "https://eu.api.ovh.com/1.0/unauthTO": context deadline exceeded`,
+				"Timeout messsage for method %s without auth", test.method,
+			)
+		})
+	}
+
+	// Tests with body: POST and PUT
+	for _, test := range []struct {
+		method                                 string
+		call, callUnAuth                       func(string, interface{}, interface{}) error
+		callWithContext, callUnAuthWithContext func(context.Context, string, interface{}, interface{}) error
+	}{
+		{"Post", ms.client.Post, ms.client.PostUnAuth, ms.client.PostWithContext, ms.client.PostUnAuthWithContext},
+		{"Put", ms.client.Put, ms.client.PutUnAuth, ms.client.PutWithContext, ms.client.PutUnAuthWithContext},
+	} {
+		assert.RunAssertRequire(test.method+" method", func(assert, require *td.T) {
+			buildMock(assert, test.method)
+
+			var res json.RawMessage
+			err := test.call("/auth", body, &res)
+			require.CmpNoError(err, "No errors for method %s with auth", test.method)
+			assert.Cmp(res, td.JSON(payloadAuth), "Got expected payload for method %s with auth", test.method)
+
+			res = json.RawMessage{}
+			err = test.callWithContext(context.Background(), "/auth", body, &res)
+			require.CmpNoError(err, "No errors for method %s with auth and context", test.method)
+			assert.Cmp(res, td.JSON(payloadAuth), "Got expected payload for method %s with auth and context", test.method)
+
+			res = json.RawMessage{}
+			err = test.callUnAuth("/unauth", body, &res)
+			require.CmpNoError(err, "No errors for method %s without auth", test.method)
+			assert.Cmp(res, td.JSON(payloadUnAuth), "Got expected payload for method %s without auth", test.method)
+
+			res = json.RawMessage{}
+			err = test.callUnAuthWithContext(context.Background(), "/unauth", body, &res)
+			require.CmpNoError(err, "No errors for method %s without auth and with context", test.method)
+			assert.Cmp(res, td.JSON(payloadUnAuth), "Got expected payload for method %s without auth and with context", test.method)
+
+			res = json.RawMessage{}
+			ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+			assert.Cleanup(cancel)
+			err = test.callWithContext(ctx, "/authTO", body, &res)
+			assert.String(err,
+				test.method+` "https://eu.api.ovh.com/1.0/authTO": context deadline exceeded`,
+				"Timeout messsage for method %s with auth", test.method,
+			)
+			assert.Empty(res, "Empty result after timeout for method %s with auth", test.method)
+
+			res = json.RawMessage{}
+			ctx, cancel = context.WithTimeout(context.Background(), 100*time.Millisecond)
+			assert.Cleanup(cancel)
+			err = test.callUnAuthWithContext(ctx, "/unauthTO", body, &res)
+			assert.String(err,
+				test.method+` "https://eu.api.ovh.com/1.0/unauthTO": context deadline exceeded`,
+				"Timeout messsage for method %s without auth", test.method,
+			)
+			assert.Empty(res, "Empty result after timeout for method %s without auth", test.method)
+		})
+	}
+}
+
+// Mock ReadCloser, always failing
+type ErrorReadCloser struct{}
+
+func (ErrorReadCloser) Read(p []byte) (int, error) {
+	return 0, fmt.Errorf("ErrorReader")
+}
+func (ErrorReadCloser) Close() error { return nil }
+
 func TestGetResponse(t *testing.T) {
-	var err error
-	var apiInt int
-	mockClient := Client{}
+	client := Client{}
 
 	// Nominal
-	err = mockClient.UnmarshalResponse(&http.Response{
+	var apiInt int
+	err := client.UnmarshalResponse(&http.Response{
 		StatusCode: 200,
-		Body:       ioutil.NopCloser(strings.NewReader(`42`)),
+		Body:       sbody(`42`),
 	}, &apiInt)
-	if err != nil {
-		t.Fatalf("Client.UnmarshalResponse should be able to decode int when status is 200. Got %v", err)
-	}
+	td.CmpNoError(t, err, "Can Client.UnmarshalResponse with status 200 and int body")
+	td.Cmp(t, apiInt, 42)
 
 	// Nominal: empty body
-	err = mockClient.UnmarshalResponse(&http.Response{
+	err = client.UnmarshalResponse(&http.Response{
 		StatusCode: 200,
-		Body:       ioutil.NopCloser(strings.NewReader(``)),
+		Body:       sbody(``),
 	}, nil)
-	if err != nil {
-		t.Fatalf("UnmarshalResponse should not return an error when response is empty or target type is nil. Got %v", err)
-	}
+	td.CmpNoError(t, err, "Can Client.UnmarshalResponse with status 200 and empty body")
 
 	// Error
-	err = mockClient.UnmarshalResponse(&http.Response{
+	apiInt = 0
+	err = client.UnmarshalResponse(&http.Response{
 		StatusCode: 400,
-		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "message": "Ooops..."}`)),
+		Body:       sbody(`{"code": 400, "message": "Ooops..."}`),
 	}, &apiInt)
-	if err == nil {
-		t.Fatalf("Client.UnmarshalResponse should be able to decode an error when status is 400")
-	}
-	if _, ok := err.(*APIError); !ok {
-		t.Fatalf("Client.UnmarshalResponse error should be an APIError when status is 400. Got '%s' of type %s", err, reflect.TypeOf(err))
-	}
+	td.Cmp(t, err, &APIError{
+		Code:    400,
+		Message: "Ooops...",
+	}, "Can parse a API error")
+	td.Cmp(t, apiInt, 0)
 
 	// Error: body read error
-	err = mockClient.UnmarshalResponse(&http.Response{
-		Body: ErrorCloseReader{},
+	err = client.UnmarshalResponse(&http.Response{
+		Body: ErrorReadCloser{},
 	}, nil)
-	if err == nil {
-		t.Fatalf("UnmarshalResponse should return an error when failing to read HTTP Response body. %v", err)
-	}
+	td.CmpString(t, err, "ErrorReader")
 
 	// Error: HTTP Error + broken json
-	err = mockClient.UnmarshalResponse(&http.Response{
+	err = client.UnmarshalResponse(&http.Response{
 		StatusCode: 400,
-		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "mes`)),
+		Body:       sbody(`{"code": 400, "mes`),
 	}, nil)
-	if err == nil {
-		t.Fatalf("UnmarshalResponse should return an error when failing to decode HTTP Response body. %v", err)
-	}
+	td.Cmp(t, err, &APIError{Code: 400, Message: `{"code": 400, "mes`})
 
 	// Error with QueryID
 	responseHeaders := http.Header{}
 	responseHeaders.Add("X-Ovh-QueryID", "FR.ws-8.5860f657.4632.0180")
-	err = mockClient.UnmarshalResponse(&http.Response{
+	err = client.UnmarshalResponse(&http.Response{
 		StatusCode: 400,
-		Body:       ioutil.NopCloser(strings.NewReader(`{"code": 400, "message": "Ooops..."}`)),
+		Body:       sbody(`{"code": 400, "message": "Ooops..."}`),
 		Header:     responseHeaders,
 	}, &apiInt)
-	apiErr, ok := err.(*APIError)
-	if !ok {
-		t.Fatalf("Client.UnmarshalResponse error should be an APIError when status is 400 and header QueryID is found. Got '%s' of type %s", err, reflect.TypeOf(err))
-	}
-	if apiErr.QueryID != "FR.ws-8.5860f657.4632.0180" {
-		t.Fatalf("APIError should be filled with a correct QueryID. Got '%s' instead of '%s'", apiErr.QueryID, "FR.ws-8.5860f657.4632.0180")
-	}
+	td.Cmp(t, err, &APIError{
+		Code:    400,
+		Message: "Ooops...",
+		QueryID: "FR.ws-8.5860f657.4632.0180",
+	})
 }
 
 func TestGetResponseUnmarshalNumber(t *testing.T) {
-	var err error
-	var output map[string]interface{}
-	mockClient := Client{}
+	assert, require := td.AssertRequire(t)
+	client := Client{}
+
+	call := func(output interface{}) {
+		t.Helper()
+		err := client.UnmarshalResponse(&http.Response{
+			StatusCode: 200,
+			Body:       sbody(`{"orderId": 1234567890}`),
+		}, output)
+		require.CmpNoError(err)
+	}
 
 	// with map[string]interface{} as output
-	err = mockClient.UnmarshalResponse(&http.Response{
-		StatusCode: 200,
-		Body:       ioutil.NopCloser(strings.NewReader(`{"orderId": 1234567890}`)),
-	}, &output)
-	if err != nil {
-		t.Fatalf("Client.UnmarshalResponse should be able to decode the body")
-	}
-	if fmt.Sprint(output["orderId"]) != "1234567890" {
-		t.Fatalf("Client.UnmarshalResponse should unmarshal long integer as json.Number instead of float64, stringified incorrectly")
-	}
+	var output map[string]interface{}
+	call(&output)
+	assert.Cmp(output, map[string]interface{}{"orderId": json.Number("1234567890")})
 
+	// with map[string]int64 as output
 	var outputInt map[string]int64
+	call(&outputInt)
+	assert.Cmp(outputInt, map[string]int64{"orderId": 1234567890})
 
 	// with map[string]int64 as output
-	err = mockClient.UnmarshalResponse(&http.Response{
-		StatusCode: 200,
-		Body:       ioutil.NopCloser(strings.NewReader(`{"orderId": 1234567890}`)),
-	}, &outputInt)
-	if err != nil {
-		t.Fatalf("Client.UnmarshalResponse should be able to decode the body")
-	}
-	if int64(1234567890) != outputInt["orderId"] {
-		t.Fatalf("Client.UnmarshalResponse should unmarshal long integer as json.Number instead of float64, incorrectly casted as int64")
-	}
-
 	var outputFloat map[string]float64
-
-	// with map[string]int64 as output
-	err = mockClient.UnmarshalResponse(&http.Response{
-		StatusCode: 200,
-		Body:       ioutil.NopCloser(strings.NewReader(`{"orderId": 1234567890}`)),
-	}, &outputFloat)
-	if err != nil {
-		t.Fatalf("Client.UnmarshalResponse should be able to decode the body")
-	}
-	if float64(1234567890) != outputFloat["orderId"] {
-		t.Fatalf("Client.UnmarshalResponse should unmarshal long integer as json.Number instead of float64, incorrectly casted as float64")
-	}
+	call(&outputFloat)
+	assert.Cmp(outputFloat, map[string]float64{"orderId": 1234567890})
 }
 
 func TestConstructors(t *testing.T) {
-	// Nominal: full constructor
-	client, err := NewClient("ovh-eu", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
-	if err != nil {
-		t.Fatalf("NewClient should not return an error in the nominal case. Got: %v", err)
-	}
-	if client.Client == nil {
-		t.Fatalf("client.Client should be a valid HTTP client")
-	}
-	if client.AppKey != MockApplicationKey {
-		t.Fatalf("client.AppKey should be '%s'. Got '%s'", MockApplicationKey, client.AppKey)
-	}
-	if client.AppSecret != MockApplicationSecret {
-		t.Fatalf("client.AppSecret should be '%s'. Got '%s'", MockApplicationSecret, client.AppSecret)
-	}
-	if client.ConsumerKey != MockConsumerKey {
-		t.Fatalf("client.ConsumerKey should be '%s'. Got '%s'", MockConsumerKey, client.ConsumerKey)
-	}
-
-	// Nominal: Endpoint constructor
-	os.Setenv("OVH_APPLICATION_KEY", MockApplicationKey)
-	os.Setenv("OVH_APPLICATION_SECRET", MockApplicationSecret)
-	os.Setenv("OVH_CONSUMER_KEY", MockConsumerKey)
-
-	client, err = NewEndpointClient("ovh-eu")
-	if err != nil {
-		t.Fatalf("NewEndpointClient should not return an error in the nominal case. Got: %v", err)
-	}
-	if client.Client == nil {
-		t.Fatalf("client.Client should be a valid HTTP client")
-	}
-	if client.AppKey != MockApplicationKey {
-		t.Fatalf("client.AppKey should be '%s'. Got '%s'", MockApplicationKey, client.AppKey)
-	}
-	if client.AppSecret != MockApplicationSecret {
-		t.Fatalf("client.AppSecret should be '%s'. Got '%s'", MockApplicationSecret, client.AppSecret)
-	}
-	if client.ConsumerKey != MockConsumerKey {
-		t.Fatalf("client.ConsumerKey should be '%s'. Got '%s'", MockConsumerKey, client.ConsumerKey)
-	}
-
-	// Nominal: Default constructor
-	os.Setenv("OVH_ENDPOINT", "ovh-eu")
-
-	client, err = NewDefaultClient()
-	if err != nil {
-		t.Fatalf("NewEndpointClient should not return an error in the nominal case. Got: %v", err)
-	}
-	if client.Client == nil {
-		t.Fatalf("client.Client should be a valid HTTP client")
-	}
-	if client.endpoint != "https://eu.api.ovh.com/1.0" {
-		t.Fatalf("client.Endpoint should be 'https://eu.api.ovh.com/1.0'. Got '%s'", client.endpoint)
-	}
-
-	// Clear
-	os.Unsetenv("OVH_ENDPOINT")
-	os.Unsetenv("OVH_APPLICATION_KEY")
-	os.Unsetenv("OVH_APPLICATION_SECRET")
-	os.Unsetenv("OVH_CONSUMER_KEY")
+	assert, require := td.AssertRequire(t)
 
 	// Error: missing Endpoint
-	_, err = NewClient("", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
-	if err == nil {
-		t.Fatalf("NewClient should return an error when missing Endpoint")
-	}
+	client, err := NewClient("", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	assert.Nil(client)
+	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list of using an URL`)
+
 	// Error: missing ApplicationKey
-	_, err = NewClient("ovh-eu", "", MockApplicationSecret, MockConsumerKey)
-	if err == nil {
-		t.Fatalf("NewClient should return an error when missing ApplicationKey")
-	}
+	client, err = NewClient("ovh-eu", "", MockApplicationSecret, MockConsumerKey)
+	assert.Nil(client)
+	assert.String(err, `missing application key, please check your configuration or consult the documentation to create one`)
+
 	// Error: missing ApplicationSecret
-	_, err = NewClient("ovh-eu", MockConsumerKey, "", MockConsumerKey)
-	if err == nil {
-		t.Fatalf("NewClient should return an error when missing ApplicationSecret")
-	}
-}
+	client, err = NewClient("ovh-eu", MockConsumerKey, "", MockConsumerKey)
+	assert.Nil(client)
+	assert.String(err, `missing application secret, please check your configuration or consult the documentation to create one`)
 
-func TestGetTimeDelta(t *testing.T) {
-	MockDelta := 747
+	// Next: success cases
+	expected := td.Struct(&Client{
+		AppKey:      MockApplicationKey,
+		AppSecret:   MockApplicationSecret,
+		ConsumerKey: MockConsumerKey,
+		endpoint:    "https://eu.api.ovh.com/1.0",
+	})
 
-	// Init test
-	var InputRequest *http.Request
-	ts, client := initMockServer(&InputRequest, 200, fmt.Sprintf("%d", int(time.Now().Unix())-MockDelta), nil, time.Duration(0))
-	defer ts.Close()
+	// Nominal: full constructor
+	client, err = NewClient("ovh-eu", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	require.CmpNoError(err)
+	assert.Cmp(client, expected)
 
-	// Test
-	client.timeDelta = atomic.Value{}
-	delta, err := client.getTimeDelta()
+	// Nominal: Endpoint constructor
+	t.Setenv("OVH_APPLICATION_KEY", MockApplicationKey)
+	t.Setenv("OVH_APPLICATION_SECRET", MockApplicationSecret)
+	t.Setenv("OVH_CONSUMER_KEY", MockConsumerKey)
 
-	if err != nil {
-		t.Fatalf("getTimeDelta should not return an error. Got %v", err)
-	}
-	// Hack: take races into account, avoid mocking whole earth
-	if math.Abs(float64(delta/time.Second-time.Duration(MockDelta))) > 2 {
-		t.Fatalf("getTimeDelta should return a delta of %d. Got %d", time.Duration(MockDelta)*time.Second, delta)
-	}
+	client, err = NewEndpointClient("ovh-eu")
+	require.CmpNoError(err)
+	assert.Cmp(client, expected)
+
+	// Nominal: Default constructor
+	t.Setenv("OVH_ENDPOINT", "ovh-eu")
+
+	client, err = NewDefaultClient()
+	require.CmpNoError(err)
+	assert.Cmp(client, expected)
 }

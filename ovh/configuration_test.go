@@ -1,266 +1,159 @@
 package ovh
 
 import (
-	"io/ioutil"
-	"os"
 	"testing"
+
+	"github.com/maxatome/go-testdeep/td"
 )
 
-//
-// Utils
-//
+const (
+	systemConf       = "testdata/system.ini"
+	userPartialConf  = "testdata/userPartial.ini"
+	userConf         = "testdata/user.ini"
+	localPartialConf = "testdata/localPartial.ini"
+	localWithURLConf = "testdata/localWithURL.ini"
+	doesNotExistConf = "testdata/doesNotExist.ini"
+	invalidINIConf   = "testdata/invalid.ini"
+	errorConf        = "testdata"
+)
 
-var home string
-
-func setup() {
-	systemConfigPath = "./ovh.unittest.global.conf"
-	userConfigPath = "/.ovh.unittest.user.conf"
-	localConfigPath = "./ovh.unittest.local.conf"
-	home, _ = currentUserHome()
+func setConfigPaths(t testing.TB, paths ...string) {
+	old := configPaths
+	configPaths = paths
+	t.Cleanup(func() { configPaths = old })
 }
-
-func teardown() {
-	os.Remove(systemConfigPath)
-	os.Remove(home + userConfigPath)
-	os.Remove(localConfigPath)
-}
-
-//
-// Tests
-//
 
 func TestConfigFromFiles(t *testing.T) {
-	// Write each parameter to one different configuration file
-	// This is a simple way to test precedence
+	setConfigPaths(t, systemConf, userPartialConf, localPartialConf)
 
-	// Prepare
-	_ = ioutil.WriteFile(systemConfigPath, []byte(`
-[ovh-eu]
-application_key=system
-application_secret=system
-consumer_key=system
-`), 0660)
-
-	_ = ioutil.WriteFile(home+userConfigPath, []byte(`
-[ovh-eu]
-application_secret=user
-consumer_key=user
-`), 0660)
-
-	_ = ioutil.WriteFile(localConfigPath, []byte(`
-[ovh-eu]
-consumer_key=local
-`), 0660)
-
-	// Clear
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-		_ = ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
-		_ = ioutil.WriteFile(localConfigPath, []byte(``), 0660)
-	})
-
-	// Test
 	client := Client{}
 	err := client.loadConfig("ovh-eu")
-
-	// Validate
-	if err != nil {
-		t.Fatalf("loadConfig failed with: '%v'", err)
-	}
-	if client.AppKey != "system" {
-		t.Fatalf("client.AppKey should be 'system'. Got '%s'", client.AppKey)
-	}
-	if client.AppSecret != "user" {
-		t.Fatalf("client.AppSecret should be 'user'. Got '%s'", client.AppSecret)
-	}
-	if client.ConsumerKey != "local" {
-		t.Fatalf("client.ConsumerKey should be 'local'. Got '%s'", client.ConsumerKey)
-	}
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
+		AppKey:      "system",
+		AppSecret:   "user",
+		ConsumerKey: "local",
+	}))
 }
 
 func TestConfigFromOnlyOneFile(t *testing.T) {
-	// ini package has a bug causing it to ignore all subsequent configuration
-	// files if any could not be loaded. Make sure that workaround... works.
+	setConfigPaths(t, userConf)
 
-	// Prepare
-	os.Remove(systemConfigPath)
-	_ = ioutil.WriteFile(home+userConfigPath, []byte(`
-[ovh-eu]
-application_key=user
-application_secret=user
-consumer_key=user
-`), 0660)
-
-	// Clear
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(home+userConfigPath, []byte(``), 0660)
-	})
-
-	// Test
 	client := Client{}
 	err := client.loadConfig("ovh-eu")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
+		AppKey:      "user",
+		AppSecret:   "user",
+		ConsumerKey: "user",
+	}))
+}
 
-	// Validate
-	if err != nil {
-		t.Fatalf("loadConfig failed with: '%v'", err)
-	}
-	if client.AppKey != "user" {
-		t.Fatalf("client.AppKey should be 'user'. Got '%s'", client.AppKey)
-	}
-	if client.AppSecret != "user" {
-		t.Fatalf("client.AppSecret should be 'user'. Got '%s'", client.AppSecret)
-	}
-	if client.ConsumerKey != "user" {
-		t.Fatalf("client.ConsumerKey should be 'user'. Got '%s'", client.ConsumerKey)
-	}
+func TestConfigFromNonExistingFile(t *testing.T) {
+	setConfigPaths(t, doesNotExistConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, `missing application key, please check your configuration or consult the documentation to create one`)
+}
+
+func TestConfigFromInvalidINIFile(t *testing.T) {
+	setConfigPaths(t, invalidINIConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, "cannot load configuration: unclosed section: [ovh\n")
+}
+
+func TestConfigFromInvalidFile(t *testing.T) {
+	setConfigPaths(t, errorConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, "cannot load configuration: BOM: read testdata: is a directory")
 }
 
 func TestConfigFromEnv(t *testing.T) {
-	// Prepare
-	_ = ioutil.WriteFile(systemConfigPath, []byte(`
-[ovh-eu]
-application_key=fail
-application_secret=fail
-consumer_key=fail
-`), 0660)
-
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-	})
+	setConfigPaths(t, userConf)
 
 	t.Setenv("OVH_ENDPOINT", "ovh-eu")
 	t.Setenv("OVH_APPLICATION_KEY", "env")
 	t.Setenv("OVH_APPLICATION_SECRET", "env")
 	t.Setenv("OVH_CONSUMER_KEY", "env")
 
-	// Test
 	client := Client{}
 	err := client.loadConfig("")
-
-	// Validate
-	if err != nil {
-		t.Fatalf("loadConfig failed with: '%v'", err)
-	}
-	if client.endpoint != OvhEU {
-		t.Fatalf("client.AppKey should be 'env'. Got '%s'", client.AppKey)
-	}
-	if client.AppKey != "env" {
-		t.Fatalf("client.AppKey should be 'env'. Got '%s'", client.AppKey)
-	}
-	if client.AppSecret != "env" {
-		t.Fatalf("client.AppSecret should be 'env'. Got '%s'", client.AppSecret)
-	}
-	if client.ConsumerKey != "env" {
-		t.Fatalf("client.ConsumerKey should be 'env'. Got '%s'", client.ConsumerKey)
-	}
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
+		AppKey:      "env",
+		AppSecret:   "env",
+		ConsumerKey: "env",
+		endpoint:    OvhEU,
+	}))
 }
 
 func TestConfigFromArgs(t *testing.T) {
-	// Test
-	client := Client{
+	setConfigPaths(t, userConf)
+
+	client := Client{AppKey: "param", AppSecret: "param", ConsumerKey: "param"}
+	err := client.loadConfig("ovh-eu")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
 		AppKey:      "param",
 		AppSecret:   "param",
 		ConsumerKey: "param",
-	}
-	err := client.loadConfig("ovh-eu")
-
-	// Validate
-	if err != nil {
-		t.Fatalf("loadConfig failed with: '%v'", err)
-	}
-	if client.endpoint != OvhEU {
-		t.Fatalf("client.AppKey should be 'param'. Got '%s'", client.AppKey)
-	}
-	if client.AppKey != "param" {
-		t.Fatalf("client.AppKey should be 'param'. Got '%s'", client.AppKey)
-	}
-	if client.AppSecret != "param" {
-		t.Fatalf("client.AppSecret should be 'param'. Got '%s'", client.AppSecret)
-	}
-	if client.ConsumerKey != "param" {
-		t.Fatalf("client.ConsumerKey should be 'param'. Got '%s'", client.ConsumerKey)
-	}
+		endpoint:    OvhEU,
+	}))
 }
 
 func TestEndpoint(t *testing.T) {
-	// Prepare
-	_ = ioutil.WriteFile(systemConfigPath, []byte(`
-[ovh-eu]
-application_key=ovh
-application_secret=ovh
-consumer_key=ovh
+	assert, require := td.AssertRequire(t)
 
-[https://api.example.com:4242]
-application_key=example.com
-application_secret=example.com
-consumer_key=example.com
-`), 0660)
-
-	// Clear
-	t.Cleanup(func() {
-		_ = ioutil.WriteFile(systemConfigPath, []byte(``), 0660)
-	})
+	setConfigPaths(t, localWithURLConf)
 
 	// Test: by name
 	client := Client{}
 	err := client.loadConfig("ovh-eu")
-	if err != nil {
-		t.Fatalf("loadConfig should not fail for endpoint 'ovh-eu'. Got '%v'", err)
-	}
-	if client.AppKey != "ovh" {
-		t.Fatalf("configured value should be 'ovh' for endpoint 'ovh-eu'. Got '%s'", client.AppKey)
-	}
+	require.CmpNoError(err)
+	assert.Cmp(client, td.Struct(Client{
+		AppKey: "ovh",
+	}))
 
 	// Test: by URL
 	client = Client{}
 	err = client.loadConfig("https://api.example.com:4242")
-	if err != nil {
-		t.Fatalf("loadConfig should not fail for endpoint 'https://api.example.com:4242'. Got '%v'", err)
-	}
-	if client.AppKey != "example.com" {
-		t.Fatalf("configured value should be 'example.com' for endpoint 'https://api.example.com:4242'. Got '%s'", client.AppKey)
-	}
-
+	require.CmpNoError(err)
+	assert.Cmp(client, td.Struct(Client{
+		AppKey: "example.com",
+	}))
 }
 
 func TestMissingParam(t *testing.T) {
-	// Setup
-	var err error
-	client := Client{
-		AppKey:      "param",
-		AppSecret:   "param",
-		ConsumerKey: "param",
-	}
+	client := Client{AppKey: "param", AppSecret: "param", ConsumerKey: "param"}
 
-	// Test
 	client.endpoint = ""
-	if err = client.loadConfig(""); err == nil {
-		t.Fatalf("loadConfig should fail when client.endpoint is missing. Got '%s'", client.endpoint)
-	}
+	err := client.loadConfig("")
+	td.CmpString(t, err, `unknown endpoint '', consider checking 'Endpoints' list of using an URL`)
 
 	client.AppKey = ""
-	if err = client.loadConfig("ovh-eu"); err == nil {
-		t.Fatalf("loadConfig should fail when client.AppKey is missing. Got '%s'", client.AppKey)
-	}
+	err = client.loadConfig("ovh-eu")
+	td.CmpString(t, err, `missing application key, please check your configuration or consult the documentation to create one`)
 	client.AppKey = "param"
 
 	client.AppSecret = ""
-	if err = client.loadConfig("ovh-eu"); err == nil {
-		t.Fatalf("loadConfig should fail when client.AppSecret is missing. Got '%s'", client.AppSecret)
-	}
-	client.AppSecret = "param"
+	err = client.loadConfig("ovh-eu")
+	td.CmpString(t, err, `missing application secret, please check your configuration or consult the documentation to create one`)
 }
 
-//
-// Main
-//
+func TestConfigPaths(t *testing.T) {
+	home, err := currentUserHome()
+	td.Require(t).CmpNoError(err)
 
-// TestMain changes the location of configuration files. We need
-// this to avoid any interference with existing configuration
-// and non-root users
-func TestMain(m *testing.M) {
-	setup()
-	code := m.Run()
-	teardown()
-	os.Exit(code)
+	setConfigPaths(t, "", "file", "file.ini", "dir/file.ini", "~/file.ini", "~typo.ini")
+
+	td.Cmp(t, home, td.Not(td.HasSuffix("/")))
+	td.Cmp(t,
+		expandConfigPaths(),
+		[]interface{}{"", "file", "file.ini", "dir/file.ini", home + "/file.ini", "~typo.ini"},
+	)
 }
