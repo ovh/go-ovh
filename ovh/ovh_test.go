@@ -429,3 +429,29 @@ func TestConstructors(t *testing.T) {
 	require.CmpNoError(err)
 	assert.Cmp(client, expected)
 }
+
+func (ms *MockSuite) TestVersionInURL(assert, require *td.T) {
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/call", httpmock.NewStringResponder(200, "{}"))
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v1/call", httpmock.NewStringResponder(200, "{}"))
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v2/call", httpmock.NewStringResponder(200, "{}"))
+
+	assertCallCount := func(assert *td.T, ccNoVersion, ccV1, ccV2 int) {
+		assert.Helper()
+		assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
+			"GET https://eu.api.ovh.com/1.0/call": ccNoVersion,
+			"GET https://eu.api.ovh.com/v1/call":  ccV1,
+			"GET https://eu.api.ovh.com/v2/call":  ccV2,
+		})
+	}
+
+	require.Cmp(ms.client.endpoint, "https://eu.api.ovh.com/1.0")
+
+	require.CmpNoError(ms.client.GetUnAuth("/call", nil))
+	assertCallCount(assert, 1, 0, 0)
+
+	require.CmpNoError(ms.client.GetUnAuth("/v1/call", nil))
+	assertCallCount(assert, 1, 1, 0)
+
+	require.CmpNoError(ms.client.GetUnAuth("/v2/call", nil))
+	assertCallCount(assert, 1, 1, 1)
+}

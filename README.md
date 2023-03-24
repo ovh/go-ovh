@@ -1,7 +1,7 @@
 go-ovh
 ======
 
-Lightweight Go wrapper around OVH's APIs. Handles all the hard work including credential creation and requests signing.
+Lightweight Go wrapper around OVHcloud's APIs. Handles all the hard work including credential creation and requests signing.
 
 [![GoDoc](https://godoc.org/github.com/ovh/go-ovh/go-ovh?status.svg)](http://godoc.org/github.com/ovh/go-ovh/ovh)
 [![Build Status](https://github.com/ovh/go-ovh/actions/workflows/golang-build.yaml/badge.svg?branch=master)](https://github.com/ovh/go-ovh/actions?query=workflow:golang-build)
@@ -53,7 +53,7 @@ import (
 
 ## Configuration
 
-The straightforward way to use OVH's API keys is to embed them directly in the
+The straightforward way to use OVHcloud's API keys is to embed them directly in the
 application code. While this is very convenient, it lacks of elegance and
 flexibility.
 
@@ -80,9 +80,9 @@ consumer_key=my_consumer_key
 
 Depending on the API you want to use, you may set the ``endpoint`` to:
 
-* ``ovh-eu`` for OVH Europe API
-* ``ovh-us`` for OVH US API
-* ``ovh-ca`` for OVH Canada API
+* ``ovh-eu`` for OVHcloud Europe API
+* ``ovh-us`` for OVHcloud US API
+* ``ovh-ca`` for OVHcloud Canada API
 * ``soyoustart-eu`` for So you Start Europe API
 * ``soyoustart-ca`` for So you Start Canada API
 * ``kimsufi-eu`` for Kimsufi Europe API
@@ -100,7 +100,7 @@ project or user.
 
 ## Register your app
 
-OVH's API, like most modern APIs is designed to authenticate both an application and
+OVHcloud's API, like most modern APIs is designed to authenticate both an application and
 a user, without requiring the user to provide a password. Your application will be
 identified by its "application secret" and "application key" tokens.
 
@@ -108,7 +108,7 @@ Hence, to use the API, you must first register your application and then ask you
 user to authenticate on a specific URL. Once authenticated, you'll have a valid
 "consumer key" which will grant your application on specific APIs.
 
-The user may choose the validity period of its authorization. The default period is
+The user may choose the validity period of his authorization. The default period is
 24h. He may also revoke an authorization at any time. Hence, your application should
 be prepared to receive 403 HTTP errors and prompt the user to re-authenticated.
 
@@ -125,7 +125,6 @@ The consumer key has two types of restriction:
 
 * path: eg. only the ```GET``` method on ```/me```
 * time: eg. expire in 1 day
-
 
 Then, get a consumer key. Here's an example on how to generate one.
 
@@ -282,6 +281,30 @@ func main() {
 }
 ```
 
+### Use v1 and v2 API versions
+
+When using OVHcloud APIs (not So you Start or Kimsufi ones), you are given the
+opportunity to aim for two API versions. For the European API, for example:
+
+- the v1 is reachable through https://eu.api.ovh.com/v1
+- the v2 is reachable through https://eu.api.ovh.com/v2
+- the legacy URL is https://eu.api.ovh.com/1.0
+
+Calling `client.Get`, you can target the API version you want:
+
+```go
+client, _ := ovh.NewEndpointClient("ovh-eu")
+
+// Call to https://eu.api.ovh.com/v1/xdsl/xdsl-yourservice
+client.Get("/v1/xdsl/xdsl-yourservice", nil)
+
+// Call to https://eu.api.ovh.com/v2/xdsl/xdsl-yourservice
+client.Get("/v2/xdsl/xdsl-yourservice", nil)
+
+// Legacy call to https://eu.api.ovh.com/1.0/xdsl/xdsl-yourservice
+client.Get("/xdsl/xdsl-yourservice", nil)
+```
+
 ## API Documentation
 
 ### Create a client
@@ -310,7 +333,7 @@ Alternatively, you may directly use the low level ``CallAPI`` method.
 - Use ``client.Put()`` for PUT requests
 - Use ``client.Delete()`` for DELETE requests
 
-Or, for unautenticated requests:
+Or, for unauthenticated requests:
 
 - Use ``client.GetUnAuth()`` for GET requests
 - Use ``client.PostUnAuth()`` for POST requests
@@ -444,7 +467,7 @@ go vet ./...
 
 ## Supported APIs
 
-### OVH Europe
+### OVHcloud Europe
 
 - **Documentation**: https://eu.api.ovh.com/
 - **Community support**: api-subscribe@ml.ovh.net
@@ -452,14 +475,14 @@ go vet ./...
 - **Create application credentials**: https://eu.api.ovh.com/createApp/
 - **Create script credentials** (all keys at once): https://eu.api.ovh.com/createToken/
 
-### OVH US
+### OVHcloud US
 
 - **Documentation**: https://api.us.ovhcloud.com/
 - **Console**: https://api.us.ovhcloud.com/console/
 - **Create application credentials**: https://api.us.ovhcloud.com/createApp/
 - **Create script credentials** (all keys at once): https://api.us.ovhcloud.com/createToken/
 
-### OVH Canada
+### OVHcloud Canada
 
 - **Documentation**: https://ca.api.ovh.com/
 - **Community support**: api-subscribe@ml.ovh.net

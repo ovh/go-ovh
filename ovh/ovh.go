@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strconv"
+	"strings"
 	"sync/atomic"
 	"time"
 )
@@ -250,6 +251,17 @@ func (c *Client) getTime() (*time.Time, error) {
 	return &serverTime, nil
 }
 
+// getTarget returns the URL to target given and endpoint and a path.
+// If the path starts with `/v1` or `/v2`, then remove the trailing `/1.0` from the endpoint.
+func getTarget(endpoint, path string) string {
+	// /1.0 + /v1/ or /1.0 + /v2/
+	if strings.HasSuffix(endpoint, "/1.0") && (strings.HasPrefix(path, "/v1/") || strings.HasPrefix(path, "/v2/")) {
+		return endpoint[:len(endpoint)-4] + path
+	}
+
+	return endpoint + path
+}
+
 // NewRequest returns a new HTTP request
 func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth bool) (*http.Request, error) {
 	var body []byte
@@ -262,8 +274,7 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 		}
 	}
 
-	target := fmt.Sprintf("%s%s", c.endpoint, path)
-	req, err := http.NewRequest(method, target, bytes.NewReader(body))
+	req, err := http.NewRequest(method, getTarget(c.endpoint, path), bytes.NewReader(body))
 	if err != nil {
 		return nil, err
 	}
