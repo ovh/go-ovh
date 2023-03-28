@@ -274,7 +274,8 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 		}
 	}
 
-	req, err := http.NewRequest(method, getTarget(c.endpoint, path), bytes.NewReader(body))
+	target := getTarget(c.endpoint, path)
+	req, err := http.NewRequest(method, target, bytes.NewReader(body))
 	if err != nil {
 		return nil, err
 	}
@@ -300,12 +301,11 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 		req.Header.Add("X-Ovh-Consumer", c.ConsumerKey)
 
 		h := sha1.New()
-		h.Write([]byte(fmt.Sprintf("%s+%s+%s+%s%s+%s+%d",
+		h.Write([]byte(fmt.Sprintf("%s+%s+%s+%s+%s+%d",
 			c.AppSecret,
 			c.ConsumerKey,
 			method,
-			c.endpoint,
-			path,
+			target,
 			body,
 			timestamp,
 		)))
