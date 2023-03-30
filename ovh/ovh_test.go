@@ -431,27 +431,48 @@ func TestConstructors(t *testing.T) {
 }
 
 func (ms *MockSuite) TestVersionInURL(assert, require *td.T) {
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/call", httpmock.NewStringResponder(200, "{}"))
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v1/call", httpmock.NewStringResponder(200, "{}"))
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v2/call", httpmock.NewStringResponder(200, "{}"))
+	// Signature checking mocks
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/call", func(req *http.Request) (*http.Response, error) {
+		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$7f2db49253edfc41891023fcd1a54cf61db05fbb"}, "Right X-Ovh-Signature for /1.0 auth call")
+		return httpmock.NewStringResponse(200, "{}"), nil
+	})
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v1/call", func(req *http.Request) (*http.Response, error) {
+		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$e6e7906d385eb28adcbfbe6b66c1528a42d741ad"}, "Right X-Ovh-Signature for /v1 auth call")
+		return httpmock.NewStringResponse(200, "{}"), nil
+	})
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v2/call", func(req *http.Request) (*http.Response, error) {
+		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$bb63b132a6f84ad5433d0c534d48d3f7c3804285"}, "Right X-Ovh-Signature for /v2 auth call")
+		return httpmock.NewStringResponse(200, "{}"), nil
+	})
+
+	// Mock local and distant time
+	previous := getLocalTime
+	getLocalTime = func() time.Time {
+		return time.Unix(MockTime, 0)
+	}
+	assert.Cleanup(func() { getLocalTime = previous })
+
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+		httpmock.NewStringResponder(200, strconv.Itoa(MockTime)))
 
 	assertCallCount := func(assert *td.T, ccNoVersion, ccV1, ccV2 int) {
 		assert.Helper()
 		assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
-			"GET https://eu.api.ovh.com/1.0/call": ccNoVersion,
-			"GET https://eu.api.ovh.com/v1/call":  ccV1,
-			"GET https://eu.api.ovh.com/v2/call":  ccV2,
+			"GET https://eu.api.ovh.com/1.0/auth/time": 1,
+			"GET https://eu.api.ovh.com/1.0/call":      ccNoVersion,
+			"GET https://eu.api.ovh.com/v1/call":       ccV1,
+			"GET https://eu.api.ovh.com/v2/call":       ccV2,
 		})
 	}
 
 	require.Cmp(ms.client.endpoint, "https://eu.api.ovh.com/1.0")
 
-	require.CmpNoError(ms.client.GetUnAuth("/call", nil))
+	require.CmpNoError(ms.client.Get("/call", nil))
 	assertCallCount(assert, 1, 0, 0)
 
-	require.CmpNoError(ms.client.GetUnAuth("/v1/call", nil))
+	require.CmpNoError(ms.client.Get("/v1/call", nil))
 	assertCallCount(assert, 1, 1, 0)
 
-	require.CmpNoError(ms.client.GetUnAuth("/v2/call", nil))
+	require.CmpNoError(ms.client.Get("/v2/call", nil))
 	assertCallCount(assert, 1, 1, 1)
 }
