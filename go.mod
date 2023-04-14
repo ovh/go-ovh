@@ -1,4 +1,4 @@
-module github.com/codetruelle/go-ovh
+module github.com/ovh/go-ovh
 
 go 1.18
 
