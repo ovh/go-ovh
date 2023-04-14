@@ -325,11 +325,12 @@ func TestGetResponse(t *testing.T) {
 	}, "Can parse a API error")
 	td.Cmp(t, apiInt, 0)
 
-	// Error: body read error
+	// Error: Cannot read the error body
 	err = client.UnmarshalResponse(&http.Response{
-		Body: ErrorReadCloser{},
+		StatusCode: 400,
+		Body:       ErrorReadCloser{},
 	}, nil)
-	td.CmpString(t, err, "ErrorReader")
+	td.Cmp(t, err, &APIError{Code: 400})
 
 	// Error: HTTP Error + broken json
 	err = client.UnmarshalResponse(&http.Response{
