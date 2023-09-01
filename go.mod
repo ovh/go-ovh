@@ -12,3 +12,8 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/stretchr/testify v1.8.2 // indirect
 )
+
+retract (
+	v1.4.1 // Configuration fetch from wrong folder
+	v1.4.0 // Configuration fetch from wrong folder
+)
