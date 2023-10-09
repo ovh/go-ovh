@@ -38,6 +38,22 @@ func sbody(s string) io.ReadCloser {
 // Tests
 //
 
+func TestClientEndpoint(t *testing.T) {
+	require := td.Require(t)
+
+	client, err := NewClient("ovh-eu", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	require.CmpNoError(err)
+	td.Cmp(t, client.Endpoint(), OvhEU)
+
+	client, err = NewClient("ovh-ca", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	require.CmpNoError(err)
+	td.Cmp(t, client.Endpoint(), OvhCA)
+
+	client, err = NewClient("https://example.org", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	require.CmpNoError(err)
+	td.Cmp(t, client.Endpoint(), "https://example.org")
+}
+
 type MockSuite struct {
 	client *Client
 }
