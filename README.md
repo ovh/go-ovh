@@ -61,6 +61,51 @@ Alternatively it is suggested to use configuration files or environment
 variables so that the same code may run seamlessly in multiple environments.
 Production and development for instance.
 
+`go-ovh` supports two forms of authentication:
+- OAuth2, using scopped service accounts, and compatible with OVHcloud IAM
+- application key & application secret & consumer key
+
+### OAuth2
+
+First, you need to generate a pair of valid `client_id` and `client_secret`: you
+can proceed by [following this documentation](https://help.ovhcloud.com/csm/en-manage-service-account?id=kb_article_view&sysparm_article=KB0059343)
+
+Once you have retrieved your `client_id` and `client_secret`, you can create and edit
+a configuration file that will be used by `go-ovh`.
+
+```ini
+[default]
+; general configuration: default endpoint
+endpoint=ovh-eu
+
+[ovh-eu]
+; configuration specific to 'ovh-eu' endpoint
+client_id=my_client_id
+client_secret=my_client_secret
+```
+
+The client will successively attempt to locate this configuration file in
+
+1. Current working directory: ``./ovh.conf``
+2. Current user's home directory: ``~/.ovh.conf``
+3. System wide configuration: ``/etc/ovh.conf``
+
+Depending on the API you want to use, you may set the ``endpoint`` to:
+
+* ``ovh-eu`` for OVHcloud Europe API
+* ``ovh-us`` for OVHcloud US API
+* ``ovh-ca`` for OVHcloud Canada API
+
+This lookup mechanism makes it easy to overload credentials for a specific
+project or user.
+
+### Application Key/Application Secret
+
+If you have completed successfully the __OAuth2__ part, you can continue to
+[the Use the Lib part](https://github.com/ovh/go-ovh?tab=readme-ov-file#use-the-lib).
+
+This section will cover the legacy authentication method using application key and
+application secret.
 This wrapper will first look for direct instanciation parameters then
 ``OVH_ENDPOINT``, ``OVH_APPLICATION_KEY``, ``OVH_APPLICATION_SECRET`` and
 ``OVH_CONSUMER_KEY`` environment variables. If either of these parameter is not
@@ -98,7 +143,7 @@ The client will successively attempt to locate this configuration file in
 This lookup mechanism makes it easy to overload credentials for a specific
 project or user.
 
-## Register your app
+#### Register your app
 
 OVHcloud's API, like most modern APIs is designed to authenticate both an application and
 a user, without requiring the user to provide a password. Your application will be
@@ -116,7 +161,7 @@ This process is detailed in the following section. Alternatively, you may only n
 to build an application for a single user. In this case you may generate all
 credentials at once. See below.
 
-### Use the API on behalf of a user
+##### Use the API on behalf of a user
 
 Visit [https://eu.api.ovh.com/createApp](https://eu.api.ovh.com/createApp) and create your app
 You'll get an application key and an application secret. To use the API you'll need a consumer key.
@@ -178,7 +223,7 @@ func main() {
 }
 ```
 
-### Use the API for a single user
+##### Use the API for a single user
 
 Alternatively, you may generate all creadentials at once, including the consumer key. You will
 typically want to do this when writing automation scripts for a single projects.
@@ -309,9 +354,10 @@ client.Get("/xdsl/xdsl-yourservice", nil)
 
 ### Create a client
 
-- Use ``ovh.NewClient()`` to have full controll over ther authentication
-- Use ``ovh.NewEndpointClient()`` to create a client for a specific API and use credentials from config files or environment
 - Use ``ovh.NewDefaultClient()`` to create a client unsing endpoint and credentials from config files or environment
+- Use ``ovh.NewEndpointClient()`` to create a client for a specific API and use credentials from config files or environment
+- Use ``ovh.NewOAuth2Client()`` to have full control over their authentication, using OAuth2 authentication method
+- Use ``ovh.NewClient()`` to have full control over their authentication, using legacy authentication method
 
 ### Query
 
@@ -341,6 +387,8 @@ Or, for unauthenticated requests:
 - Use ``client.DeleteUnAuth()`` for DELETE requests
 
 ### Request consumer keys
+
+__[Only valid for legacy authentication method]__
 
 Consumer keys may be restricted to a subset of the API. This allows to delegate the API to manage
 only a specific server or domain name for example. This is called "scoping" a consumer key.

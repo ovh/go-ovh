@@ -7,14 +7,18 @@ import (
 )
 
 const (
-	systemConf       = "testdata/system.ini"
-	userPartialConf  = "testdata/userPartial.ini"
-	userConf         = "testdata/user.ini"
-	localPartialConf = "testdata/localPartial.ini"
-	localWithURLConf = "testdata/localWithURL.ini"
-	doesNotExistConf = "testdata/doesNotExist.ini"
-	invalidINIConf   = "testdata/invalid.ini"
-	errorConf        = "testdata"
+	systemConf                   = "testdata/system.ini"
+	userPartialConf              = "testdata/userPartial.ini"
+	userConf                     = "testdata/user.ini"
+	userOAuth2Conf               = "testdata/user_oauth2.ini"
+	userOAuth2InvalidConf        = "testdata/user_oauth2_invalid.ini"
+	userOAuth2IncompatibleConfig = "testdata/user_oauth2_incompatible.ini"
+	userBothConf                 = "testdata/user_both.ini"
+	localPartialConf             = "testdata/localPartial.ini"
+	localWithURLConf             = "testdata/localWithURL.ini"
+	doesNotExistConf             = "testdata/doesNotExist.ini"
+	invalidINIConf               = "testdata/invalid.ini"
+	errorConf                    = "testdata"
 )
 
 func setConfigPaths(t testing.TB, paths ...string) {
@@ -60,7 +64,7 @@ func TestConfigFromNonExistingFile(t *testing.T) {
 
 	client := Client{}
 	err := client.loadConfig("ovh-eu")
-	td.CmpString(t, err, `missing application key, please check your configuration or consult the documentation to create one`)
+	td.CmpString(t, err, `missing authentication information, you need to provide at least an application_key/application_secret or a client_id/client_secret`)
 }
 
 func TestConfigFromInvalidINIFile(t *testing.T) {
@@ -139,16 +143,16 @@ func TestMissingParam(t *testing.T) {
 
 	client.endpoint = ""
 	err := client.loadConfig("")
-	td.CmpString(t, err, `unknown endpoint '', consider checking 'Endpoints' list of using an URL`)
+	td.CmpString(t, err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
 
 	client.AppKey = ""
 	err = client.loadConfig("ovh-eu")
-	td.CmpString(t, err, `missing application key, please check your configuration or consult the documentation to create one`)
+	td.CmpString(t, err, `invalid authentication config, both application_key and application_secret must be given`)
 	client.AppKey = "param"
 
 	client.AppSecret = ""
 	err = client.loadConfig("ovh-eu")
-	td.CmpString(t, err, `missing application secret, please check your configuration or consult the documentation to create one`)
+	td.CmpString(t, err, `invalid authentication config, both application_key and application_secret must be given`)
 }
 
 func TestConfigPaths(t *testing.T) {
@@ -162,4 +166,40 @@ func TestConfigPaths(t *testing.T) {
 		expandConfigPaths(),
 		[]interface{}{"", "file", "file.ini", "dir/file.ini", home + "/file.ini", "~typo.ini"},
 	)
+}
+
+func TestConfigOAuth2(t *testing.T) {
+	setConfigPaths(t, userOAuth2Conf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
+		ClientID:     "foo",
+		ClientSecret: "bar",
+	}))
+}
+
+func TestConfigInvalidBoth(t *testing.T) {
+	setConfigPaths(t, userBothConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, "can't use both application_key/application_secret and OAuth2 client_id/client_secret")
+}
+
+func TestConfigOAuth2Invalid(t *testing.T) {
+	setConfigPaths(t, userOAuth2InvalidConf)
+
+	client := Client{}
+	err := client.loadConfig("ovh-eu")
+	td.CmpString(t, err, "invalid oauth2 config, both client_id and client_secret must be given")
+}
+
+func TestConfigOAuth2Incompatible(t *testing.T) {
+	setConfigPaths(t, userOAuth2IncompatibleConfig)
+
+	client := Client{}
+	err := client.loadConfig("kimsufi-eu")
+	td.CmpString(t, err, `oauth2 authentication is not compatible with endpoint "https://eu.api.kimsufi.com/1.0"`)
 }

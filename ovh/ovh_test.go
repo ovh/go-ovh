@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 	"testing"
@@ -31,7 +31,7 @@ const (
 //
 
 func sbody(s string) io.ReadCloser {
-	return ioutil.NopCloser(strings.NewReader(s))
+	return io.NopCloser(strings.NewReader(s))
 }
 
 //
@@ -404,17 +404,17 @@ func TestConstructors(t *testing.T) {
 	// Error: missing Endpoint
 	client, err := NewClient("", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
 	assert.Nil(client)
-	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list of using an URL`)
+	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
 
 	// Error: missing ApplicationKey
 	client, err = NewClient("ovh-eu", "", MockApplicationSecret, MockConsumerKey)
 	assert.Nil(client)
-	assert.String(err, `missing application key, please check your configuration or consult the documentation to create one`)
+	assert.String(err, `invalid authentication config, both application_key and application_secret must be given`)
 
 	// Error: missing ApplicationSecret
 	client, err = NewClient("ovh-eu", MockConsumerKey, "", MockConsumerKey)
 	assert.Nil(client)
-	assert.String(err, `missing application secret, please check your configuration or consult the documentation to create one`)
+	assert.String(err, `invalid authentication config, both application_key and application_secret must be given`)
 
 	// Next: success cases
 	expected := td.Struct(&Client{
@@ -444,6 +444,46 @@ func TestConstructors(t *testing.T) {
 	client, err = NewDefaultClient()
 	require.CmpNoError(err)
 	assert.Cmp(client, expected)
+}
+
+func TestConstructorsOAuth2(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	// Error: missing Endpoint
+	client, err := NewOAuth2Client("", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+	assert.Nil(client)
+	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
+
+	// Error: missing Client ID
+	client, err = NewOAuth2Client("ovh-eu", "", "MockApplicationSecret")
+	assert.Nil(client)
+	assert.String(err, `invalid oauth2 config, both client_id and client_secret must be given`)
+
+	// Error: missing Client Secret
+	client, err = NewOAuth2Client("ovh-eu", "aaaaaaaaaaaaaaa", "")
+	assert.Nil(client)
+	assert.String(err, `invalid oauth2 config, both client_id and client_secret must be given`)
+
+	// Next: success cases
+	expected := td.Struct(&Client{
+		ClientID:     "aaaaaaaa",
+		ClientSecret: "bbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+		endpoint:     "https://eu.api.ovh.com/1.0",
+	})
+
+	// Nominal: full constructor
+	client, err = NewOAuth2Client("ovh-eu", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+	require.CmpNoError(err)
+	assert.Cmp(client, expected)
+
+	// With NewEndpointClient
+	setConfigPaths(t, userOAuth2Conf)
+	client, err = NewEndpointClient("ovh-eu")
+	require.CmpNoError(err)
+	assert.Cmp(client, td.Struct(&Client{
+		ClientID:     "foo",
+		ClientSecret: "bar",
+	}))
 }
 
 func (ms *MockSuite) TestVersionInURL(assert, require *td.T) {
@@ -491,4 +531,137 @@ func (ms *MockSuite) TestVersionInURL(assert, require *td.T) {
 
 	require.CmpNoError(ms.client.Get("/v2/call", nil))
 	assertCallCount(assert, 1, 1, 1)
+}
+
+func TestOAuth2_503(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+	errHTML := `<html><body><p>test</p></body></html>`
+	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+		httpmock.NewStringResponder(http.StatusServiceUnavailable, errHTML))
+
+	// Nominal: full constructor
+	client, err := NewOAuth2Client("ovh-eu", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+	require.CmpNoError(err)
+
+	err = client.Get("/v1/auth/time", nil)
+	assert.String(err, "failed to retrieve OAuth2 Access Token: oauth2: cannot fetch token: 503\nResponse: <html><body><p>test</p></body></html>")
+}
+
+func TestOAuth2_BadJSON(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+	errHTML := `<html><body><p>test</p></body></html>`
+	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+		httpmock.NewStringResponder(http.StatusOK, errHTML))
+
+	// Nominal: full constructor
+	client, err := NewOAuth2Client("ovh-eu", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+	require.CmpNoError(err)
+
+	err = client.Get("/v1/auth/time", nil)
+	assert.String(err, "failed to retrieve OAuth2 Access Token: oauth2: cannot parse json: invalid character '<' looking for beginning of value")
+}
+
+func TestOAuth2_UnknownClient(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+	output := `{"error":"invalid_client", "error_description":"ovhcloud oauth2 client does not exists"}`
+	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+		httpmock.NewStringResponder(http.StatusBadRequest, output))
+
+	// Nominal: full constructor
+	client, err := NewOAuth2Client("ovh-eu", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+	require.CmpNoError(err)
+
+	err = client.Get("/v1/auth/time", nil)
+	assert.String(err, `failed to retrieve OAuth2 Access Token: oauth2: "invalid_client" "ovhcloud oauth2 client does not exists"`)
+}
+
+func TestOAuth2_OK(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+	// expires_in set to 11 seconds. Will test that token are well renewed.
+	// golang.org/x/oauth2 has internal 10 seconds period that it will use to renew the token before actual expiration
+	output := `{"access_token":"cccccccccccccccc", "token_type":"Bearer", "expires_in":11,"scope":"all"}`
+	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+		httpmock.NewStringResponder(http.StatusOK, output))
+	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v1/auth/time",
+		func(req *http.Request) (*http.Response, error) {
+			assert.Cmp(req.Header.Get("Authorization"), "Bearer cccccccccccccccc")
+			resp, err := httpmock.NewJsonResponse(http.StatusOK, map[string]string{
+				"hello": "world",
+			})
+			require.CmpNoError(err)
+			return resp, nil
+		})
+
+	// Nominal: full constructor
+	client, err := NewOAuth2Client("ovh-eu", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+	require.CmpNoError(err)
+
+	out := map[string]string{}
+	err = client.Get("/v1/auth/time", &out)
+	require.CmpNoError(err)
+	assert.Cmp(out, map[string]string{
+		"hello": "world",
+	})
+
+	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
+		"POST https://www.ovh.com/auth/oauth2/token": 1,
+		"GET https://eu.api.ovh.com/v1/auth/time":    1,
+	}, "no token at this time, retrieving the token")
+
+	httpmock.ZeroCallCounters()
+
+	err = client.Get("/v1/auth/time", &out)
+	require.CmpNoError(err)
+	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
+		"GET https://eu.api.ovh.com/v1/auth/time":    1,
+		"POST https://www.ovh.com/auth/oauth2/token": 0,
+	}, "token is still valid, no call to retrieve new token")
+
+	// waiting 3 seconds, to get below the 10 seconds period
+	time.Sleep(time.Second + 100*time.Millisecond)
+
+	httpmock.ZeroCallCounters()
+
+	err = client.Get("/v1/auth/time", &out)
+	require.CmpNoError(err)
+	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
+		"GET https://eu.api.ovh.com/v1/auth/time":    1,
+		"POST https://www.ovh.com/auth/oauth2/token": 1,
+	}, "token is considered as expired, renewing token")
+}
+
+func TestOAuth2_ForReal(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	if os.Getenv("OAUTH2_CLIENT_ID") == "" && os.Getenv("OAUTH2_CLIENT_SECRET") == "" {
+		t.SkipNow()
+	}
+
+	clientID, clientSecret := os.Getenv("OAUTH2_CLIENT_ID"), os.Getenv("OAUTH2_CLIENT_SECRET")
+
+	// Nominal: full constructor
+	client, err := NewOAuth2Client("ovh-eu", clientID, clientSecret)
+	require.CmpNoError(err)
+
+	type outType struct {
+		Identities []string
+	}
+	out := outType{}
+	err = client.Get("/v1/auth/details", &out)
+	require.CmpNoError(err)
+	require.Gte(len(out.Identities), 1)
+	assert.Contains(out.Identities[0], "/oauth2-")
+	assert.Contains(out.Identities[0], ":identity:credential:")
 }
