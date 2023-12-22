@@ -110,7 +110,7 @@ user to authenticate on a specific URL. Once authenticated, you'll have a valid
 
 The user may choose the validity period of his authorization. The default period is
 24h. He may also revoke an authorization at any time. Hence, your application should
-be prepared to receive 403 HTTP errors and prompt the user to re-authenticated.
+be prepared to receive 403 HTTP errors and prompt the user to re-authenticate.
 
 This process is detailed in the following section. Alternatively, you may only need
 to build an application for a single user. In this case you may generate all
