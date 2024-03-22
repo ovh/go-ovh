@@ -404,17 +404,17 @@ func TestConstructors(t *testing.T) {
 	// Error: missing Endpoint
 	client, err := NewClient("", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
 	assert.Nil(client)
-	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list of using an URL`)
+	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
 
 	// Error: missing ApplicationKey
 	client, err = NewClient("ovh-eu", "", MockApplicationSecret, MockConsumerKey)
 	assert.Nil(client)
-	assert.String(err, `missing application key, please check your configuration or consult the documentation to create one`)
+	assert.String(err, `invalid authentication config, both application_key and application_secret must be given`)
 
 	// Error: missing ApplicationSecret
 	client, err = NewClient("ovh-eu", MockConsumerKey, "", MockConsumerKey)
 	assert.Nil(client)
-	assert.String(err, `missing application secret, please check your configuration or consult the documentation to create one`)
+	assert.String(err, `invalid authentication config, both application_key and application_secret must be given`)
 
 	// Next: success cases
 	expected := td.Struct(&Client{
