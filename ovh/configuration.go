@@ -159,6 +159,7 @@ func (c *Client) loadConfig(endpointName string) error {
 			ClientID:     c.ClientID,
 			ClientSecret: c.ClientSecret,
 			TokenURL:     tokensURLs[c.endpoint],
+			Scopes:       []string{"all"},
 		}
 
 		c.oauth2TokenSource = conf.TokenSource(context.Background())
