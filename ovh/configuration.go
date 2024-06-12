@@ -145,7 +145,7 @@ func (c *Client) loadConfig(endpointName string) error {
 	}
 	if len(configuredAuthMethods) == 0 {
 		return errors.New(
-			"missing authentication information, you need to provide at least an application_key/application_secret, or client_id/client_secret, or access_token",
+			"missing authentication information, you need to provide one of the following: application_key/application_secret, client_id/client_secret, or access_token",
 		)
 	}
 
