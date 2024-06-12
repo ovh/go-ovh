@@ -486,6 +486,26 @@ func TestConstructorsOAuth2(t *testing.T) {
 	}))
 }
 
+func TestConstructorsAccessToken(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	// Error: missing Endpoint
+	client, err := NewAccessTokenClient("", "aaaaaaaa")
+	assert.Nil(client)
+	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
+
+	// Next: success cases
+	expected := td.Struct(&Client{
+		AccessToken: "aaaaaaaa",
+		endpoint:    "https://eu.api.ovh.com/1.0",
+	})
+
+	// Nominal: full constructor
+	client, err = NewAccessTokenClient("ovh-eu", "aaaaaaaa")
+	require.CmpNoError(err)
+	assert.Cmp(client, expected)
+}
+
 func (ms *MockSuite) TestVersionInURL(assert, require *td.T) {
 	// Signature checking mocks
 	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/call", func(req *http.Request) (*http.Response, error) {

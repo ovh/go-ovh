@@ -354,9 +354,10 @@ client.Get("/xdsl/xdsl-yourservice", nil)
 
 ### Create a client
 
-- Use ``ovh.NewDefaultClient()`` to create a client unsing endpoint and credentials from config files or environment
+- Use ``ovh.NewDefaultClient()`` to create a client using endpoint and credentials from config files or environment
 - Use ``ovh.NewEndpointClient()`` to create a client for a specific API and use credentials from config files or environment
 - Use ``ovh.NewOAuth2Client()`` to have full control over their authentication, using OAuth2 authentication method
+- Use ``ovh.NewAccessTokenClient()`` to have full control over their authentication, using token that was previously issued by auth/oauth2/token endpoint
 - Use ``ovh.NewClient()`` to have full control over their authentication, using legacy authentication method
 
 ### Query
