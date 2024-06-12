@@ -99,6 +99,21 @@ Depending on the API you want to use, you may set the ``endpoint`` to:
 This lookup mechanism makes it easy to overload credentials for a specific
 project or user.
 
+### Access Token
+
+This authentication method is useful when short-lived credentials are necessary.
+E.g. oauth2 [plugin](https://github.com/puppetlabs/vault-plugin-secrets-oauthapp)
+for hashicorp vault can request an access token that would be used by OVH
+terraform provider. Although this token, requested via data-source, would end up
+stored in the terraform state-file, that would pose less risk since the token
+validity would last for only 1 hour.
+
+Other applications are of course also possible.
+
+In order to use the access token with this wrapper either use
+`ovh.NewAccessTokenClient` to create the client, or pass the token via
+`OVH_ACCESS_TOKEN` environment variable to `ovh.NewDefaultClient`.
+
 ### Application Key/Application Secret
 
 If you have completed successfully the __OAuth2__ part, you can continue to
