@@ -99,6 +99,21 @@ Depending on the API you want to use, you may set the ``endpoint`` to:
 This lookup mechanism makes it easy to overload credentials for a specific
 project or user.
 
+### Access Token
+
+This authentication method is useful when short-lived credentials are necessary.
+E.g. oauth2 [plugin](https://github.com/puppetlabs/vault-plugin-secrets-oauthapp)
+for HashiCorp Vault can request an access token that would be used by OVHcloud
+terraform provider. Although this token, requested via data-source, would end up
+stored in the Terraform state file, that would pose less risk since the token
+validity would last for only 1 hour.
+
+Other applications are of course also possible.
+
+In order to use the access token with this wrapper either use
+`ovh.NewAccessTokenClient` to create the client, or pass the token via
+`OVH_ACCESS_TOKEN` environment variable to `ovh.NewDefaultClient`.
+
 ### Application Key/Application Secret
 
 If you have completed successfully the __OAuth2__ part, you can continue to
@@ -354,9 +369,10 @@ client.Get("/xdsl/xdsl-yourservice", nil)
 
 ### Create a client
 
-- Use ``ovh.NewDefaultClient()`` to create a client unsing endpoint and credentials from config files or environment
+- Use ``ovh.NewDefaultClient()`` to create a client using endpoint and credentials from config files or environment
 - Use ``ovh.NewEndpointClient()`` to create a client for a specific API and use credentials from config files or environment
 - Use ``ovh.NewOAuth2Client()`` to have full control over their authentication, using OAuth2 authentication method
+- Use ``ovh.NewAccessTokenClient()`` to have full control over their authentication, using token that was previously issued by auth/oauth2/token endpoint
 - Use ``ovh.NewClient()`` to have full control over their authentication, using legacy authentication method
 
 ### Query

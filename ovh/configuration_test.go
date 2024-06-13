@@ -64,7 +64,7 @@ func TestConfigFromNonExistingFile(t *testing.T) {
 
 	client := Client{}
 	err := client.loadConfig("ovh-eu")
-	td.CmpString(t, err, `missing authentication information, you need to provide at least an application_key/application_secret or a client_id/client_secret`)
+	td.CmpString(t, err, `missing authentication information, you need to provide one of the following: application_key/application_secret, client_id/client_secret, or access_token`)
 }
 
 func TestConfigFromInvalidINIFile(t *testing.T) {
@@ -185,7 +185,7 @@ func TestConfigInvalidBoth(t *testing.T) {
 
 	client := Client{}
 	err := client.loadConfig("ovh-eu")
-	td.CmpString(t, err, "can't use both application_key/application_secret and OAuth2 client_id/client_secret")
+	td.CmpString(t, err, "can't use multiple authentication methods: application_key/application_secret, client_id/client_secret")
 }
 
 func TestConfigOAuth2Invalid(t *testing.T) {
