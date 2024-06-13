@@ -103,9 +103,9 @@ project or user.
 
 This authentication method is useful when short-lived credentials are necessary.
 E.g. oauth2 [plugin](https://github.com/puppetlabs/vault-plugin-secrets-oauthapp)
-for hashicorp vault can request an access token that would be used by OVH
+for HashiCorp Vault can request an access token that would be used by OVHcloud
 terraform provider. Although this token, requested via data-source, would end up
-stored in the terraform state-file, that would pose less risk since the token
+stored in the Terraform state file, that would pose less risk since the token
 validity would last for only 1 hour.
 
 Other applications are of course also possible.
