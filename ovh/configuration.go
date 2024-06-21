@@ -64,7 +64,7 @@ func expandConfigPaths() []interface{} {
 }
 
 // loadINI builds a ini.File from the configuration paths provided in configPaths.
-// It's a helper for loadConfig.
+// It's a helper for LoadConfig.
 func loadINI() (*ini.File, error) {
 	paths := expandConfigPaths()
 	if len(paths) == 0 {
@@ -74,21 +74,21 @@ func loadINI() (*ini.File, error) {
 	return ini.LooseLoad(paths[0], paths[1:]...)
 }
 
-// loadConfig loads client configuration from params, environments or configuration
+// LoadConfig loads client configuration from params, environments or configuration
 // files (by order of decreasing precedence).
 //
-// loadConfig will check OVH_CONSUMER_KEY, OVH_APPLICATION_KEY, OVH_APPLICATION_SECRET
+// LoadConfig will check OVH_CONSUMER_KEY, OVH_APPLICATION_KEY, OVH_APPLICATION_SECRET
 // and OVH_ENDPOINT environment variables. If any is present, it will take precedence
 // over any configuration from file.
 //
 // Configuration files are ini files. They share the same format as python-ovh,
 // node-ovh, php-ovh and all other wrappers. If any wrapper is configured, all
-// can re-use the same configuration. loadConfig will check for configuration in:
+// can re-use the same configuration. LoadConfig will check for configuration in:
 //
 // - ./ovh.conf
 // - $HOME/.ovh.conf
 // - /etc/ovh.conf
-func (c *Client) loadConfig(endpointName string) error {
+func (c *Client) LoadConfig(endpointName string) error {
 	if strings.HasSuffix(endpointName, "/") {
 		return fmt.Errorf("endpoint name cannot have a tailing slash")
 	}

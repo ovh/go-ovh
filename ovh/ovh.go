@@ -110,7 +110,7 @@ func NewClient(endpoint, appKey, appSecret, consumerKey string) (*Client, error)
 	}
 
 	// Get and check the configuration
-	if err := client.loadConfig(endpoint); err != nil {
+	if err := client.LoadConfig(endpoint); err != nil {
 		return nil, err
 	}
 	return &client, nil
@@ -138,7 +138,7 @@ func NewOAuth2Client(endpoint, clientID, clientSecret string) (*Client, error) {
 	}
 
 	// Get and check the configuration
-	if err := client.loadConfig(endpoint); err != nil {
+	if err := client.LoadConfig(endpoint); err != nil {
 		return nil, err
 	}
 	return &client, nil
@@ -152,7 +152,7 @@ func NewAccessTokenClient(endpoint, accessToken string) (*Client, error) {
 	}
 
 	// Get and check the configuration
-	if err := client.loadConfig(endpoint); err != nil {
+	if err := client.LoadConfig(endpoint); err != nil {
 		return nil, err
 	}
 	return &client, nil
