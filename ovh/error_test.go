@@ -31,4 +31,33 @@ func TestErrorString(t *testing.T) {
 	td.Cmp(t, err.Error(), expected)
 	td.Cmp(t, err.String(), expected)
 
+	err = APIError{
+		Code:    http.StatusForbidden,
+		Message: `User not granted for this request`,
+		Class:   "Client::Forbidden",
+		QueryID: "EU.ext-99.foobar",
+		Details: map[string]string{
+			"unauthorizedActionsByAuthentication": "",
+			"unauthorizedActionsByIAM":            "account:apiovh:me/installationTemplate/get",
+		},
+	}
+
+	expected = `OVHcloud API error (status code 403): Client::Forbidden: "User not granted for this request (missing IAM permissions: account:apiovh:me/installationTemplate/get)" (X-OVH-Query-Id: EU.ext-99.foobar)`
+	td.Cmp(t, err.Error(), expected)
+	td.Cmp(t, err.String(), expected)
+
+	err = APIError{
+		Code:    http.StatusForbidden,
+		Message: `User not granted for this request`,
+		Class:   "Client::Forbidden",
+		QueryID: "EU.ext-99.foobar",
+		Details: map[string]string{
+			"unauthorizedActionsByAuthentication": "account:apiovh:me/accessRestriction/ip/get",
+			"unauthorizedActionsByIAM":            "account:apiovh:me/installationTemplate/get",
+		},
+	}
+
+	expected = `OVHcloud API error (status code 403): Client::Forbidden: "User not granted for this request (missing IAM permissions: account:apiovh:me/accessRestriction/ip/get, account:apiovh:me/installationTemplate/get)" (X-OVH-Query-Id: EU.ext-99.foobar)`
+	td.Cmp(t, err.Error(), expected)
+	td.Cmp(t, err.String(), expected)
 }
