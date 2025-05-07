@@ -27,12 +27,17 @@ type PartialMe struct {
 func main() {
 	var me PartialMe
 
-	client, _ := ovh.NewClient(
+	client, err := ovh.NewClient(
 		"ovh-eu",
 		YOUR_APPLICATION_KEY,
 		YOUR_APPLICATION_SECRET,
 		YOUR_CONSUMER_KEY,
 	)
+	if err != nil {
+		fmt.Printf("Error: %q\n", err)
+		return
+	}
+
 	client.Get("/me", &me)
 	fmt.Printf("Welcome %s!\n", me.Firstname)
 }
