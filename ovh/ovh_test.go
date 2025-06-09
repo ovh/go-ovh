@@ -401,10 +401,10 @@ func TestGetResponseUnmarshalNumber(t *testing.T) {
 func TestConstructors(t *testing.T) {
 	assert, require := td.AssertRequire(t)
 
-	// Error: missing Endpoint
+	// Missing Endpoint, defaulting to ovh-eu
 	client, err := NewClient("", MockApplicationKey, MockApplicationSecret, MockConsumerKey)
-	assert.Nil(client)
-	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
+	assert.NotNil(client)
+	assert.CmpNoError(err)
 
 	// Error: missing ApplicationKey
 	client, err = NewClient("ovh-eu", "", MockApplicationSecret, MockConsumerKey)
@@ -449,10 +449,10 @@ func TestConstructors(t *testing.T) {
 func TestConstructorsOAuth2(t *testing.T) {
 	assert, require := td.AssertRequire(t)
 
-	// Error: missing Endpoint
+	// Missing Endpoint: defaulting to ovh-eu
 	client, err := NewOAuth2Client("", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
-	assert.Nil(client)
-	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
+	assert.NotNil(client)
+	assert.CmpNoError(err)
 
 	// Error: missing Client ID
 	client, err = NewOAuth2Client("ovh-eu", "", "MockApplicationSecret")
@@ -489,10 +489,10 @@ func TestConstructorsOAuth2(t *testing.T) {
 func TestConstructorsAccessToken(t *testing.T) {
 	assert, require := td.AssertRequire(t)
 
-	// Error: missing Endpoint
+	// Missing Endpoint: defaulting to ovh-eu
 	client, err := NewAccessTokenClient("", "aaaaaaaa")
-	assert.Nil(client)
-	assert.String(err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
+	assert.NotNil(client)
+	assert.CmpNoError(err)
 
 	// Next: success cases
 	expected := td.Struct(&Client{
