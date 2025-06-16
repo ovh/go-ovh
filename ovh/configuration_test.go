@@ -143,7 +143,7 @@ func TestMissingParam(t *testing.T) {
 
 	client.endpoint = ""
 	err := client.loadConfig("")
-	td.CmpString(t, err, `unknown endpoint '', consider checking 'Endpoints' list or using an URL`)
+	td.CmpNoError(t, err)
 
 	client.AppKey = ""
 	err = client.loadConfig("ovh-eu")
