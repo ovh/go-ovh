@@ -30,7 +30,7 @@ func setConfigPaths(t testing.TB, paths ...string) {
 func TestConfigForbidsTrailingSlash(t *testing.T) {
 	client := Client{}
 	err := client.loadConfig("https://example.org/")
-	td.Require(t).String(err, "endpoint name cannot have a tailing slash")
+	td.Require(t).String(err, "endpoint name cannot have a trailing slash")
 }
 
 func TestConfigFromFiles(t *testing.T) {

@@ -685,3 +685,18 @@ func TestOAuth2_ForReal(t *testing.T) {
 	assert.Contains(out.Identities[0], "/oauth2-")
 	assert.Contains(out.Identities[0], ":identity:credential:")
 }
+
+func TestSetManualEndpointValid(t *testing.T) {
+	client := &Client{}
+	err := client.SetEndpoint("/fake-endpoint")
+
+	td.CmpNoError(t, err)
+	td.CmpString(t, client.Endpoint(), "/fake-endpoint")
+}
+
+func TestSetManualEndpointInvalid(t *testing.T) {
+	client := &Client{}
+	err := client.SetEndpoint("/invalid-endpoint/")
+
+	td.CmpString(t, err, "endpoint name cannot have a trailing slash")
+}
