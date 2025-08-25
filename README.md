@@ -38,7 +38,11 @@ func main() {
 		return
 	}
 
-	client.Get("/me", &me)
+	err = client.Get("/me", &me)
+	if err != nil {
+		fmt.Printf("Error: %q\n", err)
+		return
+	}
 	fmt.Printf("Welcome %s!\n", me.Firstname)
 }
 ```
