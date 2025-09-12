@@ -475,21 +475,33 @@ func (c *Client) CallAPIWithContext(ctx context.Context, method, path string, re
 // UnmarshalResponse checks the response and unmarshals it into the response
 // type if needed Helper function, called from CallAPI
 func (c *Client) UnmarshalResponse(response *http.Response, resType interface{}) error {
-	// Read all the response body
-	defer response.Body.Close()
-	body, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return err
-	}
 
 	// < 200 && >= 300 : API error
 	if response.StatusCode < http.StatusOK || response.StatusCode >= http.StatusMultipleChoices {
+
+		// Read all the response body
+		defer response.Body.Close()
+		errBody, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			// If we cannot read the body, send back the status code as an error
+			apiError := &APIError{Code: response.StatusCode}
+			return apiError
+		}
+
+		// if we have a body for the error - create API error from the body
 		apiError := &APIError{Code: response.StatusCode}
-		if err = json.Unmarshal(body, apiError); err != nil {
-			apiError.Message = string(body)
+		if err = json.Unmarshal(errBody, apiError); err != nil {
+			apiError.Message = string(errBody)
 		}
 		apiError.QueryID = response.Header.Get("X-Ovh-QueryID")
 
+		return apiError
+	}
+
+	body, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		// If we cannot read the body, send back the status code as an error
+		apiError := &APIError{Code: response.StatusCode}
 		return apiError
 	}
 
@@ -502,3 +514,4 @@ func (c *Client) UnmarshalResponse(response *http.Response, resType interface{})
 	d.UseNumber()
 	return d.Decode(&resType)
 }
+
