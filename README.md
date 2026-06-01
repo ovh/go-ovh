@@ -23,7 +23,7 @@ type PartialMe struct {
 }
 
 // Instantiate an OVH client and get the firstname of the currently logged-in user.
-// Visit https://api.eu.ovhcloud.com/createToken/index.cgi?GET=/me to get your credentials.
+// Visit https://auth.eu.ovhcloud.com/api/createToken/index.cgi?GET=/me to get your credentials.
 func main() {
 	var me PartialMe
 
@@ -187,7 +187,7 @@ credentials at once. See below.
 
 ##### Use the API on behalf of a user
 
-Visit [https://api.eu.ovhcloud.com/createApp](https://api.eu.ovhcloud.com/createApp) and create your app
+Visit [https://auth.eu.ovhcloud.com/api/createApp](https://auth.eu.ovhcloud.com/api/createApp) and create your app
 You'll get an application key and an application secret. To use the API you'll need a consumer key.
 
 The consumer key has two types of restriction:
@@ -252,7 +252,7 @@ func main() {
 Alternatively, you may generate all creadentials at once, including the consumer key. You will
 typically want to do this when writing automation scripts for a single projects.
 
-If this case, you may want to directly go to https://api.eu.ovhcloud.com/createToken/ to generate
+If this case, you may want to directly go to https://auth.eu.ovhcloud.com/api/createToken/ to generate
 the 3 tokens at once. Make sure to save them in one of the 'ovh.conf' configuration file.
 Please see the [configuration section](#configuration).
 
@@ -545,8 +545,8 @@ go vet ./...
 - **Documentation**: https://api.eu.ovhcloud.com/
 - **Community support**: api-subscribe@ml.ovh.net
 - **Console**: https://api.eu.ovhcloud.com/console
-- **Create application credentials**: https://api.eu.ovhcloud.com/createApp/
-- **Create script credentials** (all keys at once): https://api.eu.ovhcloud.com/createToken/
+- **Create application credentials**: https://auth.eu.ovhcloud.com/api/createApp/
+- **Create script credentials** (all keys at once): https://auth.eu.ovhcloud.com/api/createToken/
 
 ### OVHcloud US
 
@@ -560,8 +560,8 @@ go vet ./...
 - **Documentation**: https://api.ca.ovhcloud.com/
 - **Community support**: api-subscribe@ml.ovh.net
 - **Console**: https://api.ca.ovhcloud.com/console
-- **Create application credentials**: https://api.ca.ovhcloud.com/createApp/
-- **Create script credentials** (all keys at once): https://api.ca.ovhcloud.com/createToken/
+- **Create application credentials**: https://auth.ca.ovhcloud.com/api/createApp/
+- **Create script credentials** (all keys at once): https://auth.ca.ovhcloud.com/api/createToken/
 
 ### So you Start Europe
 

@@ -65,7 +65,7 @@ type Client struct {
 	AccessToken string
 
 	// Self generated tokens. Create one by visiting
-	// https://api.eu.ovhcloud.com/createApp/
+	// https://auth.eu.ovhcloud.com/api/createApp/
 	// AppKey holds the Application key
 	AppKey string
 
