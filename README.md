@@ -560,7 +560,7 @@ go vet ./...
 - **Documentation**: https://api.ca.ovhcloud.com/
 - **Community support**: api-subscribe@ml.ovh.net
 - **Console**: https://api.ca.ovhcloud.com/console
-- **Create application credentials**: https://auth.ca.ovhcloud.com/api/createApp/
+- **Create application credentials**: https://auth.ca.ovhcloud.com/api/createApp
 - **Create script credentials** (all keys at once): https://auth.ca.ovhcloud.com/api/createToken/
 
 ### So you Start Europe
