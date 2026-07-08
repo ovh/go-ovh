@@ -87,36 +87,36 @@ func TestMockSuite(t *testing.T) {
 }
 
 func (ms *MockSuite) TestPing(assert *td.T) {
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/1.0/auth/time",
 		httpmock.NewStringResponder(200, "0"))
 
 	assert.CmpNoError(ms.client.Ping())
-	assert.Cmp(httpmock.GetCallCountInfo()["GET https://eu.api.ovh.com/1.0/auth/time"], 1)
+	assert.Cmp(httpmock.GetCallCountInfo()["GET https://api.eu.ovhcloud.com/1.0/auth/time"], 1)
 }
 
 func (ms *MockSuite) TestTime(assert, require *td.T) {
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/1.0/auth/time",
 		httpmock.NewStringResponder(200, strconv.Itoa(MockTime)))
 
 	serverTime, err := ms.client.Time()
 	require.CmpNoError(err)
 	assert.CmpLax(serverTime.Unix(), MockTime)
-	assert.Cmp(httpmock.GetCallCountInfo()["GET https://eu.api.ovh.com/1.0/auth/time"], 1)
+	assert.Cmp(httpmock.GetCallCountInfo()["GET https://api.eu.ovhcloud.com/1.0/auth/time"], 1)
 }
 
 func (ms *MockSuite) TestGetTimeDelta(assert, require *td.T) {
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/1.0/auth/time",
 		httpmock.NewStringResponder(200, strconv.FormatInt(time.Now().Unix()-10, 10)))
 
 	delta, err := ms.client.TimeDelta()
 	require.CmpNoError(err)
 	assert.Between(delta.Seconds(), 9.0, 11.0, td.BoundsInIn)
-	assert.Cmp(httpmock.GetCallCountInfo()["GET https://eu.api.ovh.com/1.0/auth/time"], 1)
+	assert.Cmp(httpmock.GetCallCountInfo()["GET https://api.eu.ovhcloud.com/1.0/auth/time"], 1)
 }
 
 func (ms *MockSuite) TestError500HTML(assert, require *td.T) {
 	errHTML := `<html><body><p>test</p></body></html>`
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/test",
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/1.0/test",
 		httpmock.NewStringResponder(http.StatusServiceUnavailable, errHTML))
 
 	err := ms.client.CallAPI("GET", "/test", nil, nil, false)
@@ -158,34 +158,34 @@ func (ms *MockSuite) TestAllAPIMethods(assert, require *td.T) {
 		}
 	}
 
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/1.0/auth/time",
 		httpmock.NewStringResponder(200, strconv.Itoa(MockTime)))
 
 	mockSignatures := map[string]struct{ authSig, timeoutSig string }{
-		"GET":    {authSig: "$1$e9556054b6309771395efa467c22e627407461ad", timeoutSig: "$1$1f0958be70f095ddaba525778a9ac1dcffac89f3"},
-		"POST":   {authSig: "$1$ec2fb5c7a81f64723c77d2e5b609ae6f58a84fc1", timeoutSig: "$1$b592effcb3bc2d37860eceb06a1b17670fbe49c6"},
-		"PUT":    {authSig: "$1$8a75a9e7c8e7296c9dbeda6a2a735eb6bd58ec4b", timeoutSig: "$1$6b27c2a693a0eb4980217046b2fe10d74ba796f0"},
-		"DELETE": {authSig: "$1$a1eecd00b3b02b6cf5708b84b9ff42059a950d85", timeoutSig: "$1$bd59b15361548c388058009e00c508081e991e8b"},
+		"GET":    {authSig: "$1$52992e595b398f6aba591ee5925b379081614ced", timeoutSig: "$1$fbf2332d802de7f075e1b5bc52bd2fbed6790224"},
+		"POST":   {authSig: "$1$ea0e0d82447373a3ddf5947065f1d519ca0bcaf2", timeoutSig: "$1$4e23630584237237f4667e19e8ebe45c70a0b8b8"},
+		"PUT":    {authSig: "$1$0fdc3ed192ffbf3d1be414dbb733bbb7729500ee", timeoutSig: "$1$8768dfec08fa37f7af6a913ac0f2c6b63a0e377f"},
+		"DELETE": {authSig: "$1$f685c165fa9da88b294b5fd2504588588105f994", timeoutSig: "$1$7b00b6432e4b2e168a3147240a074617c1ae483c"},
 	}
 	buildMock := func(assert *td.T, method string) {
 		method = strings.ToUpper(method)
-		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/auth", func(req *http.Request) (*http.Response, error) {
+		httpmock.RegisterResponder(method, "https://api.eu.ovhcloud.com/1.0/auth", func(req *http.Request) (*http.Response, error) {
 			checkAuthHeaders(assert, req, mockSignatures[method].authSig)
 			checkBody(assert, req)
 			return httpmock.NewStringResponse(200, payloadAuth), nil
 		})
-		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/unauth", func(req *http.Request) (*http.Response, error) {
+		httpmock.RegisterResponder(method, "https://api.eu.ovhcloud.com/1.0/unauth", func(req *http.Request) (*http.Response, error) {
 			checkAuthHeaders(assert, req, "")
 			checkBody(assert, req)
 			return httpmock.NewStringResponse(200, payloadUnAuth), nil
 		})
-		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/authTO", func(req *http.Request) (*http.Response, error) {
+		httpmock.RegisterResponder(method, "https://api.eu.ovhcloud.com/1.0/authTO", func(req *http.Request) (*http.Response, error) {
 			checkAuthHeaders(assert, req, mockSignatures[method].timeoutSig)
 			checkBody(assert, req)
 			time.Sleep(200 * time.Millisecond)
 			return httpmock.NewStringResponse(200, `{"call":"authTO"}`), nil
 		})
-		httpmock.RegisterResponder(method, "https://eu.api.ovh.com/1.0/unauthTO", func(req *http.Request) (*http.Response, error) {
+		httpmock.RegisterResponder(method, "https://api.eu.ovhcloud.com/1.0/unauthTO", func(req *http.Request) (*http.Response, error) {
 			checkAuthHeaders(assert, req, "")
 			checkBody(assert, req)
 			time.Sleep(200 * time.Millisecond)
@@ -231,7 +231,7 @@ func (ms *MockSuite) TestAllAPIMethods(assert, require *td.T) {
 			err = test.callWithContext(ctx, "/authTO", &res)
 			assert.Empty(res, "Empty result after timeout for method %s with auth", test.method)
 			assert.String(err,
-				test.method+` "https://eu.api.ovh.com/1.0/authTO": context deadline exceeded`,
+				test.method+` "https://api.eu.ovhcloud.com/1.0/authTO": context deadline exceeded`,
 				"Timeout messsage for method %s with auth", test.method,
 			)
 
@@ -241,7 +241,7 @@ func (ms *MockSuite) TestAllAPIMethods(assert, require *td.T) {
 			err = test.callUnAuthWithContext(ctx, "/unauthTO", &res)
 			assert.Empty(res, "Empty result after timeout for method %s without auth", test.method)
 			assert.String(err,
-				test.method+` "https://eu.api.ovh.com/1.0/unauthTO": context deadline exceeded`,
+				test.method+` "https://api.eu.ovhcloud.com/1.0/unauthTO": context deadline exceeded`,
 				"Timeout messsage for method %s without auth", test.method,
 			)
 		})
@@ -284,7 +284,7 @@ func (ms *MockSuite) TestAllAPIMethods(assert, require *td.T) {
 			assert.Cleanup(cancel)
 			err = test.callWithContext(ctx, "/authTO", body, &res)
 			assert.String(err,
-				test.method+` "https://eu.api.ovh.com/1.0/authTO": context deadline exceeded`,
+				test.method+` "https://api.eu.ovhcloud.com/1.0/authTO": context deadline exceeded`,
 				"Timeout messsage for method %s with auth", test.method,
 			)
 			assert.Empty(res, "Empty result after timeout for method %s with auth", test.method)
@@ -294,7 +294,7 @@ func (ms *MockSuite) TestAllAPIMethods(assert, require *td.T) {
 			assert.Cleanup(cancel)
 			err = test.callUnAuthWithContext(ctx, "/unauthTO", body, &res)
 			assert.String(err,
-				test.method+` "https://eu.api.ovh.com/1.0/unauthTO": context deadline exceeded`,
+				test.method+` "https://api.eu.ovhcloud.com/1.0/unauthTO": context deadline exceeded`,
 				"Timeout messsage for method %s without auth", test.method,
 			)
 			assert.Empty(res, "Empty result after timeout for method %s without auth", test.method)
@@ -421,7 +421,7 @@ func TestConstructors(t *testing.T) {
 		AppKey:      MockApplicationKey,
 		AppSecret:   MockApplicationSecret,
 		ConsumerKey: MockConsumerKey,
-		endpoint:    "https://eu.api.ovh.com/1.0",
+		endpoint:    "https://api.eu.ovhcloud.com/1.0",
 	})
 
 	// Nominal: full constructor
@@ -468,7 +468,7 @@ func TestConstructorsOAuth2(t *testing.T) {
 	expected := td.Struct(&Client{
 		ClientID:     "aaaaaaaa",
 		ClientSecret: "bbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-		endpoint:     "https://eu.api.ovh.com/1.0",
+		endpoint:     "https://api.eu.ovhcloud.com/1.0",
 	})
 
 	// Nominal: full constructor
@@ -497,7 +497,7 @@ func TestConstructorsAccessToken(t *testing.T) {
 	// Next: success cases
 	expected := td.Struct(&Client{
 		AccessToken: "aaaaaaaa",
-		endpoint:    "https://eu.api.ovh.com/1.0",
+		endpoint:    "https://api.eu.ovhcloud.com/1.0",
 	})
 
 	// Nominal: full constructor
@@ -508,16 +508,16 @@ func TestConstructorsAccessToken(t *testing.T) {
 
 func (ms *MockSuite) TestVersionInURL(assert, require *td.T) {
 	// Signature checking mocks
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/call", func(req *http.Request) (*http.Response, error) {
-		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$7f2db49253edfc41891023fcd1a54cf61db05fbb"}, "Right X-Ovh-Signature for /1.0 auth call")
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/1.0/call", func(req *http.Request) (*http.Response, error) {
+		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$4f3e3e887cc2ce88a0078801d849b8e2c482e997"}, "Right X-Ovh-Signature for /1.0 auth call")
 		return httpmock.NewStringResponse(200, "{}"), nil
 	})
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v1/call", func(req *http.Request) (*http.Response, error) {
-		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$e6e7906d385eb28adcbfbe6b66c1528a42d741ad"}, "Right X-Ovh-Signature for /v1 auth call")
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/v1/call", func(req *http.Request) (*http.Response, error) {
+		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$35654374999e2e09ef148973c54279a68f15e0a2"}, "Right X-Ovh-Signature for /v1 auth call")
 		return httpmock.NewStringResponse(200, "{}"), nil
 	})
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v2/call", func(req *http.Request) (*http.Response, error) {
-		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$bb63b132a6f84ad5433d0c534d48d3f7c3804285"}, "Right X-Ovh-Signature for /v2 auth call")
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/v2/call", func(req *http.Request) (*http.Response, error) {
+		assert.Cmp(req.Header["X-Ovh-Signature"], []string{"$1$85b6382fc0cca761b193007763c908bc68ca4a50"}, "Right X-Ovh-Signature for /v2 auth call")
 		return httpmock.NewStringResponse(200, "{}"), nil
 	})
 
@@ -528,20 +528,20 @@ func (ms *MockSuite) TestVersionInURL(assert, require *td.T) {
 	}
 	assert.Cleanup(func() { getLocalTime = previous })
 
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/1.0/auth/time",
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/1.0/auth/time",
 		httpmock.NewStringResponder(200, strconv.Itoa(MockTime)))
 
 	assertCallCount := func(assert *td.T, ccNoVersion, ccV1, ccV2 int) {
 		assert.Helper()
 		assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
-			"GET https://eu.api.ovh.com/1.0/auth/time": 1,
-			"GET https://eu.api.ovh.com/1.0/call":      ccNoVersion,
-			"GET https://eu.api.ovh.com/v1/call":       ccV1,
-			"GET https://eu.api.ovh.com/v2/call":       ccV2,
+			"GET https://api.eu.ovhcloud.com/1.0/auth/time": 1,
+			"GET https://api.eu.ovhcloud.com/1.0/call":      ccNoVersion,
+			"GET https://api.eu.ovhcloud.com/v1/call":       ccV1,
+			"GET https://api.eu.ovhcloud.com/v2/call":       ccV2,
 		})
 	}
 
-	require.Cmp(ms.client.endpoint, "https://eu.api.ovh.com/1.0")
+	require.Cmp(ms.client.endpoint, "https://api.eu.ovhcloud.com/1.0")
 
 	require.CmpNoError(ms.client.Get("/call", nil))
 	assertCallCount(assert, 1, 0, 0)
@@ -559,7 +559,7 @@ func TestOAuth2_503(t *testing.T) {
 	httpmock.Activate()
 	defer httpmock.DeactivateAndReset()
 	errHTML := `<html><body><p>test</p></body></html>`
-	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+	httpmock.RegisterResponder("POST", "https://auth.eu.ovhcloud.com/oauth2/token",
 		httpmock.NewStringResponder(http.StatusServiceUnavailable, errHTML))
 
 	// Nominal: full constructor
@@ -576,7 +576,7 @@ func TestOAuth2_BadJSON(t *testing.T) {
 	httpmock.Activate()
 	defer httpmock.DeactivateAndReset()
 	errHTML := `<html><body><p>test</p></body></html>`
-	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+	httpmock.RegisterResponder("POST", "https://auth.eu.ovhcloud.com/oauth2/token",
 		httpmock.NewStringResponder(http.StatusOK, errHTML))
 
 	// Nominal: full constructor
@@ -593,7 +593,7 @@ func TestOAuth2_UnknownClient(t *testing.T) {
 	httpmock.Activate()
 	defer httpmock.DeactivateAndReset()
 	output := `{"error":"invalid_client", "error_description":"ovhcloud oauth2 client does not exists"}`
-	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+	httpmock.RegisterResponder("POST", "https://auth.eu.ovhcloud.com/oauth2/token",
 		httpmock.NewStringResponder(http.StatusBadRequest, output))
 
 	// Nominal: full constructor
@@ -612,9 +612,9 @@ func TestOAuth2_OK(t *testing.T) {
 	// expires_in set to 11 seconds. Will test that token are well renewed.
 	// golang.org/x/oauth2 has internal 10 seconds period that it will use to renew the token before actual expiration
 	output := `{"access_token":"cccccccccccccccc", "token_type":"Bearer", "expires_in":11,"scope":"all"}`
-	httpmock.RegisterResponder("POST", "https://www.ovh.com/auth/oauth2/token",
+	httpmock.RegisterResponder("POST", "https://auth.eu.ovhcloud.com/oauth2/token",
 		httpmock.NewStringResponder(http.StatusOK, output))
-	httpmock.RegisterResponder("GET", "https://eu.api.ovh.com/v1/auth/time",
+	httpmock.RegisterResponder("GET", "https://api.eu.ovhcloud.com/v1/auth/time",
 		func(req *http.Request) (*http.Response, error) {
 			assert.Cmp(req.Header.Get("Authorization"), "Bearer cccccccccccccccc")
 			resp, err := httpmock.NewJsonResponse(http.StatusOK, map[string]string{
@@ -636,8 +636,8 @@ func TestOAuth2_OK(t *testing.T) {
 	})
 
 	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
-		"POST https://www.ovh.com/auth/oauth2/token": 1,
-		"GET https://eu.api.ovh.com/v1/auth/time":    1,
+		"POST https://auth.eu.ovhcloud.com/oauth2/token": 1,
+		"GET https://api.eu.ovhcloud.com/v1/auth/time":    1,
 	}, "no token at this time, retrieving the token")
 
 	httpmock.ZeroCallCounters()
@@ -645,8 +645,8 @@ func TestOAuth2_OK(t *testing.T) {
 	err = client.Get("/v1/auth/time", &out)
 	require.CmpNoError(err)
 	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
-		"GET https://eu.api.ovh.com/v1/auth/time":    1,
-		"POST https://www.ovh.com/auth/oauth2/token": 0,
+		"GET https://api.eu.ovhcloud.com/v1/auth/time":    1,
+		"POST https://auth.eu.ovhcloud.com/oauth2/token": 0,
 	}, "token is still valid, no call to retrieve new token")
 
 	// waiting 3 seconds, to get below the 10 seconds period
@@ -657,8 +657,8 @@ func TestOAuth2_OK(t *testing.T) {
 	err = client.Get("/v1/auth/time", &out)
 	require.CmpNoError(err)
 	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
-		"GET https://eu.api.ovh.com/v1/auth/time":    1,
-		"POST https://www.ovh.com/auth/oauth2/token": 1,
+		"GET https://api.eu.ovhcloud.com/v1/auth/time":    1,
+		"POST https://auth.eu.ovhcloud.com/oauth2/token": 1,
 	}, "token is considered as expired, renewing token")
 }
 

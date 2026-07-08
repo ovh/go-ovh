@@ -17,13 +17,13 @@ import (
 )
 
 // PartialMe holds the first name of the currently logged-in user.
-// Visit https://api.ovh.com/console/#/me#GET for the full definition
+// Visit https://api.eu.ovhcloud.com/console/#/me#GET for the full definition
 type PartialMe struct {
 	Firstname string `json:"firstname"`
 }
 
 // Instantiate an OVH client and get the firstname of the currently logged-in user.
-// Visit https://api.ovh.com/createToken/index.cgi?GET=/me to get your credentials.
+// Visit https://auth.eu.ovhcloud.com/api/createToken/index.cgi?GET=/me to get your credentials.
 func main() {
 	var me PartialMe
 
@@ -187,7 +187,7 @@ credentials at once. See below.
 
 ##### Use the API on behalf of a user
 
-Visit [https://eu.api.ovh.com/createApp](https://eu.api.ovh.com/createApp) and create your app
+Visit [https://auth.eu.ovhcloud.com/api/createApp](https://auth.eu.ovhcloud.com/api/createApp) and create your app
 You'll get an application key and an application secret. To use the API you'll need a consumer key.
 
 The consumer key has two types of restriction:
@@ -252,7 +252,7 @@ func main() {
 Alternatively, you may generate all creadentials at once, including the consumer key. You will
 typically want to do this when writing automation scripts for a single projects.
 
-If this case, you may want to directly go to https://eu.api.ovh.com/createToken/ to generate
+If this case, you may want to directly go to https://auth.eu.ovhcloud.com/api/createToken/ to generate
 the 3 tokens at once. Make sure to save them in one of the 'ovh.conf' configuration file.
 Please see the [configuration section](#configuration).
 
@@ -355,22 +355,22 @@ func main() {
 When using OVHcloud APIs (not So you Start or Kimsufi ones), you are given the
 opportunity to aim for two API versions. For the European API, for example:
 
-- the v1 is reachable through https://eu.api.ovh.com/v1
-- the v2 is reachable through https://eu.api.ovh.com/v2
-- the legacy URL is https://eu.api.ovh.com/1.0
+- the v1 is reachable through https://api.eu.ovhcloud.com/v1
+- the v2 is reachable through https://api.eu.ovhcloud.com/v2
+- the legacy URL is https://api.eu.ovhcloud.com/1.0
 
 Calling `client.Get`, you can target the API version you want:
 
 ```go
 client, _ := ovh.NewEndpointClient("ovh-eu")
 
-// Call to https://eu.api.ovh.com/v1/xdsl/xdsl-yourservice
+// Call to https://api.eu.ovhcloud.com/v1/xdsl/xdsl-yourservice
 client.Get("/v1/xdsl/xdsl-yourservice", nil)
 
-// Call to https://eu.api.ovh.com/v2/xdsl/xdsl-yourservice
+// Call to https://api.eu.ovhcloud.com/v2/xdsl/xdsl-yourservice
 client.Get("/v2/xdsl/xdsl-yourservice", nil)
 
-// Legacy call to https://eu.api.ovh.com/1.0/xdsl/xdsl-yourservice
+// Legacy call to https://api.eu.ovhcloud.com/1.0/xdsl/xdsl-yourservice
 client.Get("/xdsl/xdsl-yourservice", nil)
 ```
 
@@ -542,11 +542,11 @@ go vet ./...
 
 ### OVHcloud Europe
 
-- **Documentation**: https://eu.api.ovh.com/
+- **Documentation**: https://api.eu.ovhcloud.com/
 - **Community support**: api-subscribe@ml.ovh.net
-- **Console**: https://eu.api.ovh.com/console
-- **Create application credentials**: https://eu.api.ovh.com/createApp/
-- **Create script credentials** (all keys at once): https://eu.api.ovh.com/createToken/
+- **Console**: https://api.eu.ovhcloud.com/console
+- **Create application credentials**: https://auth.eu.ovhcloud.com/api/createApp/
+- **Create script credentials** (all keys at once): https://auth.eu.ovhcloud.com/api/createToken/
 
 ### OVHcloud US
 
@@ -557,11 +557,11 @@ go vet ./...
 
 ### OVHcloud Canada
 
-- **Documentation**: https://ca.api.ovh.com/
+- **Documentation**: https://api.ca.ovhcloud.com/
 - **Community support**: api-subscribe@ml.ovh.net
-- **Console**: https://ca.api.ovh.com/console
-- **Create application credentials**: https://ca.api.ovh.com/createApp/
-- **Create script credentials** (all keys at once): https://ca.api.ovh.com/createToken/
+- **Console**: https://api.ca.ovhcloud.com/console
+- **Create application credentials**: https://auth.ca.ovhcloud.com/api/createApp
+- **Create script credentials** (all keys at once): https://auth.ca.ovhcloud.com/api/createToken
 
 ### So you Start Europe
 
