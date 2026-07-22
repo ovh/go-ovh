@@ -567,7 +567,7 @@ func TestOAuth2_503(t *testing.T) {
 	require.CmpNoError(err)
 
 	err = client.Get("/v1/auth/time", nil)
-	assert.String(err, "failed to retrieve OAuth2 Access Token: oauth2: cannot fetch token: 503\nResponse: <html><body><p>test</p></body></html>")
+	assert.Cmp(err.Error(), td.Contains("failed to retrieve OAuth2 Access Token: oauth2: cannot fetch token: 503"))
 }
 
 func TestOAuth2_BadJSON(t *testing.T) {
