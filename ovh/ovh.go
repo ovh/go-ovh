@@ -384,8 +384,11 @@ func (c *Client) NewRequest(method, path string, reqBody interface{}, needAuth b
 		}
 	}
 
-	// Send the request with requested timeout
-	c.Client.Timeout = c.Timeout
+	// The timeout is not applied here. Client is shared by every call made
+	// through this *Client, so writing c.Client.Timeout on each request meant
+	// two concurrent calls writing the same field while http.Client.Do read
+	// it. It is installed on the request context in CallAPIWithContext
+	// instead, which is per request and needs no shared state.
 
 	if c.UserAgent != "" {
 		// When running in a WebAssembly binary, let the caller set
@@ -463,6 +466,11 @@ func (c *Client) CallAPIWithContext(ctx context.Context, method, path string, re
 	req, err := c.NewRequest(method, path, reqBody, needAuth)
 	if err != nil {
 		return err
+	}
+	if c.Timeout > 0 {
+		var cancel context.CancelFunc
+		ctx, cancel = context.WithTimeout(ctx, c.Timeout)
+		defer cancel()
 	}
 	req = req.WithContext(ctx)
 	response, err := c.Do(req)

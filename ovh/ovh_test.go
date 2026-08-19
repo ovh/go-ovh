@@ -6,9 +6,11 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/http/httptest"
 	"os"
 	"strconv"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 
@@ -699,4 +701,53 @@ func TestSetManualEndpointInvalid(t *testing.T) {
 	err := client.SetEndpoint("/invalid-endpoint/")
 
 	td.CmpString(t, err, "endpoint name cannot have a trailing slash")
+}
+
+// TestClientTimeoutStillApplies covers Client.Timeout itself. The deadline used
+// to be installed by assigning Client.Timeout on every request; it is carried
+// by the request context now, and nothing else in this file would notice if it
+// stopped being applied at all.
+func TestClientTimeoutStillApplies(t *testing.T) {
+	slow := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		time.Sleep(300 * time.Millisecond)
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer slow.Close()
+
+	client, err := NewClient(slow.URL, MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	td.Require(t).CmpNoError(err)
+	client.Timeout = 50 * time.Millisecond
+
+	start := time.Now()
+	err = client.GetUnAuth("/whatever", nil)
+	elapsed := time.Since(start)
+
+	td.CmpError(t, err, "a 50ms timeout against a 300ms handler must fail")
+	td.Cmp(t, elapsed < 250*time.Millisecond, true,
+		"the timeout did not fire: request took %s", elapsed)
+}
+
+// TestConcurrentRequestsDoNotRaceOnTheClient fails under -race before the
+// timeout stopped being written on the shared http.Client: two calls through
+// the same *Client wrote that field while a third read it.
+func TestConcurrentRequestsDoNotRaceOnTheClient(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprint(w, "{}")
+	}))
+	defer server.Close()
+
+	client, err := NewClient(server.URL, MockApplicationKey, MockApplicationSecret, MockConsumerKey)
+	td.Require(t).CmpNoError(err)
+
+	var wg sync.WaitGroup
+	for i := 0; i < 16; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			var out map[string]interface{}
+			_ = client.GetUnAuth("/whatever", &out)
+		}()
+	}
+	wg.Wait()
 }
