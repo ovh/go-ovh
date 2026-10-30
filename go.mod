@@ -15,7 +15,7 @@ require (
 	github.com/stretchr/testify v1.8.2 // indirect
 	golang.org/x/net v0.22.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/protobuf v1.31.0 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 )
 
 retract (
