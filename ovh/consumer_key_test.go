@@ -10,7 +10,7 @@ import (
 )
 
 func (ms *MockSuite) TestNewCkRequest(assert, require *td.T) {
-	httpmock.RegisterResponder("POST", "https://eu.api.ovh.com/1.0/auth/credential", func(req *http.Request) (*http.Response, error) {
+	httpmock.RegisterResponder("POST", "https://api.eu.ovhcloud.com/1.0/auth/credential", func(req *http.Request) (*http.Response, error) {
 		assert.Cmp(req.Header["Accept"], []string{"application/json"})
 		assert.Cmp(req.Header["X-Ovh-Application"], []string{MockApplicationKey})
 		assert.Cmp(req.Body, td.Smuggle(json.RawMessage{}, td.JSON(`{"accessRules":[{"method":"GET","path":"/me"},{"method":"GET","path":"/xdsl/*"}]}`)))
@@ -37,7 +37,7 @@ func (ms *MockSuite) TestNewCkRequest(assert, require *td.T) {
 }
 
 func (ms *MockSuite) TestInvalidCkRequest(assert, require *td.T) {
-	httpmock.RegisterResponder("POST", "https://eu.api.ovh.com/1.0/auth/credential",
+	httpmock.RegisterResponder("POST", "https://api.eu.ovhcloud.com/1.0/auth/credential",
 		httpmock.NewStringResponder(http.StatusForbidden, `{"message":"Invalid application key"}`))
 
 	ckRequest := ms.client.NewCkRequest()
