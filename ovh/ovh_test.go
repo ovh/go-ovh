@@ -662,6 +662,66 @@ func TestOAuth2_OK(t *testing.T) {
 	}, "token is considered as expired, renewing token")
 }
 
+func TestOAuth2_TokenURL(t *testing.T) {
+	assert, require := td.AssertRequire(t)
+
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+
+	output := `{"access_token":"cccccccccccccccc", "token_type":"Bearer", "expires_in":3600,"scope":"all"}`
+	httpmock.RegisterResponder("POST", "https://auth.example.com/oauth2/token",
+		httpmock.NewStringResponder(http.StatusOK, output))
+	// Taken from the package rather than written out, so that the checks
+	// below keep meaning something when the OVHcloud URLs change again.
+	ovhEUTokenURL := tokensURLs[OvhEU]
+	httpmock.RegisterResponder("POST", ovhEUTokenURL,
+		httpmock.NewStringResponder(http.StatusOK, output))
+	authTime := func(req *http.Request) (*http.Response, error) {
+		assert.Cmp(req.Header.Get("Authorization"), "Bearer cccccccccccccccc")
+		return httpmock.NewStringResponse(http.StatusOK, "0"), nil
+	}
+	httpmock.RegisterResponder("GET", "https://api.example.com/1.0/auth/time", authTime)
+	httpmock.RegisterResponder("GET", OvhEU+"/auth/time", authTime)
+
+	// An endpoint without a known token URL takes OAuth2 only with one given.
+	_, err := NewOAuth2Client("https://api.example.com/1.0", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+	assert.String(err, `oauth2 authentication is not compatible with endpoint "https://api.example.com/1.0"`)
+
+	client, err := NewOAuth2Client("https://api.example.com/1.0", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb", WithTokenURL("https://auth.example.com/oauth2/token"))
+	require.CmpNoError(err)
+	require.CmpNoError(client.Get("/auth/time", nil))
+	assert.Cmp(httpmock.GetCallCountInfo(), td.SuperMapOf(map[string]int{
+		"POST https://auth.example.com/oauth2/token": 1,
+		"POST " + ovhEUTokenURL:                      0,
+		"GET https://api.example.com/1.0/auth/time":  1,
+	}, nil), "token requested at the given URL")
+
+	httpmock.ZeroCallCounters()
+
+	// On an OVHcloud endpoint, the given token URL wins over the derived one.
+	client, err = NewOAuth2Client("ovh-eu", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb", WithTokenURL("https://auth.example.com/oauth2/token"))
+	require.CmpNoError(err)
+	require.CmpNoError(client.Get("/auth/time", nil))
+	assert.Cmp(httpmock.GetCallCountInfo(), td.SuperMapOf(map[string]int{
+		"POST https://auth.example.com/oauth2/token": 1,
+		"POST " + ovhEUTokenURL:                      0,
+		"GET " + OvhEU + "/auth/time":                1,
+	}, nil), "token requested at the given URL, not at the endpoint's")
+
+	httpmock.ZeroCallCounters()
+
+	// An empty token URL changes nothing, so that callers can pass along an
+	// optional setting of their own without testing it first.
+	client, err = NewOAuth2Client("ovh-eu", "aaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbb", WithTokenURL(""))
+	require.CmpNoError(err)
+	require.CmpNoError(client.Get("/auth/time", nil))
+	assert.Cmp(httpmock.GetCallCountInfo(), td.SuperMapOf(map[string]int{
+		"POST https://auth.example.com/oauth2/token": 0,
+		"POST " + ovhEUTokenURL:                      1,
+		"GET " + OvhEU + "/auth/time":                1,
+	}, nil), "token requested at the endpoint's URL")
+}
+
 func TestOAuth2_ForReal(t *testing.T) {
 	assert, require := td.AssertRequire(t)
 

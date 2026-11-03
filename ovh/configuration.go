@@ -136,6 +136,10 @@ func (c *Client) loadConfig(endpointName string) error {
 		c.ClientSecret = getConfigValue(cfg, endpointName, "client_secret", "")
 	}
 
+	if c.OAuth2TokenURL == "" {
+		c.OAuth2TokenURL = getConfigValue(cfg, endpointName, "oauth2_token_url", "")
+	}
+
 	configuredAuthMethods := []string{}
 	if c.AppKey != "" || c.AppSecret != "" || c.ConsumerKey != "" {
 		configuredAuthMethods = append(configuredAuthMethods, "application_key/application_secret")
@@ -176,14 +180,18 @@ func (c *Client) loadConfig(endpointName string) error {
 	}
 
 	if c.ClientID != "" {
-		if _, ok := tokensURLs[c.endpoint]; !ok {
-			return fmt.Errorf("oauth2 authentication is not compatible with endpoint %q", c.endpoint)
+		tokenURL := c.OAuth2TokenURL
+		if tokenURL == "" {
+			var ok bool
+			if tokenURL, ok = tokensURLs[c.endpoint]; !ok {
+				return fmt.Errorf("oauth2 authentication is not compatible with endpoint %q", c.endpoint)
+			}
 		}
 
 		conf := &clientcredentials.Config{
 			ClientID:     c.ClientID,
 			ClientSecret: c.ClientSecret,
-			TokenURL:     tokensURLs[c.endpoint],
+			TokenURL:     tokenURL,
 			Scopes:       []string{"all"},
 		}
 
