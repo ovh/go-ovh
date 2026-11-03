@@ -108,6 +108,25 @@ Depending on the API you want to use, you may set the ``endpoint`` to:
 This lookup mechanism makes it easy to overload credentials for a specific
 project or user.
 
+The URL where the access token is requested is derived from the endpoint, so
+OAuth2 is only available on the endpoints above.
+
+**For tests only**, such as against a mock API, this URL can be overridden:
+set ``oauth2_token_url`` in the endpoint's section (or the
+``OVH_OAUTH2_TOKEN_URL`` environment variable), or pass the
+``ovh.WithTokenURL()`` option to ``ovh.NewOAuth2Client()``. Do not use it in
+production: leave the token URL derived from the endpoint.
+
+```go
+// In a test, against a mock API listening on localhost:8080
+client, err := ovh.NewOAuth2Client(
+	"http://localhost:8080",
+	"my_client_id",
+	"my_client_secret",
+	ovh.WithTokenURL("http://localhost:8080/auth/oauth2/token"),
+)
+```
+
 ### Access Token
 
 This authentication method is useful when short-lived credentials are necessary.
@@ -380,7 +399,7 @@ client.Get("/xdsl/xdsl-yourservice", nil)
 
 - Use ``ovh.NewDefaultClient()`` to create a client using endpoint and credentials from config files or environment
 - Use ``ovh.NewEndpointClient()`` to create a client for a specific API and use credentials from config files or environment
-- Use ``ovh.NewOAuth2Client()`` to have full control over their authentication, using OAuth2 authentication method
+- Use ``ovh.NewOAuth2Client()`` to have full control over their authentication, using OAuth2 authentication method; for tests only, the ``ovh.WithTokenURL()`` option requests the access token at a given URL instead of the one derived from the endpoint
 - Use ``ovh.NewAccessTokenClient()`` to have full control over their authentication, using token that was previously issued by auth/oauth2/token endpoint
 - Use ``ovh.NewClient()`` to have full control over their authentication, using legacy authentication method
 

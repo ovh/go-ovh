@@ -78,6 +78,14 @@ type Client struct {
 	ClientID     string
 	ClientSecret string
 
+	// OAuth2TokenURL is the URL where the OAuth2 access token is requested,
+	// when using ClientID and ClientSecret. If empty, it is derived from the
+	// endpoint, which only works for the OVHcloud endpoints.
+	//
+	// It is meant for tests only, such as against a mock API. Do not set it in
+	// production: leave the token URL derived from the endpoint.
+	OAuth2TokenURL string
+
 	// API endpoint
 	endpoint          string
 	oauth2TokenSource oauth2.TokenSource
@@ -130,12 +138,31 @@ func NewDefaultClient() (*Client, error) {
 	return NewClient("", "", "", "")
 }
 
-func NewOAuth2Client(endpoint, clientID, clientSecret string) (*Client, error) {
+// OAuth2Option customizes a client created by NewOAuth2Client.
+type OAuth2Option func(*Client)
+
+// WithTokenURL requests the OAuth2 access token at tokenURL instead of deriving
+// it from the endpoint, which allows OAuth2 on endpoints other than the OVHcloud
+// ones. An empty tokenURL changes nothing.
+//
+// It is meant for tests only, such as against a mock API. Do not use it in
+// production: leave the token URL derived from the endpoint.
+func WithTokenURL(tokenURL string) OAuth2Option {
+	return func(c *Client) {
+		c.OAuth2TokenURL = tokenURL
+	}
+}
+
+func NewOAuth2Client(endpoint, clientID, clientSecret string, opts ...OAuth2Option) (*Client, error) {
 	client := Client{
 		ClientID:     clientID,
 		ClientSecret: clientSecret,
 		Client:       &http.Client{},
 		Timeout:      DefaultTimeout,
+	}
+
+	for _, opt := range opts {
+		opt(&client)
 	}
 
 	// Get and check the configuration

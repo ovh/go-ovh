@@ -13,6 +13,7 @@ const (
 	userOAuth2Conf               = "testdata/user_oauth2.ini"
 	userOAuth2InvalidConf        = "testdata/user_oauth2_invalid.ini"
 	userOAuth2IncompatibleConfig = "testdata/user_oauth2_incompatible.ini"
+	userOAuth2TokenURLConf       = "testdata/user_oauth2_token_url.ini"
 	userBothConf                 = "testdata/user_both.ini"
 	localPartialConf             = "testdata/localPartial.ini"
 	localWithURLConf             = "testdata/localWithURL.ini"
@@ -202,4 +203,32 @@ func TestConfigOAuth2Incompatible(t *testing.T) {
 	client := Client{}
 	err := client.loadConfig("kimsufi-eu")
 	td.CmpString(t, err, `oauth2 authentication is not compatible with endpoint "https://eu.api.kimsufi.com/1.0"`)
+}
+
+func TestConfigOAuth2TokenURL(t *testing.T) {
+	setConfigPaths(t, userOAuth2TokenURLConf)
+
+	// Same endpoint as TestConfigOAuth2Incompatible: the token URL from the
+	// configuration makes OAuth2 usable on an endpoint without a known one.
+	client := Client{}
+	err := client.loadConfig("kimsufi-eu")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
+		ClientID:       "foo",
+		ClientSecret:   "bar",
+		OAuth2TokenURL: "https://auth.example.com/oauth2/token",
+	}))
+}
+
+func TestConfigOAuth2TokenURLFromEnv(t *testing.T) {
+	setConfigPaths(t, userOAuth2TokenURLConf)
+
+	t.Setenv("OVH_OAUTH2_TOKEN_URL", "https://env.example.com/oauth2/token")
+
+	client := Client{}
+	err := client.loadConfig("kimsufi-eu")
+	td.Require(t).CmpNoError(err)
+	td.Cmp(t, client, td.Struct(Client{
+		OAuth2TokenURL: "https://env.example.com/oauth2/token",
+	}))
 }
