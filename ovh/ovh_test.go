@@ -637,7 +637,7 @@ func TestOAuth2_OK(t *testing.T) {
 
 	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
 		"POST https://auth.eu.ovhcloud.com/oauth2/token": 1,
-		"GET https://api.eu.ovhcloud.com/v1/auth/time":    1,
+		"GET https://api.eu.ovhcloud.com/v1/auth/time":   1,
 	}, "no token at this time, retrieving the token")
 
 	httpmock.ZeroCallCounters()
@@ -645,7 +645,7 @@ func TestOAuth2_OK(t *testing.T) {
 	err = client.Get("/v1/auth/time", &out)
 	require.CmpNoError(err)
 	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
-		"GET https://api.eu.ovhcloud.com/v1/auth/time":    1,
+		"GET https://api.eu.ovhcloud.com/v1/auth/time":   1,
 		"POST https://auth.eu.ovhcloud.com/oauth2/token": 0,
 	}, "token is still valid, no call to retrieve new token")
 
@@ -657,7 +657,7 @@ func TestOAuth2_OK(t *testing.T) {
 	err = client.Get("/v1/auth/time", &out)
 	require.CmpNoError(err)
 	assert.Cmp(httpmock.GetCallCountInfo(), map[string]int{
-		"GET https://api.eu.ovhcloud.com/v1/auth/time":    1,
+		"GET https://api.eu.ovhcloud.com/v1/auth/time":   1,
 		"POST https://auth.eu.ovhcloud.com/oauth2/token": 1,
 	}, "token is considered as expired, renewing token")
 }

@@ -252,7 +252,7 @@ func main() {
 Alternatively, you may generate all creadentials at once, including the consumer key. You will
 typically want to do this when writing automation scripts for a single projects.
 
-If this case, you may want to directly go to https://auth.eu.ovhcloud.com/api/createToken/ to generate
+If this case, you may want to directly go to https://auth.eu.ovhcloud.com/api/createToken to generate
 the 3 tokens at once. Make sure to save them in one of the 'ovh.conf' configuration file.
 Please see the [configuration section](#configuration).
 
@@ -545,15 +545,15 @@ go vet ./...
 - **Documentation**: https://api.eu.ovhcloud.com/
 - **Community support**: api-subscribe@ml.ovh.net
 - **Console**: https://api.eu.ovhcloud.com/console
-- **Create application credentials**: https://auth.eu.ovhcloud.com/api/createApp/
-- **Create script credentials** (all keys at once): https://auth.eu.ovhcloud.com/api/createToken/
+- **Create application credentials**: https://auth.eu.ovhcloud.com/api/createApp
+- **Create script credentials** (all keys at once): https://auth.eu.ovhcloud.com/api/createToken
 
 ### OVHcloud US
 
 - **Documentation**: https://api.us.ovhcloud.com/
 - **Console**: https://api.us.ovhcloud.com/console/
-- **Create application credentials**: https://api.us.ovhcloud.com/createApp/
-- **Create script credentials** (all keys at once): https://api.us.ovhcloud.com/createToken/
+- **Create application credentials**: https://auth.us.ovhcloud.com/api/createApp
+- **Create script credentials** (all keys at once): https://auth.us.ovhcloud.com/api/createToken
 
 ### OVHcloud Canada
 

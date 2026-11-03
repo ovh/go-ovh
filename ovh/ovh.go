@@ -55,7 +55,7 @@ var (
 	tokensURLs = map[string]string{
 		OvhEU: "https://auth.eu.ovhcloud.com/oauth2/token",
 		OvhCA: "https://auth.ca.ovhcloud.com/oauth2/token",
-		OvhUS: "https://us.ovhcloud.com/auth/oauth2/token",
+		OvhUS: "https://auth.us.ovhcloud.com/oauth2/token",
 	}
 )
 
@@ -65,7 +65,7 @@ type Client struct {
 	AccessToken string
 
 	// Self generated tokens. Create one by visiting
-	// https://auth.eu.ovhcloud.com/api/createApp/
+	// https://auth.eu.ovhcloud.com/api/createApp
 	// AppKey holds the Application key
 	AppKey string
 
